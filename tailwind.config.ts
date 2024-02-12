@@ -15,7 +15,9 @@ const config: Config = {
       "2xl": '1536px',
     },
     extend: {
-      
+      colors: {
+        primary : "#0d47a2",
+      }
     },
   },
   plugins: [],

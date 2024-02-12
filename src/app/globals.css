@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Creating Account Background */
+.createBackground {
+    background-image: url("../../public/Images/Big whiz Walletassets logo badge.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

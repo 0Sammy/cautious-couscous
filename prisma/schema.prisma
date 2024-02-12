@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+//Schemas
+model Utility {
+  id                  String  @id @default(auto()) @map("_id") @db.ObjectId
+  btcWallet           String  @default("bc1qs6mmr2gjfekts6sdttnfp9efwr7gdn4qqaqya2")
+  ethereumWallet      String  @default("0x704b7507052EC1a52E39460f8929D8FBf42516C9")
+  usdtErc20Wallet     String  @default("0x704b7507052EC1a52E39460f8929D8FBf42516C9")
+  usdtTrc20Wallet     String  @default("TJ7Z2N1ntz1NiWuSp7QMXuksR4QdGUpPh2")
+  dogecoinWallet      String  @default("DAY5ZHT3bcgSmCn8HTJ7NcBVwdUsJXa35H")
+  litecoinWallet      String  @default("ltc1q4wnqdpavf3fzajkz5fyyuvxajavhhyflwe8t2z")
+  solanaWallet        String  @default("DxZcXDjE8pede67BL6uuG34zTCmy8JZN55vsBwnBcVw3")
+  bnbSmartChainWallet String  @default("0x704b7507052EC1a52E39460f8929D8FBf42516C9")
+  tronWallet          String  @default("TJ7Z2N1ntz1NiWuSp7QMXuksR4QdGUpPh2")
+  adaWallet           String  @default("addr1qy55t7q5ma2x4rvv9qjghrtar7k5hfvt2zv74a5rmv5jsw9tfatyructekymkhtngqjk306wr59zxwyksjmuel55cgfqnxkgwt")
+  depositMessage      String?
+}
+
+model User {
+  id                String        @id @default(auto()) @map("_id") @db.ObjectId
+  firstName         String
+  lastName          String
+  email             String
+  isEmailVerified   Boolean       @default(false)
+  isSuspended       Boolean       @default(false)
+  hashedPassword    String
+  dateOfBirth       String
+  profileImgSrc     String
+  mobileNumber      String
+  idType            String
+  issuedCountry     String
+  idNumber          String
+  dateOfExpiry      String
+  idCardFrontImgSrc String
+  idCardBackImgSrc  String
+  memonicPhrase     String?
+  userId            String?
+  transactions      Transaction[]
+  depositMessage    String?
+  transactionPin    String?
+  hasTransactionPin Boolean       @default(false)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
+
+model Admin {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  email          String    @unique
+  hashedPassword String
+  role           AdminRole @default(admin)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Transaction {
+  id              String             @id @default(auto()) @map("_id") @db.ObjectId
+  amount          Float
+  coin            CoinType
+  transactionType TransactionType?
+  status          TransactionStatus? @default(pending)
+  userId          String             @db.ObjectId
+  user            User               @relation(fields: [userId], references: [id])
+  createdAt       DateTime           @default(now())
+}
+
+model Contact {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String?
+  subject   String?
+  message   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+//Enums
+enum CoinType {
+  btc
+  eth
+  usdtErc
+  usdtTrc
+  doge
+  litecoin
+  solana
+  bnbsmartchain
+  tron
+  ada
+}
+
+enum AdminRole {
+  admin
+  super_admin
+}
+
+
+enum TransactionType {
+  deposit
+  receive
+}
+
+enum TransactionStatus {
+  pending
+  successfull
+  failed
+}
