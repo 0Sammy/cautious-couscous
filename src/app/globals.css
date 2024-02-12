@@ -4,7 +4,7 @@
 
 /* Creating Account Background */
 .createBackground {
-    background-image: url("../../public/Images/Big whiz Walletassets logo badge.svg");
+    background-image: url("../../public/Images/Background.svg");
     background-repeat: no-repeat;
     background-size: cover;
 }
