@@ -16,6 +16,7 @@ export async function POST(request: Request) {
         country, 
         mobileNumber, 
         customUserId,
+        transactions
       } = body;
 
       if (!email || !firstName || !lastName ||!password || !country || !mobileNumber || !customUserId ){   
@@ -51,6 +52,7 @@ export async function POST(request: Request) {
         issuedCountry: country, 
         mobileNumber, 
         userId: customUserId,
+        transactions,
       },
     });
 
