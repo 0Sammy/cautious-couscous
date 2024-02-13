@@ -1,12 +1,12 @@
 "use client"
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 //Import Needed Icons
 import { Eye, EyeSlash } from 'iconsax-react';
 
 type passwordProps = {
     value: string,
-    onChange?: () => void,
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 
 }
 const InputPassword = ({value, onChange}: passwordProps) => {
@@ -27,10 +27,10 @@ const InputPassword = ({value, onChange}: passwordProps) => {
                   type={seen ? "text" : "password"}
                   name="password"
                   id="password"
-                  //value={value}
+                  value={value}
                   className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none"
                   placeholder="XXXXXXXXXX"
-                  onChange={(e: any) => onChange}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange && onChange(e)}
                 />
                 <div
                   className="absolute top-[55%] right-4 cursor-pointer text-base sm:text-lg md:text-xl xl:text-2xl"

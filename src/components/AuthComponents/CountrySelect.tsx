@@ -2,20 +2,20 @@
 import { useState } from 'react';
 import countries from '../../../public/data/countries.json';
 import { ArrowDown3 } from 'iconsax-react';
-//import { useCreateUserStore } from "@/store/accountCreation";
+import { useCreateUserStore } from '@/store/userAccountCreation'; 
 
 type Country = {
   code: string;
   name: string;
 }
 const CountrySelect = () => {
-  //const {updateCountry} = useCreateUserStore();
+  const {updateCountry} = useCreateUserStore();
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const handleSelect = (country: Country) => {
     setSelectedCountry(country.name);
-    //updateCountry(country.name)
+    updateCountry(country.name)
     setDropdownOpen(false);
   };
 

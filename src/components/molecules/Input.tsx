@@ -1,10 +1,12 @@
+import { ChangeEvent } from "react";
+
 type InputProps = {
     type: string;
     placeholder: string;
     label: string;
     id: string;
     value: string | number;
-    onChange?: () => void;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     widthClass?: string; // Add widthClass prop for customizing width
   };
   
@@ -16,8 +18,8 @@ type InputProps = {
           {label}
         </label>
         <input
-          onChange={(e: any) => onChange && onChange()}
-          //value={value}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange && onChange(e)}
+          value={value}
           name={id}
           id={id}
           type={type}
