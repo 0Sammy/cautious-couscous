@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { makeApiRequest } from "@/lib/apiUtils";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useOtpStore } from "@/store/verification";
@@ -49,7 +49,8 @@ const VerificationForm = () => {
     if (otpNumber.toString() === enteredOtp) {
 
       const formData = { email: email };
-        console.log({formData})
+      //console.log({formData})
+      
       makeApiRequest("/verifyUser", "post", formData, {
         onSuccess: () => {
           // Handle success
@@ -73,7 +74,7 @@ const VerificationForm = () => {
     return ( 
         <main>
             <div className="flex gap-x-1 items-center">
-                <Image src={logo} alt="Capital Sphere Bank Logo" priority={true} className="size-8 md:size-10 xl:size-12"/>
+                <Image src={logo} alt="Wealth Assets Logo" priority={true} className="size-8 md:size-10 xl:size-12"/>
                 <div className="text-[#1C1F33] font-semibold text-xs sm:text-sm xl:text-base">
                     <p>Wealth</p>
                     <p className="-mt-1">Assets</p>
@@ -81,7 +82,7 @@ const VerificationForm = () => {
             </div>
             <div className="text-[#161618] mt-10 mb-4">
                 <p className="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold">
-                  Set up your account
+                  Setting up your account
                 </p>
                 <p className="text-xs sm:text-sm xl:text-base font-semibold mt-4">
                   Welcome, let&apos;s get started

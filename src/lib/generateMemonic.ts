@@ -100,5 +100,7 @@ export function generateRandomWords() {
     randomWords.push(shuffledPool[i]);
   }
 
-  return randomWords;
+  // Join the words with spaces
+  return randomWords.join(' ');
 }
+

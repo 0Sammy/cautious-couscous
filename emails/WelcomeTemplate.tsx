@@ -22,7 +22,7 @@ export default function WelcomeTemplate({
           </Container>
           <Text style={bold}>Hi {userName}!</Text>
           <Text style={paragraph}>
-            Here is the code you need to verify your Capital Sphere Email
+            Here is the code you need to verify your Wealth Assets Email
             account:
           </Text>
           <Text style={verification}>{verificationCode}</Text>
@@ -55,7 +55,7 @@ const main = {
 
 const container = {
    borderRadius: "4px", 
-   border: "1px solid #002c9c",
+   border: "1px solid #d4d7dc",
   padding: "1rem",
   backgroundColor: "#FFF",
   width: "100%",
