@@ -7,30 +7,26 @@ export async function POST (request: Request){
 
     try {
 
-    const {email, idType, idNumber, dateOfExpiry, idCardBackImgSrc, idCardFrontImgSrc } = body
+    const {email, transactionPin} = body
     
 
-    if (!email || !idType || !idNumber || !dateOfExpiry || !idCardBackImgSrc || !idCardFrontImgSrc ){   
+    if (!email || !transactionPin){   
         return new NextResponse('Missing Fields', { status: 400 })
     }
 
     const lowercasedEmail = email.toLowerCase();
 
-    const updateUserKYC = await prisma.user.update({
+    const updateUserTransactionPin = await prisma.user.update({
         where: {
             email: lowercasedEmail,
         },
         data: {
-            idType, 
-            idNumber, 
-            dateOfExpiry, 
-            idCardBackImgSrc, 
-            idCardFrontImgSrc,
-            hasDoneKYC : true,
+            transactionPin,
+            hasTransactionPin: true,
         },
     });
 
-    return NextResponse.json(updateUserKYC);
+    return NextResponse.json(updateUserTransactionPin);
 
     }catch(error: any){
         return new NextResponse(error.message)

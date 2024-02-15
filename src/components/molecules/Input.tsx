@@ -8,10 +8,11 @@ type InputProps = {
     value: string | number | any;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     pattern?: string,
+    title?: string,
     widthClass?: string; // Add widthClass prop for customizing width
   };
   
-  const Input = ({ type, placeholder, label, id, value, onChange, pattern, widthClass = "w-full",
+  const Input = ({ type, placeholder, label, id, value, onChange, pattern, title, widthClass = "w-full",
 }: InputProps) => {
     return (
       <main className="flex flex-col gap-y-1 text-xs sm:text-sm xl:text-base">
@@ -24,6 +25,7 @@ type InputProps = {
           value={value}
           name={id}
           id={id}
+          title={title}
           pattern={pattern}
           type={type}
           placeholder={placeholder}
