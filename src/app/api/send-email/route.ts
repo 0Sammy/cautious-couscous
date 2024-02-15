@@ -42,6 +42,7 @@ export async function POST(request: Request) {
       return new NextResponse('Email Send Successfully', { status: 200 })
 
     }catch (error) {
+      console.log(error)
         if (error instanceof Error) {
           return new NextResponse(error.message);
         } else {

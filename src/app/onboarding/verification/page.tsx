@@ -1,7 +1,10 @@
+//Import Needed Components
+import VerificationForm from "@/components/onBoardingComponents/VerificationForm";
+
 const page = () => {
     return ( 
         <main>
-            <h1>This is the verification page</h1>
+            <VerificationForm />
         </main>
      );
 }

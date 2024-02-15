@@ -16,9 +16,9 @@ export default function WelcomeTemplate({
   return (
     <Html>
       <Section style={main}>
-        <Container>
+        <Container style={container}>
           <Container>
-            <img src="https://res.cloudinary.com/dpmx02shl/image/upload/v1706006755/logo_bxjctk.png" alt="Wealth Assets Logo" />
+            <img style={image} src="https://res.cloudinary.com/dpmx02shl/image/upload/v1707937490/wealthAssets/logo_q7xzbj.png" alt="Wealth Assets Logo" />
           </Container>
           <Text style={bold}>Hi {userName}!</Text>
           <Text style={paragraph}>
@@ -53,12 +53,17 @@ const main = {
   padding: "2rem",
 };
 
-// const container = {
-//   border: "1px solid #B2B3BA",
-//   padding: "1rem",
-//   backgroundColor: "#FFF",
-//   width: "100%",
-// };
+const container = {
+   borderRadius: "4px", 
+   border: "1px solid #002c9c",
+  padding: "1rem",
+  backgroundColor: "#FFF",
+  width: "100%",
+};
+
+const image = {
+  width: "30px"
+}
 
 const bold = {
   fontWeight: "600",
