@@ -103,10 +103,13 @@ enum AdminRole {
 enum TransactionType {
   deposit
   receive
+  bonus
+  earning
+  penalty
 }
 
 enum TransactionStatus {
   pending
-  successfull
+  successful
   failed
 }
