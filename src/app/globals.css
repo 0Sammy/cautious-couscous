@@ -8,3 +8,14 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+ /* For the Sidebar layout */
+ .mainWidth {
+    width: calc(100% - 300px);
+    float: right;
+  }
+  @media screen and (max-width: 1023px) {
+    .mainWidth {
+      width: 100%;
+    }
+  }
