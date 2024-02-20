@@ -49,7 +49,7 @@ export default async function UserLayout({
   return (
 
     <section>
-      <Sidebar role="user"/>
+      <Sidebar/>
         <section className="mainWidth">
         <Header />
             <div className='bg-[#E4E3EF] h-screen'>
