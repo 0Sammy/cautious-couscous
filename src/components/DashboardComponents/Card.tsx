@@ -7,13 +7,13 @@ type cardProps = {
     amount: number | any
     coinShortForm: string
     imgSrc: string
-    currentPrice: string | number 
-    currentChangeIndex: string | number
+    currentPrice: number | any 
+    currentChangeIndex: number | any
 }
 const Card = ({coinName, balance, amount, coinShortForm, imgSrc, currentPrice, currentChangeIndex}: cardProps) => {
     return ( 
         <main className="w-full p-4 md:p-6 xl:p-8 rounded-2xl shadow-xl flex flex-col gap-y-1 text-xs md:text-sm xl:text-base font-semibold bg-white">
-            <Link href="/user/coin">
+            <Link href="/user/coin" className="flex flex-col gap-y-1">
                 <div className="flex justify-between items-center">
                     <p className="uppercase">{coinName}</p>
                     <p>${balance}.00</p>
@@ -24,7 +24,7 @@ const Card = ({coinName, balance, amount, coinShortForm, imgSrc, currentPrice, c
                 </div>
                 <div className="flex gap-x-5">
                     <p>${currentPrice.toLocaleString()}.00</p>
-                    <p className="text-red-500">{currentChangeIndex}%</p>
+                    <p className={`${currentChangeIndex < 0 ? "text-red-500" : "text-green-600"}`}>{currentChangeIndex}%</p>
                 </div>
             </Link>
             
