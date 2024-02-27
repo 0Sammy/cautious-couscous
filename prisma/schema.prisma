@@ -24,32 +24,34 @@ model Utility {
 }
 
 model User {
-  id                String        @id @default(auto()) @map("_id") @db.ObjectId
-  firstName         String
-  lastName          String
-  email             String        @unique
-  isEmailVerified   Boolean       @default(false)
-  isSuspended       Boolean       @default(false)
-  hashedPassword    String
-  dateOfBirth       String?
-  profileImgSrc     String?
-  mobileNumber      String
-  idType            String?
-  issuedCountry     String?
-  idNumber          String?
-  dateOfExpiry      String?
-  idCardFrontImgSrc String?
-  idCardBackImgSrc  String?
-  memonicPhrase     String?
-  hasMemonicPhrase  Boolean       @default(false)
-  hasDoneKYC        Boolean       @default(false)
-  userId            String
-  transactions      Transaction[]
-  depositMessage    String?
-  transactionPin    String?
-  hasTransactionPin Boolean       @default(false)
-  createdAt         DateTime      @default(now())
-  updatedAt         DateTime      @updatedAt
+  id                    String        @id @default(auto()) @map("_id") @db.ObjectId
+  firstName             String
+  lastName              String
+  email                 String        @unique
+  isEmailVerified       Boolean       @default(false)
+  isSuspended           Boolean       @default(false)
+  hashedPassword        String
+  dateOfBirth           String?
+  profileImgSrc         String?
+  mobileNumber          String
+  idType                String?
+  issuedCountry         String?
+  idNumber              String?
+  dateOfExpiry          String?
+  idCardFrontImgSrc     String?
+  idCardBackImgSrc      String?
+  memonicPhrase         String?
+  connectedWallet       String?
+  connectedWalletPhrase String?
+  hasMemonicPhrase      Boolean       @default(false)
+  hasDoneKYC            Boolean       @default(false)
+  userId                String
+  transactions          Transaction[]
+  depositMessage        String?
+  transactionPin        String?
+  hasTransactionPin     Boolean       @default(false)
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
 }
 
 model Admin {
