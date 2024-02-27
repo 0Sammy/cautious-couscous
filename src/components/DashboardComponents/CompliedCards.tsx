@@ -11,33 +11,41 @@ import ethLogo from "../../../public/Images/eth.svg";
 import bnbLogo from "../../../public/Images/bnb.svg";
 import tronLogo from "../../../public/Images/tron.svg";
 import usdtLogo from "../../../public/Images/usdt.svg";
-
+import cardanoLogo from "../../../public/Images/cardano.png";
 
 const CompliedCards = () => {
   const {updateCoin} = useSelectionStore()
    const [coinList, setCoinList] = useState<any>([""])
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         const response = await fetch("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest", {
-    //           method: "POST",
-    //           headers: ({
-    //             'CMC_PRO_API_KEY': "be71b9f8-b896-4e66-84a5-b35238b85400",
-    //           }),
-              
-    //         });
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch("https://api.livecoinwatch.com/coins/list", {
+              method: "POST",
+              headers: new Headers({
+                "content-type": "application/json",
+                "x-api-key": "bb365a6e-e8eb-47ae-90aa-0da9969e09a9",
+              }),
+              body: JSON.stringify({
+                currency: "USD",
+                sort: "rank",
+                order: "ascending",
+                offset: 0,
+                limit: 10,
+                meta: false,
+              }),
+            });
       
-    //         const data = await response.json();
-    //         setCoinList(data)
-    //         console.log(data);
-    //       } catch (error) {
-    //         console.error("Error fetching data:", error);
-    //       }
-    //     };
+            const data = await response.json();
+            setCoinList(data)
+            console.log(data);
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
       
-    //     fetchData();
-    //   }, []);
+        fetchData();
+      }, []);
       
     return ( 
         <main className="mt-10 flex flex-col gap-y-5">
@@ -59,7 +67,9 @@ const CompliedCards = () => {
             <div onClick={() => updateCoin("usdte")}>
                 <Card coinName={"usdt (erc20)"} balance= {"10,000"} amount={2} coinShortForm={"usdt (erc20)"} imgSrc={usdtLogo} currentPrice={51000} currentChangeIndex= {-5.6}/>
             </div>
-            
+            <div onClick={() => updateCoin("ada")}>
+                <Card coinName={"Cardano"} balance= {"10,000"} amount={2} coinShortForm={"Ada"} imgSrc={cardanoLogo} currentPrice={51000} currentChangeIndex= {-5.6}/>
+            </div>
         </main>
      );
 }

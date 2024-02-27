@@ -9,6 +9,7 @@ import ethLogo from "../../../public/Images/eth.svg";
 import bnbLogo from "../../../public/Images/bnb.svg";
 import tronLogo from "../../../public/Images/tron.svg";
 import usdtLogo from "../../../public/Images/usdt.svg";
+import cardanoLogo from "../../../public/Images/cardano.png";
 
 //Import Needed Icons
 import { ArrowDown, Send } from "iconsax-react";
@@ -21,8 +22,8 @@ const CoinOverview = () => {
     return ( 
         <main className="bg-white rounded-tl-2xl rounded-tr-2xl p-4 shadow-xl">
             <div className="flex flex-col items-center p-4">
-               <Image className="rounded-[50%] size-14" src={coin === "bitcoin" ? bitcoinLogo : coin === "ethereum" ? ethLogo : coin === "binance" ? bnbLogo : coin === "tron" ? tronLogo : coin.includes("usdt") ? usdtLogo : bitcoinLogo} alt="Icon" />
-                <p className="mt-2 uppercase text-xl md:text-2xl font-semibold">0.00 {coin === "bitcoin" ? "BTC" : coin === "ethereum" ? "ETH" : coin === "binance" ? "BNB" : coin === "tron" ? "TRX" : coin === "usdtt" ? "usdt (trc20)" : coin === "usdte" ? "usdt (erc20)" : "Coin"}</p>
+               <Image className="rounded-[50%] size-14" src={coin === "bitcoin" ? bitcoinLogo : coin === "ethereum" ? ethLogo : coin === "binance" ? bnbLogo : coin === "tron" ? tronLogo : coin.includes("usdt") ? usdtLogo : coin === "ada" ? cardanoLogo : bitcoinLogo} alt="Icon" />
+                <p className="mt-2 uppercase text-xl md:text-2xl font-semibold">0.00 {coin === "bitcoin" ? "BTC" : coin === "ethereum" ? "ETH" : coin === "binance" ? "BNB" : coin === "tron" ? "TRX" : coin === "usdtt" ? "usdt (trc20)" : coin === "usdte" ? "usdt (erc20)" : coin === "ada" ? "ada" : "Coin"}</p>
                 <p className="text-base md:text-lg font-medium">$0.00</p> 
             </div>
             

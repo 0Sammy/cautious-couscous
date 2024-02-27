@@ -6,7 +6,7 @@ type cardProps = {
     balance: number | string
     amount: number | any
     coinShortForm: string
-    imgSrc: string
+    imgSrc: string | any
     currentPrice: number | any 
     currentChangeIndex: number | any
 }
