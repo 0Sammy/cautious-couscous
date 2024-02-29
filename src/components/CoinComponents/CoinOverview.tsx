@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useSelectionStore } from "@/store/selection";
 
 //Import Needed Components
@@ -24,28 +25,16 @@ import { ArrowDown, Send } from "iconsax-react";
 const CoinOverview = () => {
 
     const [isReceiveOpen, SetIsReceiveOpen] = useState<boolean>(false)
-    const [isSendOpen, SetIsSendOpen] = useState<boolean>(false)
     const {coin} = useSelectionStore()
     //console.log({coin})
     //Functions
     const toggleReceive = () => {
-
-        if (isSendOpen){
-            SetIsSendOpen(false)
-        }
         SetIsReceiveOpen((prevIsReceiveOpen) => !prevIsReceiveOpen)
     }
-    const toggleSend = () => {
-        
-        if (isReceiveOpen){
-            SetIsReceiveOpen(false)
-        }
-        SetIsSendOpen((prevIsSendOpen) => !prevIsSendOpen)
-    }
+
     return ( 
         <>
         { isReceiveOpen && <Receive toggleFunction={toggleReceive}/>}
-        { isSendOpen && <SendingForm />}
             <main className="bg-white rounded-tl-2xl rounded-tr-2xl p-4 shadow-xl">
                 <div className="flex flex-col items-center p-4">
                    <Image className="rounded-[50%] size-14" src={coin === "bitcoin" ? bitcoinLogo : coin === "ethereum" ? ethLogo : coin === "binance" ? bnbLogo : coin === "tron" ? tronLogo : coin.includes("usdt") ? usdtLogo : coin === "ada" ? cardanoLogo : coin === "solana" ? solanaLogo : coin === "lite" ? litecoinLogo : coin === "doge" ? dogeLogo : bitcoinLogo} alt="Icon" />
@@ -61,10 +50,10 @@ const CoinOverview = () => {
                         </div>
                     </div>
                     <div className="w-1/2 flex items-center justify-center">
-                        <div className="flex gap-x-2 text-primary p-2 items-center cursor-pointer hover:text-black duration-500" onClick={toggleSend}>
+                        <Link href="/user/send" className="flex gap-x-2 text-primary p-2 items-center cursor-pointer hover:text-black duration-500">
                             <Send size="20"/>
                             <p className="font-bold">Send</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </main>
