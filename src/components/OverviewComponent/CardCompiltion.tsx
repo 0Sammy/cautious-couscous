@@ -11,6 +11,9 @@ import bnbLogo from "../../../public/Images/bnb.svg";
 import tronLogo from "../../../public/Images/tron.svg";
 import usdtLogo from "../../../public/Images/usdt.svg";
 import cardanoLogo from "../../../public/Images/cardano.png";
+import solanaLogo from "../../../public/Images/solana.png";
+import litecoinLogo from "../../../public/Images/litecoin.png";
+import dogeLogo from "../../../public/Images/doge.png";
 
 
 const OverviewCardCompiled = () => {
@@ -39,6 +42,15 @@ const OverviewCardCompiled = () => {
             </div>
             <div onClick={() => updateCoin("ada")}>
                 <OverviewCard  coinName={"Cardano"} balance= {"10,000"} imgSrc={cardanoLogo} />
+            </div>
+            <div onClick={() => updateCoin("solana")}>
+                <OverviewCard  coinName={"Solana"} balance= {"10,000"} imgSrc={solanaLogo} />
+            </div>
+            <div onClick={() => updateCoin("lite")}>
+                <OverviewCard  coinName={"Litecoin"} balance= {"10,000"} imgSrc={litecoinLogo} />
+            </div>
+            <div onClick={() => updateCoin("doge")}>
+                <OverviewCard  coinName={"Doge coin"} balance= {"10,000"} imgSrc={dogeLogo} />
             </div>
         </main>
      );

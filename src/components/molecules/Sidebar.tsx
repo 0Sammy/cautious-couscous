@@ -41,8 +41,8 @@ const Sidebar = () => {
   
     return ( 
         <main>
-            <HambergerMenu size="41" className="text-black text-opacity-80 lg:hidden absolute top-3 left-1 cursor-pointer z-[699]" variant="Bold" onClick={toggleOpen}/>
-            <div className="fixed left-0 top-0 z-[9999] hidden lg:block h-screen w-[300px] bg-white">
+            <HambergerMenu size="41" className="text-black text-opacity-80 lg:hidden absolute top-3 left-1 cursor-pointer z-[70]" variant="Bold" onClick={toggleOpen}/>
+            <div className="fixed left-0 top-0 z-[70] hidden lg:block h-screen w-[300px] bg-white">
                 <div className="border-b border-slate-200 h-16 flex justify-center items-center">
                     <p className="font-semibold text-2xl text-black">Wealth Assets</p>
                 </div>
@@ -56,7 +56,7 @@ const Sidebar = () => {
                 </div>
                 <p className="text-sm absolute bottom-10 pl-8">Copyright © 2023 Wealth Assets</p>
             </div>
-            <div className={`${!isOpen && "hidden"} lg:hidden fixed h-screen w-full bg-black bg-opacity-70 z-[700] top-0 left-0`} onClick={toggleOpen}>
+            <div className={`${!isOpen && "hidden"} lg:hidden fixed h-screen w-full bg-black bg-opacity-70 z-[70] top-0 left-0`} onClick={toggleOpen}>
                 <AnimatePresence>
                 {isOpen && (
                     <motion.div

@@ -12,7 +12,7 @@ import { HambergerMenu, Setting2, UserTag } from "iconsax-react";
 const Header = () => {
     return ( 
         <main >
-            <div className="border-l border-b border-slate-200 h-16 flex justify-between items-center px-4 md:px-6 xl:px-8 relative z-[99]">
+            <div className="border-l border-b border-slate-200 h-16 flex justify-between items-center px-4 md:px-6 xl:px-8 relative z-[50]">
 
                 <Link href="/user/dashboard"><Image src={logo} alt="Capital Assets" className="size-10 lg:ml-0 ml-10"/></Link> 
             

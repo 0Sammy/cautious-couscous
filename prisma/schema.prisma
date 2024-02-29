@@ -67,6 +67,7 @@ model Transaction {
   id              String             @id @default(auto()) @map("_id") @db.ObjectId
   amount          Float
   coin            CoinType
+  network         String?
   transactionType TransactionType?
   status          TransactionStatus? @default(pending)
   userId          String             @db.ObjectId

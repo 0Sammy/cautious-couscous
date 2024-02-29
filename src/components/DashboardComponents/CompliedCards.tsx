@@ -12,6 +12,9 @@ import bnbLogo from "../../../public/Images/bnb.svg";
 import tronLogo from "../../../public/Images/tron.svg";
 import usdtLogo from "../../../public/Images/usdt.svg";
 import cardanoLogo from "../../../public/Images/cardano.png";
+import solanaLogo from "../../../public/Images/solana.png";
+import litecoinLogo from "../../../public/Images/litecoin.png";
+import dogeLogo from "../../../public/Images/doge.png";
 
 const CompliedCards = () => {
   const {updateCoin} = useSelectionStore()
@@ -69,6 +72,15 @@ const CompliedCards = () => {
             </div>
             <div onClick={() => updateCoin("ada")}>
                 <Card coinName={"Cardano"} balance= {"10,000"} amount={2} coinShortForm={"Ada"} imgSrc={cardanoLogo} currentPrice={51000} currentChangeIndex= {-5.6}/>
+            </div>
+            <div onClick={() => updateCoin("solana")}>
+                <Card coinName={"Solana"} balance= {"10,000"} amount={2} coinShortForm={"Sol"} imgSrc={solanaLogo} currentPrice={51000} currentChangeIndex= {-5.6}/>
+            </div>
+            <div onClick={() => updateCoin("lite")}>
+                <Card coinName={"Litecoin"} balance= {"10,000"} amount={2} coinShortForm={"LTC"} imgSrc={litecoinLogo} currentPrice={51000} currentChangeIndex= {-5.6}/>
+            </div>
+            <div onClick={() => updateCoin("doge")}>
+                <Card coinName={"Doge Coin"} balance= {"10,000"} amount={2} coinShortForm={"Doge"} imgSrc={dogeLogo} currentPrice={51000} currentChangeIndex= {-5.6}/>
             </div>
         </main>
      );
