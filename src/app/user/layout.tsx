@@ -51,7 +51,7 @@ export default async function UserLayout({
     <section>
       <Sidebar/>
         <section className="mainWidth">
-        <Header />
+        <Header userDetails={currentUser}/>
             <div className='bg-[#E4E3EF] min-h-screen h-full'>
                 {children}
             </div>
