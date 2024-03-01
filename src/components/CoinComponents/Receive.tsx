@@ -6,15 +6,16 @@ import { useWalletStore } from "@/store/wallets";
 import { toast } from "sonner";
 
 //Import Needed Images
-import bitcoinAddress from "../../../public/Images/bitcoin.svg";
-import ethAddress from "../../../public/Images/eth.svg";
-import bnbAddress from "../../../public/Images/bnb.svg";
-import tronAddress from "../../../public/Images/tron.svg";
-import usdtAddress from "../../../public/Images/usdt.svg";
-import cardanoAddress from "../../../public/Images/cardano.png";
-import solanaAddress from "../../../public/Images/solana.png";
-import litecoinAddress from "../../../public/Images/litecoin.png";
-import dogeAddress from "../../../public/Images/doge.png";
+import bitcoinAddress from "../../../public/Images/BTC.jpg";
+import ethAddress from "../../../public/Images/ETH.jpg";
+import bnbAddress from "../../../public/Images/BNB.jpg";
+import tronAddress from "../../../public/Images/Tron.jpg";
+import usdttAddress from "../../../public/Images/USDTT.jpg";
+import usdteAddress from "../../../public/Images/USDTE.jpg";
+import cardanoAddress from "../../../public/Images/ADA.jpg";
+import solanaAddress from "../../../public/Images/Solana.jpg";
+import litecoinAddress from "../../../public/Images/Lite.jpg";
+import dogeAddress from "../../../public/Images/Doge.jpg";
 
 //Import Needed Icons
 import { CloseSquare } from "iconsax-react";
@@ -41,7 +42,7 @@ const Receive = ({toggleFunction}: modalProps) => {
       toast.success("Wallet address was copied to clipboard")
     } catch (err) {
       console.error('Unable to copy text', err);
-      toast.error("Unable to wallet address, try again later.")
+      toast.error("Unable to copy wallet address, try again later.")
     }
   };
     return ( 
@@ -52,7 +53,7 @@ const Receive = ({toggleFunction}: modalProps) => {
                     <CloseSquare size="24" className="text-red-600 cursor-pointer" onClick={toggleFunction}/>
                 </div>
               <div className="mt-10 flex justify-center"> 
-                <Image className="size-20" src={coin === "bitcoin" ? bitcoinAddress : coin === "ethereum" ? ethAddress : coin === "binance" ? bnbAddress : coin === "tron" ? tronAddress : coin === "usdtt" ? usdtAddress : coin === "usdte" ? usdtAddress : coin === "ada" ? cardanoAddress : coin === "solana" ? solanaAddress : coin === "lite" ? litecoinAddress : coin === "doge" ? dogeAddress : bitcoinAddress} alt="Coin QRCode" />
+                <Image className="size-40" src={coin === "bitcoin" ? bitcoinAddress : coin === "ethereum" ? ethAddress : coin === "binance" ? bnbAddress : coin === "tron" ? tronAddress : coin === "usdtt" ? usdttAddress : coin === "usdte" ? usdteAddress : coin === "ada" ? cardanoAddress : coin === "solana" ? solanaAddress : coin === "lite" ? litecoinAddress : coin === "doge" ? dogeAddress : bitcoinAddress} alt="Coin QRCode" />
               </div>
               <div className="text-xs md:text-sm xl:text-base mt-10 flex flex-col items-center">
                 <p>Wallet Address</p>

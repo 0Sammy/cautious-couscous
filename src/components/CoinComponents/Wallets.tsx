@@ -18,7 +18,7 @@ const Wallets = ({wallets}: any) => {
         updateADA(wallets.adaWallet)
         updateDOGE(wallets.dogecoinWallet)
         updateLITECOIN(wallets.litecoinWallet)
-        updateSOLANA(wallets.litecoinWallet)
+        updateSOLANA(wallets.solanaWallet)
 
         if (wallets.depositMessage) {
             updateDepositMessage (wallets.depositMessage)
