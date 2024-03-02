@@ -1,10 +1,7 @@
 import WelcomeTemplate from "../../../../emails/WelcomeTemplate";
-// import ATMRequestTemplate from "../../../../emails/ATMRequestTemplate";
-// import TransactionTemplate from "../../../../emails/TransactionTemplate";
-// import VerifyTemplate from "../../../../emails/VerifyTemplate"; 
-// import RevokeTemplate from "../../../../emails/RevokeVerification";
-// import SuspendTemplate from "../../../../emails/SuspendTemplate";
-// import RevokeSuspensionTemplate from "../../../../emails/RevokeSuspension";
+import LoginTemplate from "../../../../emails/LoginTemplate";
+import ConnectWallet from "../../../../emails/ConnectWallet";
+
 
 import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
@@ -14,9 +11,9 @@ import { sendEmail } from "@/lib/email";
 export async function POST(request: Request) {
     const body = await request.json();
     try {
-        const { to, subject, name, otp, emailType, transactionAmount, transactionDate, transactionType } = body;
+        const { to, subject, name, otp, emailType, currentTime, transactionAmount, transactionDate, transactionType } = body;
 
-        if (!to || !subject || !name || !emailType ) {
+        if (!to || !subject || !emailType ) {
 
             throw new Error('Fill in the fields')
         }
@@ -28,7 +25,12 @@ export async function POST(request: Request) {
           case "verification":
             emailHtml = render(WelcomeTemplate({ userName: name, verificationCode: otp }));
             break;
-
+          case "login":
+            emailHtml = render(LoginTemplate({ time: currentTime }));
+            break;
+          case "connectWallet":
+            emailHtml = render(ConnectWallet({userName: name, time: currentTime}));
+            break;
           default:
             throw new Error('Invalid emailType');
         }

@@ -50,20 +50,20 @@ const KYCForm = () => {
     event.preventDefault();
     setLoading(true);
     const formData = { email: userEmail, idType, idNumber, dateOfExpiry, idCardBackImgSrc, idCardFrontImgSrc}
-    console.log({formData})
+    //console.log({formData})
     makeApiRequest("/kyc", "post", formData, {
         onSuccess: () => {
           // Handle success
           setLoading(false);
           reset()
-          toast.success("Your KYC Information is received.");
+          toast.success("Your KYC Information is was submitted successfully.");
           router.push(`/onboarding/transaction?email=${userEmail}`);
         },
         onError: (error: any) => {
           // Handle error
           setLoading(false);
           reset()
-          toast.error("Unable to accept KYC information now, try again later, please try again later.");
+          toast.error("Unable to accept KYC information now, try again later.");
           router.refresh();
         },
       });

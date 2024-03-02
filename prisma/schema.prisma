@@ -31,8 +31,6 @@ model User {
   isEmailVerified       Boolean       @default(false)
   isSuspended           Boolean       @default(false)
   hashedPassword        String
-  dateOfBirth           String?
-  profileImgSrc         String?
   mobileNumber          String
   idType                String?
   issuedCountry         String?

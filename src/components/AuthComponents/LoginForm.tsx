@@ -10,6 +10,7 @@ import { Eye, EyeSlash } from 'iconsax-react';
 
 //Import Needed Components
 import Button from "../molecules/Button";
+import { makeApiRequest } from "@/lib/apiUtils";
 
 type InitialStateProps = {
   email: string;
@@ -41,9 +42,18 @@ const LoginForm = () => {
     setState(initialState);
   };
   const onSubmit = async (event: FormEvent) => {
+    //Get the time of login
+    const currentDate = new Date();
+    const americanTime = currentDate.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    });
+
+
     event.preventDefault();
     setLoading(true);
-
+    const emailData = {to: state.email, subject: "Login Notification", emailType:"login", currentTime: americanTime}
     try {
       const callback = await signIn("credentials", {
         ...state,
@@ -53,6 +63,16 @@ const LoginForm = () => {
       if (callback?.ok && !callback?.error) {
         setLoading(false);
         toast.success("Welcome");
+        makeApiRequest("/send-email", "post", emailData, {
+          onSuccess: () => {
+            // Handle success
+            console.log("Notification email was sent.");
+          },
+          onError: (error: any) => {
+            // Handle error
+            console.log(error)
+          },
+        });
         handleFormReset();
         router.push("/user/dashboard");
         

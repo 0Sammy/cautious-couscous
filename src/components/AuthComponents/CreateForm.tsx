@@ -88,7 +88,7 @@ const CreateForm = () => {
       transactions,
     };
 
-    console.log({formData})
+    //console.log({formData})
 
     makeApiRequest("/create", "post", formData, {
       onSuccess: () => {
