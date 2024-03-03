@@ -1,9 +1,10 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useSelectionStore } from "@/store/selection";
 import { useWalletStore } from "@/store/wallets";
 import { toast } from "sonner";
+import { redirect } from "next/navigation";
 
 //Import Needed Images
 import bitcoinAddress from "../../../public/Images/BTC.jpg";
@@ -19,6 +20,7 @@ import dogeAddress from "../../../public/Images/Doge.jpg";
 
 //Import Needed Icons
 import { CloseSquare } from "iconsax-react";
+
 
 
 type modalProps = {
@@ -45,6 +47,12 @@ const Receive = ({toggleFunction}: modalProps) => {
       toast.error("Unable to copy wallet address, try again later.")
     }
   };
+  //Check and redirect a user to overview if they didn't select any coin
+  useEffect(() => {
+    if (!coin) {
+     redirect("/user/overview")
+    }
+ })
     return ( 
         <main className="fixed h-screen w-full bg-black bg-opacity-80 flex items-center justify-center z-[100] top-0 left-0">
             <div className="relative w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%] 2xl:w-[30%] bg-white p-4 md:p-8 rounded-lg">

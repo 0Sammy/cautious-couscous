@@ -1,8 +1,9 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelectionStore } from "@/store/selection";
+import { redirect } from "next/navigation";
 
 //Import Needed Components
 import Receive from "./Receive";
@@ -22,6 +23,7 @@ import dogeLogo from "../../../public/Images/doge.png";
 import { ArrowDown, Send } from "iconsax-react";
 
 
+
 const CoinOverview = () => {
 
     const [isReceiveOpen, SetIsReceiveOpen] = useState<boolean>(false)
@@ -31,7 +33,12 @@ const CoinOverview = () => {
     const toggleReceive = () => {
         SetIsReceiveOpen((prevIsReceiveOpen) => !prevIsReceiveOpen)
     }
-
+    //Check and redirect a user to overview if they didn't select any coin
+    useEffect(() => {
+        if (!coin) {
+         redirect("/user/overview")
+        }
+     })
     return ( 
         <>
         { isReceiveOpen && <Receive toggleFunction={toggleReceive}/>}
