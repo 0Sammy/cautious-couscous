@@ -20,7 +20,7 @@ export default function LoginTemplate({
           </Container>
           <Text style={bold}>Welcome</Text>
           <Text style={paragraph}>
-            You have successfully logged into your account at {time} today.
+            Your account login was successful on {time}.
           </Text>
           <Text style={paragraph}>
             We have verified your credentials and authorization to access the system at this time. 

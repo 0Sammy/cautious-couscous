@@ -1,8 +1,9 @@
-import ProfileInformation from "@/components/ProfileComponents/ProfileInformation";
 import { getUserDetails } from "@/providers/userDetails";
 
 //Import Needed Components
-ProfileInformation
+import ProfileInformation from "@/components/ProfileComponents/ProfileInformation";
+
+export const revalidate = 1
 const page = async () => {
 
     const { user } = await getUserDetails();

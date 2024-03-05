@@ -1,5 +1,6 @@
-//Import Needed Components
 import getWallets from "@/actions/getWallets";
+
+//Import Needed Components
 import CoinOverview from "@/components/CoinComponents/CoinOverview";
 import TransactionHistory from "@/components/CoinComponents/TransactionHistory";
 import Wallets from "@/components/CoinComponents/Wallets";

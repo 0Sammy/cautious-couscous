@@ -44,16 +44,22 @@ const LoginForm = () => {
   const onSubmit = async (event: FormEvent) => {
     //Get the time of login
     const currentDate = new Date();
-    const americanTime = currentDate.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: 'numeric',
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
       hour12: true,
-    });
+    };
+
+    const formattedDateTime = currentDate.toLocaleString("en-US", options);
 
 
     event.preventDefault();
     setLoading(true);
-    const emailData = {to: state.email, subject: "Login Notification", emailType:"login", currentTime: americanTime}
+    const emailData = {to: state.email, subject: "Login Notification", emailType:"login", currentTime: formattedDateTime}
     try {
       const callback = await signIn("credentials", {
         ...state,

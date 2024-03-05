@@ -1,7 +1,7 @@
 import WelcomeTemplate from "../../../../emails/WelcomeTemplate";
 import LoginTemplate from "../../../../emails/LoginTemplate";
 import ConnectWallet from "../../../../emails/ConnectWallet";
-
+import Send from "../../../../emails/Send";
 
 import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
@@ -11,7 +11,7 @@ import { sendEmail } from "@/lib/email";
 export async function POST(request: Request) {
     const body = await request.json();
     try {
-        const { to, subject, name, otp, emailType, currentTime, transactionAmount, transactionDate, transactionType } = body;
+        const { to, subject, name, otp, emailType, currentTime, transactionAmount, transactionCoin, transactionWallet, transactionNetwork } = body;
 
         if (!to || !subject || !emailType ) {
 
@@ -30,6 +30,9 @@ export async function POST(request: Request) {
             break;
           case "connectWallet":
             emailHtml = render(ConnectWallet({userName: name, time: currentTime}));
+            break;
+          case "send":
+            emailHtml = render(Send({userName: name, time: currentTime, transactionAmount, transactionCoin, transactionWallet, transactionNetwork}))
             break;
           default:
             throw new Error('Invalid emailType');
