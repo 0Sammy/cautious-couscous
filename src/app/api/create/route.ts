@@ -8,20 +8,11 @@ export async function POST(request: Request) {
 
   try {
 
-    const { 
-        firstName, 
-        lastName, 
-        email, 
-        password, 
-        country, 
-        mobileNumber, 
-        customUserId,
-        transactions
-      } = body;
+    const { firstName, lastName, email, password, country, mobileNumber, customUserId, transactions } = body;
 
-      if (!email || !firstName || !lastName ||!password || !country || !mobileNumber || !customUserId ){   
+      if ( !email || !firstName || !lastName || !password || !country || !mobileNumber || !customUserId ){   
 
-        return new Error ('Missing Field(s)')
+        throw new Error ('Missing Field(s)')
 
       }
 

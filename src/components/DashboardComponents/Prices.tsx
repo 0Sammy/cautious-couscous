@@ -39,7 +39,7 @@ const Prices = () => {
         };
 
         fetchData();
-    }, []);
+    });
 
     return (
         <main>

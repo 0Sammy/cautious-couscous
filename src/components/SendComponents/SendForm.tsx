@@ -49,7 +49,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
         ? setRate(dogePrice)
         : 0
     )
-  },[])
+  })
   
   const [success, setSuccess] = useState<boolean>(false)
 
