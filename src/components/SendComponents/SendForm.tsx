@@ -49,7 +49,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
         ? setRate(dogePrice)
         : 0
     )
-  })
+  }, [coin, btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice])
   
   const [success, setSuccess] = useState<boolean>(false)
 
@@ -85,7 +85,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
         ? "DOGE"
         : "COIN"
     )
-  },[]);
+  },[coin]);
   //OnSubmit Function
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();

@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 
 //Import Needed Components
 import Receive from "./Receive";
-import SendingForm from "./Send";
+
 //Import Needed Images
 import bitcoinLogo from "../../../public/Images/bitcoin.svg";
 import ethLogo from "../../../public/Images/eth.svg";
