@@ -3,6 +3,7 @@ import getUsers from "@/actions/getAllUsers";
 
 //Import Needed Components
 import Activity from "@/components/AdminComponents/Activity";
+import LastTransactions from "@/components/AdminComponents/LastTransactions";
 import AdminHeader from "@/components/molecules/AdminHeader";
 
 
@@ -40,11 +41,14 @@ const page = async () => {
     .filter((transaction) => transaction.transactionType === 'penalty')
     .reduce((sum, transaction) => sum + transaction.amount, 0);
 
+    //Last 7 Transactions
+    const lastSevenTransactions = transactions?.slice(-7);
     return ( 
         <main>
             <AdminHeader page="Admin Dashboard"/>
             <div className="px-4 md:px-6 xl:px-8 py-4">
-              <Activity usersLength={clients?.length} depositAmount={depositAmount} transferAmount={receiveAmount} bonusAmount={bonusAmount}/>  
+              <Activity usersLength={clients?.length} depositAmount={depositAmount} transferAmount={receiveAmount} bonusAmount={bonusAmount}/>
+              <LastTransactions transactions={lastSevenTransactions}/>  
             </div>
             
         </main>

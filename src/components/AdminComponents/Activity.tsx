@@ -1,6 +1,6 @@
 
 //Import Needed Icons
-import { Import, Profile2User, Send2, MoneyTick } from "iconsax-react";
+import { DirectDown, Profile2User, Send2, MoneyTick } from "iconsax-react";
 
 type activityProps = {
     usersLength : number;
@@ -17,14 +17,14 @@ const Activity = ({usersLength, depositAmount, transferAmount, bonusAmount}: act
       <div className="mt-4 flex gap-x-3 md:gap-x-5 overflow-x-auto special pb-4">
         <div className="flex flex-col gap-y-1 p-4 min-w-[15rem] h-36 w-72 border border-[#7676801F] rounded-lg">
             <div className="size-10 rounded-[50%] bg-[#00000033] flex items-center justify-center">
-                <Import size="20" className="text-secondary"/>
+                <Send2 size="20" className="text-secondary"/>
             </div>
             <p className="text-[#020100] text-xs xl:text-sm mt-4">Total Sent Coins</p>
             <p className="text-secondary text-base xl:text-lg font-semibold">{depositAmount}</p>
         </div>
         <div className="flex flex-col gap-y-1 p-4 min-w-[15rem] h-36 w-72 border border-[#7676801F] rounded-lg">
             <div className="size-10 rounded-[50%] bg-[#00000033] flex items-center justify-center">
-                <Send2 size="20" className="text-secondary"/>
+                <DirectDown size="20" className="text-secondary"/>
             </div>
             <p className="text-[#020100] text-xs xl:text-sm mt-4">Total Received Coins</p>
             <p className="text-secondary text-base xl:text-lg font-semibold">{transferAmount}</p>
