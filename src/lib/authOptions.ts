@@ -45,7 +45,6 @@ export const authOptions: AuthOptions = {
             id: user.id,
             email: user.email,
             name: `${user.firstName} ${user.lastName}`,
-            image: user.profileImgSrc,          
           };
         } else {
           const admin = await prisma.admin.findUnique({
