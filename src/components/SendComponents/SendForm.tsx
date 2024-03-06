@@ -4,6 +4,8 @@ import { useSelectionStore } from "@/store/selection";
 import { redirect } from "next/navigation";
 import { makeApiRequest } from "@/lib/apiUtils";
 import { toast } from "sonner";
+import { usePriceStore } from "@/store/prices";
+
 
 //Import Needed Components
 import Input from "@/components/molecules/Input";
@@ -12,38 +14,46 @@ import SendPopup from "./SendPopup";
 
 
 const SendForm = ({ email, name, message, id }: string | any) => {
+  const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
   const { coin } = useSelectionStore();
   const [sendingCoin, setSendingCoin] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false);
   const [enteredAddress, setEnteredAddress] = useState<string>("");
   const [enteredAmount, setEnteredAmount] = useState<number>(0);
+  const [rate, setRate] = useState<number>(0)
+
   const [network, setNetwork] = useState<string>(
-    coin === "bitcoin"
-      ? "BITCOIN"
-      : coin === "ethereum"
-      ? "ERC20"
-      : coin === "binance"
-      ? "BEP20"
-      : coin === "tron"
-      ? "TRC20"
-      : coin === "usdtt"
-      ? "TRC20"
-      : coin === "usdte"
-      ? "ERC20"
-      : coin === "ada"
-      ? "CARDANO"
-      : coin === "solana"
-      ? "SOLANA"
-      : coin === "lite"
-      ? "LITECOIN"
-      : coin === "doge"
-      ? "DOGECOIN"
-      : "BITCOIN"
+    coin === "bitcoin" ? "BITCOIN" : coin === "ethereum" ? "ERC20" : coin === "binance" ? "BEP20" : coin === "tron" ? "TRC20" : coin === "usdtt" ? "TRC20" : coin === "usdte" ? "ERC20" : coin === "ada" ? "CARDANO" : coin === "solana" ? "SOLANA" : coin === "lite" ? "LITECOIN" : coin === "doge" ? "DOGECOIN" : "BITCOIN"
   );
-  const [success, setSuccess] = useState<boolean>(false)
+  useEffect(() => {
+    (
+      coin === "bitcoin"
+        ? setRate(btcPrice)
+        : coin === "ethereum"
+        ? setRate(ethPrice)
+        : coin === "BINANCE COIN"
+        ? setRate(bnbPrice)
+        : coin === "tron"
+        ? setRate(trxPrice)
+        : coin === "usdtt"
+        ? setRate(usdtPrice)
+        : coin === "usdte"
+        ? setRate(usdtPrice)
+        : coin === "ada"
+        ? setRate(adaPrice)
+        : coin === "solana"
+        ? setRate(solPrice)
+        : coin === "lite"
+        ? setRate(ltcPrice)
+        : coin === "doge"
+        ? setRate(dogePrice)
+        : 0
+    )
+  },[])
   
-  const rate = 57000;
-  const reset = () => {
+  const [success, setSuccess] = useState<boolean>(false)
+
+    const reset = () => {
     setEnteredAddress("");
     setEnteredAmount(0);
   };
@@ -75,7 +85,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
         ? "DOGE"
         : "COIN"
     )
-  });
+  },[]);
   //OnSubmit Function
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -281,7 +291,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
           </div>
           <div className="mt-6 flex gap-x-5 text-green-600">
             You will receive{" "}
-            {enteredAmount && `$${(enteredAmount * rate).toLocaleString()}`}
+            {enteredAmount && `$${(enteredAmount * rate)}`}
           </div>
           <div className="mt-6">
             <Input

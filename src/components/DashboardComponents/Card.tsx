@@ -24,7 +24,7 @@ const Card = ({coinName, balance, amount, coinShortForm, imgSrc, currentPrice, c
                 </div>
                 <div className="flex gap-x-5">
                     <p>${currentPrice.toLocaleString()}.00</p>
-                    <p className={`${currentChangeIndex < 0 ? "text-red-500" : "text-green-600"}`}>{currentChangeIndex}%</p>
+                    <p className={`${currentChangeIndex < 0 ? "text-red-500" : "text-green-600"}`}>{`${currentChangeIndex.toFixed(2)}%`}</p>
                 </div>
             </Link>
             

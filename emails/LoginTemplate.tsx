@@ -20,14 +20,10 @@ export default function LoginTemplate({
           </Container>
           <Text style={bold}>Welcome</Text>
           <Text style={paragraph}>
-            Your account login was successful on {time}.
+            Our system detected a successful login to your account on {time}.
           </Text>
           <Text style={paragraph}>
-            We have verified your credentials and authorization to access the system at this time. 
-            Please review recent account activity for anything suspicious and report unauthorized transactions.
-          </Text>
-          <Text style={paragraph}>
-            For any other help with managing your profile, accounts and services, please visit our Help Center or contact client support 24/7.
+            If you think your account have been compromised, please visit our Help Center or contact client support 24/7 support@wealthassests.com.
           </Text>
           <Text style={paragraph}>
             We are dedicated to providing prudent monitoring and identity verification protocols to keep your assets protected during every interaction.
