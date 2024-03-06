@@ -7,7 +7,7 @@ import Link from "next/link";
 import logo from "../../../public/Images/Big whiz Walletassets logo badge.svg"
 
 //Import Needed Icons
-import { Refresh2, Lock, Logout, Setting2, UserTag } from "iconsax-react";
+import { Lock, Logout, Setting2, UserTag } from "iconsax-react";
 
 const Header = ({userDetails}: any) => {
 
@@ -50,10 +50,6 @@ const Header = ({userDetails}: any) => {
                 </Link>
             </div>}
             {settingsOpen && <div className="absolute bg-white border border-slate-200 rounded-md p-4 right-[5rem] top-[3.5rem] flex flex-col gap-y-3">
-                <Link href="/forgotPassword" target="_blank" className="flex gap-x-2 hover:bg-[#f0f0f0] duration-300 p-2 rounded-md text-xs md:text-sm xl:text-base items-center">
-                    <Refresh2 size={20} className="text-orange-600"/>
-                    <p className="medium">Reset Password</p>
-                </Link>
                 <Link href="/user/profile" className="flex gap-x-2 hover:bg-[#f0f0f0] duration-300 p-2 rounded-md text-xs md:text-sm xl:text-base items-center">
                     <Lock size={20} className="text-green-600"/>
                     <p className="medium">Mnemonic Phrase</p>

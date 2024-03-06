@@ -18,7 +18,7 @@ const SidebarLinks = ({route, label, icon, onClick}:SideBarLinks) => {
                 onClick={onClick}
                 href={route}
                 prefetch
-                className={`${pathName === route ? "text-primary bg-slate-100" : "text-black text-opacity-80"} flex items-center font-medium gap-x-2 px-6 py-4 text-sm duration-500 hover:bg-slate-100 hover:text-primary md:text-base`}
+                className={`${pathName === route ? "text-primary bg-white" : "text-black text-opacity-80"} flex items-center font-medium gap-x-2 px-6 py-4 text-sm duration-500 hover:bg-slate-100 hover:text-primary md:text-base`}
             >{icon}{label}</Link>
      );
 }

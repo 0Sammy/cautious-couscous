@@ -3,7 +3,6 @@ import '../globals.css';
 import { Toaster } from 'sonner';
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/lib/authOptions";
-import getCurrentLoggedInUser from "@/actions/getCurrentUser";
 import getCurrentLoggedInAdmin from '@/actions/getCurrentAdmin';
 
 
@@ -27,11 +26,9 @@ export default async function UserLayout({
 
     <section>
       <AdminSidebar role={currentAdmin?.role}/>
-        <section className="">
-            <div className="">
+            <div className="mainWidth">
                 {children}
             </div>
-        </section>
         <Toaster richColors position="top-center" closeButton />
     </section>
 

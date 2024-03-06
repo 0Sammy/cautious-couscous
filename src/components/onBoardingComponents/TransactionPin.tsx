@@ -51,11 +51,12 @@ const TransactionPin = () => {
     const formData = { email: userEmail, transactionPin : pin };
 
     makeApiRequest("/addTransactionsPin", "post", formData, {
+
       onSuccess: () => {
         // Handle success
         setLoading(false);
         toast.success("Transaction pin was added successful");
-        router.push(`/user/dashboard`);
+        router.push("/login");
       },
       onError: (error: any) => {
         // Handle error

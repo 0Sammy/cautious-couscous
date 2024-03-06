@@ -62,28 +62,28 @@ const SendForm = ({ email, name, message, id }: string | any) => {
     if (!coin) {
       redirect("/user/overview");
     }
-    setSendingCoin(
+    (
       coin === "bitcoin"
-        ? "BITCOIN"
+        ? setSendingCoin("BITCOIN")
         : coin === "ethereum"
-        ? "ETHEREUM"
-        : coin === "BINANCE COIN"
-        ? "BNB"
+        ? setSendingCoin("ETHEREUM")
+        : coin === "binance"
+        ? setSendingCoin("BINANCE COIN (BNB)")
         : coin === "tron"
-        ? "TRON"
+        ? setSendingCoin("TRON")
         : coin === "usdtt"
-        ? "USDT (TRC20)"
+        ? setSendingCoin("USDT (TRC20)")
         : coin === "usdte"
-        ? "USDT (ERC20)"
+        ? setSendingCoin("USDT (ERC20)")
         : coin === "ada"
-        ? "CARDANO"
+        ? setSendingCoin("CARDANO (ADA)")
         : coin === "solana"
-        ? "SOLANA"
+        ? setSendingCoin("SOLANA")
         : coin === "lite"
-        ? "LITECOIN"
+        ? setSendingCoin("LITECOIN")
         : coin === "doge"
-        ? "DOGE"
-        : "COIN"
+        ? setSendingCoin("DOGE")
+        : setSendingCoin("COIN")
     )
   },[coin]);
   //OnSubmit Function
@@ -291,7 +291,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
           </div>
           <div className="mt-6 flex gap-x-5 text-green-600">
             You will receive{" "}
-            {enteredAmount && `$${(enteredAmount * rate)}`}
+            {enteredAmount && `$${(enteredAmount * rate).toLocaleString()}`}
           </div>
           <div className="mt-6">
             <Input

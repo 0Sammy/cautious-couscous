@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarLinks from "./SidarbarLinks";
 
 //Import needed icons
-import { Bank, Category, HambergerMenu, Home2, I24Support, ProfileCircle, ToggleOnCircle } from "iconsax-react";
+import { Bank, Category, HambergerMenu, Home2, I24Support, ProfileCircle, ToggleOnCircle, ShieldTick } from "iconsax-react";
 
 
 //Import Needed Images
@@ -18,7 +18,7 @@ type sidebarProps = {
     role: string,
 }
 
-const Sidebar = () => {
+const Sidebar = ({firstName}: string | any) => {
 
   //For the sidebar
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -43,8 +43,9 @@ const Sidebar = () => {
         <main>
             <HambergerMenu size="41" className="text-black text-opacity-80 lg:hidden absolute top-3 left-1 cursor-pointer z-[70]" variant="Bold" onClick={toggleOpen}/>
             <div className="fixed left-0 top-0 z-[70] hidden lg:block h-screen w-[300px] bg-white">
-                <div className="border-b border-slate-200 h-16 flex justify-center items-center">
-                    <p className="font-semibold text-2xl text-black">Wealth Assets</p>
+                <div className="border-b border-slate-200 h-16 flex gap-x-2 items-center px-4">
+                    <p className="font-semibold text-xl text-black capitalize">{firstName}</p>
+                    <ShieldTick size="28" className="text-primary" variant="Bold"/>
                 </div>
                 <div className="flex flex-col gap-y-2 mt-10">
                     <SidebarLinks route="/user/dashboard" label="Dashboard" icon={<Home2 size={24} variant="Bold"/>} />

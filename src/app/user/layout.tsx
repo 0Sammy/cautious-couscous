@@ -49,7 +49,7 @@ export default async function UserLayout({
   return (
 
     <section>
-      <Sidebar/>
+      <Sidebar firstName = {`${currentUser?.firstName} ${currentUser?.lastName}`}/>
         <section className="mainWidth">
         <Header userDetails={currentUser}/>
             <div className='bg-[#E4E3EF] min-h-screen h-full'>

@@ -19,7 +19,7 @@ const Balance = () => {
                     <Link href="/user/overview" className="w-1/2 bg-white text-[#160959] py-2 md:py-3 text-center rounded-2xl border border-white hover:bg-inherit hover:text-white duration-500">Receive</Link>
                     <Link href="/user/overview" className="w-1/2 bg-white text-[#160959] py-2 md:py-3 text-center rounded-2xl border border-white hover:bg-inherit hover:text-white duration-500">Send</Link>
                 </div>
-                <Link href="https://www.kraken.com/" target="_blank" className="mx-auto w-1/2 bg-white text-[#160959] py-2 md:py-3 text-center rounded-2xl border border-white hover:bg-inherit hover:text-white duration-500">Buy</Link>
+                <Link href="https://www.Moonpay.com" target="_blank" className="mx-auto w-1/2 bg-white text-[#160959] py-2 md:py-3 text-center rounded-2xl border border-white hover:bg-inherit hover:text-white duration-500">Buy</Link>
             </div>
         </main>
      );
