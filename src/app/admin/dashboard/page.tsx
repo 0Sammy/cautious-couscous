@@ -3,6 +3,7 @@ import getUsers from "@/actions/getAllUsers";
 
 //Import Needed Components
 import Activity from "@/components/AdminComponents/Activity";
+import AdminChangePassword from "@/components/AdminComponents/AdminChangePassword";
 import LastTransactions from "@/components/AdminComponents/LastTransactions";
 import AdminHeader from "@/components/molecules/AdminHeader";
 
@@ -14,8 +15,8 @@ const page = async () => {
 
     const clients = await getUsers();
 
-    console.log({transactions})
-    console.log({clients})
+    //console.log({transactions})
+    //console.log({clients})
     //Deposit Amount
     const depositAmount = transactions
     .filter((transaction) => transaction.transactionType === 'deposit')
@@ -45,10 +46,11 @@ const page = async () => {
     const lastSevenTransactions = transactions?.slice(-7);
     return ( 
         <main>
-            <AdminHeader page="Admin Dashboard"/>
+            <AdminHeader page="Administration Dashboard"/>
             <div className="px-4 md:px-6 xl:px-8 py-4">
               <Activity usersLength={clients?.length} depositAmount={depositAmount} transferAmount={receiveAmount} bonusAmount={bonusAmount}/>
               <LastTransactions transactions={lastSevenTransactions}/>  
+              <AdminChangePassword />
             </div>
             
         </main>
