@@ -12,11 +12,11 @@ export const revalidate = 1;
 const page = async () => {
 
     const transactions = await getTransactions();
-
     const clients = await getUsers();
 
     //console.log({transactions})
     //console.log({clients})
+
     //Deposit Amount
     const depositAmount = transactions
     .filter((transaction) => transaction.transactionType === 'deposit')
@@ -43,7 +43,7 @@ const page = async () => {
     .reduce((sum, transaction) => sum + transaction.amount, 0);
 
     //Last 7 Transactions
-    const lastSevenTransactions = transactions?.slice(-7);
+    const lastSevenTransactions = transactions?.slice(0, 7);
     return ( 
         <main>
             <AdminHeader page="Administration Dashboard"/>

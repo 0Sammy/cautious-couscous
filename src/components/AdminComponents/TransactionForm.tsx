@@ -1,17 +1,121 @@
-//Import Needed Icons
-import { CloseSquare } from "iconsax-react";
+"use client"
+import { useState, useEffect, FormEvent } from "react";
+import { useTransactionStore } from "@/store/adminTransactionStore";
+import { usePriceStore } from "@/store/prices";
+import { makeApiRequest } from "@/lib/apiUtils";
 
-type transactionType = {
-    hideModal?: () => void
-}
-const TransactionForm = ({hideModal}: transactionType) => {
+
+//Import Needed Components
+import Dropdown from "./Dropdown";
+import DepositDropDown from "./DepositDropDown";
+import Input from "../molecules/Input";
+import CoinDropDown from "./CoinDropDown";
+import Button from "../molecules/Button";
+import { toast } from "sonner";
+
+
+type transactionProps = {
+    allUsers: any;
+    loggedInEmail: string | any;
+};
+
+const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
+
+    const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
+    const [loading, setLoading] = useState<boolean>(false)
+    const [rate, setRate] = useState<number>(0)
+    const [updateCoin, setUpdateCoin] = useState<string>("")
+    const { updateAmount, updateNetwork, updateStatus, amount, coin, network, transactionType, userId, doneByAdmin, status} = useTransactionStore()
+    useEffect(() => {
+        setUpdateCoin(coin)
+    }, [coin])
+    useEffect(() => {
+        (
+        updateCoin === "bitcoin"
+            ? setRate(btcPrice)
+            : updateCoin === "ethereum"
+            ? setRate(ethPrice)
+            : updateCoin === "binance"
+            ? setRate(bnbPrice)
+            : updateCoin === "tron"
+            ? setRate(trxPrice)
+            : updateCoin === "usdtt"
+            ? setRate(usdtPrice)
+            : updateCoin === "usdte"
+            ? setRate(usdtPrice)
+            : updateCoin === "ada"
+            ? setRate(adaPrice)
+            : updateCoin === "solana"
+            ? setRate(solPrice)
+            : updateCoin === "lite"
+            ? setRate(ltcPrice)
+            : updateCoin === "doge"
+            ? setRate(dogePrice)
+            : 0
+        )
+      }, [updateCoin, btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice])
+
+      //OnSubmit Function
+      const onSubmit = (event: FormEvent) => {
+        event.preventDefault();
+        setLoading(true);
+    
+    
+        const formData = { amount, coin, network, transactionType,  userId, doneByAdmin, adminEmail: loggedInEmail, status };
+        
+        console.log({ formData });
+        makeApiRequest("/send", "post", formData, {
+          
+          onSuccess: () => {
+            // Handle success
+            setLoading(false);
+            toast.success("Transaction was added successfully.");
+            window.location.reload();
+          },
+          onError: (error: any) => {
+            // Handle error
+            setLoading(false);
+            window.location.reload();
+            toast.error(
+              "Unable to add transaction now. Please check your internet connection or contact the developer."
+            );
+          },
+        });
+      };
     return ( 
-        <main className="fixed h-screen w-full bg-black bg-opacity-80 flex items-center justify-center z-[100] top-0 left-0 text-xs md:text-sm xl:text-base">
-            <div className="relative w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] 2xl:w-[40%] bg-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-lg">
-                <div className="flex justify-end">
-                    <CloseSquare size="28" className="text-red-600 cursor-pointer" variant="Bold" onClick={hideModal}/>
+        <main className="text-xs md:text-sm xl:text-base">
+            <form className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-10" onSubmit={onSubmit}>
+                <Dropdown allUsers={allUsers} />
+                <DepositDropDown />
+                <CoinDropDown />
+                <div className="mt-4">
+                  <Input type="number" placeholder="Enter the coin amount here" label="Coin Amount" id="amount" value={amount} onChange={(e) => { updateAmount(parseFloat(e.target.value))}} />
+                  <p className="text-red-600 my-2">The amount in your chosen coin rate {" "}{amount && `$${(amount * rate).toLocaleString()}`}</p>  
                 </div>
-            </div>
+                <div className="mt-4 flex flex-col gap-y-1">
+                    <label htmlFor="">Network</label>
+                    <select onChange={(e: any) => updateNetwork(e.target.value)} name="network" id="network" className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none">
+                      <option value="">Choose the network of the Transaction</option>
+                      <option value={ updateCoin === "bitcoin" ? "BITCOIN" : updateCoin === "ethereum" ? "ERC20" : updateCoin === "binance" ? "BEP20" : updateCoin === "tron" ? "TRC20" : updateCoin === "usdtt" ? "TRC20" : updateCoin === "usdte" ? "ERC20" : updateCoin === "ada" ? "CARDANO" : updateCoin === "solana" ? "SOLANA" : updateCoin === "lite" ? "LITECOIN" : updateCoin === "doge" ? "DOGECOIN" : "COIN"}>
+                        {updateCoin === "bitcoin" ? "BITCOIN" : updateCoin === "ethereum" ? "ERC20" : updateCoin === "binance" ? "BEP20" : updateCoin === "tron" ? "TRC20" : updateCoin === "usdtt" ? "TRC20" : updateCoin === "usdte" ? "ERC20" : updateCoin === "ada" ? "CARDANO" : updateCoin === "solana" ? "SOLANA" : updateCoin === "lite" ? "LITECOIN" : updateCoin === "doge" ? "DOGECOIN" : "COIN"}
+                      </option>
+                      <option value="ethereum (erc20)">Ethereum (ERC20)</option>
+                      <option value="bnb smart chain">BNB Smart Chain (BEP20)</option>
+                    </select>
+                </div>
+                <div className="mt-4 flex flex-col gap-y-1">
+                    <label htmlFor="">Status of the Transaction</label> 
+                    <select onChange={(e: any) => updateStatus(e.target.value)} name="network" id="network" className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none">
+                        <option value="">Choose the status of the Transaction</option>
+                        <option value="pending" className="text-[#DF930E]">Pending</option>
+                        <option value="successful" className="text-[#026C3C]">Successful</option>
+                        <option value="failed" className="text-[#C51D03]">Failed</option> 
+                    </select>
+                </div>
+                <div className="mt-6">
+                    <Button type="submit" text="Create Transaction" loading={loading}/>
+                </div>
+            </form>
         </main>
      );
 }

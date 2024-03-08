@@ -51,8 +51,8 @@ const AdminSidebar = ({role}: string | any) => {
                     <SidebarLinks route="/admin/deposit" label="Send" icon={<MoneySend size={24} variant="Bold"/>} />
                     <SidebarLinks route="/admin/members" label="Users" icon={<ProfileCircle size={24} variant="Bold"/>} />
                     {role === "super_admin" && <>
-                    <SidebarLinks route="/admin/sendbonus" label="Send Bonus" icon={<MoneyTick size={24} variant="Bold"/>} />
-                    <SidebarLinks route="/admin/sendpenalty" label="Send Penalty" icon={<MoneyRemove size={24} variant="Bold"/>} />
+                    <SidebarLinks route="/admin/sendbonus" label="Bonus" icon={<MoneyTick size={24} variant="Bold"/>} />
+                    <SidebarLinks route="/admin/sendpenalty" label="Penalty" icon={<MoneyRemove size={24} variant="Bold"/>} />
                     </>
                     }
                     <SidebarLinks route="/admin/receive" label="Receive" icon={<MoneyRecive size={24} variant="Bold"/>} />
@@ -84,8 +84,8 @@ const AdminSidebar = ({role}: string | any) => {
                     <SidebarLinks route="/admin/deposit" label="Send" icon={<MoneySend size={24} variant="Bold"/>} onClick={toggleClicked}/>
                     <SidebarLinks route="/admin/members" label="Users" icon={<ProfileCircle size={24} variant="Bold"/>} onClick={toggleClicked}/>
                     {role === "super_admin" && <>
-                    <SidebarLinks route="/admin/sendbonus" label="Send Bonus" icon={<MoneyTick size={24} variant="Bold"/>} onClick={toggleClicked}/>
-                    <SidebarLinks route="/admin/sendpenalty" label="Send Penalty" icon={<MoneyRemove size={24} variant="Bold"/>} />
+                    <SidebarLinks route="/admin/sendbonus" label="Bonus" icon={<MoneyTick size={24} variant="Bold"/>} onClick={toggleClicked}/>
+                    <SidebarLinks route="/admin/sendpenalty" label="Penalty" icon={<MoneyRemove size={24} variant="Bold"/>} />
                     </>
                     }
                     <SidebarLinks route="/admin/receive" label="Receive" icon={<MoneyRecive size={24} variant="Bold"/>} />

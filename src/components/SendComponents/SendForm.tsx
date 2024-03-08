@@ -31,7 +31,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
         ? setRate(btcPrice)
         : coin === "ethereum"
         ? setRate(ethPrice)
-        : coin === "BINANCE COIN"
+        : coin === "binance"
         ? setRate(bnbPrice)
         : coin === "tron"
         ? setRate(trxPrice)
@@ -290,10 +290,10 @@ const SendForm = ({ email, name, message, id }: string | any) => {
               } Equivalent`}
             />
           </div>
-          <div className="mt-6 flex gap-x-5 text-green-600">
+          <p className="mt-6 text-green-600">
             You will receive{" "}
             {enteredAmount && `$${(enteredAmount * rate).toLocaleString()}`}
-          </div>
+          </p>
           <div className="mt-6">
             <Input
               type="text"

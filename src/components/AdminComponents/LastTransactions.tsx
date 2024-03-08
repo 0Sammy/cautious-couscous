@@ -13,7 +13,7 @@ const LastTransactions = ({transactions}: any) => {
         <p className="text-[#06121B] font-bold text-xs md:text-sm xl:text-base">
           All transactions
         </p>
-        <p className="text-xs xl:text-sm text-[#D56F3E]">Last Seven Transactions</p>
+        <p className="text-xs xl:text-sm text-[#D56F3E]">Latest Seven Transactions</p>
       </div>
       
       <div className="mt-8">
