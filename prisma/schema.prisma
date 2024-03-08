@@ -62,18 +62,19 @@ model Admin {
 }
 
 model Transaction {
-  id              String             @id @default(auto()) @map("_id") @db.ObjectId
-  amount          Float
-  coin            String
-  network         String?
-  transactionType TransactionType?
-  doneByAdmin     Boolean            @default(false)
-  adminEmail      String?
-  status          TransactionStatus? @default(pending)
-  userId          String             @db.ObjectId
-  user            User               @relation(fields: [userId], references: [id])
-  createdAt       DateTime           @default(now())
-  updatedAt       DateTime           @updatedAt
+  id               String             @id @default(auto()) @map("_id") @db.ObjectId
+  amount           Float
+  coin             String
+  network          String?
+  receivingAddress String?
+  transactionType  TransactionType?
+  doneByAdmin      Boolean            @default(false)
+  adminEmail       String?
+  status           TransactionStatus? @default(pending)
+  userId           String             @db.ObjectId
+  user             User               @relation(fields: [userId], references: [id])
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
 }
 
 model Contact {

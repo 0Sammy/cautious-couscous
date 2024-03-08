@@ -23,6 +23,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
 
     const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
     const [loading, setLoading] = useState<boolean>(false)
+    const [enteredAddress, setEnteredAddress] = useState<string>("");
     const [rate, setRate] = useState<number>(0)
     const [updateCoin, setUpdateCoin] = useState<string>("")
     const { updateAmount, updateNetwork, updateStatus, amount, coin, network, transactionType, userId, doneByAdmin, status} = useTransactionStore()
@@ -61,7 +62,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
         setLoading(true);
     
     
-        const formData = { amount, coin, network, transactionType,  userId, doneByAdmin, adminEmail: loggedInEmail, status };
+        const formData = { amount, coin, network, transactionType,  userId, doneByAdmin, adminEmail: loggedInEmail, status, receivingAddress: enteredAddress };
         
         console.log({ formData });
         makeApiRequest("/send", "post", formData, {
@@ -87,6 +88,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
             <form className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-10" onSubmit={onSubmit}>
                 <Dropdown allUsers={allUsers} />
                 <DepositDropDown />
+                {transactionType === "deposit" && <Input label="Receiving Address" placeholder="Enter the recipient wallet" type="text" id="address" value={enteredAddress} onChange={(e) => setEnteredAddress(e.target.value)}/>}
                 <CoinDropDown />
                 <div className="mt-4">
                   <Input type="number" placeholder="Enter the coin amount here" label="Coin Amount" id="amount" value={amount} onChange={(e) => { updateAmount(parseFloat(e.target.value))}} />

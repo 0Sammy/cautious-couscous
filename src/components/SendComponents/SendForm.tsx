@@ -111,6 +111,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
       network,
       transactionType: "deposit",
       userId: id,
+      receivingAddress: enteredAddress,
     };
     const emailData = {
       to: email,

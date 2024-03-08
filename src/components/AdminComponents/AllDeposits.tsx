@@ -58,7 +58,7 @@ const AllDeposits = ({deposits}: any) => {
                 {pendingDeposits && pendingDeposits.map((pending: any) => (
                     <div key={pending.id} className="hover:bg-slate-100 duration-500 p-2 rounded-md">
                        <div className="flex items-center justify-between cursor-pointer">
-                           <Link href={`deposit/${pending.id}`} className="flex gap-x-1 items-center">
+                           <Link href={`history/${pending.id}`} className="flex gap-x-1 items-center">
                                <div className="bg-red-800 rounded-[50%] p-2 bg-opacity-30 text-red-800">
                                    {pending.coin === "bitcoin" ? <Bitcoin size="20" /> : pending.coin === "ethereum" ? <Ethereum size="20" /> : pending.coin === "binance" ? <BinanceCoin size="20" /> : pending.coin === "tron" ? <Trontron size="20" /> : pending.coin.includes('usd') ? <Tether size="20" /> : pending.coin === "ada" ? <Cardano size="20" /> : pending.coin === "solana" ? <Solana size="20" /> : pending.coin === "lite" ? <Litecoin size="20" /> : pending.coin === "doge" ? <Coin size="20" /> : <Coin size="20" />} 
                                </div>
@@ -95,7 +95,7 @@ const AllDeposits = ({deposits}: any) => {
                 <p className="text-base md:text-lg xl:text-xl font-semibold text-[#020100]">Processed Transfers</p>
                 <div className="flex flex-col gap-y-3 mt-4">
                     {processedDeposits && processedDeposits.map((processed: any) => ( 
-                        <Link href={`deposit/${processed.id}`} key={processed.id} className="hover:bg-slate-100 duration-500 p-2 rounded-md">
+                        <Link href={`history/${processed.id}`} key={processed.id} className="hover:bg-slate-100 duration-500 p-2 rounded-md">
                             <div className="flex items-center justify-between cursor-pointer">
                                 <div className="flex gap-x-1 items-center">
                                    <div className="bg-red-800 rounded-[50%] p-2 bg-opacity-30 text-red-800">

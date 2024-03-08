@@ -9,8 +9,8 @@ display: 'swap',
 weight: "400", })
 
 export const metadata: Metadata = {
-  title: 'Wealth Assests',
-  description: 'Wealth Assests Mobile App',
+  title: 'Wealth Assets',
+  description: 'Wealth Assets Mobile App',
 }
 
 export default function RootLayout({

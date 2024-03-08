@@ -5,7 +5,7 @@ export async function POST(request: Request) {
   const body = await request.json();
   try {
     const {
-      userId, amount, coin, network, transactionType, doneByAdmin, adminEmail, status } = body;
+      userId, amount, coin, network, transactionType, doneByAdmin, adminEmail, status, receivingAddress } = body;
 
     if ( !userId || !amount || !coin || !transactionType || !network ) {
       return new NextResponse("Missing Fields", { status: 400 });
@@ -19,6 +19,7 @@ export async function POST(request: Request) {
       doneByAdmin,
       adminEmail,
       status,
+      receivingAddress,
       user: {
         connect: {
           id: userId,
