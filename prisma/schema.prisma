@@ -67,7 +67,7 @@ model Transaction {
   coin            String
   network         String?
   transactionType TransactionType?
-  donrByAdmin     Boolean            @default(false)
+  doneByAdmin     Boolean            @default(false)
   adminEmail      String?
   status          TransactionStatus? @default(pending)
   userId          String             @db.ObjectId

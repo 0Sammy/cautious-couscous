@@ -126,6 +126,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
     //console.log({ formData });
     //console.log({ emailData });
     makeApiRequest("/send", "post", formData, {
+      
       onSuccess: () => {
         // Handle success
         setLoading(false);

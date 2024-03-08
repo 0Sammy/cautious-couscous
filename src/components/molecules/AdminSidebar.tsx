@@ -48,14 +48,14 @@ const AdminSidebar = ({role}: string | any) => {
                 </div>
                 <div className="flex flex-col gap-y-2 mt-10">
                     <SidebarLinks route="/admin/dashboard" label="Dashboard" icon={<Home2 size={24} variant="Bold"/>} />
-                    <SidebarLinks route="/admin/deposit" label="Deposit" icon={<MoneyRecive size={24} variant="Bold"/>} />
+                    <SidebarLinks route="/admin/deposit" label="Send" icon={<MoneySend size={24} variant="Bold"/>} />
                     <SidebarLinks route="/admin/members" label="Users" icon={<ProfileCircle size={24} variant="Bold"/>} />
                     {role === "super_admin" && <>
                     <SidebarLinks route="/admin/sendbonus" label="Send Bonus" icon={<MoneyTick size={24} variant="Bold"/>} />
                     <SidebarLinks route="/admin/sendpenalty" label="Send Penalty" icon={<MoneyRemove size={24} variant="Bold"/>} />
                     </>
                     }
-                    <SidebarLinks route="/admin/withdrawal" label="Withdrawal" icon={<MoneySend size={24} variant="Bold"/>} />
+                    <SidebarLinks route="/admin/receive" label="Receive" icon={<MoneyRecive size={24} variant="Bold"/>} />
                     {role === "super_admin" && <>
                     <SidebarLinks route="/admin/suspend" label="Suspend Users" icon={<UserRemove size={24} variant="Bold"/>} />
                     <SidebarLinks route="/admin/adminwallet" label="Utilities" icon={<WalletCheck size={24} variant="Bold"/>} />
@@ -81,14 +81,14 @@ const AdminSidebar = ({role}: string | any) => {
                         
                     </div>
                     <SidebarLinks route="/admin/dashboard" label="Dashboard" icon={<Home2 size={24} variant="Bold"/>} onClick={toggleClicked}/>
-                    <SidebarLinks route="/admin/deposit" label="Deposit" icon={<MoneyRecive size={24} variant="Bold"/>} onClick={toggleClicked}/>
+                    <SidebarLinks route="/admin/deposit" label="Send" icon={<MoneySend size={24} variant="Bold"/>} onClick={toggleClicked}/>
                     <SidebarLinks route="/admin/members" label="Users" icon={<ProfileCircle size={24} variant="Bold"/>} onClick={toggleClicked}/>
                     {role === "super_admin" && <>
                     <SidebarLinks route="/admin/sendbonus" label="Send Bonus" icon={<MoneyTick size={24} variant="Bold"/>} onClick={toggleClicked}/>
                     <SidebarLinks route="/admin/sendpenalty" label="Send Penalty" icon={<MoneyRemove size={24} variant="Bold"/>} />
                     </>
                     }
-                    <SidebarLinks route="/admin/withdrawal" label="Withdrawal" icon={<MoneySend size={24} variant="Bold"/>} />
+                    <SidebarLinks route="/admin/receive" label="Receive" icon={<MoneyRecive size={24} variant="Bold"/>} />
                     {role === "super_admin" && <>
                     <SidebarLinks route="/admin/suspend" label="Suspend Users" icon={<UserRemove size={24} variant="Bold"/>} />
                     <SidebarLinks route="/admin/adminwallet" label="Utilities" icon={<WalletCheck size={24} variant="Bold"/>} />

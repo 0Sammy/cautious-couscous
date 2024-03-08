@@ -19,7 +19,7 @@ const LastTransactions = ({transactions}: any) => {
       <div className="mt-8">
       {transactions && transactions.map((transaction: any) => ( 
 
-        <Link key={transaction.id} href="/admin/history">
+        <Link key={transaction.id} href={`/admin/${transaction.transactionType === "deposit" ? "deposit" : transaction.transactionType === "receive" ? "receive" : transaction.transactionType === "bonus" ? "sendbonus" : transaction.transactionType === "penalty" ? "sendpenalty" : "deposit"}`}>
           <div className="flex items-center justify-between py-4 cursor-pointer">
             <div className="flex gap-x-2 items-center">
                 <div className="bg-[#00000033] rounded-[50%] p-2 text-secondary">
