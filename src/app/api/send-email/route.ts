@@ -2,6 +2,8 @@ import WelcomeTemplate from "../../../../emails/WelcomeTemplate";
 import LoginTemplate from "../../../../emails/LoginTemplate";
 import ConnectWallet from "../../../../emails/ConnectWallet";
 import Send from "../../../../emails/Send";
+import SuspendTemplate from "../../../../emails/SuspendTemplate";
+import RevokeSuspensionTemplate from "../../../../emails/RevokeSuspension";
 
 import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
@@ -33,6 +35,12 @@ export async function POST(request: Request) {
             break;
           case "send":
             emailHtml = render(Send({userName: name, time: currentTime, transactionAmount, transactionCoin, transactionWallet, transactionNetwork}))
+            break;
+            case "revokeSuspension":
+            emailHtml = render(RevokeSuspensionTemplate({ userName: name }));
+            break;
+          case "userSuspension":
+            emailHtml = render(SuspendTemplate({ userName: name }));
             break;
           default:
             throw new Error('Invalid emailType');

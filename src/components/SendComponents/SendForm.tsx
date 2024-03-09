@@ -14,6 +14,7 @@ import SendPopup from "./SendPopup";
 
 
 const SendForm = ({ email, name, message, id }: string | any) => {
+  
   const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
   const { coin } = useSelectionStore();
   const [sendingCoin, setSendingCoin] = useState<string>("")
