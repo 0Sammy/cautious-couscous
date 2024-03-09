@@ -43,6 +43,7 @@ export async function POST(request: Request) {
         issuedCountry: country, 
         mobileNumber, 
         userId: customUserId,
+        depositMessage: "",
         transactions,
       },
     });
