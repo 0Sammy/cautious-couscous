@@ -6,35 +6,55 @@ import { redirect } from 'next/navigation'
 
 type deleteProps = {
     userEmail: string
+    id: string
 }
-const DeleteButton = ({userEmail} :deleteProps) => {
+const DeleteButton = ({userEmail, id} :deleteProps) => {
 
     const [deleted, setDeleted] = useState<boolean>(false)
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
-        toast.info("Deleting User")
+        toast.info("Deleting Clients Transactions")
         
-        const formData = { email: userEmail };
+        const formData = { id }
+        const formData1 = { email: userEmail };
 
-        makeApiRequest("/adminDeleteUser", "post", formData, {
-            onSuccess: () => {
-              // Handle success
-              toast.success("Client was deleted successfully.")
-              setDeleted(true)
-            },
-            onError: (error: any) => {
-              // Handle error
-              if (error.message === "Missing Fields") {
-                toast.error("Missing fields, contact the developer.")
-              }
-              toast.error("Unable to delete user now, please try again later.")
-              setDeleted(true)
-            },
-          });
+        makeApiRequest("/adminDeleteAllTransaction", "post", formData, {
+
+
+          onSuccess: () => {
+            // Handle success
+            toast.success("Client's transactions was deleted successfully.")
+
+            makeApiRequest("/adminDeleteUser", "post", formData1, {
+              onSuccess: () => {
+                // Handle success
+                toast.success("Client was deleted successfully.")
+                setDeleted(true)
+              },
+              onError: (error: any) => {
+                // Handle error
+                if (error.message === "Missing Fields") {
+                  toast.error("Missing fields, contact the developer.")
+                }
+                toast.error("Unable to delete user now, please try again later.")
+                setDeleted(true)
+              },
+            });
+            
+          },
+          onError: (error: any) => {
+            // Handle error
+            if (error.message === "Missing Fields") {
+              toast.error("Missing fields, contact the developer.")
+            }
+            toast.error("Unable to delete clients transactions now, please try again later.")
+          },
+        });
+
     }
 
-    deleted && redirect(`/admin/users`)
+    deleted && redirect(`/admin/members`)
 
     return ( 
         <main>

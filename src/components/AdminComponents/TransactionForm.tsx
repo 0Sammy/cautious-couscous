@@ -64,7 +64,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
     
         const formData = { amount, coin, network, transactionType,  userId, doneByAdmin, adminEmail: loggedInEmail, status, receivingAddress: enteredAddress };
         
-        console.log({ formData });
+        //console.log({ formData });
         makeApiRequest("/send", "post", formData, {
           
           onSuccess: () => {

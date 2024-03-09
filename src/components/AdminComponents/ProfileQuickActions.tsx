@@ -15,8 +15,9 @@ type profileActionsProps = {
     email: string
     isSuspended: boolean
     name: string
+    userId: string
 }
-const ProfileQuickActions = ({email, isSuspended, name}: profileActionsProps) => {
+const ProfileQuickActions = ({email, isSuspended, name, userId}: profileActionsProps) => {
 
     const [loading, setLoading] = useState<boolean>(false)
     const [newMessage, setNewMessage] = useState<string>("")
@@ -27,7 +28,7 @@ const ProfileQuickActions = ({email, isSuspended, name}: profileActionsProps) =>
         event.preventDefault();
         setLoading(true);
         const formData = {email, currentUpdate: newMessage}
-        console.log({formData})
+        //console.log({formData})
 
         makeApiRequest("/adminEditMessage", "post", formData, {
       
@@ -51,7 +52,7 @@ const ProfileQuickActions = ({email, isSuspended, name}: profileActionsProps) =>
             <p className="font-semibold text-[#141619] my-4">Quick Actions</p>
             <div className="flex justify-between">
                <SuspendButton userEmail={email} userSuspended={isSuspended} name={name} />
-                <DeleteButton userEmail={email}/> 
+                <DeleteButton userEmail={email} id={userId}/> 
             </div>
             <div className="mt-6">
                 <form onSubmit={onSubmit}> 

@@ -149,7 +149,7 @@ const page = async ({ params }: { params: { id: string } }) => {
                     </div>
                 </div>
                 <UsersAccountSummary transactions={userTransaction}/>
-                <ProfileQuickActions email={currentUser?.email ?? ""} isSuspended={currentUser?.isSuspended ?? false} name={`${currentUser?.firstName} ${currentUser?.lastName}`}/>
+                <ProfileQuickActions email={currentUser?.email ?? ""} isSuspended={currentUser?.isSuspended ?? false} name={`${currentUser?.firstName} ${currentUser?.lastName}`} userId={currentUser?.id ?? ""}/>
             </div>
         </main>
      );

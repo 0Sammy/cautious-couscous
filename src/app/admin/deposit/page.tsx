@@ -5,7 +5,7 @@ import getTransactions from "@/actions/getAllTransactions";
 import AllDeposits from "@/components/AdminComponents/AllDeposits";
 import AdminHeader from "@/components/molecules/AdminHeader";
 
-
+export const revalidate = 1;
 const page = async () => {
 
     const transactions = await getTransactions();
