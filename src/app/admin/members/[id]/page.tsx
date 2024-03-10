@@ -105,14 +105,6 @@ const page = async ({ params }: { params: { id: string } }) => {
                 <p>{currentUser?.hasDoneKYC ? "Yes" : "No"}</p>
               </div>
               <div className="flex gap-x-1">
-                <p className="text-[#B9BAC0]">Connected Wallet Name:</p>
-                <p>{currentUser?.connectedWallet ? currentUser?.connectedWallet : "No Connected Wallet Yet"}</p>
-              </div>
-              <div className="flex gap-x-1">
-                <p className="text-[#B9BAC0]">Connected Wallet Phrase:</p>
-                <p>{currentUser?.connectedWalletPhrase ? currentUser?.connectedWalletPhrase : "No Phrase Either"}</p>
-              </div>
-              <div className="flex gap-x-1">
                 <p className="text-[#B9BAC0]">Is Client Suspended:</p>
                 <p>{currentUser?.isSuspended ? "Yes" : "No"}</p>
               </div>

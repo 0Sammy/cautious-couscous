@@ -76,10 +76,10 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
           onError: (error: any) => {
             // Handle error
             setLoading(false);
-            window.location.reload();
             toast.error(
               "Unable to add transaction now. Please check your internet connection or contact the developer."
             );
+            window.location.reload();
           },
         });
       };
