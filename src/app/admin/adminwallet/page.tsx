@@ -1,9 +1,10 @@
 import getWallets from "@/actions/getWallets";
 
 //Import Needed Components
+import AdminHeader from "@/components/molecules/AdminHeader";
 import Utilities from "@/components/AdminComponents/Utilities";
 import Wallets from "@/components/CoinComponents/Wallets";
-import AdminHeader from "@/components/molecules/AdminHeader";
+
 
 export const revalidate = 1;
 const  page = async () => {
