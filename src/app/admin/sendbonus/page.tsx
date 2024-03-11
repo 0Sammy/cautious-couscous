@@ -1,7 +1,5 @@
 import getTransactions from "@/actions/getAllTransactions";
 
-
-
 //Import Needed Components
 import AdminHeader from "@/components/molecules/AdminHeader";
 import AllBonus from "@/components/AdminComponents/AllBonus";
