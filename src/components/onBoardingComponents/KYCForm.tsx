@@ -96,7 +96,7 @@ const KYCForm = () => {
                 <IdSelect />
                 <div className="flex flex-col gap-y-2 mt-3">
                     <Input type="text" placeholder="Enter your ID Number" label="ID Number" id="idNumber" value={idNumber} onChange={(e) => { updateIdNumber(e.target.value) }} />
-                    <div className="flex flex-col gap-y-1">
+                    <div className="flex flex-col gap-y-1 mt-2">
                         <label className="text-xs sm:text-sm xl:text-base cursor-pointer" htmlFor="expiry">Date of Expiry</label>
                         <input type="date" name="expiry" id="expiry" value={dateOfExpiry} className="w-full border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none" onChange={(e: any) => updateDateOfExpiry(e.target.value)}/>
                     </div>

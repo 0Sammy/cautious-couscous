@@ -19,7 +19,7 @@ const DepositDropDown = () => {
           <option value="">Select the transaction</option>
           {options.map((option, index) : any => (
             <option key={index} value={option}>
-              {option}
+              {option === "deposit" ? "send" : option}
             </option>
           ))}
         </select>
