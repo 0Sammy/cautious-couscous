@@ -88,7 +88,7 @@ const AllPenalty = ({penalties}: any) => {
                 </div>
             </div>
             <div className="my-4 flex justify-end ">
-               <Link href="/admin/create" className="bg-orange-600 text-white px-4 md:px-6 xl:px-8 py-3 rounded-md hover:bg-orange-800 duration-300">New Bonus</Link> 
+               <Link href="/admin/create" className="bg-fuchsia-600 text-white px-4 md:px-6 xl:px-8 py-3 rounded-md hover:bg-fuchsia-800 duration-300">New Penalty</Link> 
             </div>
         
             <div className="h-1/2 overflow-y-auto px-4 md:px-6 xl:px-8 py-4 special">

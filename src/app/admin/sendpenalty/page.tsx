@@ -14,7 +14,10 @@ const page = async () => {
 
     return ( 
         <main>
-            <AllPenalty penalties={penaltyTransactions}/>
+            <AdminHeader page="Administration Penalty"/>
+            <div className="px-2 sm:px-4 md:px-6 xl:px-8 py-4">
+                <AllPenalty penalties={penaltyTransactions}/>
+            </div>
         </main>
      );
 }
