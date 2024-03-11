@@ -19,6 +19,7 @@ const page = async ({ params }: { params: { id: string } }) => {
     const userId = params.id;
     const currentUser = await getIndividualUser(userId);
     const userTransaction = await getIndividualUserTransaction(userId);
+    const proccessedTransactions = userTransaction.filter((transaction) => transaction.status === 'successful')
     //console.log({userTransaction})
 
     return ( 
@@ -140,7 +141,7 @@ const page = async ({ params }: { params: { id: string } }) => {
             </div>
                     </div>
                 </div>
-                <UsersAccountSummary transactions={userTransaction}/>
+                <UsersAccountSummary transactions={proccessedTransactions}/>
                 <ProfileQuickActions email={currentUser?.email ?? ""} isSuspended={currentUser?.isSuspended ?? false} name={`${currentUser?.firstName} ${currentUser?.lastName}`} userId={currentUser?.id ?? ""}/>
             </div>
         </main>
