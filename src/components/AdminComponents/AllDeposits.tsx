@@ -69,7 +69,7 @@ const AllDeposits = ({deposits}: any) => {
                                </div>
                            </Link>
                            <div className="relative flex gap-x-2 items-center">
-                               <p className="text-[#FF5964] text-xs md:text-sm xl:text-base font-medium">{pending.amount}</p> 
+                               <p className="text-[#FF5964] text-xs md:text-sm xl:text-base font-medium">-{pending.amount}</p> 
                                <p className="bg-[#FEF6E7] text-[#DF930E] rounded-2xl px-2 py-0.5  text-[8px] md:text-[10px] xl:text-[12px] font-medium capitalize">{pending.status}</p>
                                <More size="24" className="text-black cursor-pointer"  onClick={() => toggleMenu(pending.id)}/>
                                {expandedItem === pending.id && ( 
@@ -108,7 +108,7 @@ const AllDeposits = ({deposits}: any) => {
                                    </div>
                                 </div>
                                 <div className="flex gap-x-2 items-center">
-                                    <p className={`${processed.status === "successful" ? "text-[#20BF55]" : "text-[#FF5964]"} text-xs md:text-sm xl:text-base font-medium`}>{processed.amount}</p> 
+                                    <p className={`${processed.status === "successful" ? "text-[#20BF55]" : "text-[#FF5964]"} text-xs md:text-sm xl:text-base font-medium`}>-{processed.amount}</p> 
                                     <p className={`capitalize ${processed.status === "successful" ? "bg-green-600 bg-opacity-20 text-[#20BF55]" : "bg-red-600 bg-opacity-20 text-red-800"} rounded-2xl px-2 py-0.5  text-[8px] md:text-[10px] xl:text-[12px] font-medium`}>{processed.status}</p>
                                 </div>
                             </div>
