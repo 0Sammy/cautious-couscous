@@ -90,7 +90,7 @@ const page = async ({ params }: { params: { id: string } }) => {
                     </div>}
                     <div className="flex justify-between items-center gap-x-5">
                         <p className="text-[#9EA0A3]">
-                          Who did it?
+                          Client&apos;s Name?
                         </p>
                         <p className="text-[#06121B] font-semibold capitalize">
                           {`${currentUser?.firstName} ${currentUser?.lastName}`}
