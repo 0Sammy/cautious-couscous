@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelectionStore } from "@/store/selection";
 import { redirect } from "next/navigation";
+import { usePriceStore } from "@/store/prices";
+import { useBalanceStore } from "@/store/balance";
 
 //Import Needed Components
 import Receive from "./Receive";
@@ -26,6 +28,9 @@ import { ArrowDown, Send } from "iconsax-react";
 
 const CoinOverview = () => {
 
+    const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
+    const {btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance} = useBalanceStore()
+
     const [isReceiveOpen, SetIsReceiveOpen] = useState<boolean>(false)
     const {coin} = useSelectionStore()
     //console.log({coin})
@@ -45,8 +50,8 @@ const CoinOverview = () => {
             <main className="bg-white rounded-tl-2xl rounded-tr-2xl p-4 shadow-xl">
                 <div className="flex flex-col items-center p-4">
                    <Image className="rounded-[50%] size-14" src={coin === "bitcoin" ? bitcoinLogo : coin === "ethereum" ? ethLogo : coin === "binance" ? bnbLogo : coin === "tron" ? tronLogo : coin.includes("usdt") ? usdtLogo : coin === "ada" ? cardanoLogo : coin === "solana" ? solanaLogo : coin === "lite" ? litecoinLogo : coin === "doge" ? dogeLogo : bitcoinLogo} alt="Icon" />
-                    <p className="mt-2 uppercase text-xl md:text-2xl font-semibold">0.00 {coin === "bitcoin" ? "BTC" : coin === "ethereum" ? "ETH" : coin === "binance" ? "BNB" : coin === "tron" ? "TRX" : coin === "usdtt" ? "usdt (trc20)" : coin === "usdte" ? "usdt (erc20)" : coin === "ada" ? "ada" : coin === "solana" ? "SOL" : coin === "lite" ? "LTC" : coin === "doge" ? "DOGE" : "coin"}</p>
-                    <p className="text-base md:text-lg font-medium">$0.00</p> 
+                    <p className="mt-2 uppercase text-xl md:text-2xl font-semibold">{coin === "bitcoin" ? (btcBalance.toFixed(2)) : coin === "ethereum" ? (ethBalance.toFixed(2)) : coin === "binance" ? (binanceBalance.toFixed(2)) : coin === "tron" ? (tronBalance.toFixed(2)) : coin === "usdtt" ? (usdttBalance.toFixed(2)) : coin === "usdte" ? (usdteBalance.toFixed(2)) : coin === "ada" ? (adaBalance.toFixed(2)) : coin === "solana" ? (solBalance.toFixed(2)) : coin === "lite" ? (liteBalance.toFixed(2)) : coin === "doge" ? (dogeBalance.toFixed(2)) : 0.00} {coin === "bitcoin" ? "BTC" : coin === "ethereum" ? "ETH" : coin === "binance" ? "BNB" : coin === "tron" ? "TRX" : coin === "usdtt" ? "usdt (trc20)" : coin === "usdte" ? "usdt (erc20)" : coin === "ada" ? "ada" : coin === "solana" ? "SOL" : coin === "lite" ? "LTC" : coin === "doge" ? "DOGE" : "coin"}</p>
+                    <p className="text-base md:text-lg font-medium">${coin === "bitcoin" ? (btcBalance * btcPrice).toLocaleString() : coin === "ethereum" ? (ethBalance * ethPrice).toLocaleString() : coin === "binance" ? (binanceBalance * bnbPrice).toLocaleString() : coin === "tron" ? (tronBalance * trxPrice).toLocaleString() : coin === "usdtt" ? (usdttBalance * usdtPrice).toLocaleString() : coin === "usdte" ? (usdteBalance * usdtPrice).toLocaleString() : coin === "ada" ? (adaBalance * adaPrice).toLocaleString() : coin === "solana" ? (solBalance * solPrice).toLocaleString() : coin === "lite" ? (liteBalance * ltcPrice).toLocaleString() : coin === "doge" ? (dogeBalance * dogePrice).toLocaleString() : 0.00}</p> 
                 </div>
 
                 <div className="flex border-t border-slate-200 p-4 mt-4 text-xs md:text-sm xl:text-base">
