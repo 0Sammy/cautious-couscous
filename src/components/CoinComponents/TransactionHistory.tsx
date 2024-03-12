@@ -1,7 +1,7 @@
 "use client";
 import { formatDate } from "@/lib/dateTimeUtils";
 import { useSelectionStore } from "@/store/selection";
-
+import Link from "next/link";
 
 //Import Needed Icons
 import {
@@ -15,6 +15,7 @@ import {
   Solana,
   Coin1,
 } from "iconsax-react";
+
 
 const TransactionHistory = ({transactions}: any) => {
 
@@ -56,7 +57,7 @@ const TransactionHistory = ({transactions}: any) => {
       <div className="flex flex-col gap-y-1 mt-6">
       {currentTransaction && currentTransaction.map((transaction: any) => ( 
 
-          <div key={transaction.id} className="flex items-center justify-between py-4 cursor-pointer hover:bg-[#FAFAFA] duration-300 p-1 rounded-lg">
+          <Link href={`/user/history/${transaction.id}`} key={transaction.id} className="flex items-center justify-between py-4 cursor-pointer hover:bg-[#FAFAFA] duration-300 p-1 rounded-lg">
           <div className="flex gap-x-1 items-center">
             <div className="bg-[#EBEBF599] rounded-[50%] p-2">
               {coin === "bitcoin" ? (
@@ -104,7 +105,7 @@ const TransactionHistory = ({transactions}: any) => {
               {transaction.status}
               </p>
           </div>
-          </div>
+          </Link>
 
       ))}
         

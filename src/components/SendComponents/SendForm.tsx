@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { makeApiRequest } from "@/lib/apiUtils";
 import { toast } from "sonner";
 import { usePriceStore } from "@/store/prices";
+import { useBalanceStore } from "@/store/balance";
 
 
 //Import Needed Components
@@ -16,6 +17,8 @@ import SendPopup from "./SendPopup";
 const SendForm = ({ email, name, message, id }: string | any) => {
   
   const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
+  const {btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance} = useBalanceStore()
+
   const { coin } = useSelectionStore();
   const [sendingCoin, setSendingCoin] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false);
@@ -91,6 +94,58 @@ const SendForm = ({ email, name, message, id }: string | any) => {
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
     setLoading(true);
+    //Check if the user has such amount
+    if ( coin === "bitcoin" && enteredAmount > btcBalance) {
+       toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${btcBalance}.`)
+       setEnteredAmount(btcBalance)
+       setLoading(false)
+       return
+    } else if (coin === "ethereum" && enteredAmount > ethBalance){
+      toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${ethBalance}.`)
+      setEnteredAmount(ethBalance)
+      setLoading(false)
+      return
+    } else if (coin === "binance" && enteredAmount > binanceBalance){
+      toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${binanceBalance}.`)
+      setEnteredAmount(binanceBalance)
+      setLoading(false)
+      return
+    } else if (coin === "tron" && enteredAmount > tronBalance){
+      toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${tronBalance}.`)
+      setEnteredAmount(tronBalance)
+      setLoading(false)
+      return
+    } else if (coin === "usdtt" && enteredAmount > usdttBalance){
+      toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${usdttBalance}.`)
+      setEnteredAmount(usdttBalance)
+      setLoading(false)
+      return
+    }else if (coin === "usdte" && enteredAmount > usdteBalance){
+      toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${usdteBalance}.`)
+      setEnteredAmount(usdteBalance)
+      setLoading(false)
+      return
+    }else if (coin === "ada" && enteredAmount > adaBalance){
+      toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${adaBalance}.`)
+      setEnteredAmount(adaBalance)
+      setLoading(false)
+      return
+    } else if (coin === "solana" && enteredAmount > solBalance){
+      toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${solBalance}.`)
+      setEnteredAmount(solBalance)
+      setLoading(false)
+      return
+    } else if (coin === "lite" && enteredAmount > liteBalance){
+      toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${liteBalance}.`)
+      setEnteredAmount(liteBalance)
+      setLoading(false)
+      return
+    } else if (coin === "doge" && enteredAmount > dogeBalance){
+      toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${dogeBalance}.`)
+      setEnteredAmount(dogeBalance)
+      setLoading(false)
+      return
+    }
 
     //Get the currenTime
     const currentDate = new Date();
@@ -293,7 +348,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
             />
           </div>
           <p className="mt-6 text-green-600">
-            You will receive{" "}
+            The recipient will receive{" "}
             {enteredAmount && `$${(enteredAmount * rate).toLocaleString()}`}
           </p>
           <div className="mt-6">
