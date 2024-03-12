@@ -1,5 +1,7 @@
 "use client"
 import { useSelectionStore } from "@/store/selection";
+import { usePriceStore } from "@/store/prices";
+import { useBalanceStore } from "@/store/balance";
 
 //Import Needed Components
 import OverviewCard from "./OverviewCard";
@@ -19,38 +21,40 @@ import dogeLogo from "../../../public/Images/doge.png";
 const OverviewCardCompiled = () => {
     
     const {updateCoin} = useSelectionStore()
+    const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
+    const {btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance} = useBalanceStore()
 
     return ( 
         <main className="flex flex-col gap-y-5">
             <div onClick={() => updateCoin("bitcoin")}>
-                <OverviewCard  coinName={"bitcoin"} balance= {"10,000"} imgSrc={bitcoinLogo} />    
+                <OverviewCard  coinName={"bitcoin"} balance= {(btcBalance * btcPrice).toLocaleString()} imgSrc={bitcoinLogo} />    
             </div>
             <div onClick={() => updateCoin("ethereum")}>
-                <OverviewCard  coinName={"ethereum"} balance= {"10,000"} imgSrc={ethLogo} />
+                <OverviewCard  coinName={"ethereum"} balance= {(ethBalance * ethPrice).toLocaleString()} imgSrc={ethLogo} />
             </div>
             <div onClick={() => updateCoin("binance")}>
-                <OverviewCard  coinName={"bnb smart"} balance= {"10,000"} imgSrc={bnbLogo} />
+                <OverviewCard  coinName={"bnb smart"} balance= {(binanceBalance * bnbPrice).toLocaleString()} imgSrc={bnbLogo} />
             </div>
             <div onClick={() => updateCoin("tron")}>
-                <OverviewCard  coinName={"tron"} balance= {"10,000"} imgSrc={tronLogo} />
+                <OverviewCard  coinName={"tron"} balance= {(tronBalance * trxPrice).toLocaleString()} imgSrc={tronLogo} />
             </div>
             <div onClick={() => updateCoin("usdtt")}>
-                <OverviewCard  coinName={"usdt (trc20)"} balance= {"10,000"} imgSrc={usdtLogo} />
+                <OverviewCard  coinName={"usdt (trc20)"} balance= {(usdttBalance * usdtPrice).toLocaleString()} imgSrc={usdtLogo} />
             </div>
             <div onClick={() => updateCoin("usdte")}>
-                <OverviewCard  coinName={"usdt (erc20)"} balance= {"10,000"} imgSrc={usdtLogo} />
+                <OverviewCard  coinName={"usdt (erc20)"} balance= {(usdteBalance * usdtPrice).toLocaleString()} imgSrc={usdtLogo} />
             </div>
             <div onClick={() => updateCoin("ada")}>
-                <OverviewCard  coinName={"Cardano"} balance= {"10,000"} imgSrc={cardanoLogo} />
+                <OverviewCard  coinName={"Cardano"} balance= {(adaBalance * adaPrice).toLocaleString()} imgSrc={cardanoLogo} />
             </div>
             <div onClick={() => updateCoin("solana")}>
-                <OverviewCard  coinName={"Solana"} balance= {"10,000"} imgSrc={solanaLogo} />
+                <OverviewCard  coinName={"Solana"} balance= {(solBalance * solPrice).toLocaleString()} imgSrc={solanaLogo} />
             </div>
             <div onClick={() => updateCoin("lite")}>
-                <OverviewCard  coinName={"Litecoin"} balance= {"10,000"} imgSrc={litecoinLogo} />
+                <OverviewCard  coinName={"Litecoin"} balance= {(liteBalance * ltcPrice).toLocaleString()} imgSrc={litecoinLogo} />
             </div>
             <div onClick={() => updateCoin("doge")}>
-                <OverviewCard  coinName={"Doge coin"} balance= {"10,000"} imgSrc={dogeLogo} />
+                <OverviewCard  coinName={"Doge coin"} balance= {(dogeBalance * dogePrice).toLocaleString()} imgSrc={dogeLogo} />
             </div>
         </main>
      );

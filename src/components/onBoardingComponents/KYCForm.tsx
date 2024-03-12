@@ -49,6 +49,7 @@ const KYCForm = () => {
 
     event.preventDefault();
     setLoading(true);
+    
     const formData = { email: userEmail, idType, idNumber, dateOfExpiry, idCardBackImgSrc, idCardFrontImgSrc}
     //console.log({formData})
     makeApiRequest("/kyc", "post", formData, {

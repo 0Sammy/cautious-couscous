@@ -16,11 +16,11 @@ const Card = ({coinName, balance, amount, coinShortForm, imgSrc, currentPrice, c
             <Link href="/user/coin" className="flex flex-col gap-y-1">
                 <div className="flex justify-between items-center">
                     <p className="uppercase">{coinName}</p>
-                    <p>${balance}.00</p>
+                    <p>${balance}</p>
                 </div>
                 <div className="flex justify-between">
                     <Image src={imgSrc} alt={`${coinName} icon`} className="size-10"/>
-                    <p>{amount}.00 <span className="uppercase">{coinShortForm}</span></p>
+                    <p>{amount} <span className="uppercase">{coinShortForm}</span></p>
                 </div>
                 <div className="flex gap-x-5">
                     <p>${currentPrice.toLocaleString()}.00</p>

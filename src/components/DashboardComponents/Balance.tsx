@@ -1,16 +1,40 @@
+"use client"
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useBalanceStore } from "@/store/balance";
+import { usePriceStore } from "@/store/prices";
 
 //Import Needed Icons
 import { Wallet3 } from "iconsax-react";
 
 
 const Balance = () => {
+
+    const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
+    const {btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance} = useBalanceStore()
+    const [total, setTotal] = useState<number>(0)
+    useEffect(() => {
+        const btcTotal = btcBalance * btcPrice
+        const ethTotal = ethBalance * ethPrice
+        const bnbTotal = binanceBalance * bnbPrice
+        const tronTotal =  tronBalance * trxPrice
+        const usdttTotal= usdttBalance * usdtPrice
+        const usdteTotal = usdteBalance * usdtPrice
+        const adaTotal = adaBalance * adaPrice
+        const solTotal = solBalance * solPrice
+        const liteTotal =  liteBalance * ltcPrice
+        const dogeTotal = dogeBalance * dogePrice
+        
+        const total = (btcTotal + ethTotal + bnbTotal + tronTotal + usdttTotal + usdteTotal + adaTotal + solTotal + liteTotal + dogeTotal)
+        setTotal(total)
+
+    },[adaBalance, adaPrice, binanceBalance, bnbPrice, btcBalance, btcPrice, dogeBalance, dogePrice, ethBalance, ethPrice, liteBalance, ltcPrice, solBalance, solPrice, tronBalance, trxPrice, usdtPrice, usdteBalance, usdttBalance])
     return ( 
         <main className="bg-[#160959] rounded-2xl p-4 md:p-6 xl:p-8 flex flex-col gap-y-10 text-white shadow-xl">
             <div className="flex items-center justify-between">
                 <div className="flex flex-col gap-y-1">
                    <p className="text-xs md:text-sm xl:text-base">Total Balance</p>
-                   <p className="text-lg md:text-xl xl:text-2xl font-semibold">$0.00</p> 
+                   <p className="text-lg md:text-xl xl:text-2xl font-semibold">${(total).toLocaleString()}</p> 
                 </div>
                 <Wallet3 size="30" variant="Bold"/>
             </div>
