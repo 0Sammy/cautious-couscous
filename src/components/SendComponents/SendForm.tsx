@@ -265,7 +265,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
             : "coin"}{" "}
           TO ANY WALLET.
         </p>
-        <div className="bg-[#F0F0F0] px-2 md:px-4 xl:px-6 rounded-md py-3 mt-2">
+        <div className="px-2 md:px-4 xl:px-6 rounded-md py-3 mt-2">
           <p className="uppercase">
             {coin === "bitcoin"
               ? "BITCOIN"
@@ -322,6 +322,8 @@ const SendForm = ({ email, name, message, id }: string | any) => {
                   : "coin"
               } value`}
               type="number"
+              pattern="\d+" 
+              title="Please enter a positive number"
               placeholder={`Enter Amount In ${
                 coin === "bitcoin"
                   ? "BITCOIN"
@@ -391,7 +393,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
               onChange={(e: any) => setNetwork(e.target.value)}
               name="network"
               id="network"
-              className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none"
+              className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none bg-white"
             >
               <option
                 value={

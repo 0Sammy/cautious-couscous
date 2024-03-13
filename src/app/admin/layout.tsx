@@ -26,7 +26,7 @@ export default async function UserLayout({
 
     <section>
       <AdminSidebar role={currentAdmin?.role}/>
-            <div className="mainWidth">
+            <div className="mainWidth bg-[#121212] text-[#B3B3B3]">
                 {children}
             </div>
         <Toaster richColors position="top-center" closeButton />

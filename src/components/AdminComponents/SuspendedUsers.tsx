@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const SuspendedUsers = ({suspendedUsers}: any) => {
     return ( 
-        <main className="border border-[#7676801F] rounded-xl p-4">
+        <main className="border border-[#EEEEEE] rounded-xl p-4 h-screen">
             <p className="text-xs md:text-sm xl:text-base text-secondary font-bold">All Suspended Clients</p>
             <div className="flex flex-col gap-y-2 mt-8">
             {suspendedUsers &&

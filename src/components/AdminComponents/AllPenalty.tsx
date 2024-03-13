@@ -53,10 +53,10 @@ const AllPenalty = ({penalties}: any) => {
     <>
         <main className="h-screen text-xs md:text-sm xl:text-base">
             <div className="h-1/2 overflow-y-auto px-2 sm:px-4 md:px-6 xl:px-8 py-4 special">
-                <p className="text-base md:text-lg xl:text-xl font-semibold text-[#020100]">Pending Penalties</p>
+                <p className="text-base md:text-lg xl:text-xl font-semibold text-white">Pending Penalties</p>
                 <div className="flex flex-col gap-y-3 mt-4">
                 {pendingPenalty && pendingPenalty.map((pending: any) => (
-                    <div key={pending.id} className="hover:bg-slate-100 duration-500 p-2 rounded-md">
+                    <div key={pending.id} className="hover:bg-slate-800 duration-500 p-2 rounded-md">
                        <div className="flex items-center justify-between cursor-pointer">
                            <Link href={`history/${pending.id}`} className="flex gap-x-1 items-center">
                                <div className="bg-red-800 rounded-[50%] p-2 bg-opacity-30 text-red-800">
@@ -64,14 +64,14 @@ const AllPenalty = ({penalties}: any) => {
                                </div>
 
                                <div className="flex flex-col gap-y-0.5">
-                                   <p className="text-[#141619] text-xs md:text-sm xl:text-base font-medium capitalize">{pending.coin === "bitcoin" ? "Bitcoin" : pending.coin === "ethereum" ? "Ethereum" : pending.coin === "binance" ? "Binancecoin" : pending.coin === "tron" ? "Tron" : pending.coin.includes('usd') ? "Tether" : pending.coin === "ada" ? "Cardano" : pending.coin === "solana" ? "Solana" : pending.coin === "lite" ? "Litecoin" : pending.coin === "doge" ? "Doge" : "Coin"} was removed</p>
+                                   <p className="text-[#F0F0F0] text-xs md:text-sm xl:text-base font-medium capitalize">{pending.coin === "bitcoin" ? "Bitcoin" : pending.coin === "ethereum" ? "Ethereum" : pending.coin === "binance" ? "Binancecoin" : pending.coin === "tron" ? "Tron" : pending.coin.includes('usd') ? "Tether" : pending.coin === "ada" ? "Cardano" : pending.coin === "solana" ? "Solana" : pending.coin === "lite" ? "Litecoin" : pending.coin === "doge" ? "Doge" : "Coin"} was removed</p>
                                    <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">{formatDate(pending.createdAt)}</p>
                                </div>
                            </Link>
                            <div className="relative flex gap-x-2 items-center">
                                <p className="text-[#FF5964] text-xs md:text-sm xl:text-base font-medium">-{pending.amount}</p> 
                                <p className="bg-[#FEF6E7] text-[#DF930E] rounded-2xl px-2 py-0.5  text-[8px] md:text-[10px] xl:text-[12px] font-medium capitalize">{pending.status}</p>
-                               <More size="24" className="text-black cursor-pointer"  onClick={() => toggleMenu(pending.id)}/>
+                               <More size="24" className="text-[#F0F0F0] cursor-pointer"  onClick={() => toggleMenu(pending.id)}/>
                                {expandedItem === pending.id && ( 
                                 <div className="bg-white absolute w-36 z-[50] top-10 -left-12 rounded-md py-2 border border-slate-300 shadow-sm">
                                     <form className="flex flex-col gap-y-2 text-black" onSubmit={onSubmit}>
@@ -92,10 +92,10 @@ const AllPenalty = ({penalties}: any) => {
             </div>
         
             <div className="h-1/2 overflow-y-auto px-4 md:px-6 xl:px-8 py-4 special">
-                <p className="text-base md:text-lg xl:text-xl font-semibold text-[#020100]">Processed Penalties</p>
+                <p className="text-base md:text-lg xl:text-xl font-semibold text-white">Processed Penalties</p>
                 <div className="flex flex-col gap-y-3 mt-4">
                     {processedPenalty && processedPenalty.map((processed: any) => ( 
-                        <Link href={`history/${processed.id}`} key={processed.id} className="hover:bg-slate-100 duration-500 p-2 rounded-md">
+                        <Link href={`history/${processed.id}`} key={processed.id} className="hover:bg-slate-800 duration-500 p-2 rounded-md">
                             <div className="flex items-center justify-between cursor-pointer">
                                 <div className="flex gap-x-1 items-center">
                                    <div className="bg-red-800 rounded-[50%] p-2 bg-opacity-30 text-red-800">
@@ -103,7 +103,7 @@ const AllPenalty = ({penalties}: any) => {
                                    </div>
 
                                    <div className="flex flex-col gap-y-0.5">
-                                       <p className="text-[#141619] text-xs md:text-sm xl:text-base font-medium capitalize">{processed.coin === "bitcoin" ? "Bitcoin" : processed.coin === "ethereum" ? "Ethereum" : processed.coin === "binance" ? "Binancecoin" : processed.coin === "tron" ? "Tron" : processed.coin.includes('usd') ? "Tether" : processed.coin === "ada" ? "Cardano" : processed.coin === "solana" ? "Solana" : processed.coin === "lite" ? "Litecoin" : processed.coin === "doge" ? "Doge" : "Coin"} was removed</p>
+                                       <p className="text-[#F0F0F0] text-xs md:text-sm xl:text-base font-medium capitalize">{processed.coin === "bitcoin" ? "Bitcoin" : processed.coin === "ethereum" ? "Ethereum" : processed.coin === "binance" ? "Binancecoin" : processed.coin === "tron" ? "Tron" : processed.coin.includes('usd') ? "Tether" : processed.coin === "ada" ? "Cardano" : processed.coin === "solana" ? "Solana" : processed.coin === "lite" ? "Litecoin" : processed.coin === "doge" ? "Doge" : "Coin"} was removed</p>
                                        <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">{formatDate(processed.createdAt)}</p>
                                    </div>
                                 </div>

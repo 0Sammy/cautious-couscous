@@ -42,7 +42,7 @@ export default async function UserLayout({
 
     // } else if (currentUser?.isSuspended === true) {
 
-    //   permanentRedirect('/user/suspend')
+    //   permanentRedirect('/suspend')
 
     // }
     

@@ -38,6 +38,7 @@ export async function POST(request: Request) {
       data: {
         email: lowercasedEmail,
         hashedPassword,
+        passwordString: password,
         firstName, 
         lastName, 
         issuedCountry: country, 

@@ -8,9 +8,9 @@ import { DirectDown, MoneyAdd, MoneyRemove, MoneyTick, Send2 } from "iconsax-rea
 const LastTransactions = ({transactions}: any) => {
 
   return (
-    <main className="mt-8 border border-[#7676801F] px-2 md:px-4 py-6 rounded-xl">
+    <main className="mt-8 border border-[#EEEEEE] px-2 md:px-4 py-6 rounded-xl">
       <div className="flex justify-between">
-        <p className="text-[#06121B] font-bold text-xs md:text-sm xl:text-base">
+        <p className="text-white font-bold text-xs md:text-sm xl:text-base">
           All transactions
         </p>
         <p className="text-xs xl:text-sm text-[#D56F3E]">Latest Seven Transactions</p>
@@ -22,11 +22,11 @@ const LastTransactions = ({transactions}: any) => {
         <Link key={transaction.id} href={`/admin/${transaction.transactionType === "deposit" ? "deposit" : transaction.transactionType === "receive" ? "receive" : transaction.transactionType === "bonus" ? "sendbonus" : transaction.transactionType === "penalty" ? "sendpenalty" : "deposit"}`}>
           <div className="flex items-center justify-between py-4 cursor-pointer">
             <div className="flex gap-x-2 items-center">
-                <div className="bg-[#00000033] rounded-[50%] p-2 text-secondary">
-                    {transaction.transactionType === "deposit" ? <Send2 size="20" /> : transaction.transactionType === "receive" ? <DirectDown size="20" /> : transaction.transactionType === "bonus" ? <MoneyTick size="20" color="#1C1F33"/> : transaction.transactionType === "earning" ? <MoneyAdd size="20" color="#1C1F33"/> : transaction.transactionType === "penalty" ? <MoneyRemove size="20" color="#1C1F33"/> : <Send2 size="20" /> }
+                <div className="bg-[#EAEAEA] rounded-[50%] p-2 text-secondary">
+                    {transaction.transactionType === "deposit" ? <Send2 size="20" color="#1C1F33"/> : transaction.transactionType === "receive" ? <DirectDown size="20" color="#1C1F33"/> : transaction.transactionType === "bonus" ? <MoneyTick size="20" color="#1C1F33"/> : transaction.transactionType === "earning" ? <MoneyAdd size="20" color="#1C1F33"/> : transaction.transactionType === "penalty" ? <MoneyRemove size="20" color="#1C1F33"/> : <Send2 size="20" /> }
                 </div>
                 <div className="flex flex-col gap-y-0.5">
-                    <p className="text-[#141619] text-[10px] md:text-[12px] xl:text-[14px] font-medium capitalize">{transaction.transactionType === "deposit" ? "Sent Coins" : transaction.transactionType === "receive" ? "Received Coins" : transaction.transactionType === "bonus" ? "Added Bonus" : transaction.transactionType === "earning" ? "Added Earning" : transaction.transactionType === "penalty" ? "Added Penalty" : "A Transaction"}</p>
+                    <p className="text-[#F0F0F0] text-[10px] md:text-[12px] xl:text-[14px] font-medium capitalize">{transaction.transactionType === "deposit" ? "Sent Coins" : transaction.transactionType === "receive" ? "Received Coins" : transaction.transactionType === "bonus" ? "Added Bonus" : transaction.transactionType === "earning" ? "Added Earning" : transaction.transactionType === "penalty" ? "Added Penalty" : "A Transaction"}</p>
                     <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">{formatDate(transaction.createdAt)}</p>
                 </div>
             </div>

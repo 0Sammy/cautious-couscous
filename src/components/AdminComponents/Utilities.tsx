@@ -71,10 +71,10 @@ const Utilities = () => {
     }
     return ( 
         <main className="text-xs md:text-sm xl:text-base">
-            <div  className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-10 px-4 md:px-6 xl:px-8 py-4 border border-[#7676801F] rounded-xl">
-                <p className="font-semibold text-[#141619]">Utilities</p>
+            <div  className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-10 px-4 md:px-6 xl:px-8 py-4 border border-[#EEEEEE] rounded-xl">
+                <p className="font-semibold text-white">Utilities</p>
                 <div className="mt-10">
-                    <p className="text-sm md:text-base xl:text-lg font-semibold text-[#141619]">Current Wallets</p>
+                    <p className="text-sm md:text-base xl:text-lg font-semibold text-white">Current Wallets</p>
                     <div className="flex flex-col gap-y-4 mt-6">
                         <div className="flex gap-x-1 items-center">
                             <Bitcoin size="24" className=" shrink-0 text-[#F7931A]"/>
@@ -117,12 +117,12 @@ const Utilities = () => {
                             <p className="break-all">{solana}</p>
                         </div>   
                         <div className="flex flex-col gap-y-1">
-                            <p className="text-sm md:text-base xl:text-lg font-semibold text-[#141619]">Deposit Message</p>
+                            <p className="text-sm md:text-base xl:text-lg font-semibold text-white">Deposit Message</p>
                             <p>{depositMessage ? depositMessage : "There is no general deposit message"}</p>
                         </div>
                     </div>
                 </div>
-                <p className="text-sm md:text-base xl:text-lg font-semibold text-[#141619] mt-10">Update Wallets and Message</p>
+                <p className="text-sm md:text-base xl:text-lg font-semibold text-white mt-10">Update Wallets and Message</p>
                 <form onSubmit={onSubmit}>
                     <div className="flex flex-col gap-y-3 mt-4">
                         <WalletInput type="text" label="Enter your new BTC wallet" placeholder="Enter the new BTC wallet here" value={inputValues.btcWallet} id="btcWallet" onChange={handleInputChange}/>

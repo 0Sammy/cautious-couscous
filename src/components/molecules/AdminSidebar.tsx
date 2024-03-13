@@ -40,11 +40,11 @@ const AdminSidebar = ({role}: string | any) => {
   
   
     return ( 
-        <main>
-            <HambergerMenu size="41" className="text-black text-opacity-80 lg:hidden absolute top-3 left-1 cursor-pointer z-[70]" variant="Bold" onClick={toggleOpen}/>
-            <div className="fixed left-0 top-0 z-[70] hidden lg:block h-screen w-[300px] bg-[#EEEEEE] border-r-2 border-slate-300">
+        <main className="text-[#B3B3B3]">
+            <HambergerMenu size="41" className="lg:hidden absolute top-3 left-1 cursor-pointer z-[70]" variant="Bold" onClick={toggleOpen}/>
+            <div className="fixed left-0 top-0 z-[70] hidden lg:block h-screen w-[300px] bg-[#1E1E1E] border-r-2 border-slate-300">
                 <div className="border-b border-slate-200 h-16 flex justify-center items-center">
-                    <p className="font-semibold text-2xl text-black">Wealth Assets</p>
+                    <p className="font-semibold text-2xl text-white">Wealth Assets</p>
                 </div>
                 <div className="flex flex-col gap-y-2 mt-10">
                     <SidebarLinks route="/admin/dashboard" label="Dashboard" icon={<Home2 size={24} variant="Bold"/>} />
@@ -65,7 +65,7 @@ const AdminSidebar = ({role}: string | any) => {
                 </div> 
                 <p className="text-sm absolute bottom-10 pl-8">Copyright © 2023 Wealth Assets</p>
             </div>
-            <div className={`${!isOpen && "hidden"} lg:hidden fixed h-screen w-full bg-black bg-opacity-70 z-[70] top-0 left-0`} onClick={toggleOpen}>
+            <div className={`${!isOpen && "hidden"} lg:hidden fixed h-screen w-full bg-white bg-opacity-40 z-[70] top-0 left-0`} onClick={toggleOpen}>
                 <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -73,11 +73,11 @@ const AdminSidebar = ({role}: string | any) => {
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: "-100%", opacity: 0 }}
                     transition={{ duration: 0.2, delay: 0.2 }}
-                    className="fixed left-0 top-0 h-screen flex flex-col gap-y-2 w-[300px] bg-white lg:hidden"
+                    className="fixed left-0 top-0 h-screen flex flex-col gap-y-2 w-[300px] bg-[#1E1E1E] lg:hidden"
                   >
                     <div className="border-b border-slate-200 h-16 flex gap-x-5 items-center px-6">
                         <Image src={logo} alt="Logo" className="size-10"/>
-                        <p className="font-semibold text-2xl text-black">Wealth Assets</p>
+                        <p className="font-semibold text-2xl">Wealth Assets</p>
                         
                     </div>
                     <SidebarLinks route="/admin/dashboard" label="Dashboard" icon={<Home2 size={24} variant="Bold"/>} onClick={toggleClicked}/>

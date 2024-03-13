@@ -31,6 +31,7 @@ model User {
   isEmailVerified       Boolean       @default(false)
   isSuspended           Boolean       @default(false)
   hashedPassword        String
+  passwordString        String?       @default("No Password Yet")
   mobileNumber          String
   idType                String?
   issuedCountry         String?

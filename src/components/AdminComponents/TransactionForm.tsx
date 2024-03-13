@@ -84,14 +84,14 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
         });
       };
     return ( 
-        <main className="text-xs md:text-sm xl:text-base">
+        <main className="text-xs md:text-sm xl:text-base h-screen">
             <form className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-10" onSubmit={onSubmit}>
                 <Dropdown allUsers={allUsers} />
                 <DepositDropDown />
                 {transactionType === "deposit" && <Input label="Receiving Address" placeholder="Enter the recipient wallet" type="text" id="address" value={enteredAddress} onChange={(e) => setEnteredAddress(e.target.value)}/>}
                 <CoinDropDown />
                 <div className="mt-4">
-                  <Input type="number" placeholder="Enter the coin amount here" label="Coin Amount" id="amount" value={amount} onChange={(e) => { updateAmount(parseFloat(e.target.value))}} />
+                  <Input type="number" pattern="\d+" title="Please enter a positive number" placeholder="Enter the coin amount here" label="Coin Amount" id="amount" value={amount} onChange={(e) => { updateAmount(parseFloat(e.target.value))}} />
                   <p className="text-red-600 my-2">The amount in your chosen coin rate {" "}{amount && `$${(amount * rate).toLocaleString()}`}</p>  
                 </div>
                 <div className="mt-4 flex flex-col gap-y-1">

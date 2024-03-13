@@ -58,13 +58,13 @@ const AdminChangePassword = () => {
 
     }
     return ( 
-        <main className="mt-8 border border-[#7676801F] px-2 md:px-4 py-6 rounded-xl text-xs md:text-sm xl:text-base">
-            <p className="text-[#06121B] font-bold">
+        <main className="mt-8 border border-[#EEEEEE] px-2 md:px-4 py-6 rounded-xl text-xs md:text-sm xl:text-base">
+            <p className="text-white font-bold">
                 Change your password
             </p> 
             <form className="mt-10" onSubmit={onSubmit}>
                 <div className="relative flex flex-col gap-y-1 mt-4">
-                    <label htmlFor="currency"  className="text-sm lg:text-base text-[#06121B] cursor-pointer">
+                    <label htmlFor="currency"  className="text-sm lg:text-base cursor-pointer">
                       Enter Your New Password
                     </label>
                     <input
@@ -75,9 +75,9 @@ const AdminChangePassword = () => {
                       type={seen ? "text" : "password"}
                       name="password"
                       id="password"
-                      className="border border-[#E6E7E8] px-2 xl:px-4 py-2 md:py-3 focus:border-primary rounded-md focus:outline-none placeholder:text-xs xl:placeholder:text-sm placeholder:text-[#9EA0A3]"
+                      className="text-black border border-[#E6E7E8] px-2 xl:px-4 py-2 md:py-3 focus:border-primary rounded-md focus:outline-none placeholder:text-xs xl:placeholder:text-sm placeholder:text-[#9EA0A3]"
                     />
-                    <div className="absolute top-[55%] right-4 cursor-pointer text-base sm:text-lg md:text-xl xl:text-2xl" onClick={handleSeePassword} >
+                    <div className="absolute top-[55%] right-4 cursor-pointer text-base sm:text-lg md:text-xl xl:text-2xl text-black" onClick={handleSeePassword} >
                         {seen ? <EyeSlash size="18" /> : <Eye size="18" />}
                     </div>
                 </div>

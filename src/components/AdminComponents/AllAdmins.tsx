@@ -1,19 +1,28 @@
 import Link from "next/link";
-import { formatDate, formatDateTime } from "@/lib/dateTimeUtils";
+import { formatDate } from "@/lib/dateTimeUtils";
+
+
+//Import Needed Components
+import DeleteAdmin from "./DeleteAdmin";
+
 
 //Import Needed Icons
-import { DirectDown, MoneyAdd, MoneyRemove, MoneyTick, ProfileAdd, Send2 } from "iconsax-react";
+import { DirectDown, MoneyAdd, MoneyRemove, MoneyTick, More, ProfileAdd, Send2, Trash } from "iconsax-react";
+
+
 
 const AllAdmins = ({ admins, transactions }: any) => {
+
+
   return (
-    <main>
-      <div className="special max-h-[50%] border border-[#7676801F] rounded-xl p-4">
+    <main className="h-screen">
+      <div className="special max-h-[50%] border border-[#EEEEEE] rounded-xl p-4">
         <div className="flex justify-between text-xs md:text-sm xl:text-base">
-          <p className=" text-[#06121B]">{admins && admins.length} Staff</p>
+          <p className=" text-white">{admins && admins.length} Staff</p>
           <Link
             href="/operations/create"
             target="_blank"
-            className="flex gap-x-1 text-primary hover:text-textPrimary duration-500"
+            className="flex gap-x-1 text-white hover:text-textPrimary duration-500"
           >
             <ProfileAdd size="20" variant="Broken" /> Add Admin
           </Link>
@@ -25,23 +34,23 @@ const AllAdmins = ({ admins, transactions }: any) => {
                 key={admin.id}
                 className="flex justify-between overflow-x-auto special pb-2 gap-x-10"
               >
-                <div className="flex flex-col gap-y-0.5 w-[33%] min-w-[10rem]">
-                  <p className="text-xs xl:text-sm text-[#101828]">
+                <div className="flex flex-col gap-y-0.5 w-[24%] min-w-[10rem]">
+                  <p className="text-xs xl:text-sm text-[#F0F0F0]">
                     {admin.email}
                   </p>
                   <p className="text-[10px] text-xs text-[#667085]">
                     {admin.id}
                   </p>
                 </div>
-                <div className="flex flex-col gap-y-0.5 w-[33%] min-w-[10rem]">
+                <div className="flex flex-col gap-y-0.5 w-[24%] min-w-[10rem]">
                   <p className="text-[#8E8E93] text-[10px] text-xs">
                     Date Joined
                   </p>
-                  <p className="text-[#020100] text-xs xl:text-sm font-medium">
+                  <p className="text-[#F0F0F0] text-xs xl:text-sm font-medium">
                     {formatDate(admin.createdAt)}
                   </p>
                 </div>
-                <div className="flex flex-col gap-y-0.5 w-[33%] min-w-[10rem]">
+                <div className="flex flex-col gap-y-0.5 w-[24%] min-w-[10rem]">
                   <p className="text-[#8E8E93] text-[10px] text-xs">
                     Admin Status
                   </p>
@@ -55,12 +64,15 @@ const AllAdmins = ({ admins, transactions }: any) => {
                     {admin.role === "super_admin" ? "Super Admin" : "Admin"}
                   </p>
                 </div>
+                <div className="w-[24%] min-w-[10rem] flex justify-center">
+                  <DeleteAdmin adminId={admin.id}/>
+                </div>
               </div>
             ))}
         </div>
       </div>
-      <div className="mt-10 border border-[#7676801F] rounded-xl p-4 max-h-screen special">
-        <p className="text-xl md:text-sm xl:text-base font-bold text-[#06121B] mb-8">
+      <div className="mt-10 border border-[#EEEEEE] rounded-xl p-4 max-h-screen special">
+        <p className="text-xl md:text-sm xl:text-base font-bold text-white mb-8">
           Admin Transactions
         </p>
         {transactions && transactions.map((transaction: any) => ( 
@@ -68,11 +80,11 @@ const AllAdmins = ({ admins, transactions }: any) => {
           <Link key={transaction.id} href={`/admin/${transaction.transactionType === "deposit" ? "deposit" : transaction.transactionType === "receive" ? "receive" : transaction.transactionType === "bonus" ? "sendbonus" : transaction.transactionType === "penalty" ? "sendpenalty" : "deposit"}`}>
             <div className="flex items-center justify-between py-4 cursor-pointer">
               <div className="flex gap-x-2 items-center">
-                  <div className="bg-[#00000033] rounded-[50%] p-2 text-secondary">
-                      {transaction.transactionType === "deposit" ? <Send2 size="20" /> : transaction.transactionType === "receive" ? <DirectDown size="20" /> : transaction.transactionType === "bonus" ?           <MoneyTick size="20" color="#1C1F33"/> : transaction.transactionType === "earning" ? <MoneyAdd size="20" color="#1C1F33"/> : transaction.transactionType === "penalty" ? <MoneyRemove           size="20" color="#1C1F33"/> : <Send2 size="20" /> }
+                  <div className="bg-[#EAEAEA] rounded-[50%] p-2 text-secondary">
+                      {transaction.transactionType === "deposit" ? <Send2 size="20" color="#1C1F33" /> : transaction.transactionType === "receive" ? <DirectDown size="20" color="#1C1F33" /> : transaction.transactionType === "bonus" ? <MoneyTick size="20" color="#1C1F33"/> : transaction.transactionType === "earning" ? <MoneyAdd size="20" color="#1C1F33"/> : transaction.transactionType === "penalty" ? <MoneyRemove           size="20" color="#1C1F33"/> : <Send2 size="20" /> }
                   </div>
                   <div className="flex flex-col gap-y-0.5">
-                      <p className="text-[#141619] text-[10px] md:text-[12px] xl:text-[14px] font-medium capitalize">{transaction.transactionType === "deposit" ? "Sent Coins" : transaction.transactionType === "receive" ? "Received Coins" : transaction.transactionType === "bonus" ? "Added Bonus" : transaction.transactionType === "earning" ? "Added Earning" : transaction.transactionType ===          "penalty" ? "Added Penalty" : "A Transaction"}</p>
+                      <p className="text-[#F0F0F0] text-[10px] md:text-[12px] xl:text-[14px] font-medium capitalize">{transaction.transactionType === "deposit" ? "Sent Coins" : transaction.transactionType === "receive" ? "Received Coins" : transaction.transactionType === "bonus" ? "Added Bonus" : transaction.transactionType === "earning" ? "Added Earning" : transaction.transactionType ===          "penalty" ? "Added Penalty" : "A Transaction"}</p>
                       <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">{formatDate(transaction.createdAt)}</p>
                   </div>
               </div>

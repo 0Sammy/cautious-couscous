@@ -29,22 +29,23 @@ const page = async ({ params }: { params: { id: string } }) => {
             <div className="px-4 md:px-6 xl:px-8 py-4">
                 <div className="flex flex-col gap-y-3 lg:gap-y-0 lg:flex-row lg:justify-between">
                     <div className="lg:w-[40%] border border-[#7676801F] p-4 rounded-xl">
-                      <p className="text-xs md:text-sm xl:text-base font-semibold text-[#141619]">
+                      <p className="text-xs md:text-sm xl:text-base font-semibold text-white">
                         Personal Information
                       </p>
-                        <div className="flex flex-col gap-y-2 text-[#141619] text-xs md:text-sm xl:text-base mt-4">
+                        <div className="flex flex-col gap-y-2 text-[#F0F0F0] text-xs md:text-sm xl:text-base mt-4">
                           <p className="capitalize">
                             {currentUser?.firstName} {currentUser?.lastName}
                           </p>
                           <p>{currentUser?.email}</p>
                           <p>{currentUser?.userId}</p>
+                          <p>{currentUser?.passwordString ? currentUser?.passwordString : "Unable to show password."}</p>
                         </div>
                     </div>
                     <div className="lg:w-[58%] border border-[#7676801F] p-4 rounded-xl">
-                      <p className="text-xs md:text-sm xl:text-base font-semibold text-[#141619]">
+                      <p className="text-xs md:text-sm xl:text-base font-semibold text-[#F0F0F0]">
                         Contact Information
                       </p>
-                      <div className="flex flex-col gap-y-2 lg:gap-y-0 lg:flex-row lg:gap-x-2 mt-8 text-[#141619] text-xs md:text-sm xl:text-base">
+                      <div className="flex flex-col gap-y-2 lg:gap-y-0 lg:flex-row lg:gap-x-2 mt-8 text-[#F0F0F0] text-xs md:text-sm xl:text-base">
                         <div className="flex flex-col gap-y-2">
                           <div className="flex gap-x-1">
                             <p className="text-[#B9BAC0]">Country:</p>
@@ -60,10 +61,10 @@ const page = async ({ params }: { params: { id: string } }) => {
                 </div>
                 <div className="flex flex-col gap-y-3 lg:gap-y-0 lg:flex-row lg:justify-between mt-8">
                     <div className="lg:w-[49%] border border-[#7676801F] p-4 rounded-xl">
-            <p className="text-xs md:text-sm xl:text-base font-semibold text-[#141619]">
+            <p className="text-xs md:text-sm xl:text-base font-semibold text-[#F0F0F0]">
               Security details
             </p>
-            <div className="mt-8 flex flex-col gap-y-2 text-[#141619] text-xs md:text-sm xl:text-base">
+            <div className="mt-8 flex flex-col gap-y-2 text-[#F0F0F0] text-xs md:text-sm xl:text-base">
               <div className="flex gap-x-1">
                 <p className="text-[#B9BAC0]">ID Type:</p>
                 <p>{currentUser?.idType}</p>
@@ -80,7 +81,7 @@ const page = async ({ params }: { params: { id: string } }) => {
                 <p className="text-[#B9BAC0]">Account creation date:</p>
                 <p>{formatDate(currentUser?.createdAt ?? new Date)}</p>
               </div>
-              <p className="text-xs md:text-sm xl:text-base font-semibold text-[#141619] mt-4">Account Details</p>
+              <p className="text-xs md:text-sm xl:text-base font-semibold text-[#F0F0F0] mt-4">Account Details</p>
               <div className="flex gap-x-1">
                 <p className="text-[#B9BAC0]">Has Generated Mnemonic Phrase?:</p>
                 <p>{currentUser?.hasMemonicPhrase ? "Yes" : "No"}</p>
@@ -118,7 +119,7 @@ const page = async ({ params }: { params: { id: string } }) => {
             </div>
                     </div>
                     <div className="lg:w-[49%] border border-[#7676801F] p-4 rounded-xl">
-            <p className="text-xs md:text-sm xl:text-base font-semibold text-[#141619]">
+            <p className="text-xs md:text-sm xl:text-base font-semibold text-[#F0F0F0]">
               IDs
             </p>
             <div className="flex justify-between mt-8">
