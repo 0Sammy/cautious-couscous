@@ -6,7 +6,7 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useOtpStore } from "@/store/verification";
-import { generateOTPNumber } from "@/lib/generateRandom4Digits";
+
 import { useOnboardingStore } from "@/store/onboardingDetails";
 
 //Import Needed Images
@@ -23,15 +23,7 @@ const VerificationForm = () => {
   const {email} = useOnboardingStore()
   
   //Zustand OTP Management
-  const { otpNumber, updateOtpNumber } = useOtpStore();
-
-  //Generate the otp save it in a state
-  useEffect(() => {
-
-    const otp = generateOTPNumber();
-    updateOtpNumber(otp);
-
-  }, [updateOtpNumber]);
+  const { otpNumber } = useOtpStore();
 
   const router = useRouter();
 
@@ -39,12 +31,14 @@ const VerificationForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [enteredOtp, setEnteredOtp] = useState<string>();
 
+  //console.log(otpNumber)
+
     //OnSubmit Function
   const onSubmit = (event: FormEvent) => {
 
     event.preventDefault();
     setLoading(true);
-
+    
     //Check if the otp entered is the same with what was sent
     if (otpNumber.toString() === enteredOtp) {
 

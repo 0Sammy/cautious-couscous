@@ -265,31 +265,6 @@ const SendForm = ({ email, name, message, id }: string | any) => {
             : "coin"}{" "}
           TO ANY WALLET.
         </p>
-        <div className="px-2 md:px-4 xl:px-6 rounded-md py-3 mt-2">
-          <p className="uppercase">
-            {coin === "bitcoin"
-              ? "BITCOIN"
-              : coin === "ethereum"
-              ? "ETHEREUM"
-              : coin === "BINANCE COIN"
-              ? "BNB"
-              : coin === "tron"
-              ? "TRON"
-              : coin === "usdtt"
-              ? "usdt (trc20)"
-              : coin === "usdte"
-              ? "usdt (erc20)"
-              : coin === "ada"
-              ? "CARDANO"
-              : coin === "solana"
-              ? "Solana"
-              : coin === "lite"
-              ? "Litecoin"
-              : coin === "doge"
-              ? "DOGE"
-              : "coin"}
-          </p>
-        </div>
         <form onSubmit={onSubmit}>
           <div className="mt-6">
             <Input

@@ -54,14 +54,6 @@ const page = async ({ params }: { params: { id: string } }) => {
                           {currentTransaction?.transactionType === "deposit" ? "Transferred" : currentTransaction?.transactionType}
                         </p>
                     </div>
-                    {currentTransaction?.transactionType === "deposit" && <div className="flex justify-between items-center gap-x-5">
-                        <p className="text-[#9EA0A3]">
-                          Recipient Address
-                        </p>
-                        <p className="text-[#06121B] font-semibold capitalize">
-                          {currentTransaction?.receivingAddress === null ? "Address is currently unavailable" : currentTransaction?.receivingAddress}
-                        </p>
-                    </div>}
                     <div className="flex justify-between items-center gap-x-5">
                         <p className="text-[#9EA0A3]">
                           Transaction ID

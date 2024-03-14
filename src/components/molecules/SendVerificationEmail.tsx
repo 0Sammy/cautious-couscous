@@ -6,13 +6,15 @@ import { useSearchParams } from 'next/navigation'
 import { useOtpStore } from "@/store/verification";
 import { useOnboardingStore } from "@/store/onboardingDetails";
 import { useSession } from "next-auth/react";
+import { generateOTPNumber } from "@/lib/generateRandom4Digits";
+
 
 const SendVerificationEmail = () => {
   const { data: session, status } = useSession()
   const { updateName, updateEmail, name, email } = useOnboardingStore()
 
   // Zustand OTP Management
-  const { otpNumber } = useOtpStore()
+  const { otpNumber, updateOtpNumber } = useOtpStore()
   const searchParams = useSearchParams()
 
   // State to track whether the button is disabled
@@ -62,7 +64,64 @@ const SendVerificationEmail = () => {
     return () => clearInterval(countdownInterval);
   }, [isButtonDisabled]);
 
-  const sendVerificationNumber = () => {
+  //For the email to send immediately on load
+  useEffect(() => {
+
+    const otp = generateOTPNumber();
+    updateOtpNumber(otp);
+
+    if (email && name && otpNumber !== 4442) {
+
+      const sendVerificationNumber = () => {
+        
+        toast.info("Sending verification code");
+
+          const formData = {
+            to: email,
+            subject: "Your Verification Code",
+            name: name,
+            otp: otpNumber,
+            emailType: "verification",
+          };
+
+          //console.log({formData})          
+    
+          makeApiRequest("/send-email", "post", formData, {
+            onSuccess: () => {
+              // Handle success
+              toast.success("Verification code was sent successfully");
+              setIsButtonDisabled(true);
+    
+              // Set a timestamp in localStorage to track the last request time
+              const endTime = new Date().getTime() + 60000; // 60 seconds in milliseconds
+              localStorage.setItem("endTime", endTime.toString());
+    
+              // Enable the button after 60 seconds (60000 milliseconds)
+              setTimeout(() => {
+                setIsButtonDisabled(false);
+              }, 60000);
+            },
+            onError: (error: any) => {
+              // Handle error
+              toast.error(error.message);
+            },
+          });
+      };
+
+    // Send verification email automatically when the component mounts
+    sendVerificationNumber();
+
+    } else {
+      toast.info("Preparing to send your verification number...")
+    }
+      
+  },[email, name])
+
+  const handleSendVerificationNumber  = () => {
+    //Generate Different OTPs
+    const otp = generateOTPNumber();
+    updateOtpNumber(otp);
+
     if (!isButtonDisabled) {
       const formData = {
         to: email,
@@ -101,7 +160,7 @@ const SendVerificationEmail = () => {
 
   return (
     <main className="text-green-600 text-xs sm:text-sm xl:text-base my-4 cursor-pointer font-medium">
-      <p onClick={sendVerificationNumber} style={{ opacity: isButtonDisabled ? 0.5 : 1 }}>
+      <p onClick={handleSendVerificationNumber} style={{ opacity: isButtonDisabled ? 0.5 : 1 }}>
         {isButtonDisabled ? `Get Verification Pin (${countdown}s)` : "Get Verification Pin"}
       </p>
     </main>
