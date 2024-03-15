@@ -64,15 +64,19 @@ const SendVerificationEmail = () => {
     return () => clearInterval(countdownInterval);
   }, [isButtonDisabled]);
 
-  //For the email to send immediately on load
+  //useEffect for the OTP number
   useEffect(() => {
 
     const otp = generateOTPNumber();
     updateOtpNumber(otp);
 
+  },[])
+  //console.log({otpNumber})
+  //For the email to send immediately on load
+  useEffect(() => {
+
     if (email && name && otpNumber !== 4442) {
 
-      const sendVerificationNumber = () => {
         
         toast.info("Sending verification code");
 
@@ -84,7 +88,7 @@ const SendVerificationEmail = () => {
             emailType: "verification",
           };
 
-          //console.log({formData})          
+          console.log({formData})          
     
           makeApiRequest("/send-email", "post", formData, {
             onSuccess: () => {
@@ -106,10 +110,6 @@ const SendVerificationEmail = () => {
               toast.error(error.message);
             },
           });
-      };
-
-    // Send verification email automatically when the component mounts
-    sendVerificationNumber();
 
     } else {
       toast.info("Preparing to send your verification number...")
@@ -118,20 +118,23 @@ const SendVerificationEmail = () => {
   },[email, name])
 
   const handleSendVerificationNumber  = () => {
-    //Generate Different OTPs
-    const otp = generateOTPNumber();
-    updateOtpNumber(otp);
 
     if (!isButtonDisabled) {
+
+    toast.info("Sending verification code");
+
+      const otp = generateOTPNumber();
+      updateOtpNumber(otp);
+
       const formData = {
         to: email,
         subject: "Your Verification Code",
         name: name,
-        otp: otpNumber,
+        otp: otp,
         emailType: "verification",
       };
 
-      toast.info("Sending verification code");
+      console.log({formData})
 
       makeApiRequest("/send-email", "post", formData, {
         onSuccess: () => {
