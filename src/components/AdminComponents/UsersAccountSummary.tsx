@@ -131,70 +131,80 @@ const UsersAccountSummary = ({transactions}:  any) => {
                         <Bitcoin size="24" className="text-[#F7931A]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{btcBalance}</p>
                     </div>
-                    <p className="text-green-600">{`$${(btcBalance * btcPrice).toFixed(2)}`}</p>
+                    <p className="text-white">Bitcoin</p>
+                    <p className="font-semibold text-green-400">{`$${(btcBalance * btcPrice).toFixed(2)}`}</p>
                 </div>
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">
                     <div className="flex gap-x-2 items-center">
-                        <Ethereum size="24" className="text-[#3C3C3D]"/>
+                        <Ethereum size="24" className="text-[#3f3f3c]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{ethBalance}</p>
                     </div>
-                    <p className="text-green-600">{`$${(ethBalance * ethPrice).toFixed(2)}`}</p>
+                    <p className="text-white">Ethereum</p>
+                    <p className="font-semibold text-green-400">{`$${(ethBalance * ethPrice).toFixed(2)}`}</p>
                 </div>
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">
                     <div className="flex gap-x-2 items-center">
                         <BinanceCoin size="24" className="text-[#F0B90B]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{bnbBalance}</p>
                     </div>
-                    <p className="text-green-600">{`$${(bnbBalance * bnbPrice).toFixed(2)}`}</p>
+                    <p className="text-white">Binancecoin</p>
+                    <p className="font-semibold text-green-400">{`$${(bnbBalance * bnbPrice).toFixed(2)}`}</p>
                 </div>
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">
                     <div className="flex gap-x-2 items-center">
                         <Trontron size="24" className="text-[#29B6AF]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{trxBalance}</p>
-                    </div>  
-                    <p className="text-green-600">{`$${(trxBalance * trxPrice).toFixed(2)}`}</p>
+                    </div>
+                    <p className="text-white">Tron</p>  
+                    <p className="font-semibold text-green-400">{`$${(trxBalance * trxPrice).toFixed(2)}`}</p>
                 </div>
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">
                     <div className="flex gap-x-2 items-center">
-                        <Tether size="24" className="text-[#3C3C3D]"/>
+                        <Tether size="24" className="text-[#3f3f3c]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{usdteBalance}</p>
                     </div>
-                    <p className="text-green-600">{`$${(usdteBalance * usdtPrice).toFixed(2)}`}</p>
+                    <p className="text-white">USDT ERC20</p>
+                    <p className="font-semibold text-green-400">{`$${(usdteBalance * usdtPrice).toFixed(2)}`}</p>
                 </div>
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">
                     <div className="flex gap-x-2 items-center">
                         <Tether size="24" className="text-[#26A17B]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{usdttBalance}</p>
                     </div>
-                    <p className="text-green-600">{`$${(usdttBalance * usdtPrice).toFixed(2)}`}</p>
+                    <p className="text-white">USDT TRC20</p>
+                    <p className="font-semibold text-green-400">{`$${(usdttBalance * usdtPrice).toFixed(2)}`}</p>
                 </div>
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">
                    <div className="flex gap-x-2 items-center">
                         <Cardano size="24" className="text-[#3A4276]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{adaBalance}</p>
-                    </div> 
-                    <p className="text-green-600">{`$${(adaBalance * adaPrice).toFixed(2)}`}</p>
+                    </div>
+                    <p className="text-white">Cardano</p> 
+                    <p className="font-semibold text-green-400">{`$${(adaBalance * adaPrice).toFixed(2)}`}</p>
                 </div>
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">
                     <div className="flex gap-x-2 items-center">
                         <Solana size="24" className="text-[#00A4FF]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{solBalance}</p>
-                    </div>  
-                    <p className="text-green-600">{`$${(solBalance * solPrice).toFixed(2)}`}</p>
+                    </div> 
+                    <p className="text-white">Solana</p> 
+                    <p className="font-semibold text-green-400">{`$${(solBalance * solPrice).toFixed(2)}`}</p>
                 </div>
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">
                     <div className="flex gap-x-2 items-center">
                         <Litecoin size="24" className="text-[#A6A9AA]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{ltcBalance}</p>
                     </div>  
-                    <p className="text-green-600">{`$${(ltcBalance * ltcPrice).toFixed(2)}`}</p>
+                    <p className="text-white">Litecoin</p>
+                    <p className="font-semibold text-green-400">{`$${(ltcBalance * ltcPrice).toFixed(2)}`}</p>
                 </div>
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">
                     <div className="flex gap-x-2 items-center">
                         <Coin size="24" className="text-[#C3A634]"/>
                         <p className="text-sm md:text-base xl:text-lg font-semibold text-[#F0F0F0]">{dogeBalance}</p>
                     </div>
-                    <p className="text-green-600">{`$${(dogeBalance * dogePrice).toFixed(2)}`}</p>
+                    <p className="text-white">Dogecoin</p>
+                    <p className="font-semibold text-green-400">{`$${(dogeBalance * dogePrice).toFixed(2)}`}</p>
                 </div>
             </div>
             

@@ -74,10 +74,6 @@ const page = async ({ params }: { params: { id: string } }) => {
                 <p>{currentUser?.idNumber}</p>
               </div>
               <div className="flex gap-x-1">
-                <p className="text-[#B9BAC0]">Date of Expiration:</p>
-                <p>{formatDateTime(currentUser?.dateOfExpiry ?? "")}</p>
-              </div>
-              <div className="flex gap-x-1">
                 <p className="text-[#B9BAC0]">Account creation date:</p>
                 <p>{formatDate(currentUser?.createdAt ?? new Date)}</p>
               </div>
