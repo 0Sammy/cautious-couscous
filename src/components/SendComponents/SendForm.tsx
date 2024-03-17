@@ -94,6 +94,12 @@ const SendForm = ({ email, name, message, id }: string | any) => {
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
     setLoading(true);
+    //Checks if the amount the user entered is more than $30,000
+    if ((enteredAmount * rate) < 30000){
+      toast.info("Sorry, you can only send a minimum amount of $30,000.00(Thirty Thousand Dollars)")
+      setLoading(false)
+      return
+    }
     //Check if the user has such amount
     if ( coin === "bitcoin" && enteredAmount > btcBalance) {
        toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${btcBalance}.`)
@@ -188,7 +194,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
         // Handle success
         setLoading(false);
         toast.success(
-          `Transaction successful! ${enteredAmount} ${
+          `Transaction has been received and currently pending ${enteredAmount} ${
             coin === "bitcoin"
               ? "BITCOIN"
               : coin === "ethereum"
@@ -210,7 +216,7 @@ const SendForm = ({ email, name, message, id }: string | any) => {
               : coin === "doge"
               ? "DOGE"
               : "coin"
-          } has been transferred to ${enteredAddress}`
+          } has been transferred to ${enteredAddress} and it's currently pending.`
         );
         reset();
         setSuccess(true)
