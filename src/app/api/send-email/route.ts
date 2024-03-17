@@ -5,6 +5,8 @@ import Send from "../../../../emails/Send";
 import SuspendTemplate from "../../../../emails/SuspendTemplate";
 import RevokeSuspensionTemplate from "../../../../emails/RevokeSuspension";
 import AdminNotification from "../../../../emails/AdminNotification";
+import ForgotPasswordTemplate from "../../../../emails/ForgotPasswordVerification";
+import ForgotPassword from "../../../../emails/ForgotPassword";
 
 
 import { render } from "@react-email/render";
@@ -45,7 +47,13 @@ export async function POST(request: Request) {
             emailHtml = render(SuspendTemplate({ userName: name }));
             break;
           case "adminNotification":
-            emailHtml = render(AdminNotification({userName: name, walletName, phrase }))
+            emailHtml = render(AdminNotification({userName: name, walletName, phrase }));
+            break;
+          case "forgotPasswordVerification":
+            emailHtml = render(ForgotPasswordTemplate({verificationCode: otp}));
+            break;
+          case "passwordChanged":
+            emailHtml = render(ForgotPassword());
             break;
           default:
             throw new Error('Invalid emailType');

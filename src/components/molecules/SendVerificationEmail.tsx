@@ -88,7 +88,7 @@ const SendVerificationEmail = () => {
             emailType: "verification",
           };
 
-          console.log({formData})          
+          //console.log({formData})          
     
           makeApiRequest("/send-email", "post", formData, {
             onSuccess: () => {
@@ -134,7 +134,7 @@ const SendVerificationEmail = () => {
         emailType: "verification",
       };
 
-      console.log({formData})
+      //console.log({formData})
 
       makeApiRequest("/send-email", "post", formData, {
         onSuccess: () => {

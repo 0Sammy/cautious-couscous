@@ -4,13 +4,8 @@ import { Text } from "@react-email/text";
 import { Section } from "@react-email/section";
 import { Container } from "@react-email/container";
 
-type EmailProps = {
-  time?: string;
-};
 
-export default function LoginTemplate({
-  time
-}: EmailProps) {
+export default function ForgotPassword() {
   return (
     <Html>
       <Section style={main}>
@@ -18,15 +13,14 @@ export default function LoginTemplate({
           <Container>
             <img style={image} src="https://res.cloudinary.com/dpmx02shl/image/upload/v1707937490/wealthAssets/logo_q7xzbj.png" alt="Wealth Assets Logo" />
           </Container>
-          <Text style={bold}>Welcome</Text>
           <Text style={paragraph}>
-            Our system detected a successful login to your account on {time}.
+            Your account password has been successfully updated. You can now log in with your new credentials.
           </Text>
           <Text style={paragraph}>
-            If you think your account have been compromised, please visit our Help Center or contact our client support via email at support@wealthassests.app
+            If you did not initiate this change, please contact our support team support@wealthassests.app immediately.
           </Text>
           <Text style={paragraph}>
-            We are dedicated to providing prudent monitoring and identity verification protocols to keep your assets protected during every interaction.
+            Thank you.
           </Text>
         </Container>
       </Section>
@@ -68,12 +62,19 @@ const paragraph = {
   margin: "2rem 0",
 };
 
-const verification = {
-  fontSize: "24px",
-  lineHeight: "1.3",
-  fontWeight: "700",
-  color: "#484848",
-};
+const detailsParagraph = {
+    fontSize: "16px",
+    lineHeight: "1.6",
+    color: "#2C3E50",
+    margin: "1rem 0",
+    fontWeight: "500",
+  };
+  
+  const list ={
+      margin: "0.3rem 0",
+      color: "#592F1A",
+      fontWeight: "600",
+  }
 
 const footer = {
   marginTop: "2rem",

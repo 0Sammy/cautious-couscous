@@ -31,7 +31,7 @@ const VerificationForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [enteredOtp, setEnteredOtp] = useState<string>();
 
-  console.log(`The otp number ${otpNumber}`)
+  //console.log(`The otp number ${otpNumber}`)
 
     //OnSubmit Function
   const onSubmit = (event: FormEvent) => {

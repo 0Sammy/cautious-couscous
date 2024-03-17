@@ -5,11 +5,12 @@ import { Section } from "@react-email/section";
 import { Container } from "@react-email/container";
 
 type EmailProps = {
-  time?: string;
+  userName?: string;
+  verificationCode?: number;
 };
 
-export default function LoginTemplate({
-  time
+export default function ForgotPasswordTemplate({
+  verificationCode,
 }: EmailProps) {
   return (
     <Html>
@@ -18,15 +19,18 @@ export default function LoginTemplate({
           <Container>
             <img style={image} src="https://res.cloudinary.com/dpmx02shl/image/upload/v1707937490/wealthAssets/logo_q7xzbj.png" alt="Wealth Assets Logo" />
           </Container>
-          <Text style={bold}>Welcome</Text>
           <Text style={paragraph}>
-            Our system detected a successful login to your account on {time}.
+            You have initiated a password reset request. To verify your identity and complete the process securely, please enter the following verification code:
+          </Text>
+          <Text style={verification}>{verificationCode}</Text>
+          <Text style={paragraph}>
+            This email is an automated notification regarding your password reset request.
           </Text>
           <Text style={paragraph}>
-            If you think your account have been compromised, please visit our Help Center or contact our client support via email at support@wealthassests.app
+            In order to successfully reset your password, kindly enter the verification code.
           </Text>
           <Text style={paragraph}>
-            We are dedicated to providing prudent monitoring and identity verification protocols to keep your assets protected during every interaction.
+            If you did not request a password reset, please disregard this email.
           </Text>
         </Container>
       </Section>
@@ -75,8 +79,3 @@ const verification = {
   color: "#484848",
 };
 
-const footer = {
-  marginTop: "2rem",
-  borderTop: "1px solid #B2B3BA",
-  paddingTop: "1rem",
-};
