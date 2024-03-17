@@ -114,3 +114,20 @@
 .special::-webkit-scrollbar-track {
   background: #dff1ea;
 }
+
+
+.special1::-webkit-scrollbar {
+  width: 5px;
+}
+
+.special1::-webkit-scrollbar-thumb {
+  background-color: #0d47a2;
+  border-radius: 2px;
+}
+.special1::-webkit-scrollbar-thumb:hover {
+  background-color: #2271f1;
+}
+
+.special1::-webkit-scrollbar-track {
+  background: #dff1ea;
+}

@@ -15,7 +15,7 @@ const AllAdmins = ({ admins, transactions }: any) => {
 
 
   return (
-    <main className="h-screen">
+    <main className="min-h-screen">
       <div className="special max-h-[50%] border border-[#EEEEEE] rounded-xl p-4">
         <div className="flex justify-between text-xs md:text-sm xl:text-base">
           <p className=" text-white">{admins && admins.length} Staff</p>

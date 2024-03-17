@@ -51,8 +51,8 @@ const AllPenalty = ({penalties}: any) => {
     }
     return ( 
     <>
-        <main className="h-screen text-xs md:text-sm xl:text-base">
-            <div className="h-1/2 overflow-y-auto px-2 sm:px-4 md:px-6 xl:px-8 py-4 special">
+        <main className="min-h-screen text-xs md:text-sm xl:text-base">
+            <div className="h-[50vh] overflow-y-auto px-2 sm:px-4 md:px-6 xl:px-8 py-4 special">
                 <p className="text-base md:text-lg xl:text-xl font-semibold text-white">Pending Penalties</p>
                 <div className="flex flex-col gap-y-3 mt-4">
                 {pendingPenalty && pendingPenalty.map((pending: any) => (
@@ -91,7 +91,7 @@ const AllPenalty = ({penalties}: any) => {
                <Link href="/admin/create" className="bg-fuchsia-600 text-white px-4 md:px-6 xl:px-8 py-3 rounded-md hover:bg-fuchsia-800 duration-300">New Penalty</Link> 
             </div>
         
-            <div className="h-1/2 overflow-y-auto px-4 md:px-6 xl:px-8 py-4 special">
+            <div className="h-[50vh] overflow-y-auto px-4 md:px-6 xl:px-8 py-4 special">
                 <p className="text-base md:text-lg xl:text-xl font-semibold text-white">Processed Penalties</p>
                 <div className="flex flex-col gap-y-3 mt-4">
                     {processedPenalty && processedPenalty.map((processed: any) => ( 

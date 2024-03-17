@@ -45,7 +45,7 @@ const page = async ({ params }: { params: { id: string } }) => {
                           Transaction Coin
                         </p>
                         <p className="text-[#06121B] font-semibold capitalize">
-                          {currentTransaction?.coin}
+                          {currentTransaction?.coin === "usdtt" ? "Usdt Trc20" : currentTransaction?.coin === "usdte" ? "Usdt Erc20" : currentTransaction?.coin}
                         </p>
                     </div>
                     <div className="flex justify-between items-center gap-x-5">
