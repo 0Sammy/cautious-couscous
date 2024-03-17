@@ -19,7 +19,7 @@ import ImageUpload from "../molecules/ImageUpload";
 const KYCForm = () => {
   const [userEmail, setUserEmail] = useState<string | any>("")
     const [loading, setLoading] = useState<boolean>(false); 
-    const {idType, idNumber, dateOfExpiry, idCardBackImgSrc, idCardFrontImgSrc, updateIdNumber, updateDateOfExpiry, updateIdCardBackImgSrc, updateIdCardFrontImgSrc, reset} = useKycStore()
+    const {idType, idNumber, idCardBackImgSrc, idCardFrontImgSrc, updateIdNumber, updateIdCardBackImgSrc, updateIdCardFrontImgSrc, reset} = useKycStore()
     const router = useRouter();
     const { data: session, status } = useSession()
     //Get the email using search Params
@@ -50,7 +50,7 @@ const KYCForm = () => {
     event.preventDefault();
     setLoading(true);
     
-    const formData = { email: userEmail, idType, idNumber, dateOfExpiry, idCardBackImgSrc, idCardFrontImgSrc}
+    const formData = { email: userEmail, idType, idNumber, idCardBackImgSrc, idCardFrontImgSrc}
     //console.log({formData})
     makeApiRequest("/kyc", "post", formData, {
         onSuccess: () => {
@@ -97,10 +97,6 @@ const KYCForm = () => {
                 <IdSelect />
                 <div className="flex flex-col gap-y-2 mt-3">
                     <Input type="text" placeholder="Enter your ID Number" label="ID Number" id="idNumber" value={idNumber} onChange={(e) => { updateIdNumber(e.target.value) }} />
-                    <div className="flex flex-col gap-y-1 mt-2">
-                        <label className="text-xs sm:text-sm xl:text-base cursor-pointer" htmlFor="expiry">Date of Expiry</label>
-                        <input type="date" name="expiry" id="expiry" value={dateOfExpiry} className="w-full border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none" onChange={(e: any) => updateDateOfExpiry(e.target.value)}/>
-                    </div>
                 </div>
                 <div className="flex flex-row gap-x-2 mt-4 justify-between">
                 <div className="w-[49%]">

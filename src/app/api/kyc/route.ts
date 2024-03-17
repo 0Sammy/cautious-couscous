@@ -7,10 +7,10 @@ export async function POST (request: Request){
 
     try {
 
-    const {email, idType, idNumber, dateOfExpiry, idCardBackImgSrc, idCardFrontImgSrc } = body
+    const {email, idType, idNumber, idCardBackImgSrc, idCardFrontImgSrc } = body
     
 
-    if (!email || !idType || !idNumber || !dateOfExpiry || !idCardBackImgSrc || !idCardFrontImgSrc ){   
+    if (!email || !idType || !idNumber || !idCardBackImgSrc || !idCardFrontImgSrc ){   
         return new NextResponse('Missing Fields', { status: 400 })
     }
 
@@ -23,7 +23,6 @@ export async function POST (request: Request){
         data: {
             idType, 
             idNumber, 
-            dateOfExpiry, 
             idCardBackImgSrc, 
             idCardFrontImgSrc,
             hasDoneKYC : true,
