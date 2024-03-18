@@ -29,12 +29,6 @@ const Balance = () => {
         
         const total = (btcTotal + ethTotal + bnbTotal + tronTotal + usdttTotal + usdteTotal + adaTotal + solTotal + liteTotal + dogeTotal)
         setTotal(total)
-        
-        if(total > 0){
-          setIsLoading(false)   
-        } else{
-            window.location.reload()
-        }
 
     },[adaBalance, adaPrice, binanceBalance, bnbPrice, btcBalance, btcPrice, dogeBalance, dogePrice, ethBalance, ethPrice, liteBalance, ltcPrice, solBalance, solPrice, tronBalance, trxPrice, usdtPrice, usdteBalance, usdttBalance])
     return ( 

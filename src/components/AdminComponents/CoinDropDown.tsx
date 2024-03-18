@@ -19,7 +19,7 @@ const CoinDropDown = () => {
           <option value="">Select the coin</option>
           {options.map((option, index) : any => (
             <option key={index} value={option}>
-              {option}
+              {option === "usdtt" ? "Usdt Trc20" : option === "usdte" ? "Usdt Erc20" : option}
             </option>
           ))}
         </select>
