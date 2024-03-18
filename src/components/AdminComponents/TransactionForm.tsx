@@ -26,7 +26,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
     const [enteredAddress, setEnteredAddress] = useState<string>("");
     const [rate, setRate] = useState<number>(0)
     const [updateCoin, setUpdateCoin] = useState<string>("")
-    const { updateAmount, updateNetwork, updateStatus, amount, coin, network, transactionType, userId, doneByAdmin, status} = useTransactionStore()
+    const { updateAmount, updateNetwork, updateStatus, userEmail, userName, amount, coin, network, transactionType, userId, doneByAdmin, status} = useTransactionStore()
     useEffect(() => {
         setUpdateCoin(coin)
     }, [coin])
@@ -60,18 +60,55 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
       const onSubmit = (event: FormEvent) => {
         event.preventDefault();
         setLoading(true);
-    
+      //Get the currenTime
+        const currentDate = new Date();
+        const options: Intl.DateTimeFormatOptions = {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        };
+
+        const formattedDateTime = currentDate.toLocaleString("en-US", options);
     
         const formData = { amount, coin, network, transactionType,  userId, doneByAdmin, adminEmail: loggedInEmail, status, receivingAddress: enteredAddress };
-        
-        //console.log({ formData });
+        const emailData = {
+          to: userEmail,
+          subject: "Cryptocurrency Deposit Confirmed",
+          name: userName,
+          emailType: "receive",
+          currentTime: formattedDateTime,
+          transactionCoin: coin,
+          transactionAmount: amount,
+          transactionMoneyValue: (amount * rate).toLocaleString(),
+          transactionNetwork: network?.toUpperCase(),
+        };
+
+        console.log({ emailData });
         makeApiRequest("/send", "post", formData, {
           
           onSuccess: () => {
             // Handle success
             setLoading(false);
             toast.success("Transaction was added successfully.");
-            window.location.reload();
+            if (transactionType === "receive"){
+              makeApiRequest("/send-email", "post", emailData, {
+                onSuccess: () => {
+                  // Handle success
+                  toast.success("Email was sent")
+                  console.log("Email was sent.");
+                },
+                onError: (error: any) => {
+                  // Handle error
+                  toast.error("Error, email wasn't sent")
+                  console.log(error);
+                },
+              });
+            }
+            //window.location.reload();
           },
           onError: (error: any) => {
             // Handle error
