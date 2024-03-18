@@ -1,5 +1,4 @@
-"use client"
-const error = () => {
+const page = () => {
     return ( 
         <main>
             
@@ -7,4 +6,4 @@ const error = () => {
      );
 }
  
-export default error;
+export default page;

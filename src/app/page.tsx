@@ -1,9 +1,10 @@
-import Image from 'next/image'
+//Import Needed Components
+import Nav from "@/components/PagesComponents/Nav"
 
 export default function Home() {
   return (
     <main>
-      <h1>Main Page</h1>
+      <Nav />
     </main>
   )
 }
