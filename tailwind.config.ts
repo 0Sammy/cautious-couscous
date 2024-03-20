@@ -17,6 +17,7 @@ const config: Config = {
     extend: {
       colors: {
         primary : "#0d47a2",
+        inkBlue: "#0500FF",
       }
     },
   },
