@@ -29,7 +29,10 @@ const Balance = () => {
         
         const total = (btcTotal + ethTotal + bnbTotal + tronTotal + usdttTotal + usdteTotal + adaTotal + solTotal + liteTotal + dogeTotal)
         setTotal(total)
-
+        
+        if(total){
+            setIsLoading(false)
+        }
     },[adaBalance, adaPrice, binanceBalance, bnbPrice, btcBalance, btcPrice, dogeBalance, dogePrice, ethBalance, ethPrice, liteBalance, ltcPrice, solBalance, solPrice, tronBalance, trxPrice, usdtPrice, usdteBalance, usdttBalance])
     return ( 
         <main className="bg-[#160959] rounded-2xl p-4 md:p-6 xl:p-8 flex flex-col gap-y-10 text-white shadow-xl">
