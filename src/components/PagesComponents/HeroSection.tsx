@@ -8,7 +8,7 @@ import heroImg from "../../../public/Images/heroSectionImg.png";
 const HeroSection = () => {
     return ( 
         <main className="flex flex-col gap-y-10 md:gap-y-0 mg:gap-x-10 md:flex-row justify-between items-center">
-            <div className="w-full md:w-1/2 text-black font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide">
+            <div className="w-full md:w-1/2 text-[#1B1B1C] font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-wide">
                 <div>
                     <p>True crypto</p>
                     <p className="mt-2">ownership.</p>

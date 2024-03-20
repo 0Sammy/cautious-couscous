@@ -4,7 +4,7 @@ import { Star1 } from "iconsax-react";
 const Summary = () => {
     return ( 
         <main className="mt-20">
-            <div className="flex flex-wrap gap-10 justify-center md:justify-between">
+            <div className="flex flex-wrap gap-10 justify-center lg:justify-between">
                 <div className="w-[22%] min-w-[12rem] text-2xl font-semibold text-center">
                     <p>Trusted by</p>
                     <p><span className="text-inkBlue">70M+ </span>people</p>
