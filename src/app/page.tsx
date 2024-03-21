@@ -5,6 +5,7 @@ import Summary from "@/components/PagesComponents/Summary"
 import OnePlatform from "@/components/PagesComponents/OnePlatform"
 import SimpleSection from "@/components/PagesComponents/SimpleSection"
 import StayPrivate from "@/components/PagesComponents/StayPrivate"
+import Wallet from "@/components/PagesComponents/Wallet"
 
 
 
@@ -18,6 +19,7 @@ export default function Home() {
           <OnePlatform />
           <SimpleSection />
           <StayPrivate />
+          <Wallet />
       </div>
     </main>
   )
