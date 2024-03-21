@@ -3,6 +3,8 @@ import Nav from "@/components/PagesComponents/Nav"
 import HeroSection from "@/components/PagesComponents/HeroSection"
 import Summary from "@/components/PagesComponents/Summary"
 import OnePlatform from "@/components/PagesComponents/OnePlatform"
+import SimpleSection from "@/components/PagesComponents/SimpleSection"
+import StayPrivate from "@/components/PagesComponents/StayPrivate"
 
 
 
@@ -14,6 +16,8 @@ export default function Home() {
           <HeroSection />
           <Summary />
           <OnePlatform />
+          <SimpleSection />
+          <StayPrivate />
       </div>
     </main>
   )

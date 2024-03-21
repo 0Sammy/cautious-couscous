@@ -135,3 +135,11 @@
 .gradientLightBlueToBlue {
   background-image: linear-gradient(152deg, #2eccff -2.65%, #0500ff 82.44%);
 }
+
+.gradientYellowToPink {
+  background-image: linear-gradient(180deg, #fff9a8 5.98%, #ffaefe 77.73%);
+}
+
+.gradientYellowToGreen {
+  background-image: linear-gradient(180deg, #fff465 5.98%, #48ff91 77.73%);
+}
