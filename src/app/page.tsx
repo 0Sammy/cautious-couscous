@@ -7,6 +7,8 @@ import SimpleSection from "@/components/PagesComponents/SimpleSection"
 import StayPrivate from "@/components/PagesComponents/StayPrivate"
 import Wallet from "@/components/PagesComponents/Wallet"
 import Community from "@/components/PagesComponents/Community"
+import CTA from "@/components/PagesComponents/CTA"
+import Footer from "@/components/PagesComponents/Footer"
 
 
 
@@ -22,6 +24,8 @@ export default function Home() {
           <StayPrivate />
           <Wallet />
           <Community />
+          <CTA />
+          <Footer />
       </div>
     </main>
   )

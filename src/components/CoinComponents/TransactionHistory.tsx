@@ -57,7 +57,7 @@ const TransactionHistory = ({transactions}: any) => {
       <div className="flex flex-col gap-y-1 mt-6">
       {currentTransaction && currentTransaction.map((transaction: any) => ( 
 
-          <Link href={`/user/history/${transaction.id}`} key={transaction.id} className="flex items-center justify-between py-4 cursor-pointer hover:bg-[#FAFAFA] duration-300 p-1 rounded-lg">
+          <Link href={`/user/history/${transaction.id}`} key={transaction.id} className="flex items-center justify-between py-4 cursor-pointer hover:bg-[#FAFAFA] duration-300 p-1 rounded-lg border-b border-slate-200">
           <div className="flex gap-x-1 items-center">
             <div className="bg-[#EBEBF599] rounded-[50%] p-2">
               {coin === "bitcoin" ? (
@@ -114,5 +114,5 @@ const TransactionHistory = ({transactions}: any) => {
     </main>
   );
 };
-//text-[#FF5964] (Withdrawal) bg-[#FEF6E7] text-[#DF930E](status pending) text-red-600 bg-red-100(Status failed)
+
 export default TransactionHistory;

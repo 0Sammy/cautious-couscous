@@ -53,7 +53,7 @@ const Community = () => {
                         </li>
                     </ul>
                 </div>
-                <Link href="/create" className="bg-inkBlue text-white hover:bg-green-400 hover:text-black duration-300 px-8 py-[1.125rem] md:py-3 md:px-10 flex items-center justify-center gap-3 rounded-full text-center mt-2 w-fit">Join our community</Link>
+                <Link href="/create" className="bg-inkBlue text-white hover:bg-green-400 hover:text-black font-medium duration-300 px-8 py-[1.125rem] md:py-3 md:px-10 flex items-center justify-center gap-3 rounded-full text-center mt-2 w-fit">Join our community</Link>
             </div>
         </main>
      );
