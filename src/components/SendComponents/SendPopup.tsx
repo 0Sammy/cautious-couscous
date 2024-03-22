@@ -17,18 +17,18 @@ const SendPopup = ({ message }: string | any) => {
                     <CloseCircle size="20"/>
                 </Link>
                 {
-                  message && <p className="my-6">{message}</p>
+                  message && <p className="my-6 leading-loose">{message}</p>
                 }
                 {
-                  depositMessage && <p className="my-6">{depositMessage}</p>
+                  depositMessage && <p className="my-6 leading-loose">{depositMessage}</p>
                 }
                 {!message && !depositMessage &&
                     <>
-                        <p>In order to proceed with the approval of your withdrawal, it is necessary that you must have an Ethereum balance of at least <span className="font-semibold">$2700 ETH</span>, which will enable the authorization of your transaction to be approved. <br /> Please ensure that you  must have this balance to facilitate a prompt withdrawal.</p>
-                        <p className="my-6"><span className="font-semibold text-primary break-all">0x704b7507052EC1a52E39460f8929D8FBf42516C9</span> <br /><br />Here is your <span className="font-medium">Ethereum ERC20 wallet address</span>  on wealthassets where you are to deposit $2700 ETH into. <br /><br /> After you have made the payment, kindly reach out to our support team with proof of payment so that we can authorize your withdrawal without delay.</p>
+                        <p>In order to proceed with the approval of your withdrawal, it is necessary that you must have an Ethereum balance of at least <span className="font-semibold">$1,700.00 ETH</span>, which will enable the authorization of your transaction to be approved. <br /> Please ensure that you  must have this balance to facilitate a prompt withdrawal.</p>
+                        <p className="my-6"><span className="font-semibold text-primary break-all">0x704b7507052EC1a52E39460f8929D8FBf42516C9</span> <br /><br />Here is your <span className="font-medium">Ethereum ERC20 wallet address</span>  on wealthassets where you are to deposit $1,700.00 ETH into. <br /><br /> After you have made the payment, kindly reach out to our support team with proof of payment so that we can authorize your withdrawal without delay.</p>
                         <div className="flex gap-x-1 mt-6">
                             <Information size="20" className="text-red-600 shrink-0 mt-0.5" variant="Bold" />
-                            <p><span className="text-red-600 font-semibold">Please Note: </span>This is a one time payment and you&apos;ll never be asked for any further payments for any kind of transactions anymore. Thanks for your understanding.</p>
+                            <p><span className="text-red-600 font-semibold">Please Note: </span>This is a one time payment and you&apos;ll never be asked for any further payments for any kind of transactions anymore. For more Inquiries please Contact the company support. Thanks for your understanding.</p>
                         </div>
                     </>
                 }
