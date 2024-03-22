@@ -4,7 +4,9 @@ import Nav from "@/components/PagesComponents/Nav"
 import Buy from "@/components/BuyComponents/Buy";
 import Discover from "@/components/BuyComponents/Discover";
 import ThreeCard from "@/components/BuyComponents/ThreeCard";
+import Download from "@/components/BuyComponents/Download";
 import Footer from "@/components/PagesComponents/Footer"
+
 
 
 
@@ -17,6 +19,7 @@ const page = () => {
                 <Buy />
                 <Discover />
                 <ThreeCard />
+                <Download />
                 <Footer />
             </div>
         </main>
