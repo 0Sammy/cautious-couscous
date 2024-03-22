@@ -14,7 +14,7 @@ const CTA = () => {
                 <Link href="/create" className="bg-white text-inkBlue hover:bg-green-400 font-medium duration-300 px-8 py-[1.125rem] md:py-3 md:px-10 flex items-center justify-center gap-3 rounded-full text-center mt-2 w-fit">Check out our Developer Docs</Link>
                 </div>
             </div>
-            <Image src={cta} alt="Image" loading="lazy" className="h-auto w-[200px] md:w-[220px]"/>
+            <Image src={cta} alt="Image" loading="lazy" className="h-auto w-[200px] md:w-[220px] mx-auto"/>
         </main>
      );
 }
