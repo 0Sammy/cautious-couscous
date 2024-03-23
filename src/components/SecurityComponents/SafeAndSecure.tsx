@@ -8,7 +8,7 @@ import protect from "../../../public/Images/protect.jpg";
 
 const SafeAndSecure = () => {
     return ( 
-        <main className="mt-24">
+        <main className="mt-24 text-[#242426]">
             <h3 className="font-semibold text-xl md:text-2xl xl:text-3xl max-w-[25ch]">Your entire Web3 journey, made safe and secure</h3>
             <div className="flex gap-x-5 justify-between special overflow-x-auto mt-10">
                 <div className="w-[23%] min-w-[16rem] p-10 border border-[#DBDCE5] mb-4 rounded-[20px] md:rounded-[30px] h-[32rem] relative">
