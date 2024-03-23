@@ -6,9 +6,10 @@ import Tweet from "@/components/SecurityComponents/Tweet";
 import Independent from "@/components/SecurityComponents/Independent";
 import SafeAndSecure from "@/components/SecurityComponents/SafeAndSecure";
 import Security from "@/components/SecurityComponents/Security";
-
+import FourCards from "@/components/SecurityComponents/FourCards";
 
 import Footer from "@/components/PagesComponents/Footer"
+
 
 
 
@@ -23,6 +24,7 @@ const page = () => {
                 <Independent />
                 <SafeAndSecure />
                 <Security />
+                <FourCards />
                 <Footer />
             </div>
         </main>
