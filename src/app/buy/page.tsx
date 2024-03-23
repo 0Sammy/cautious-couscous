@@ -6,8 +6,8 @@ import Discover from "@/components/BuyComponents/Discover";
 import ThreeCard from "@/components/BuyComponents/ThreeCard";
 import Download from "@/components/BuyComponents/Download";
 import FrequentlyAsked from "@/components/BuyComponents/FrequenlyAsked";
+import CTA from "@/components/BuyComponents/CTA";
 import Footer from "@/components/PagesComponents/Footer"
-
 
 
 const page = () => {
@@ -20,6 +20,7 @@ const page = () => {
                 <ThreeCard />
                 <Download />
                 <FrequentlyAsked />
+                <CTA />
                 <Footer />
             </div>
         </main>
