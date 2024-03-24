@@ -1,8 +1,9 @@
 import Image from "next/image";
-
+import Link from "next/link";
 
 //Import Needed Images
 import shield from "../../../public/Images/shield.svg";
+
 
 
 const Download = () => {
@@ -11,7 +12,7 @@ const Download = () => {
             <div className="flex flex-col gap-y-5 text-white">
                 <p className="text-xl md:text-2xl xl:text-3xl font-bold max-w-[20ch]">Download your crypto Wallet today!</p>
                 <p className="text-sm md:text-base xl:text-lg font-medium max-w-[40ch]">Wealth assets is a secure, self-custody crypto wallet supporting 10M+ assets across 70+ blockchains including crypto. Buy, sell, swap, transfer and earn crypto all in one place. Available for iOS, Android, and desktop browsers.</p>
-                <button className="mt-6 bg-white text-inkBlue hover:bg-green-400 duration-300 px-8 md:px-10 py-3 rounded-full">Download Now</button>
+                <Link href="/create" className="text-center mt-6 bg-white text-inkBlue hover:bg-green-400 duration-300 px-8 md:px-10 py-3 rounded-full">Download Now</Link>
             </div>
             <Image src={shield} alt="Image"/>
         </main>

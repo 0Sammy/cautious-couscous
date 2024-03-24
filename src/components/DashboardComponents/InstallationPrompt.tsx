@@ -49,12 +49,14 @@ const InstallationPrompt = () => {
   return (
     <main>
       {showInstallPrompt && (
-        <div className="fixed bottom-0 lg:left-[300px] left-0 w-full bg-white p-4 shadow-lg z-[99] flex items-center justify-around">
-          <p className="m-0">Install Wealth Assets</p>
-          <button onClick={handleInstallClick} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-2">
-            Install
-          </button>
-          <CloseSquare size="20" className="text-red-600" variant="Bold" onClick={() => setShowInstallPrompt(false)}/>
+        <div className="fixed bottom-0 left-0 w-full bg-white py-4 shadow-lg z-[99] flex items-end justify-around px-4 md:px-6 xl:px-8">
+          <div className="flex flex-col gap-y-1">
+            <p className="m-0">Install Wealth Assets App</p>
+            <button onClick={handleInstallClick} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-2">
+              Install
+            </button> 
+          </div>
+          <CloseSquare size="30" className="text-red-600 cursor-pointer" variant="Bold" onClick={() => setShowInstallPrompt(false)}/>
         </div>
       )}
     </main>

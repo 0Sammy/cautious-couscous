@@ -1,10 +1,11 @@
 "use client"
 import { useState } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 
 //Import Needed Images
 import walletImg from "../../../public/Images/wallet.svg";
+
 
 
 const Wallet = () => {
@@ -25,7 +26,7 @@ const Wallet = () => {
                     <button onClick={toggleMobile} className={`${isMobile ? "bg-inkBlue text-white" : "text-[#242426]"} text-xs md:text-sm xl:text-base flex-1 py-3 rounded-full`}>Mobile</button>
                     <button onClick={toggleMobile} className={`${!isMobile ? "bg-inkBlue text-white" : "text-[#242426]"} text-xs md:text-sm xl:text-base flex-1 py-3 rounded-full`}>Extension</button>
                 </div>
-                <button className="rounded-full font-medium py-3 px-8 md:px-10 w-fit text-xs md:text-sm xl:text-base bg-inkBlue text-white hover:bg-green-400 hover:text-black duration-300">{`Download ${isMobile ? "Mobile App" : "Extension"}`}</button>
+                <Link href="/create" className="text-center rounded-full font-medium py-3 px-8 md:px-10 w-fit text-xs md:text-sm xl:text-base bg-inkBlue text-white hover:bg-green-400 hover:text-black duration-300">{`Download ${isMobile ? "Mobile App" : "Extension"}`}</Link>
             </div>
             <div className="hidden overflow-hidden rounded-[20px] border border-[#DBDCE5] bg-[#171717] md:flex md:justify-center md:rounded-[30px]">
                 <Image src={walletImg} alt="An Image" />

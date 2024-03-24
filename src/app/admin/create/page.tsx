@@ -9,7 +9,6 @@ import Prices from "@/components/DashboardComponents/Prices";
 
 
 export const revalidate = 1;
-
 const page = async () => {
 
     const session = await getServerSession(authOptions)
