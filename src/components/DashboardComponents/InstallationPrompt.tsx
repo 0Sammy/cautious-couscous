@@ -15,7 +15,7 @@ interface BeforeInstallPromptEvent extends Event {
 const InstallationPrompt = () => {
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
-  const [isSafari, setIsSafari] = useState(false);
+  const [isAppleDevice, setIsAppleDevice] = useState(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (event: Event) => {
@@ -33,7 +33,8 @@ const InstallationPrompt = () => {
   }, []);
 
   useEffect(() => {
-    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+    setIsAppleDevice(/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+    console.log(navigator.platform)
   }, []);
 
   const handleInstallClick = () => {
@@ -56,8 +57,8 @@ const InstallationPrompt = () => {
       {showInstallPrompt && (
         <div className="fixed bottom-0 left-0 w-full bg-white py-4 shadow-lg z-[99] flex items-end justify-around px-4 md:px-6 xl:px-8">
           <div className="flex flex-col gap-y-1">
-            <p className="m-0">{isSafari ? 'To install the Wealth Assets App, follow these steps:' : 'Install Wealth Assets App'}</p>
-            {isSafari ? (
+            <p className="m-0">{isAppleDevice ? 'To install the Wealth Assets App, follow these steps:' : 'Install Wealth Assets App'}</p>
+            {isAppleDevice ? (
               <ol className="list-decimal pl-4">
                 <li>Tap the <strong className="text-primary">Share</strong> icon at the bottom center of the screen.</li>
                 <li>Scroll down and select <strong className="text-primary">Add to Home Screen</strong>.</li>
