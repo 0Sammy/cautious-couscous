@@ -11,6 +11,8 @@ weight: "400", })
 export const metadata: Metadata = {
   title: 'Wealth Assets',
   description: 'Wealth Assets Mobile App',
+  manifest: '/manifest.webmanifest',
+  themeColor: '#0d47a2'
 }
 
 export default function RootLayout({

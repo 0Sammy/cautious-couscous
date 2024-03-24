@@ -9,6 +9,7 @@ import CompliedCards from "@/components/DashboardComponents/CompliedCards";
 import Wallets from "@/components/CoinComponents/Wallets";
 import Prices from "@/components/DashboardComponents/Prices";
 import UserBalance from "@/components/DashboardComponents/UserBalance";
+import InstallationPrompt from "@/components/DashboardComponents/InstallationPrompt";
 
 
 export const revalidate = 1
@@ -29,6 +30,7 @@ const page = async () => {
             <Wallets wallets={wallets}/>
             <Balance />
             <CompliedCards />
+            <InstallationPrompt />
         </main>
      );
 }
