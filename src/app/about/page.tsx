@@ -5,9 +5,9 @@ import OurPurpose from "@/components/AboutUsComponents/OurPurpose";
 import OurVision from "@/components/AboutUsComponents/OurVision";
 import Empower from "@/components/AboutUsComponents/Empower";
 import OurValues from "@/components/AboutUsComponents/OurValues";
-
-
+import Passionate from "@/components/AboutUsComponents/Passionate";
 import Footer from "@/components/PagesComponents/Footer";
+
 
 
 
@@ -22,6 +22,7 @@ const page = () => {
                 <OurVision />
                 <Empower />
                 <OurValues />
+                <Passionate />
                 <CTA />
                 <Footer />
             </div>
