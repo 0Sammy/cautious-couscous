@@ -36,12 +36,11 @@ const Balance = () => {
     },[adaBalance, adaPrice, binanceBalance, bnbPrice, btcBalance, btcPrice, dogeBalance, dogePrice, ethBalance, ethPrice, liteBalance, ltcPrice, solBalance, solPrice, tronBalance, trxPrice, usdtPrice, usdteBalance, usdttBalance])
     return ( 
         <main className="bg-[#160959] rounded-2xl p-4 md:p-6 xl:p-8 flex flex-col gap-y-10 text-white shadow-xl">
-            {isLoading ? (
-                <div className="fixed top-0 left-0 flex items-center justify-center bg-black bg-opacity-90 z-[9999] h-screen w-full">
+            {isLoading && <>
+                <div className="fixed top-0 left-0 flex items-center justify-center bg-black z-[9999] h-screen w-full">
                     <Refresh2 size="40" color="#FF8A65" className="animate-spin" />
                 </div>
-            ) : (
-            <>
+                </> }
                 <div className="flex items-center justify-between">
                     <div className="flex flex-col gap-y-1">
                        <p className="text-xs md:text-sm xl:text-base">Total Balance</p>
@@ -56,8 +55,6 @@ const Balance = () => {
                     </div>
                     <Link href="https://www.moonpay.com" target="_blank" className="mx-auto w-1/2 bg-white text-[#160959] py-2 md:py-3 text-center rounded-2xl border border-white hover:bg-inherit hover:text-white duration-500">Buy</Link>
                 </div>
-            </>
-            )}
         </main>
      );
 }

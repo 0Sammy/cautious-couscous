@@ -1,7 +1,7 @@
 "use client"
+
 import { useState, useEffect } from "react";
 import { CloseSquare } from "iconsax-react";
-
 
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: Array<string>;
@@ -15,6 +15,7 @@ interface BeforeInstallPromptEvent extends Event {
 const InstallationPrompt = () => {
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (event: Event) => {
@@ -29,6 +30,10 @@ const InstallationPrompt = () => {
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     };
+  }, []);
+
+  useEffect(() => {
+    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
   }, []);
 
   const handleInstallClick = () => {
@@ -51,12 +56,20 @@ const InstallationPrompt = () => {
       {showInstallPrompt && (
         <div className="fixed bottom-0 left-0 w-full bg-white py-4 shadow-lg z-[99] flex items-end justify-around px-4 md:px-6 xl:px-8">
           <div className="flex flex-col gap-y-1">
-            <p className="m-0">Install Wealth Assets App</p>
-            <button onClick={handleInstallClick} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-2">
-              Install
-            </button> 
+            <p className="m-0">{isSafari ? 'To install the Wealth Assets App, follow these steps:' : 'Install Wealth Assets App'}</p>
+            {isSafari ? (
+              <ol className="list-decimal pl-4">
+                <li>Tap the <strong className="text-primary">Share</strong> icon at the bottom center of the screen.</li>
+                <li>Scroll down and select <strong className="text-primary">Add to Home Screen</strong>.</li>
+                <li>Then tap <strong className="text-primary">Add</strong>.</li>
+              </ol>
+            ) : (
+              <button onClick={handleInstallClick} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-2">
+                Install
+              </button>
+            )}
           </div>
-          <CloseSquare size="30" className="text-red-600 cursor-pointer" variant="Bold" onClick={() => setShowInstallPrompt(false)}/>
+          <CloseSquare size="30" className="text-red-600 cursor-pointer" variant="Bold" onClick={() => setShowInstallPrompt(false)} />
         </div>
       )}
     </main>
