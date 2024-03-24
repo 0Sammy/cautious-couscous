@@ -7,8 +7,11 @@ import Independent from "@/components/SecurityComponents/Independent";
 import SafeAndSecure from "@/components/SecurityComponents/SafeAndSecure";
 import Security from "@/components/SecurityComponents/Security";
 import FourCards from "@/components/SecurityComponents/FourCards";
-
+import SecurityPartners from "@/components/SecurityComponents/SecurityPartners";
+import Privacy from "@/components/SecurityComponents/Privacy";
 import Footer from "@/components/PagesComponents/Footer"
+
+
 
 
 
@@ -25,6 +28,8 @@ const page = () => {
                 <SafeAndSecure />
                 <Security />
                 <FourCards />
+                <SecurityPartners />
+                <Privacy />
                 <Footer />
             </div>
         </main>
