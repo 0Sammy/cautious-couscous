@@ -13,7 +13,7 @@ const OurVision = () => {
                   <p className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-bold">The standard for trust in Web3</p>  
                   <p className="text-sm md:text-base xl:text-lg font-medium">Our vision is to become the most trusted hub for Web3 experiences.</p>
                 </div>
-                <Image src={shield} alt="Image" className="size-52" />
+                <Image src={shield} alt="Image" className="size-52 mt-4 md:mt-0" />
             </div>
         </main>
      );

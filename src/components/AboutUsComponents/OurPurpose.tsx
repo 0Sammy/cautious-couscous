@@ -13,7 +13,7 @@ const OurPurpose = () => {
                   <p className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-bold">Freedom Foundations</p>  
                   <p className="text-sm md:text-base xl:text-lg font-medium">We want to give everyone the freedom to truly own, by building the foundations for the future of the free web.</p>
                 </div>
-                <Image src={flashImg} alt="Image" className="size-52" />
+                <Image src={flashImg} alt="Image" className="size-52 mt-4 md:mt-0" />
             </div>
         </main>
      );
