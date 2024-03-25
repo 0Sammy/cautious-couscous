@@ -3,7 +3,7 @@ const page = () => {
 
     const handleButtonClick = () => {
         // Email details
-        const email = 'restricted@wealthassets.com'; 
+        const email = 'restricted@wealthassets.app'; 
         const subject = 'Account Restricted';
     
         // Create the mailto link

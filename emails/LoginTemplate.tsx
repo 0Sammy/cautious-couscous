@@ -23,7 +23,7 @@ export default function LoginTemplate({
             Our system detected a successful login to your account on {time}.
           </Text>
           <Text style={paragraph}>
-            If you think your account have been compromised, please visit our Help Center or contact our client support via email at support@wealthassests.app
+            If you think your account have been compromised, please visit our Help Center or contact our client support via email at support@wealthassets.app
           </Text>
           <Text style={paragraph}>
             We are dedicated to providing prudent monitoring and identity verification protocols to keep your assets protected during every interaction.
