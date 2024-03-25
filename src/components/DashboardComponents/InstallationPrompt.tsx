@@ -33,8 +33,9 @@ const InstallationPrompt = () => {
   }, []);
 
   useEffect(() => {
-    setIsAppleDevice(/iPad|iPhone|iPod/.test(navigator.userAgent))
-    console.log(navigator.userAgent)
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    setIsAppleDevice(/ipad|iphone|ipod/.test(userAgent))
+    console.log(userAgent)
     console.log({isAppleDevice})
   }, [isAppleDevice]);
 
