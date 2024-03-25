@@ -2,12 +2,17 @@ import { getUserDetails } from "@/providers/userDetails";
 
 //Import Needed Components
 import ProfileInformation from "@/components/ProfileComponents/ProfileInformation";
+import { permanentRedirect } from "next/navigation";
 
 export const revalidate = 1
 const page = async () => {
 
     const { user } = await getUserDetails();
     //console.log({user})
+
+    if (user?.isSuspended){
+        permanentRedirect('/suspend') 
+     }
 
     return ( 
         <main className="text-xs md:text-sm xl:text-base p-2 md:p-4 xl:p-6">

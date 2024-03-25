@@ -2,7 +2,7 @@ const OurValues = () => {
     return ( 
         <main>
             <h3 className="mt-24 font-semibold text-xl md:text-2xl xl:text-3xl text-[#242426]">Our Values</h3>
-            <div className="flex flex-row flex-wrap gap-5 mt-10 justify-between">
+            <div className="flex flex-row flex-wrap gap-5 mt-10 justify-between items-center">
                 <div className="min-w-[17rem] w-[32%] bg-primary rounded-[20px] flex flex-col gap-y-5 text-white p-8">
                     <h3 className="font-semibold text-xl md:text-2xl xl:text-3xl">User Obsessed</h3>
                     <p className="text-sm md:text-base xl:text-lg font-medium">We&apos;re obsessed with users&apos; problems and constantly seek better solutions.</p>

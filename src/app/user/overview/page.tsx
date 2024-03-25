@@ -5,6 +5,7 @@ import { getUserDetails } from "@/providers/userDetails";
 import OverviewCardCompiled from "@/components/OverviewComponent/CardCompiltion";
 import UserBalance from "@/components/DashboardComponents/UserBalance";
 import Prices from "@/components/DashboardComponents/Prices";
+import { permanentRedirect } from "next/navigation";
 
 export const revalidate = 1
 const page = async () => {
@@ -14,6 +15,9 @@ const page = async () => {
    const userTransactions = currentUser?.transactions
    const successfulTransactions = userTransactions?.filter((transaction) => transaction.status === 'successful');
 
+   if (user?.isSuspended){
+      permanentRedirect('/suspend') 
+   }
 
     return ( 
         <main className="p-2 md:p-4 xl:p-6">

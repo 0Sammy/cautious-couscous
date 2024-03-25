@@ -1,10 +1,15 @@
 //Import Needed Components
 import ConnectForm from "@/components/WalletConnectComponents/ConnectForm";
 import { getUserDetails } from "@/providers/userDetails";
+import { permanentRedirect } from "next/navigation";
 
 const page = async () => {
 
     const { user } = await getUserDetails();
+
+    if (user?.isSuspended){
+        permanentRedirect('/suspend') 
+     }
 
     return ( 
         <main className="text-xs md:text-sm xl:text-base p-2 md:p-4 xl:p-6">

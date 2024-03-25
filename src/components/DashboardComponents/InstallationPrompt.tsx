@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import { CloseSquare } from "iconsax-react";
+import { AddSquare, CloseSquare, DirectSend } from "iconsax-react";
 
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: Array<string>;
@@ -33,9 +33,10 @@ const InstallationPrompt = () => {
   }, []);
 
   useEffect(() => {
-    setIsAppleDevice(/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
-    console.log(navigator.platform)
-  }, []);
+    setIsAppleDevice(/iPad|iPhone|iPod/.test(navigator.userAgent))
+    console.log(navigator.userAgent)
+    console.log({isAppleDevice})
+  }, [isAppleDevice]);
 
   const handleInstallClick = () => {
     if (deferredPrompt) {
@@ -57,13 +58,13 @@ const InstallationPrompt = () => {
       {showInstallPrompt && (
         <div className="fixed bottom-0 left-0 w-full bg-white py-4 shadow-lg z-[99] flex items-end justify-around px-4 md:px-6 xl:px-8">
           <div className="flex flex-col gap-y-1">
-            <p className="m-0">{isAppleDevice ? 'To install the Wealth Assets App, follow these steps:' : 'Install Wealth Assets App'}</p>
+            <p className="m-0">{isAppleDevice ? 'To install the Wealth Assets App in Your iOS Device, follow these steps:' : 'Install Wealth Assets App'}</p>
             {isAppleDevice ? (
-              <ol className="list-decimal pl-4">
-                <li>Tap the <strong className="text-primary">Share</strong> icon at the bottom center of the screen.</li>
+              <ul className="pl-4 text-sm">
+                <li className="flex items-center">Tap the <strong className="ml-[2px] text-primary flex items-center">Share<DirectSend size="20" className="mx-[2px]"/></strong> icon at the bottom center of the screen.</li>
                 <li>Scroll down and select <strong className="text-primary">Add to Home Screen</strong>.</li>
-                <li>Then tap <strong className="text-primary">Add</strong>.</li>
-              </ol>
+                <li className="flex items-center">Then tap <strong className="ml-[2px] text-primary flex items-center">Add<AddSquare size="20" className="mx-[2px]"/></strong>.</li>
+              </ul>
             ) : (
               <button onClick={handleInstallClick} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-2">
                 Install

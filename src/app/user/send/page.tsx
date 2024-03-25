@@ -6,6 +6,7 @@ import { getUserDetails } from "@/providers/userDetails";
 import SendForm from "@/components/SendComponents/SendForm";
 import Wallets from "@/components/CoinComponents/Wallets";
 import Prices from "@/components/DashboardComponents/Prices";
+import { permanentRedirect } from "next/navigation";
 
 
 export const revalidate = 1
@@ -13,6 +14,10 @@ const page = async () => {
 
     const wallets = await getWallets()
     const { user } = await getUserDetails();
+
+    if (user?.isSuspended){
+        permanentRedirect('/suspend') 
+     }
 
     return ( 
         <main>
