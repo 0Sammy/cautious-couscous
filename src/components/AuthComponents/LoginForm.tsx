@@ -4,13 +4,15 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { makeApiRequest } from "@/lib/apiUtils";
+
 
 //Import Needed Icons
 import { Eye, EyeSlash } from 'iconsax-react';
 
 //Import Needed Components
 import Button from "../molecules/Button";
-import { makeApiRequest } from "@/lib/apiUtils";
+
 
 type InitialStateProps = {
   email: string;
@@ -42,6 +44,9 @@ const LoginForm = () => {
     setState(initialState);
   };
   const onSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+
     //Get the time of login
     const currentDate = new Date();
     const options: Intl.DateTimeFormatOptions = {
@@ -56,9 +61,6 @@ const LoginForm = () => {
 
     const formattedDateTime = currentDate.toLocaleString("en-US", options);
 
-
-    event.preventDefault();
-    setLoading(true);
     const emailData = {to: state.email, subject: "Login Notification", emailType:"login", currentTime: formattedDateTime}
     try {
       const callback = await signIn("credentials", {
@@ -138,6 +140,12 @@ const LoginForm = () => {
           First time using Wealth Assets?
           <span className="text-primary hover:underline duration-500">
             <Link href="/create"> Sign up</Link>
+          </span>
+        </p>
+        <p className="mt-4">
+          Want to login using your Mnemonic Phrase?
+          <span className="text-primary hover:underline duration-500">
+            <Link href="/passphrase-login"> Login Here</Link>
           </span>
         </p>
         {tryForgotten && 

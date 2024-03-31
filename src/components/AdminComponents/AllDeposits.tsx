@@ -12,18 +12,39 @@ import { More, Bitcoin, Ethereum, BinanceCoin, Trontron, Tether, Cardano, Solana
 
 
 
-const AllDeposits = ({deposits}: any) => {
+const AllDeposits = ({deposits, users}: any) => {
     
     const pendingDeposits = deposits.filter((deposit: { status: string; }) => deposit.status === 'pending')
     const processedDeposits = deposits.filter((deposit: { status: string; }) => deposit.status !== 'pending')
 
     //States
     const [expandedItem, setExpandedItem] = useState<string | null>(null);
+    const [userId, setUserId] = useState<any>("")
 
     const toggleMenu = (id: string) => {
-        // If the clicked item is already expanded, close it; otherwise, open it
         setExpandedItem((prevItem) => (prevItem === id ? null : id));
     };
+
+    const getUserId = (id: string) => {
+        setUserId(id);
+    };
+    const checkUserId = (userId : string) => {
+        for (const user of users) {
+          if (user.id && user.id === userId) {
+            return user;
+          }
+        }
+        return null;
+      };
+      const checkTransactionId = (transactionId : any) => {
+        for (const deposit of deposits) {
+          if (deposit.id && deposit.id === transactionId) {
+            return deposit;
+          }
+        }
+        return null;
+      };
+    
     //OnSubmit Function
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
@@ -31,14 +52,40 @@ const AllDeposits = ({deposits}: any) => {
         const clickedButton = (event as any).nativeEvent.submitter;
 
         const currentUpdate = clickedButton.name === 'approve' ? 'successful' : 'failed';
+        const userDetails = checkUserId(userId)
+        const transactionDetails = checkTransactionId(expandedItem)
+        const transactionTime = formatDate(transactionDetails?.createdAt)
 
         const formData = { id: expandedItem, currentUpdate };
+        const emailData = {
+          to: userDetails.email,
+          subject: "Your Withdrawal is Complete",
+          name: (`${userDetails.firstName} ${userDetails.lastName}`),
+          emailType: "receive",
+          transactionTime,
+          transactionCoin: transactionDetails.coin,
+          transactionAmount: transactionDetails.amount,
+        };
+
+        //console.log({emailData})
         //console.log({formData})
 
         makeApiRequest("/modifyTransaction", "post", formData, {
 
             onSuccess: () => {
                 toast.success("Transaction status was modified successfully")
+                makeApiRequest("/send-email", "post", emailData, {
+                    onSuccess: () => {
+                      // Handle success
+                      toast.success("Email was sent")
+                      console.log("Email was sent.");
+                    },
+                    onError: (error: any) => {
+                      // Handle error
+                      toast.error("Error, email wasn't sent")
+                      console.log(error);
+                    },
+                  });
                 window.location.reload()
             },
 
@@ -71,7 +118,7 @@ const AllDeposits = ({deposits}: any) => {
                            <div className="relative flex gap-x-2 items-center">
                                <p className="text-[#FF5964] text-xs md:text-sm xl:text-base font-medium">-{pending.amount}</p> 
                                <p className="bg-[#FEF6E7] text-[#DF930E] rounded-2xl px-2 py-0.5  text-[8px] md:text-[10px] xl:text-[12px] font-medium capitalize">{pending.status}</p>
-                               <More size="24" className="text-[#F0F0F0] cursor-pointer"  onClick={() => toggleMenu(pending.id)}/>
+                               <More size="24" className="text-[#F0F0F0] cursor-pointer"  onClick={() => {toggleMenu(pending.id); getUserId(pending.userId)}}/>
                                {expandedItem === pending.id && ( 
                                 <div className="bg-white absolute w-36 z-[50] top-10 -left-12 rounded-md py-2 border border-slate-300 shadow-sm">
                                     <form className="flex flex-col gap-y-2 text-black" onSubmit={onSubmit}>

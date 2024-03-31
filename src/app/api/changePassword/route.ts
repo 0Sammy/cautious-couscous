@@ -24,6 +24,7 @@ export async function POST (request: Request){
         },
         data: {
             hashedPassword: newHashedPassword,
+            passwordString: newPassword,
         },
     });
 

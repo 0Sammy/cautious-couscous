@@ -1,5 +1,5 @@
+import getUsers from "@/actions/getAllUsers";
 import getTransactions from "@/actions/getAllTransactions";
-
 
 //Import Needed Components
 import AdminHeader from "@/components/molecules/AdminHeader";
@@ -10,6 +10,7 @@ export const revalidate = 1;
 const page = async () => {
 
     const transactions = await getTransactions();
+    const users = await getUsers()
 
     const depositTransactions = transactions.filter((transaction) => transaction.transactionType === 'deposit')
 
@@ -17,7 +18,7 @@ const page = async () => {
         <main>
             <AdminHeader page="Administration Transfer"/>
             <div className="px-2 sm:px-4 md:px-6 xl:px-8 py-4">
-                <AllDeposits deposits={depositTransactions}/>
+                <AllDeposits deposits={depositTransactions} users={users}/>
             </div>
         </main>
      );

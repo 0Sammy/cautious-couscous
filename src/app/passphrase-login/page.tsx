@@ -1,3 +1,4 @@
+import getUsers from "@/actions/getAllUsers";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -5,10 +6,14 @@ import Link from "next/link";
 import logo from "../../../public/Images/Big whiz Walletassets logo badge.svg";
 
 //Import Needed Components
-import LoginForm from "@/components/AuthComponents/LoginForm";
 import Prices from "@/components/DashboardComponents/Prices";
+import PassPhraseForm from "@/components/AuthComponents/PassphraseForm";
 
-const page = () => {
+const page = async () => {
+
+    const users = await getUsers()
+    //console.log({userPassPhrases})
+
     return ( 
         <main className="createBackground h-screen flex items-center justify-center">
             <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] bg-white shadow py-8 px-4 md:px-6 xl:px-8">
@@ -21,9 +26,9 @@ const page = () => {
                 </Link>
                 <div className="text-[#161618] mt-10">
                     <p className="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold">Sign In</p>
-                    <p className="text-xs sm:text-sm xl:text-base font-semibold mt-2">Welcome back</p>
+                    <p className="text-xs sm:text-sm xl:text-base font-semibold mt-2">Kindly sign-in with your Mnemonic Phrase</p>
                 </div>
-                <LoginForm />
+                <PassPhraseForm users={users}/>
             </div>
             <Prices />
         </main>

@@ -3,10 +3,11 @@ import Link from "next/link";
 
 //Import Needed Components
 import CreateForm from "@/components/AuthComponents/CreateForm";
-
+import Prices from "@/components/DashboardComponents/Prices";
 
 //Import Needed Images
 import logo from "../../../public/Images/Big whiz Walletassets logo badge.svg";
+
 
 const page = () => {
     return ( 
@@ -25,7 +26,7 @@ const page = () => {
                 </div>
                 <CreateForm />
             </div>
-            <div className="createBackground hidden lg:block lg:w-1/2"></div>
+            <div className="createBackground hidden lg:block lg:w-1/2"><Prices /></div>
         </main>
      );
 }
