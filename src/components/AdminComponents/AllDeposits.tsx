@@ -61,7 +61,7 @@ const AllDeposits = ({deposits, users}: any) => {
           to: userDetails.email,
           subject: "Your Withdrawal is Complete",
           name: (`${userDetails.firstName} ${userDetails.lastName}`),
-          emailType: "receive",
+          emailType: "approveTransaction",
           transactionTime,
           transactionCoin: transactionDetails.coin,
           transactionAmount: transactionDetails.amount,
