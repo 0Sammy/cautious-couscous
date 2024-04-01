@@ -16,7 +16,7 @@ const AllAdmins = ({ admins, transactions }: any) => {
 
   return (
     <main className="min-h-screen">
-      <div className="special max-h-[50%] border border-[#EEEEEE] rounded-xl p-4">
+      <div className="overflow-y-auto special1 h-[30vh] border border-[#EEEEEE] rounded-xl p-4">
         <div className="flex justify-between text-xs md:text-sm xl:text-base">
           <p className=" text-white">{admins && admins.length} Staff</p>
           <Link
@@ -71,7 +71,7 @@ const AllAdmins = ({ admins, transactions }: any) => {
             ))}
         </div>
       </div>
-      <div className="mt-10 border border-[#EEEEEE] rounded-xl p-4 max-h-screen special">
+      <div className="mt-10 border border-[#EEEEEE] rounded-xl p-4 h-[70vh] overflow-y-auto special1">
         <p className="text-xl md:text-sm xl:text-base font-bold text-white mb-8">
           Admin Transactions
         </p>
