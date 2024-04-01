@@ -108,7 +108,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
                 },
               });
             }
-            //window.location.reload();
+            window.location.reload();
           },
           onError: (error: any) => {
             // Handle error
