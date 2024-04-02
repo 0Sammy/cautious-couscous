@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTransactionStore } from '@/store/adminTransactionStore';
 
 const Dropdown = ({ allUsers }: any) => {
@@ -11,14 +11,15 @@ const Dropdown = ({ allUsers }: any) => {
     const selectedId = event.target.value;
     setSelectedUserId(selectedId);
     updateUserId(selectedId);
+    //console.log({selectedId});
 
-    // Find the selected user object
-    const selectedUser = allUsers.find((user: any) => user.id === selectedId);
+    const selectedUser = allUsers.find((user: any) => user.id === selectedUserId);
     if (selectedUser) {
       updateUserEmail(selectedUser.email); 
       updateUserName(`${selectedUser.firstName} ${selectedUser.lastName}`);
+      //console.log({selectedUser})
     }
-    //console.log({ selectedUser });
+
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,6 +30,7 @@ const Dropdown = ({ allUsers }: any) => {
   const filteredUsers = allUsers.filter((user: any) => {
     return user.userId.includes(searchQuery) || user.email.includes(searchQuery);
   });
+
 
   return (
     <div className='flex flex-col gap-y-1'>
@@ -41,6 +43,7 @@ const Dropdown = ({ allUsers }: any) => {
         className="border border-[#E6E7E8] px-2 xl:px-4 py-2 md:py-3 focus:border-primary rounded-md focus:outline-none"
       />
       <select id="userDropdown" onChange={handleSelectChange} value={selectedUserId} className='capitalize cursor-pointer border border-[#E6E7E8] px-2 xl:px-4 py-2 md:py-3 focus:border-primary rounded-md focus:outline-none'>
+        <option value="">Open to select a user</option>
         {filteredUsers.map((user: any) => (
           <option key={user.id} value={user.id}>
             {`${user.firstName} ${user.lastName}`}

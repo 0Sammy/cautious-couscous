@@ -87,7 +87,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
           transactionNetwork: network?.toUpperCase(),
         };
 
-        console.log({ emailData });
+        console.log({ formData });
         makeApiRequest("/send", "post", formData, {
           
           onSuccess: () => {
@@ -108,7 +108,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
                 },
               });
             }
-            window.location.reload();
+            //window.location.reload();
           },
           onError: (error: any) => {
             // Handle error
@@ -116,7 +116,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
             toast.error(
               "Unable to add transaction now. Please check your internet connection or contact the developer."
             );
-            window.location.reload();
+            //window.location.reload();
           },
         });
       };
