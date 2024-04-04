@@ -23,7 +23,7 @@ const SendPopup = ({ message }: string | any) => {
                   depositMessage && <p className="my-6 leading-loose">{depositMessage}</p>
                 }
                 {!message && !depositMessage &&
-                    <p className="text-sm md:text-base xl:text-lg font-medium">
+                    <p className="text-sm md:text-base xl:text-lg font-semibold">
                         We have successfully received your withdrawal request and it is now in the pending stage. <br /> <br /> For confirmation of your withdrawal, we kindly ask that you reach out to our company support team.   
                     </p>
                 }
