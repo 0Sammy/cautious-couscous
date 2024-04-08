@@ -50,7 +50,7 @@ const Balance = () => {
                 <div className="flex items-center justify-between">
                     <div className="flex flex-col gap-y-1">
                        <p className="text-xs md:text-sm xl:text-base">Total Balance</p>
-                       <p className="text-lg md:text-xl xl:text-2xl font-semibold">${(total).toLocaleString()}</p> 
+                       <p className="text-lg md:text-xl xl:text-2xl font-semibold">${(total).toLocaleString("en-US")}</p> 
                     </div>
                     <Wallet3 size="30" variant="Bold"/>
                 </div>
