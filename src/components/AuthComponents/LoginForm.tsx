@@ -74,7 +74,7 @@ const LoginForm = () => {
         makeApiRequest("/send-email", "post", emailData, {
           onSuccess: () => {
             // Handle success
-            console.log("Notification email was sent.");
+            console.log("Welcome");
           },
           onError: (error: any) => {
             // Handle error
