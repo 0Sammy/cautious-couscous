@@ -60,6 +60,12 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
       const onSubmit = (event: FormEvent) => {
         event.preventDefault();
         setLoading(true);
+
+        if (transactionType === "receive" && userEmail.length === 0 || userName.length === 0) {
+          toast.info("Kindly reselect the user")
+          setLoading(false)
+          return
+        }
       //Get the currenTime
         const currentDate = new Date();
         const options: Intl.DateTimeFormatOptions = {
@@ -87,7 +93,8 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
           transactionNetwork: network?.toUpperCase(),
         };
 
-        //console.log({ formData });
+        console.log({ formData });
+        console.log({ emailData });
         makeApiRequest("/send", "post", formData, {
           
           onSuccess: () => {
@@ -108,7 +115,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
                 },
               });
             }
-            window.location.reload();
+            //window.location.reload();
           },
           onError: (error: any) => {
             // Handle error
@@ -116,7 +123,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
             toast.error(
               "Unable to add transaction now. Please check your internet connection or contact the developer."
             );
-            window.location.reload();
+           //window.location.reload();
           },
         });
       };
