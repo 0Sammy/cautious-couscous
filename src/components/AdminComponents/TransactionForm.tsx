@@ -21,12 +21,14 @@ type transactionProps = {
 
 const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
 
+    //console.log({allUsers})
+
     const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
     const [loading, setLoading] = useState<boolean>(false)
     const [enteredAddress, setEnteredAddress] = useState<string>("");
     const [rate, setRate] = useState<number>(0)
     const [updateCoin, setUpdateCoin] = useState<string>("")
-    const { updateAmount, updateNetwork, updateStatus, userEmail, userName, amount, coin, network, transactionType, userId, doneByAdmin, status} = useTransactionStore()
+    const { updateAmount, updateNetwork, updateStatus, amount, coin, network, transactionType, userId, doneByAdmin, status} = useTransactionStore()
     useEffect(() => {
         setUpdateCoin(coin)
     }, [coin])
@@ -58,6 +60,12 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
 
       //OnSubmit Function
       const onSubmit = (event: FormEvent) => {
+
+        //Get the info of the selected user
+        const user = allUsers.find((user: { id: string; }) => user.id === userId);
+        const userEmail = user?.email
+        const userName = `${user?.firstName} ${user?.lastName}`
+
         event.preventDefault();
         setLoading(true);
 
@@ -79,8 +87,9 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
         };
 
         const formattedDateTime = currentDate.toLocaleString("en-US", options);
-    
+        
         const formData = { amount, coin, network, transactionType,  userId, doneByAdmin, adminEmail: loggedInEmail, status, receivingAddress: enteredAddress };
+        
         const emailData = {
           to: userEmail,
           subject: "Cryptocurrency Deposit Confirmed",

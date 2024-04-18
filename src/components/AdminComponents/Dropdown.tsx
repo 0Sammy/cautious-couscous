@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useTransactionStore } from '@/store/adminTransactionStore';
 
 const Dropdown = ({ allUsers }: any) => {
-  const { updateUserId, updateUserEmail, updateUserName } = useTransactionStore();
+  const { updateUserId } = useTransactionStore();
   const [selectedUserId, setSelectedUserId] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -12,13 +12,6 @@ const Dropdown = ({ allUsers }: any) => {
     setSelectedUserId(selectedId);
     updateUserId(selectedId);
     //console.log({selectedId});
-
-    const selectedUser = allUsers.find((user: any) => user.id === selectedUserId);
-    if (selectedUser) {
-      updateUserEmail(selectedUser.email); 
-      updateUserName(`${selectedUser.firstName} ${selectedUser.lastName}`);
-      //console.log({selectedUser})
-    }
 
   };
 
