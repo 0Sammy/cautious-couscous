@@ -50,6 +50,16 @@ const KYCForm = () => {
     event.preventDefault();
     setLoading(true);
     
+    if (!idCardBackImgSrc || !idCardFrontImgSrc){
+      setLoading(false)
+      toast.error("Kindly proceed by entering your KYC verification details to continue with the process.")
+      return;
+    }
+    if(!idCardBackImgSrc.startsWith("https://res.cloudinary.com") || !idCardFrontImgSrc.startsWith("https://res.cloudinary.com")){
+      setLoading(false)
+      toast.error("Kindly proceed by entering your KYC verification details to continue with the process.")
+      return;
+    }
     const formData = { email: userEmail, idType, idNumber, idCardBackImgSrc, idCardFrontImgSrc}
     //console.log({formData})
     makeApiRequest("/kyc", "post", formData, {

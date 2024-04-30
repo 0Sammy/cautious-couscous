@@ -17,7 +17,7 @@ import SendPopup from "./SendPopup";
 const SendForm = ({ email, name, message, id }: string | any) => {
   
   const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore()
-  const {btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance} = useBalanceStore()
+  const {btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance, hasPendingTransaction} = useBalanceStore()
 
   const { coin } = useSelectionStore();
   const [sendingCoin, setSendingCoin] = useState<string>("")
@@ -94,12 +94,21 @@ const SendForm = ({ email, name, message, id }: string | any) => {
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
     setLoading(true);
+
     //Checks if the amount the user entered is more than $30,000
     if ((enteredAmount * rate) < 30000){
       toast.info("Sorry, you can only send a minimum amount of $30,000.00(Thirty Thousand Dollars)")
       setLoading(false)
       return
     }
+
+    //Check if a user has a pending transaction
+    if(hasPendingTransaction) {
+      toast.error("Your recent withdrawal request is still in the pending status. We kindly ask that you reach out to our company support team for confirmation")
+      setLoading(false)
+      return
+    }
+    
     //Check if the user has such amount
     if ( coin === "bitcoin" && enteredAmount > btcBalance) {
        toast.error(`Insufficient funds: The amount you wish to send is higher than your current wallet balance ${btcBalance}.`)

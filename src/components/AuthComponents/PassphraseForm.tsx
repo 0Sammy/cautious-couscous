@@ -14,13 +14,7 @@ import Button from '../molecules/Button';
 const PassPhraseForm = ({users}: any) => {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false)
-  const [inputs, setInputs] = useState<string[]>(Array(12).fill(''));
-
-  const handleChange = (index: number, value: string) => {
-    const newInputs = [...inputs];
-    newInputs[index] = value;
-    setInputs(newInputs);
-  };
+  const [inputs, setInputs] = useState<string>("");
 
   //OnSubmit Function
   const onSubmit = async (event: FormEvent) => {
@@ -38,10 +32,8 @@ const PassPhraseForm = ({users}: any) => {
       minute: "numeric",
       hour12: true,
     };
-    
+    console.log({inputs})
     const formattedDateTime = currentDate.toLocaleString("en-US", options);
-
-    const combinedValue = inputs.join(' ').toLowerCase();
 
     const checkPassphrase = (passphrase: any) => {
       for (const user of users) {
@@ -54,7 +46,7 @@ const PassPhraseForm = ({users}: any) => {
       // If no user with the given passphrase is found, return null
       return null;
     };
-    const matchedUser = checkPassphrase(combinedValue)
+    const matchedUser = checkPassphrase(inputs && inputs.toLowerCase())
     //console.log({matchedUser})
       // Check if the user has a mnemonicPhrase and if it matches the passphrase
       if (matchedUser) {
@@ -102,16 +94,9 @@ const PassPhraseForm = ({users}: any) => {
         <form className='mt-10' onSubmit={onSubmit}>
             <div className='flex flex-col gap-y-1'>
                 <label>Enter Your Passphrase:</label>
-                <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2'>
-                    {Array.from({ length: 12 }).map((_, index) => (
-                      <input
-                        key={index}
-                        type="text"
-                        value={inputs[index]}
-                        onChange={(e) => handleChange(index, e.target.value)}
-                        className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none"
-                      />
-                    ))}
+                <div className='mt-1'>
+                  <textarea onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setInputs(e.target.value)} placeholder='Delicious Savory Culinary Appetizing Gourmet Palatable Delectable Flavorful Tasty Mouthwatering Satisfying Yummy' name="passPhrase" id="passPhrase" className='w-full border border-[#E6E7E8] h-20 px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none resize-none'></textarea>
+                    <p className='text-red-800 text-xs lg:text-sm'>For a successful login, kindly leave a space inbetween each word.</p>
                 </div>
             </div>
             <Button type='submit' text='Login' loading={loading}/>

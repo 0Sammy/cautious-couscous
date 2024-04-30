@@ -13,6 +13,7 @@ type balanceStore = {
     solBalance: number;
     liteBalance: number;
     dogeBalance: number;
+    hasPendingTransaction: boolean;
     updateBalance: (newAmount: number) => void;
     updateBTC: (newAmount: number) => void;
     updateETH: (newAmount: number) => void;
@@ -24,6 +25,7 @@ type balanceStore = {
     updateSOL: (newAmount: number) => void;
     updateLITE: (newAmount: number) => void;
     updateDOGE: (newAmount: number) => void;
+    updatePendingTransaction: (newStatus: boolean) => void;
 }
 
 export const useBalanceStore = create<balanceStore>((set) => ({
@@ -38,6 +40,7 @@ export const useBalanceStore = create<balanceStore>((set) => ({
     solBalance: 0,
     liteBalance: 0,
     dogeBalance: 0,
+    hasPendingTransaction: false,
     updateBalance: (newAmount: number) => set({compiledBalance : newAmount}),
     updateBTC: (newAmount: number) => set({btcBalance : newAmount}),
     updateETH: (newAmount: number) => set({ethBalance : newAmount}),
@@ -49,4 +52,5 @@ export const useBalanceStore = create<balanceStore>((set) => ({
     updateSOL: (newAmount: number) => set({solBalance : newAmount}),
     updateLITE: (newAmount: number) => set({liteBalance : newAmount}),
     updateDOGE: (newAmount: number) => set({dogeBalance : newAmount}),
+    updatePendingTransaction: (newStatus: boolean) => set({hasPendingTransaction: newStatus})
 }))

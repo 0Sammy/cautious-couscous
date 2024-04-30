@@ -24,27 +24,27 @@ export default async function UserLayout({
     //console.log({currentUser})
     
     //Redirect accordingly
-    // if (currentUser?.isEmailVerified === false) {
+    if (currentUser?.isEmailVerified === false) {
 
-    //   permanentRedirect('/onboarding/verification')
+      permanentRedirect('/onboarding/verification')
 
-    // } else if (currentUser?.hasTransactionPin === false){
+    } else if (currentUser?.hasTransactionPin === false){
 
-    //   permanentRedirect('/onboarding/transaction')
+      permanentRedirect('/onboarding/transaction')
 
-    // } else if (currentUser?.hasMemonicPhrase === false) {
+    } else if (currentUser?.hasMemonicPhrase === false) {
 
-    //   permanentRedirect('/onboarding/mnemonic')
+      permanentRedirect('/onboarding/mnemonic')
 
-    // } else if (currentUser?.hasDoneKYC === false) {
+    } else if (currentUser?.hasDoneKYC === false) {
 
-    //   permanentRedirect('/onboarding/kyc')
+      permanentRedirect('/onboarding/kyc')
 
-    // } else if (currentUser?.isSuspended === true) {
+    } else if (currentUser?.isSuspended === true) {
 
-    //   permanentRedirect('/suspend')
+      permanentRedirect('/suspend')
 
-    // }
+    }
     
   return (
 

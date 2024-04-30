@@ -14,13 +14,14 @@ import { permanentRedirect } from "next/navigation";
 import LiveChat from "@/components/molecules/LiveChat";
 
 
-export const revalidate = 1
+export const revalidate = 0
 const page = async () => {
 
     const wallets = await getWallets()
     const { user } = await getUserDetails();
     const currentUser = await getCurrentLoggedInUser(user?.email)
     const userTransactions = currentUser?.transactions
+    const withdrawalTransactions = userTransactions?.filter((transaction) => transaction.transactionType === "deposit" && transaction.status === "pending")
     const successfulTransactions = userTransactions?.filter((transaction) => transaction.status === 'successful');
     //console.log({userTransactions})
 
@@ -31,7 +32,7 @@ const page = async () => {
     return ( 
         <main className="p-2 md:p-4 xl:p-6">
             <LiveChat />
-            <UserBalance transactions={successfulTransactions}/>
+            <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length}/>
             <Prices />
             <Wallets wallets={wallets}/>
             <Balance />

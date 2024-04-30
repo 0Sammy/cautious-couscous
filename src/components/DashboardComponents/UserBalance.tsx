@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useBalanceStore } from "@/store/balance";
 
-const UserBalance = ({ transactions }: any) => {
+const UserBalance = ({ pendingTransaction, transactions }: any) => {
   const {
     updateBTC,
     updateETH,
@@ -14,6 +14,7 @@ const UserBalance = ({ transactions }: any) => {
     updateSOL,
     updateLITE,
     updateDOGE,
+    updatePendingTransaction,
   } = useBalanceStore();
 
   useEffect(() => {
@@ -197,6 +198,12 @@ const UserBalance = ({ transactions }: any) => {
       (dogeTransactions.deposit + dogeTransactions.penalty);
       updateDOGE(dogeBalance)
 
+    //Check if there is a pending transactions
+
+    if(pendingTransaction > 0) {
+      updatePendingTransaction(true)
+    }
+    
   }, [transactions, updateADA, updateBNB, updateBTC, updateDOGE, updateETH, updateLITE, updateSOL, updateTRX, updateUSDTE, updateUSDTT]);
 
   return <main></main>;
