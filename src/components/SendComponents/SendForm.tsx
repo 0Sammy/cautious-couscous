@@ -96,8 +96,8 @@ const SendForm = ({ email, name, message, id }: string | any) => {
     setLoading(true);
 
     //Checks if the amount the user entered is more than $30,000
-    if ((enteredAmount * rate) < 30000){
-      toast.info("Sorry, you can only send a minimum amount of $30,000.00(Thirty Thousand Dollars)")
+    if ((enteredAmount * rate) < 100000){
+      toast.info("Sorry, you can only send a minimum amount of $100,000.00(Hundred Thousand Dollars)")
       setLoading(false)
       return
     }
