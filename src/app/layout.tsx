@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   title: 'Wealth Assets',
   description: 'Wealth Assets Mobile App',
   manifest: '/manifest.webmanifest',
-  themeColor: '#0d47a2'
 }
 
 export default function RootLayout({
@@ -23,7 +22,7 @@ export default function RootLayout({
   return (
     <NextAuthProvider>
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={`${roboto.className} text-xs md:text-sm xl:text-base`} >
         {children}
         <Toaster richColors position="top-center" closeButton />
       </body>
