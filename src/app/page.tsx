@@ -6,7 +6,7 @@ import Loader from "@/components/PagesComponents/Loader";
 import Nav from "@/components/PagesComponents/Nav";
 import HeroSection from "@/components/PagesComponents/HeroSection";
 import Summary from "@/components/PagesComponents/Summary";
-import WhyUs from "@/components/PagesComponents/WhyUS";
+import WhyUs from "@/components/PagesComponents/WhyUs";
 import OurCard from "@/components/PagesComponents/OurCard";
 import OnePlatform from "@/components/PagesComponents/OnePlatform";
 import SimpleSection from "@/components/PagesComponents/SimpleSection";

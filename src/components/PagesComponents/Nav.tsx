@@ -25,7 +25,7 @@ const Nav = () => {
                 <Link href="/create" className="rounded-[2rem] px-6 py-3 bg-inkBlue text-white font-medium hover:bg-green-400 hover:text-black duration-300">Register</Link>
                 <Link href="/login" className="rounded-[2rem] px-6 py-3 bg-inkBlue text-white font-medium hover:bg-green-400 hover:text-black duration-300">Sign In</Link>
             </div>
-            <Link className={`${pathname === "/login" ? "text-inkBlue" : "text-black"} lg:hidden text-lg md:text-xl font-semibold hover:text-green-500 duration-300`} href="/login">Sign In</Link>
+            <Link className={`lg:hidden text-lg md:text-xl font-semibold text-primary hover:text-inkBlue duration-300`} href="/login">Sign In</Link>
         </main>
      );
 }
