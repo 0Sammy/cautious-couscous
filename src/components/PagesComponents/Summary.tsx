@@ -7,7 +7,7 @@ const Summary = () => {
             <div className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-4 gap-5 text-black/70">
                 <div className="text-center">
                     <p className="text-lg md:text-xl xl:text-2xl text-inkBlue font-semibold">70M+</p>
-                    <p>People Trusted</p>
+                    <p>People Trusts</p>
                 </div>
                 <div className="text-center">
                     <p className="text-lg md:text-xl xl:text-2xl text-inkBlue font-semibold">2017</p>

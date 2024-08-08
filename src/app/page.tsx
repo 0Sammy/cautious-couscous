@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 
 // Import Needed Components
+import Loader from "@/components/PagesComponents/Loader";
 import Nav from "@/components/PagesComponents/Nav";
 import HeroSection from "@/components/PagesComponents/HeroSection";
 import Summary from "@/components/PagesComponents/Summary";
+import OurCard from "@/components/PagesComponents/OurCard";
 import OnePlatform from "@/components/PagesComponents/OnePlatform";
 import SimpleSection from "@/components/PagesComponents/SimpleSection";
 import StayPrivate from "@/components/PagesComponents/StayPrivate";
@@ -14,7 +16,7 @@ import CTA from "@/components/PagesComponents/CTA";
 import Footer from "@/components/PagesComponents/Footer";
 import InstallationPrompt from "@/components/DashboardComponents/InstallationPrompt";
 import Prices from "@/components/DashboardComponents/Prices";
-import Loader from "@/components/PagesComponents/Loader";
+
 
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -41,6 +43,7 @@ export default function Home() {
       <HeroSection />
       <div className="lg:w-[90%] xl:w-[80%] 2xl:w-[65%] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
         <Summary />
+        <OurCard />
         <OnePlatform />
         <SimpleSection />
         <StayPrivate />
