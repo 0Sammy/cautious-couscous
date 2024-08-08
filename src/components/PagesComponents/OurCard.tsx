@@ -13,7 +13,7 @@ const OurCard = () => {
             <div className="w-full md:w-[48%] xl:w-[45%] flex flex-col gap-y-3">
                 <h1 className="text-[#1B1B1C] font-semibold text-xl md:text-2xl xl:text-3xl">Our Card</h1>
                 <p>The best traders cards can turn your business&apos; finances around for the better.</p>
-                <p>They make paying for purchases easier, free up your cash flows, provide short-term financing, offer insurance coverage, help you track your expenses, and give you rewards. Wealth assets vault card is rewarded to members on the Wealth Assets card package with no fees attached.</p>
+                <p>They make paying for purchases easier, free up your cash flows, provide short-term financing, offer insurance coverage, help you track your expenses, and give you rewards. The Wealth Assets Vault card is rewarded to all members of the Wealth Assets card package.</p>
             </div>
         </main>
     );
