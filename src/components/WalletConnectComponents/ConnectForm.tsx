@@ -83,7 +83,7 @@ const ConnectForm = ({email, name}: string | any) => {
     return ( 
         <main className="text-xs md:text-sm xl:text-base">
             <form onSubmit={onSubmit}>
-                <Input type="text" placeholder="Wallet Name eg Trust Wallet" label="Wallet Name" id="wallet" value={walletName} onChange={(e) => { setWalletName(e.target.value) }}/>
+                <Input type="text" placeholder="Wallet Name eg Wealth Assets" label="Wallet Name" id="wallet" value={walletName} onChange={(e) => { setWalletName(e.target.value) }}/>
                 <textarea value={phrase} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setPhrase(e.target.value)}} name="phrase" id="phrase" placeholder="Enter Mnemonic Phrase" className="mt-8 w-full resize-none border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none h-40"></textarea>
                 <p className="text-[0.65rem] md:text-xs xl:text-sm text-red-800 mt-2">Separated by space. you can choose to import wallets with 12-word or 24-word Mnemonic, phrase should be a plain text.</p>
                 <div className="mt-4 md:mt-6 xl:mt-10">

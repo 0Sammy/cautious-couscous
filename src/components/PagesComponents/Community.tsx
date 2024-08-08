@@ -19,7 +19,7 @@ const Community = () => {
                             <Image src={community} alt="Image" className="rounded-[20px] md:rounded-[30px] w-full object-cover h-[253px] md:h-[506px]"/>
                             <div>
                               <strong className="text-[#242426] text-base md:text-xl xl:text-xl font-semibold">Juan</strong>  
-                              <p className="text-xs md:text-sm xl:text-base text-[#242426] mt-2">The easiest way to understand DeFi is to get your hands dirty. The Trust Wallet dApp Browser helped me to use protocols with small amounts and learn what works and what doesn&apos;t work.</p>
+                              <p className="text-xs md:text-sm xl:text-base text-[#242426] mt-2">The easiest way to understand DeFi is to get your hands dirty. The Wealth Assets dApp Browser helped me to use protocols with small amounts and learn what works and what doesn&apos;t work.</p>
                             </div>
                         </li>
                         <li className="min-w-[150px] md:min-w-[375px] lg:min-w-[unset] lg:flex-1 flex flex-col gap-y-5">
@@ -48,7 +48,7 @@ const Community = () => {
                             
                             <div>
                               <strong className="text-[#242426] text-base md:text-xl xl:text-xl font-semibold">Esmart</strong>  
-                              <p className="text-xs md:text-sm xl:text-base text-[#242426] mt-2">I thoroughly enjoy engaging with DeFi and have developed a passion for minting NFTs. However, I always make it a point to conduct my own research and consistently check the Trust Wallet Security Scanner prior to any acquisition. By following these Web3 security practices, I ensure my safety and stay #SAFU. 🛡️</p>
+                              <p className="text-xs md:text-sm xl:text-base text-[#242426] mt-2">I thoroughly enjoy engaging with DeFi and have developed a passion for minting NFTs. However, I always make it a point to conduct my own research and consistently check the Wealth Assets Security Scanner prior to any acquisition. By following these Web3 security practices, I ensure my safety and stay #SAFU. 🛡️</p>
                             </div>
                         </li>
                     </ul>
