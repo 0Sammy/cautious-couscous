@@ -1,28 +1,40 @@
 import Image from "next/image";
-
+import Link from "next/link";
 
 //Import Needed Images
-import heroImg from "../../../public/Images/heroSectionImg.png";
+import bgImg from "../../../public/Images/bg.jpg";
+
+//Import Needed Icons
+import { TickSquare } from "iconsax-react";
 
 
 const HeroSection = () => {
-    return ( 
-        <main className="flex flex-col gap-y-10 md:gap-y-0 mg:gap-x-10 md:flex-row justify-between items-center">
-            <div className="w-full md:w-1/2 text-[#1B1B1C] font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-wide">
-                <div>
-                    <p>True crypto</p>
-                    <p className="mt-2">ownership.</p>
+
+    return (
+        <main className="relative h-[50rem] sm:h-[52rem] md:h-[54rem] lg:h-[56rem] xl:h-[58rem] 2xl:h-[60rem]">
+            <Image
+                src={bgImg}
+                alt={`Hero Section`}
+                className={`h-full w-full object-cover object-center`}
+            />
+            <section className="absolute h-full w-full top-0 left-0 bg-black/80">
+                <div className="h-full w-full flex flex-col justify-center text-white py-6 px-5 sm:px-10 md:px-20 xl:px-32">
+                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold tracking-tight">Wealth Assets Wallet</h1>
+                    <p className="max-w-[80ch] mt-4 text-white/70">Wealth assets is an emerging platform in the realm of cryptocurrency trading and mining, offering the opportunity to enhance your investments swiftly. Wealthassets stands out by providing secure and profitable investment options, irrespective of the prevailing market conditions.</p>
+                    <div className="flex flex-col gap-y-3 mt-10">
+                        <p className="flex items-center gap-x-1"><TickSquare size="24" color="#0500FF" variant="Bold" /><span>Secure & Seamless Trading</span></p>
+                        <p className="flex items-center gap-x-1"><TickSquare size="24" color="#0500FF" variant="Bold" /><span>Profitable Mining Opportunities</span></p>
+                        <p className="flex items-center gap-x-1"><TickSquare size="24" color="#0500FF" variant="Bold" /><span>24/7 Expert Support</span></p>
+                    </div>
+                    <div className="mt-14 flex gap-x-5">
+                        <Link href="/create" className="rounded-[2rem] w-52 text-center bg-inkBlue px-6 py-3 hover:bg-transparent border border-inkBlue duration-300">Get Started</Link>
+                        <Link href="/login" className="rounded-[2rem] w-52 text-center border border-inkBlue px-6 py-3 hover:bg-inkBlue duration-300">Continue</Link>
+                    </div>
                 </div>
-                <p className="mt-4">Powerful Web3 experiences</p>
-                <div className="text-sm md:text-base xl:text-lg text-black text-opacity-60 tracking-normal mt-10 sm:w-[90%] md:w-[80%] xl:w-[70%] font-light">
-                    <p>Unlock the power of your cryptocurrency assets and explore the world of Web3 with Trust.</p>
-                </div>
-            </div>
-            <div className="w-full md:w-1/2 flex justify-center">
-               <Image src={heroImg} alt="Image" />
-            </div>
+            </section>
         </main>
-     );
+
+    );
 }
- 
+
 export default HeroSection;
