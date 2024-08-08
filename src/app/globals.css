@@ -73,27 +73,6 @@
   }
 }
 
-/* Home Page Image Style */
-.gradientBackground {
-  background: rgb(13, 71, 162);
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(13, 71, 162, 0.8463760504201681) 0%,
-    rgba(96, 101, 105, 0.8491771708683473) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(13, 71, 162, 0.8463760504201681) 0%,
-    rgba(96, 101, 105, 0.8491771708683473) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(13, 71, 162, 0.8463760504201681) 0%,
-    rgba(96, 101, 105, 0.8491771708683473) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0d47a2",endColorstr="#606569",GradientType=1);
-}
-
 /* Creating Account Background */
 .createBackground {
   background-image: url("../../public/Images/Background.svg");

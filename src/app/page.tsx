@@ -39,7 +39,7 @@ export default function Home() {
       <InstallationPrompt />
       <Nav />
       <HeroSection />
-      <div className="lg:w-[90%] xl:w-[80%] 2xl:w-[65%] mx-auto mt-20 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
+      <div className="lg:w-[90%] xl:w-[80%] 2xl:w-[65%] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
         <Summary />
         <OnePlatform />
         <SimpleSection />

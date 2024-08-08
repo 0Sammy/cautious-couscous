@@ -2,34 +2,28 @@
 import { Star1 } from "iconsax-react";
 
 const Summary = () => {
-    return ( 
-        <main className="mt-20">
-            <div className="flex flex-wrap gap-10 justify-center lg:justify-between">
-                <div className="w-[22%] min-w-[12rem] text-2xl font-semibold text-center">
-                    <p>Trusted by</p>
-                    <p><span className="text-inkBlue">70M+ </span>people</p>
+    return (
+        <main className="mt-20 md:mt-32 mb-8 md:-mb-32">
+            <div className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-4 gap-5 text-black/70">
+                <div className="text-center">
+                    <p className="text-lg md:text-xl xl:text-2xl text-inkBlue font-semibold">70M+</p>
+                    <p>People Trusted</p>
                 </div>
-                <div className="w-[22%] min-w-[12rem] text-2xl font-semibold text-center">
-                    <p>Founded in</p>
-                    <p className="text-inkBlue">2017</p>
+                <div className="text-center">
+                    <p className="text-lg md:text-xl xl:text-2xl text-inkBlue font-semibold">2017</p>
+                    <p>Was Founded</p>
                 </div>
-                <div className="w-[22%] min-w-[12rem] text-2xl font-semibold text-center">
+                <div className="text-center">
+                    <p className="text-lg md:text-xl xl:text-2xl text-inkBlue font-semibold uppercase">Audited</p>
                     <p>Independently</p>
-                    <p className="text-inkBlue">Audited</p>
                 </div>
-                <div className="w-[22%] min-w-[12rem] text-2xl font-semibold text-center">
-                    <p>Top reviews</p>
-                    <div className="flex justify-center">
-                        <Star1 size="24" variant="Bold" className="text-inkBlue"/>
-                        <Star1 size="24" variant="Bold" className="text-inkBlue"/>
-                        <Star1 size="24" variant="Bold" className="text-inkBlue"/>
-                        <Star1 size="24" variant="Bold" className="text-inkBlue"/>
-                        <Star1 size="24" variant="Bold" className="text-inkBlue"/>
-                    </div>
+                <div className="text-center">
+                    <p className="flex items-center gap-x-1 justify-center"><span className="text-lg md:text-xl xl:text-2xl text-inkBlue font-semibold">5</span><Star1 size="20" variant="Bold" className="text-inkBlue" /></p>
+                    <p>Millions of Reviews</p>
                 </div>
             </div>
         </main>
-     );
+    );
 }
- 
+
 export default Summary;
