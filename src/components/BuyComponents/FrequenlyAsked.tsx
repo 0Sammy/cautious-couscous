@@ -53,8 +53,8 @@ const FrequentlyAsked = () => {
                 {faqData.map(({ value, question, answer }) => (
                     <Accordion key={value} type="single" collapsible>
                         <AccordionItem value={value}>
-                            <AccordionTrigger>{question}</AccordionTrigger>
-                            <AccordionContent>{answer}</AccordionContent>
+                            <AccordionTrigger className="text-left">{question}</AccordionTrigger>
+                            <AccordionContent className="text-left">{answer}</AccordionContent>
                         </AccordionItem>
                     </Accordion>
                 ))}
