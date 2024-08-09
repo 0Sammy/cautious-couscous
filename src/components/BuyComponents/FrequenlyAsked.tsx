@@ -45,7 +45,7 @@ const faqData = [
 
 const FrequentlyAsked = () => {
     return (
-        <main className="mt-24">
+        <main id="frequently" className="mt-24">
             <p className="text-xl md:text-2xl xl:text-3xl font-bold text-center">
                 Frequently asked questions
             </p>

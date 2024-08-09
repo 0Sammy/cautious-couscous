@@ -57,8 +57,8 @@ export default function Home() {
         <FrequentlyAsked />
         <Community />
         <CTA />
-        <Footer />
       </div>
+      <Footer />
       <Prices />
     </main>
   );
