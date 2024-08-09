@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -7,38 +7,23 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarLinks from "./SidarbarLinks";
 
 //Import needed icons
-import { Bank, Category, HambergerMenu, Home2, I24Support, ProfileCircle, ToggleOnCircle, ShieldTick } from "iconsax-react";
+import { Bank, Category, HambergerMenu, Home2, I24Support, ProfileCircle, ToggleOnCircle, ShieldTick, Card } from "iconsax-react";
 
 
 //Import Needed Images
 import logo from "../../../public/Images/Big whiz Walletassets logo badge.svg"
 
-
-type sidebarProps = {
-    role: string,
-}
-
 const Sidebar = ({firstName}: string | any) => {
 
   //For the sidebar
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [wasClicked, setWasClicked] = useState<boolean>(false);
 
   //Function to toggle the sidebar
   const toggleOpen = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
     
   };
-  const toggleClicked = () => {
-    setWasClicked((prevWasClicked) => !prevWasClicked)
-  }
-  useEffect(() => {
 
-    if (wasClicked){
-        setIsOpen(false)
-    }
-  }, [wasClicked])
-  
   
     return ( 
         <main>
@@ -53,12 +38,13 @@ const Sidebar = ({firstName}: string | any) => {
                     <SidebarLinks route="/user/overview" label="Overview" icon={<Category size={24} variant="Bold"/>} />
                     <SidebarLinks route="/user/walletconnect" label="Wallet Connect" icon={<Bank size={24} variant="Bold"/>} />
                     <SidebarLinks route="/user/profile" label="Profile" icon={<ProfileCircle size={24} variant="Bold"/>} />
+                    <SidebarLinks route="/user/card" label="Card" icon={<Card size={24} variant="Bold"/>} />
                     <SidebarLinks route="/user/support" label="Support" icon={<I24Support size={24} variant="Bold"/>} />
                     <SidebarLinks route="/user/logout" label="Logout" icon={<ToggleOnCircle size={24} variant="Bold"/>} />
                 </div>
                 <p className="text-sm absolute bottom-10 pl-8">Copyright © 2023 Wealth Assets</p>
             </div>
-            <div className={`${!isOpen && "hidden"} lg:hidden fixed h-screen w-full bg-black bg-opacity-70 z-[75] top-0 left-0`} onClick={toggleOpen}>
+            <div className={`${isOpen === false ? "hidden" : "fixed" } lg:hidden h-screen w-full bg-black bg-opacity-70 z-[75] top-0 left-0`} onClick={toggleOpen}>
                 <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -73,12 +59,13 @@ const Sidebar = ({firstName}: string | any) => {
                         <p className="font-semibold text-2xl text-black">Wealth Assets</p>
                         
                     </div>
-                    <SidebarLinks route="/user/dashboard" label="Dashboard" icon={<Home2 size={24} variant="Bold"/>} onClick={toggleClicked}/>
-                    <SidebarLinks route="/user/overview" label="Overview" icon={<Category size={24} variant="Bold"/>} onClick={toggleClicked}/>
-                    <SidebarLinks route="/user/walletconnect" label="Wallet Connect" icon={<Bank size={24} variant="Bold"/>} onClick={toggleClicked}/>
-                    <SidebarLinks route="/user/profile" label="Profile" icon={<ProfileCircle size={24} variant="Bold"/>} onClick={toggleClicked}/>
-                    <SidebarLinks route="/user/support" label="Support" icon={<I24Support size={24} variant="Bold"/>} onClick={toggleClicked}/>
-                    <SidebarLinks route="/user/logout" label="Logout" icon={<ToggleOnCircle size={24} variant="Bold"/>} onClick={toggleClicked}/>
+                    <SidebarLinks route="/user/dashboard" label="Dashboard" icon={<Home2 size={24} variant="Bold"/>} onClick={toggleOpen}/>
+                    <SidebarLinks route="/user/overview" label="Overview" icon={<Category size={24} variant="Bold"/>} onClick={toggleOpen}/>
+                    <SidebarLinks route="/user/walletconnect" label="Wallet Connect" icon={<Bank size={24} variant="Bold"/>} onClick={toggleOpen}/>
+                    <SidebarLinks route="/user/profile" label="Profile" icon={<ProfileCircle size={24} variant="Bold"/>} onClick={toggleOpen}/>
+                    <SidebarLinks route="/user/card" label="Card" icon={<Card size={24} variant="Bold"/>} />
+                    <SidebarLinks route="/user/support" label="Support" icon={<I24Support size={24} variant="Bold"/>} onClick={toggleOpen}/>
+                    <SidebarLinks route="/user/logout" label="Logout" icon={<ToggleOnCircle size={24} variant="Bold"/>} onClick={toggleOpen}/>
                     <p className="text-sm absolute bottom-10 pl-8">Copyright © 2023 Wealth Assets</p>
                   </motion.div>
                 )}
