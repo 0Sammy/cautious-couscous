@@ -3,58 +3,64 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-  } from "@/components/ui/accordion";
+} from "@/components/ui/accordion";
 
-
+const faqData = [
+    {
+        value: "item-1",
+        question: "How do I set up a new account on WealthAssets wallet?",
+        answer: "Creating an account on our platform is entirely complimentary and incurs no costs. To get started, kindly select the 'Sign Up' button to initiate the creation of your account. Afterward, please choose the 'send otp' option and input the OTP code you receive in your email. Subsequently, you can move on to verify your account KYC with your national identity card. Finally, establish a four-digit PIN which will serve as your transaction security code. Should you experience any difficulties during the account setup process, please feel free to contact our online support team for help.",
+    },
+    {
+        value: "item-2",
+        question: "Why do I have to complete the KYC process accurately?",
+        answer: "It's important to fully verify your account accurately right after setting it up, prior to depositing any coins or making withdrawal attempts. Completing this verification is essential to avoid any possible interruptions such as account freezing or suspension.",
+    },
+    {
+        value: "item-3",
+        question: "How do I make a deposit?",
+        answer: "Please navigate to your account dashboard, select the coins icon, and then choose the 'receive' option. This action will direct you to the receiving page, where you can copy the wallet address. Once you have the address, you can proceed to deposit funds into it.",
+    },
+    {
+        value: "item-4",
+        question: "How long does my deposit take before it can reflect on my WealthAssets account dashboard?",
+        answer: "This process should only take approximately 5 to 10 minutes, after which it will be reflected in your account.",
+    },
+    {
+        value: "item-5",
+        question: "What is the process of making a withdrawal?",
+        answer: "Wealth Assets is a trusted platform that simplifies the process of buying, selling, and managing cryptocurrencies. Our user-friendly interface, advanced security measures, and comprehensive educational resources make it easy for both beginners and experienced users to navigate the cryptocurrency world. With Wealth Assets, you can securely send, receive, and store your digital assets with confidence.",
+    },
+    {
+        value: "item-6",
+        question: "How long does it take to process my withdrawal?",
+        answer: "Upon receipt of your withdrawal request, we will promptly process it and transfer the funds to your wallet address. You should expect to receive it in your external wallet within 5 to 10 minutes.",
+    },
+    {
+        value: "item-7",
+        question: "How can I activate my master card?",
+        answer: "To enable the use of your wealth assets Mastercard for online purchases, bill payments, and tax transactions, you have the option to activate it by depositing $850 in ethereum into your account. Please be aware that this activation is voluntary.",
+    },
+];
 
 const FrequentlyAsked = () => {
-    return ( 
+    return (
         <main className="mt-24">
-            <p className="text-xl md:text-2xl xl:text-3xl font-bold text-center">Frequently asked questions</p>
+            <p className="text-xl md:text-2xl xl:text-3xl font-bold text-center">
+                Frequently asked questions
+            </p>
             <div className="mt-8">
-                <Accordion type="single" collapsible>
-                    <AccordionItem value="item-1">
-                    <AccordionTrigger>What is cryptocurrency?</AccordionTrigger>
-                    <AccordionContent>
-                    A cryptocurrency is a digital or virtual currency that is secured by cryptography, making it nearly impossible to counterfeit or double-spend. Cryptocurrencies operate on decentralized networks based on blockchain technology, eliminating the need for a central authority like a government or bank. Popular cryptocurrencies include Bitcoin, Ethereum, and Litecoin.
-                    </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
-                <Accordion type="single" collapsible>
-                    <AccordionItem value="item-2">
-                    <AccordionTrigger> How do I get started with cryptocurrencies?</AccordionTrigger>
-                    <AccordionContent>
-                    To get started with cryptocurrencies, you&apos;ll need to set up a cryptocurrency wallet, which is a secure digital wallet used to store, send, and receive digital currencies. You can then purchase cryptocurrencies through an exchange platform or by receiving them as payment. Wealth Assets simplifies this process by providing a user-friendly platform to buy, sell, and manage your cryptocurrencies.
-                    </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
-                <Accordion type="single" collapsible>
-                    <AccordionItem value="item-3">
-                    <AccordionTrigger>Is cryptocurrency safe?</AccordionTrigger>
-                    <AccordionContent>
-                    Cryptocurrency transactions are secured by advanced cryptography, making them generally safe from hacking or fraud. However, it&apos;s essential to take proper security measures, such as using strong passwords, enabling two-factor authentication, and keeping your wallet and private keys secure. Wealth Assets employs robust security protocols to protect your assets and transactions.
-                    </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
-                <Accordion type="single" collapsible>
-                    <AccordionItem value="item-4">
-                    <AccordionTrigger>What are the benefits of using cryptocurrencies?</AccordionTrigger>
-                    <AccordionContent>
-                    Some benefits of using cryptocurrencies include decentralization (no central authority control), lower transaction fees compared to traditional payment methods, faster international transactions, and increased privacy and anonymity. Cryptocurrencies also offer an alternative investment opportunity and a way to participate in the growing digital economy.
-                    </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
-                <Accordion type="single" collapsible>
-                    <AccordionItem value="item-5">
-                    <AccordionTrigger>How can Wealth Assets help me with cryptocurrencies?</AccordionTrigger>
-                    <AccordionContent>
-                    Wealth Assets is a trusted platform that simplifies the process of buying, selling, and managing cryptocurrencies. Our user-friendly interface, advanced security measures, and comprehensive educational resources make it easy for both beginners and experienced users to navigate the cryptocurrency world. With Wealth Assets, you can securely send, receive, and store your digital assets with confidence.
-                    </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                {faqData.map(({ value, question, answer }) => (
+                    <Accordion key={value} type="single" collapsible>
+                        <AccordionItem value={value}>
+                            <AccordionTrigger>{question}</AccordionTrigger>
+                            <AccordionContent>{answer}</AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                ))}
             </div>
         </main>
-     );
-}
- 
+    );
+};
+
 export default FrequentlyAsked;

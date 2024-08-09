@@ -39,7 +39,7 @@ const WhyUs = () => {
                         <div className="flex gap-x-3">
                             <Headphone size="24" className="text-inkBlue shrink-0" variant="Bold" />
                             <div className="flex flex-col gap-3">
-                                <h3 className="text-base md:text-lg xl:text-xl font-semibold">Unmatched Security</h3>
+                                <h3 className="text-base md:text-lg xl:text-xl font-semibold">Dedicated Support</h3>
                                 <p className="text-black/80">Our 24/7 expert team is always here to assist you at every step.</p>
                             </div>
                         </div>

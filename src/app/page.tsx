@@ -1,4 +1,6 @@
 "use client";
+
+
 import { useEffect, useState } from "react";
 
 // Import Needed Components
@@ -12,11 +14,13 @@ import OnePlatform from "@/components/PagesComponents/OnePlatform";
 import SimpleSection from "@/components/PagesComponents/SimpleSection";
 import StayPrivate from "@/components/PagesComponents/StayPrivate";
 import Wallet from "@/components/PagesComponents/Wallet";
+import FrequentlyAsked from "@/components/BuyComponents/FrequenlyAsked";
 import Community from "@/components/PagesComponents/Community";
 import CTA from "@/components/PagesComponents/CTA";
 import Footer from "@/components/PagesComponents/Footer";
 import InstallationPrompt from "@/components/DashboardComponents/InstallationPrompt";
 import Prices from "@/components/DashboardComponents/Prices";
+
 
 
 export default function Home() {
@@ -50,6 +54,7 @@ export default function Home() {
         <SimpleSection />
         <StayPrivate />
         <Wallet />
+        <FrequentlyAsked />
         <Community />
         <CTA />
         <Footer />
