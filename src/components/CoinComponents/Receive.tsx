@@ -54,7 +54,7 @@ const Receive = ({toggleFunction}: modalProps) => {
     }
  })
     return ( 
-        <main className="fixed h-screen w-full bg-black bg-opacity-80 flex items-center justify-center z-[100] top-0 left-0">
+        <main className="fixed bg-black bg-opacity-80 flex items-center justify-center z-[100] inset-0">
             <div className="relative w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%] 2xl:w-[30%] bg-white p-4 md:p-8 rounded-lg">
                 <div className="flex items-center justify-between p-2 pb-4 border-b border-slate-500">
                     <p className="uppercase text-xs md:text-sm xl:text-base font-semibold">RECEIVE {coin === "bitcoin" ? "BTC" : coin === "ethereum" ? "ETH" : coin === "binance" ? "BNB" : coin === "tron" ? "TRX" : coin === "usdtt" ? "usdt (trc20)" : coin === "usdte" ? "usdt (erc20)" : coin === "ada" ? "ada" : coin === "solana" ? "SOL" : coin === "lite" ? "LTC" : coin === "doge" ? "DOGE" : "coin"}</p>

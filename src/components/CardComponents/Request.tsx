@@ -13,6 +13,7 @@ import cardBack from "../../../public/Images/userFrontCard.svg";
 
 //Import Needed Icons
 import { InfoCircle } from "iconsax-react";
+import CardPayment from "./CardPayment";
 
 
 type RequestProps = {
@@ -31,12 +32,6 @@ const Request = ({ ethWallet, cardDetails }: RequestProps) => {
         setIsDeposit((prev) => !prev)
     }
 
-    //Submit Function
-    const onSubmit = (event: FormEvent) => {
-        event.preventDefault();
-        console.log("The button was clicked")
-    }
-
     return (
         <main>
             {cardDetails.length === 0 && <>
@@ -52,14 +47,15 @@ const Request = ({ ethWallet, cardDetails }: RequestProps) => {
                         <p className="text-sm md:text-base xl:text-lg">$850</p>
                     </div>
                 </div>
-                <div className="mt-10">
-                    <Button loading={loading} text="Get Card" type="button" onClick={toggleDeposit} />
+                <div className="mt-10" onClick={toggleDeposit}>
+                    <Button loading={loading} text="Get Card" type="button" />
                 </div>
                 <div className="flex gap-x-2 text-black/80 border border-black/10 rounded-lg p-2 md:p-4 xl:p-6 font-medium">
                     <InfoCircle size="24" className="text-green-600 shrink-0" variant="Bold" />
                     <p>Purchase a virtual Mastercard which is suitable for online shopping, settling bills, and handling tax-related payments. <span className="font-semibold text-black/90">(Please note that this action is voluntary)</span>
                     </p>
                 </div>
+                {isDeposit && <CardPayment toggle={toggleDeposit} ethWallet={ethWallet} />}
             </>}
         </main>
     );
