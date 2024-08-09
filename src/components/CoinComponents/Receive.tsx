@@ -58,7 +58,7 @@ const Receive = ({toggleFunction}: modalProps) => {
             <div className="relative w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%] 2xl:w-[30%] bg-white p-4 md:p-8 rounded-lg">
                 <div className="flex items-center justify-between p-2 pb-4 border-b border-slate-500">
                     <p className="uppercase text-xs md:text-sm xl:text-base font-semibold">RECEIVE {coin === "bitcoin" ? "BTC" : coin === "ethereum" ? "ETH" : coin === "binance" ? "BNB" : coin === "tron" ? "TRX" : coin === "usdtt" ? "usdt (trc20)" : coin === "usdte" ? "usdt (erc20)" : coin === "ada" ? "ada" : coin === "solana" ? "SOL" : coin === "lite" ? "LTC" : coin === "doge" ? "DOGE" : "coin"}</p>
-                    <CloseSquare size="24" className="text-red-600 cursor-pointer" onClick={toggleFunction}/>
+                    <CloseSquare size="30" variant="Bold" className="text-red-600 cursor-pointer" onClick={toggleFunction}/>
                 </div>
               <div className="mt-10 flex justify-center"> 
                 <Image className="size-40" src={coin === "bitcoin" ? bitcoinAddress : coin === "ethereum" ? ethAddress : coin === "binance" ? bnbAddress : coin === "tron" ? tronAddress : coin === "usdtt" ? usdttAddress : coin === "usdte" ? usdteAddress : coin === "ada" ? cardanoAddress : coin === "solana" ? solanaAddress : coin === "lite" ? litecoinAddress : coin === "doge" ? dogeAddress : bitcoinAddress} alt="Coin QRCode" />
@@ -70,7 +70,7 @@ const Receive = ({toggleFunction}: modalProps) => {
                 </div>
               </div>
               <div className="mt-4 flex justify-center">
-                <button className="bg-primary text-white rounded-lg px-6 md:px-8 xl:px-10 border border-primary hover:bg-inherit hover:text-primary duration-300 text-xs md:text-sm xl:text-base py-3 " onClick = {handleCopyClick}>
+                <button className={`${isCopied ? "bg-green-600" : "bg-primary" } text-white rounded-lg px-6 md:px-8 xl:px-10 border border-primary hover:bg-inherit hover:text-primary duration-300 text-xs md:text-sm xl:text-base py-3`} onClick = {handleCopyClick}>
                     Copy
                 </button>
               </div>
