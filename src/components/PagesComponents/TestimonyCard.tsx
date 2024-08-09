@@ -7,31 +7,29 @@ import { QuoteUp } from "iconsax-react";
 
 type TestimonyCardProps = {
     name: string;
-    company: string;
+    company?: string;
     statement: string;
     ImageUrl: StaticImageData;
 }
 
 const TestimonyCard = ({ name, company, statement, ImageUrl }: TestimonyCardProps) => {
     return (
-        <div className="bg-white py-10 md:px-10 ">
-            <div className="size-80 rounded-2xl p-6">
-                <QuoteUp size="32" className="rotate-180 text-yellow-500" variant="Bold" />
-                <p className="mt-8">
-                    {statement}
-                </p>
-                <div className="w-40 h-6 rounded-xl bg-yellow-500"></div>
-                <div className="flex items-center mt-8">
-                    <Image className="w-20" src={ImageUrl} alt="Client's Image" />
-                    <div className="ml-6">
-                        <h4 className="font-bold">
-                            {name}
-                        </h4>
-                        <p>{company}</p>
-                    </div>
+        <main className="bg-white rounded-2xl my-10 w-[16rem] sm:w-80 p-4 md:p-6 xl:p-8 ">
+            <QuoteUp size="32" className="text-yellow-500" variant="Bold" />
+            <p className="mt-8 text-wrap">
+                {statement}
+            </p>
+            <div className="w-40 h-2 rounded-xl bg-yellow-500 my-4"></div>
+            <div className="flex items-center mt-4">
+                <Image className="w-20" src={ImageUrl} alt="Client's Image" />
+                <div className="ml-6">
+                    <h4 className="font-bold">
+                        {name}
+                    </h4>
+                    <p>{company}</p>
                 </div>
             </div>
-        </div>
+        </main>
     );
 };
 

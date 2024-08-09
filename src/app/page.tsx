@@ -9,6 +9,7 @@ import Nav from "@/components/PagesComponents/Nav";
 import HeroSection from "@/components/PagesComponents/HeroSection";
 import Summary from "@/components/PagesComponents/Summary";
 import WhyUs from "@/components/PagesComponents/WhyUs";
+import Testimony from "@/components/PagesComponents/Testimony";
 import OurCard from "@/components/PagesComponents/OurCard";
 import OnePlatform from "@/components/PagesComponents/OnePlatform";
 import SimpleSection from "@/components/PagesComponents/SimpleSection";
@@ -49,6 +50,7 @@ export default function Home() {
       <div className="lg:w-[90%] xl:w-[80%] 2xl:w-[65%] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
         <Summary />
         <WhyUs />
+        <Testimony />
         <OurCard />
         <OnePlatform />
         <SimpleSection />
