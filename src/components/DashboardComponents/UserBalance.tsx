@@ -204,7 +204,7 @@ const UserBalance = ({ pendingTransaction, transactions }: any) => {
       updatePendingTransaction(true)
     }
     
-  }, [transactions, updateADA, updateBNB, updateBTC, updateDOGE, updateETH, updateLITE, updateSOL, updateTRX, updateUSDTE, updateUSDTT]);
+  }, [pendingTransaction, transactions, updateADA, updateBNB, updateBTC, updateDOGE, updateETH, updateLITE, updatePendingTransaction, updateSOL, updateTRX, updateUSDTE, updateUSDTT]);
 
   return <main></main>;
 };

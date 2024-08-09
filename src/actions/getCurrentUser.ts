@@ -15,6 +15,7 @@ export default async function getCurrentLoggedInUser(email: string | any ) {
             createdAt: "desc"
           }
         },
+        Card: true
       },
 
     });
