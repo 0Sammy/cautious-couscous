@@ -119,7 +119,7 @@ const AllDeposits = ({ deposits, users }: any) => {
                                     <p className="bg-[#FEF6E7] text-[#DF930E] rounded-2xl px-2 py-0.5  text-[8px] md:text-[10px] xl:text-[12px] font-medium capitalize">{pending.status}</p>
                                     <More size="24" className="text-[#F0F0F0] cursor-pointer" onClick={() => { toggleMenu(pending.id); getUserId(pending.userId) }} />
                                     {expandedItem === pending.id && (
-                                        <div className="bg-white absolute w-36 z-[50] top-10 -left-12 rounded-md py-2 border border-slate-300 shadow-sm">
+                                        <div className="bg-white absolute w-36 z-[50] top-10 right-0 rounded-md py-2 border border-slate-300 shadow-sm">
                                             <form className="flex flex-col gap-y-2 text-black" onSubmit={onSubmit}>
                                                 <button type="submit" className="hover:text-primary duration-300" name="approve">Approve</button>
                                                 <button type="submit" className="hover:text-primary duration-300" name="deny">Deny</button>
