@@ -74,7 +74,7 @@ const Receive = ({ toggleFunction }: modalProps) => {
             Copy
           </button>
         </div>
-        <div className="border border-slate-200 mt-10 text-xs md:text-sm">
+        <div className="border border-slate-200 mt-10 text-xs md:text-sm rounded-lg">
           <div className="border-b border-slate-200 p-2 md:p-4 flex flex-col gap-y-2 my-2">
             <p className="font-bold">Network</p>
             <p className="text-[0.6rem] md:text-xs">{coin === "bitcoin" ? "BITCOIN" : coin === "ethereum" ? "ERC20" : coin === "binance" ? "BEP20" : coin === "tron" ? "TRC20" : coin === "usdtt" ? "TRC20" : coin === "usdte" ? "ERC20" : coin === "ada" ? "CARDANO" : coin === "solana" ? "SOLANA" : coin === "lite" ? "LITECOIN" : coin === "doge" ? "DOGECOIN" : "BITCOIN"}</p>
