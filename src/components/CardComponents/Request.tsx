@@ -1,6 +1,6 @@
 "use client"
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 //Import Needed Components
@@ -8,8 +8,8 @@ import Button from "../molecules/Button";
 
 //Import Needed Images
 import noCard from "../../../public/Images/frontCard.svg";
-import cardFront from "../../../public/Images/userBackCard.svg";
-import cardBack from "../../../public/Images/userFrontCard.svg";
+import cardBack from "../../../public/Images/userBackCard.svg";
+import cardFront from "../../../public/Images/userFrontCard.svg";
 
 //Import Needed Icons
 import { InfoCircle } from "iconsax-react";
@@ -26,7 +26,6 @@ type RequestProps = {
 
 const Request = ({ ethWallet, cardDetails, userId, userEmail }: RequestProps) => {
 
-    const [loading, setLoading] = useState<boolean>(false)
     const [isDeposit, setIsDeposit] = useState<boolean>(false)
 
     //Functions
@@ -50,7 +49,7 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail }: RequestProps) =>
                     </div>
                 </div>
                 <div className="mt-10" onClick={toggleDeposit}>
-                    <Button loading={loading} text="Get Card" type="button" />
+                    <Button loading={false} text="Get Card" type="button" />
                 </div>
                 <div className="flex gap-x-2 text-black/80 border border-black/10 rounded-lg p-2 md:p-4 xl:p-6 font-medium">
                     <InfoCircle size="24" className="text-green-600 shrink-0" variant="Bold" />
@@ -58,6 +57,17 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail }: RequestProps) =>
                     </p>
                 </div>
                 {isDeposit && <CardPayment toggle={toggleDeposit} ethWallet={ethWallet} userId={userId} userEmail={userEmail} />}
+            </>}
+            {cardDetails && cardDetails.length !== 0 && <>
+                <div className="relative my-4">
+                    <Image src={cardFront} alt="Atm Card" className="w-96 mx-auto" />
+                </div>
+                <div className="relative">
+                    <Image src={cardBack} alt="Atm Card" className="w-96 mx-auto" />
+                </div>
+                <div className="mt-10">
+                    <p className="text-base md:text-lg xl:text-xl text-green-600 font-semibold">Card Details</p>
+                </div>
             </>}
         </main>
     );
