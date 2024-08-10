@@ -100,7 +100,7 @@ const LoginForm = () => {
   };
 
   return (
-    <main className="mt-12 text-xs md:text-sm xl:text-base text-[#161618]">
+    <main className="mt-12 text-[#161618]">
       <form onSubmit={onSubmit}>
         <div className="flex flex-col gap-y-1">
           <label className="cursor-pointer" htmlFor="email">

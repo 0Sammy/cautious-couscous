@@ -67,7 +67,7 @@ const LoginForm = () => {
     }
   };
   return (
-    <main className="text-xs md:text-sm xl:text-base text-textPrimary">
+    <main className="text-textPrimary">
       <div>
         <p className="font-bold text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
           Operations Login

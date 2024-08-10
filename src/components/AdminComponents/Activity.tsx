@@ -12,7 +12,7 @@ type activityProps = {
 const Activity = ({usersLength, depositAmount, transferAmount, bonusAmount}: activityProps) => {
   return (
     <main className="border border-[#EEEEEE] px-2 md:px-4 py-6 rounded-xl">
-        <p className="text-white font-bold text-xs md:text-sm xl:text-base">Activity</p>
+        <p className="text-white font-bold">Activity</p>
         <p className="text-xs xl:text-sm text-secondary mt-2">This shows a general overview of the activities.</p>
       <div className="mt-4 flex gap-x-3 md:gap-x-5 overflow-x-auto special pb-4">
         <div className="flex flex-col gap-y-1 p-4 min-w-[15rem] h-36 w-72 border border-[#EEEEEE] rounded-lg">

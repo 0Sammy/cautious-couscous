@@ -15,7 +15,7 @@ const Tweet = () => {
             <div className="w-full md:w-[48%] flex flex-col gap-y-5 text-[#1B1B1C] ">
                 <h3 className="font-semibold text-xl md:text-2xl xl:text-3xl max-w-[30ch]">We build security features that protect your assets</h3>
                 <p className="text-sm md:text-base xl:text-lg font-medium mt-6 max-w-[50ch]">Built-in risk monitoring tools, like our Security Scanner, help over 70 million wealth assets users safeguard their assets and avoid potential scams.</p>
-                <Link href="/create" className="text-center mt-6 rounded-full px-8 md:px-10 py-3 text-xs md:text-sm xl:text-base bg-primary text-white hover:bg-green-400 hover:text-black duration-300">Download Wealth Assets</Link>
+                <Link href="/create" className="text-center mt-6 rounded-full px-8 md:px-10 py-3 bg-primary text-white hover:bg-green-400 hover:text-black duration-300">Download Wealth Assets</Link>
             </div>
         </main>
      );

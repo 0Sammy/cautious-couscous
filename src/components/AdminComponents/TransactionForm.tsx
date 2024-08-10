@@ -137,7 +137,7 @@ const TransactionForm = ({ allUsers, loggedInEmail }: transactionProps) => {
         });
       };
     return ( 
-        <main className="text-xs md:text-sm xl:text-base h-screen">
+        <main className="h-screen">
             <form className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-10" onSubmit={onSubmit}>
                 <Dropdown allUsers={allUsers} />
                 <DepositDropDown />

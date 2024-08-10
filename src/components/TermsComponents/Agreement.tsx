@@ -1,6 +1,6 @@
 const Agreement = () => {
     return ( 
-        <main className="mt-24 text-[#242426] text-xs md:text-sm xl:text-base">
+        <main className="mt-24 text-[#242426]">
            <p>Wealth Assets Platform, Inc., and/or its affiliates (“we,” “our,” or “us”) provides its software services through its website located at wealthassets.app and related mobile applications and products (collectively the “Services” or wealthassets). Before using our Services, please read the Terms of Service (the “Terms”) carefully, along with any other policies or notices on our website or mobile applications.</p> 
            <div className="mt-10 flex flex-col gap-y-5">
                 <p className="text-sm md:text-base xl:text-lg text-primary font-semibold">Agreement to Terms</p>

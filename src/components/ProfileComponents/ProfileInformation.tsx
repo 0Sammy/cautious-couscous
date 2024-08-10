@@ -27,7 +27,7 @@ const ProfileInformation = ({userDetails}: any) => {
                     <p className="text-sm md:text-base xl:text-lg font-semibold">User ID</p>
                     <p className="font-medium">{userDetails && userDetails.userId}</p>
                 </div>
-                <button className="bg-primary text-white rounded-lg px-4 md:px-6 xl:px-8 border border-primary hover:bg-inherit hover:text-primary duration-300 text-xs md:text-sm xl:text-base py-2" onClick = {handleCopyClick}>
+                <button className="bg-primary text-white rounded-lg px-4 md:px-6 xl:px-8 border border-primary hover:bg-inherit hover:text-primary duration-300 py-2" onClick = {handleCopyClick}>
                     Copy
                 </button>
             </div>

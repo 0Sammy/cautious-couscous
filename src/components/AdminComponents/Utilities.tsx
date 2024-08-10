@@ -70,7 +70,7 @@ const Utilities = () => {
           });
     }
     return ( 
-        <main className="text-xs md:text-sm xl:text-base">
+        <main>
             <div  className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-10 px-4 md:px-6 xl:px-8 py-4 border border-[#EEEEEE] rounded-xl">
                 <p className="font-semibold text-white">Utilities</p>
                 <div className="mt-10">

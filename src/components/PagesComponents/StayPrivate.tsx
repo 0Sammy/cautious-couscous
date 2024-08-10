@@ -18,8 +18,8 @@ const StayPrivate = () => {
             <div className="rounded-[20px] p-5 lg:rounded-[30px] lg:p-8 border border-[#DBDCE5] bg-white m-auto mt-10 flex w-full flex-col-reverse justify-between gap-7 text-left md:flex-row md:items-center md:py-14">
                 <div>
                     <h3 className="text-[#1B1B1C] font-semibold text-xl md:text-2xl xl:text-3xl max-w-[20ch]">True ownership of your crypto assets</h3>
-                    <p className="my-5 max-w-[40ch] text-xs md:text-sm xl:text-base text-[#242426]">We secure your wallet, but don&apos;t control or have access to your private keys or secret phrase - only you do.</p>
-                    <Link href="/create" className="relative z-10 flex items-center justify-center gap-3 w-fit cursor-pointer text-xs md:text-sm xl:text-base px-8 py-[1.125rem] md:py-3 md:px-10 border bg-inkBlue hover:bg-green-400 hover:text-black text-white duration-300 rounded-full font-medium">Get Started</Link>
+                    <p className="my-5 max-w-[40ch] text-[#242426]">We secure your wallet, but don&apos;t control or have access to your private keys or secret phrase - only you do.</p>
+                    <Link href="/create" className="relative z-10 flex items-center justify-center gap-3 w-fit cursor-pointer px-8 py-[1.125rem] md:py-3 md:px-10 border bg-inkBlue hover:bg-green-400 hover:text-black text-white duration-300 rounded-full font-medium">Get Started</Link>
                 </div>
              <Image src={privateImg} alt="Image" loading="lazy"/>   
             </div>
@@ -27,17 +27,17 @@ const StayPrivate = () => {
                 <li className="rounded-[20px] p-5 lg:rounded-[30px] lg:p-8  border border-[#DBDCE5] bg-white grid w-full min-w-[250px] flex-1 gap-10 md:max-w-[510px] lg:max-w-none">
                     <h3 className="text-[#1B1B1C] font-semibold text-xl md:text-2xl xl:text-3xl">Added security with encryption</h3>
                     <Image src={private1} alt="Image" loading="lazy" className="m-auto h-[160px] w-auto md:h-[100px]"/> 
-                    <p className="text-xs md:text-sm xl:text-base text-[#242426]">Use our Encrypted Cloud Backup for increased wallet security.</p>
+                    <p className="text-[#242426]">Use our Encrypted Cloud Backup for increased wallet security.</p>
                 </li>
                 <li className="rounded-[20px] p-5 lg:rounded-[30px] lg:p-8  border border-[#DBDCE5] bg-white grid w-full min-w-[250px] flex-1 gap-10 md:max-w-[510px] lg:max-w-none">
                     <h3 className="text-[#1B1B1C] font-semibold text-xl md:text-2xl xl:text-3xl">Zero personal tracking</h3>
                     <Image src={private2} alt="Image" loading="lazy" className="m-auto h-[160px] w-auto md:h-[100px]"/> 
-                    <p className="text-xs md:text-sm xl:text-base text-[#242426]">We don&apos;t track any personal information, including your IP address or balances..</p>
+                    <p className="text-[#242426]">We don&apos;t track any personal information, including your IP address or balances..</p>
                 </li>
                 <li className="rounded-[20px] p-5 lg:rounded-[30px] lg:p-8  border border-[#DBDCE5] bg-white grid w-full min-w-[250px] flex-1 gap-10 md:max-w-[510px] lg:max-w-none">
                     <h3 className="text-[#1B1B1C] font-semibold text-xl md:text-2xl xl:text-3xl">Proactive alerts for risky transactions</h3>
                     <Image src={private3} alt="Image" loading="lazy" className="m-auto h-[160px] w-auto md:h-[100px]"/> 
-                    <p className="text-xs md:text-sm xl:text-base text-[#242426]">Stay safe with alerts for risky address and dApp connections.</p>
+                    <p className="text-[#242426]">Stay safe with alerts for risky address and dApp connections.</p>
                 </li>
             </ul>
             <Link href="/security" className="rounded-full flex items-center justify-center gap-3 font-medium px-8 py-[1.125rem] md:py-3 md:px-10 border border-black text-black hover:bg-black hover:text-white duration-300 mx-auto mt-10 w-fit">Learn more about privacy & security</Link>

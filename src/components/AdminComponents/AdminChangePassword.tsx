@@ -58,7 +58,7 @@ const AdminChangePassword = () => {
 
     }
     return ( 
-        <main className="mt-8 border border-[#EEEEEE] px-2 md:px-4 py-6 rounded-xl text-xs md:text-sm xl:text-base">
+        <main className="mt-8 border border-[#EEEEEE] px-2 md:px-4 py-6 rounded-xl">
             <p className="text-white font-bold">
                 Change your password
             </p> 

@@ -4,7 +4,7 @@ import Link from "next/link";
 const SuspendedUsers = ({suspendedUsers}: any) => {
     return ( 
         <main className="border border-[#EEEEEE] rounded-xl p-4 min-h-screen">
-            <p className="text-xs md:text-sm xl:text-base text-secondary font-bold">All Suspended Clients</p>
+            <p className="text-secondary font-bold">All Suspended Clients</p>
             <div className="flex flex-col gap-y-2 mt-8">
             {suspendedUsers &&
             suspendedUsers.map((user: any) => (
@@ -31,7 +31,7 @@ const SuspendedUsers = ({suspendedUsers}: any) => {
               </Link>
             ))}
             </div>
-            {suspendedUsers &&  suspendedUsers.length === 0 && <div className="text-center text-xs md:text-sm xl:text-base text-secondary font-medium my-10"><p>There is no suspended clients</p></div>}
+            {suspendedUsers &&  suspendedUsers.length === 0 && <div className="text-center text-secondary font-medium my-10"><p>There is no suspended clients</p></div>}
         </main>
      );
 }

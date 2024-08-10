@@ -49,12 +49,12 @@ const Balance = () => {
                 </> }
                 <div className="flex items-center justify-between">
                     <div className="flex flex-col gap-y-1">
-                       <p className="text-xs md:text-sm xl:text-base">Total Balance</p>
+                       <p>Total Balance</p>
                        <p className="text-lg md:text-xl xl:text-2xl font-semibold">${(total).toLocaleString("en-US")}</p> 
                     </div>
                     <Wallet3 size="30" variant="Bold"/>
                 </div>
-                <div className="flex flex-col gap-y-5 font-semibold text-xs md:text-sm xl:text-base">
+                <div className="flex flex-col gap-y-5 font-semibold">
                     <div className="flex gap-x-3">
                         <Link href="/user/overview" className="w-1/2 bg-white text-[#160959] py-2 md:py-3 text-center rounded-2xl border border-white hover:bg-inherit hover:text-white duration-500">Receive</Link>
                         <Link href="/user/overview" className="w-1/2 bg-white text-[#160959] py-2 md:py-3 text-center rounded-2xl border border-white hover:bg-inherit hover:text-white duration-500">Send</Link>

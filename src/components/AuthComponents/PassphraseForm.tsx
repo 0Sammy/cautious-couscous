@@ -90,7 +90,7 @@ const PassPhraseForm = ({users}: any) => {
   };
 
   return (
-    <main className='text-xs md:text-sm xl:text-base'>
+    <main>
         <form className='mt-10' onSubmit={onSubmit}>
             <div className='flex flex-col gap-y-1'>
                 <label>Enter Your Passphrase:</label>

@@ -123,7 +123,7 @@ const UsersAccountSummary = ({transactions}:  any) => {
       const dogeBalance = (dogeTransactions.receive + dogeTransactions.bonus + dogeTransactions.earning) - (dogeTransactions.deposit + dogeTransactions.penalty)
 
     return ( 
-        <main className="border border-[#7676801F] rounded-xl w-full  px-4 md:px-6 xl:px-8 py-4 mt-8 text-xs md:text-sm xl:text-base">
+        <main className="border border-[#7676801F] rounded-xl w-full  px-4 md:px-6 xl:px-8 py-4 mt-8">
             <p className="font-semibold">Individual Coin Balances</p>
             <div className="flex gap-3 xl:gap-5 flex-wrap mt-6">
                 <div className="flex flex-col gap-y-1 items-center border border-slate-300 rounded-md p-2">

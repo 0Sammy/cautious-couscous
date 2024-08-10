@@ -39,7 +39,7 @@ const DeleteTransactionButton = ({id}: string | any) => {
     return ( 
         <main>
             <form onSubmit={onSubmit}>
-                <button type="submit" className="w-full py-3 rounded-lg text-xs md:text-sm xl:text-base bg-red-600 text-white hover:bg-red-800 duration-300">{loading ? "Deleting..." : "Delete Transaction"}</button>
+                <button type="submit" className="w-full py-3 rounded-lg  bg-red-600 text-white hover:bg-red-800 duration-300">{loading ? "Deleting..." : "Delete Transaction"}</button>
             </form>
         </main>
      );

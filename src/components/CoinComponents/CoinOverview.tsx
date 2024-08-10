@@ -54,7 +54,7 @@ const CoinOverview = () => {
                     <p className="text-base md:text-lg font-medium">${coin === "bitcoin" ? (btcBalance * btcPrice).toLocaleString() : coin === "ethereum" ? (ethBalance * ethPrice).toLocaleString() : coin === "binance" ? (binanceBalance * bnbPrice).toLocaleString() : coin === "tron" ? (tronBalance * trxPrice).toLocaleString() : coin === "usdtt" ? (usdttBalance * usdtPrice).toLocaleString() : coin === "usdte" ? (usdteBalance * usdtPrice).toLocaleString() : coin === "ada" ? (adaBalance * adaPrice).toLocaleString() : coin === "solana" ? (solBalance * solPrice).toLocaleString() : coin === "lite" ? (liteBalance * ltcPrice).toLocaleString() : coin === "doge" ? (dogeBalance * dogePrice).toLocaleString() : 0.00}</p> 
                 </div>
 
-                <div className="flex border-t border-slate-200 p-4 mt-4 text-xs md:text-sm xl:text-base">
+                <div className="flex border-t border-slate-200 p-4 mt-4">
                     <div className="w-1/2 flex items-center justify-center border-r border-slate-400">
                         <div className="flex gap-x-2 text-primary p-2 items-center cursor-pointer hover:text-black duration-500" onClick={toggleReceive}>
                             <ArrowDown size="20"/> 

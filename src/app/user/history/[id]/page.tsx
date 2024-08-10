@@ -8,7 +8,7 @@ const page = async ({ params }: { params: { id: string } }) => {
     const currentTransaction = await getIndividualTransaction(transactionId)
 
     return ( 
-        <main className="fixed h-screen w-full bg-black bg-opacity-80 flex items-center justify-center z-[700] top-0 left-0 text-xs md:text-sm xl:text-base">
+        <main className="fixed h-screen w-full bg-black bg-opacity-80 flex items-center justify-center z-[700] top-0 left-0">
             <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] px-2 sm:px-4 py-6 md:p-6 xl:p-8 bg-white flex flex-col gap-y-3 rounded-lg">
                 <p className="text-base md:text-xl xl:text-2xl text-[#020100] font-semibold">
                     Transaction details

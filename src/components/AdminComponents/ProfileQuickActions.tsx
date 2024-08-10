@@ -48,7 +48,7 @@ const ProfileQuickActions = ({email, isSuspended, name, userId}: profileActionsP
         }
         
     return ( 
-        <main className="border border-[#7676801F] rounded-xl w-full  px-4 md:px-6 xl:px-8 py-4 mt-8 text-xs md:text-sm xl:text-base">
+        <main className="border border-[#7676801F] rounded-xl w-full  px-4 md:px-6 xl:px-8 py-4 mt-8">
             <p className="font-semibold text-[#141619] my-4">Quick Actions</p>
             <div className="flex justify-between">
                <SuspendButton userEmail={email} userSuspended={isSuspended} name={name} />

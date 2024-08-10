@@ -119,7 +119,7 @@ const CreateForm = () => {
       {showModal && (
         <Toast {...modalProps} message={message} hideModal={handleFinal} />
       )}
-      <main className="mt-10 text-xs md:text-sm xl:text-base text-[#161618]">
+      <main className="mt-10 text-[#161618]">
         <form onSubmit={onSubmit} className="flex flex-col gap-y-3">
           <div className="flex justify-between">
             <div className="w-[49%]">

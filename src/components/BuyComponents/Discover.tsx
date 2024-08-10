@@ -22,7 +22,7 @@ const Discover = () => {
             <div className="w-full md:w-[48%] min-w-[18rem] flex gap-x-2 bg-primary text-white py-10 md:py-20 px-4 sm:px-6 md:px-8 xl:px-10 rounded-[20px] md:rounded-[30px] overflow-hidden">
                 <div className="flex flex-col gap-y-10">
                     <h3 className="text-xl md:text-2xl xl:text-3xl font-bold">Discover more ways to keep your assets safe</h3>
-                    <Link href="/security" className="text-center text-xs md:text-sm xl:text-base font-medium rounded-full py-3 px-8 md:px-10 bg-white text-inkBlue hover:bg-green-400 duration-300">Get safety tips</Link>
+                    <Link href="/security" className="text-center font-medium rounded-full py-3 px-8 md:px-10 bg-white text-inkBlue hover:bg-green-400 duration-300">Get safety tips</Link>
                 </div>
                 <Image src={discoverShield} alt="Image" />
             </div>

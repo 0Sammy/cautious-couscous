@@ -32,10 +32,10 @@ const ImageUpload = ({ onChange, value, text}: ImageUploadProps) => {
         {({open}) => {
             return (
                 <>
-                <p className="mt-4 text-xs md:text-sm xl:text-base text-[#161618]">{text}</p>
+                <p className="mt-4 text-[#161618]">{text}</p>
                 <div onClick={() => open?.()} className='relative cursor-pointer hover:opacity-70 border-dashed border flex flex-col justify-center items-center h-[100px] mt-2 rounded-md duration-200'>
                     <Camera size="20" className='text-primary'/>        
-                    <div className='text-xs md:text-sm xl:text-base text-[#161618] mt-1'>
+                    <div className="text-[#161618] mt-1">
                         Click to upload
                     </div>
 

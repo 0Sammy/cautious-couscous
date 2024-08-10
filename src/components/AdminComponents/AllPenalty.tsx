@@ -51,7 +51,7 @@ const AllPenalty = ({penalties}: any) => {
     }
     return ( 
     <>
-        <main className="min-h-screen text-xs md:text-sm xl:text-base">
+        <main className="min-h-screen">
             <div className="h-[50vh] overflow-y-auto px-2 sm:px-4 md:px-6 xl:px-8 py-4 special1">
                 <p className="text-base md:text-lg xl:text-xl font-semibold text-white">Pending Penalties</p>
                 <div className="flex flex-col gap-y-3 mt-4">
@@ -64,12 +64,12 @@ const AllPenalty = ({penalties}: any) => {
                                </div>
 
                                <div className="flex flex-col gap-y-0.5">
-                                   <p className="text-[#F0F0F0] text-xs md:text-sm xl:text-base font-medium capitalize">{pending.coin === "bitcoin" ? "Bitcoin" : pending.coin === "ethereum" ? "Ethereum" : pending.coin === "binance" ? "Binancecoin" : pending.coin === "tron" ? "Tron" : pending.coin.includes('usd') ? "Tether" : pending.coin === "ada" ? "Cardano" : pending.coin === "solana" ? "Solana" : pending.coin === "lite" ? "Litecoin" : pending.coin === "doge" ? "Doge" : "Coin"} was removed</p>
+                                   <p className="text-[#F0F0F0] font-medium capitalize">{pending.coin === "bitcoin" ? "Bitcoin" : pending.coin === "ethereum" ? "Ethereum" : pending.coin === "binance" ? "Binancecoin" : pending.coin === "tron" ? "Tron" : pending.coin.includes('usd') ? "Tether" : pending.coin === "ada" ? "Cardano" : pending.coin === "solana" ? "Solana" : pending.coin === "lite" ? "Litecoin" : pending.coin === "doge" ? "Doge" : "Coin"} was removed</p>
                                    <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">{formatDate(pending.createdAt)}</p>
                                </div>
                            </Link>
                            <div className="relative flex gap-x-2 items-center">
-                               <p className="text-[#FF5964] text-xs md:text-sm xl:text-base font-medium">-{pending.amount}</p> 
+                               <p className="text-[#FF5964] font-medium">-{pending.amount}</p> 
                                <p className="bg-[#FEF6E7] text-[#DF930E] rounded-2xl px-2 py-0.5  text-[8px] md:text-[10px] xl:text-[12px] font-medium capitalize">{pending.status}</p>
                                <More size="24" className="text-[#F0F0F0] cursor-pointer"  onClick={() => toggleMenu(pending.id)}/>
                                {expandedItem === pending.id && ( 
@@ -103,12 +103,12 @@ const AllPenalty = ({penalties}: any) => {
                                    </div>
 
                                    <div className="flex flex-col gap-y-0.5">
-                                       <p className="text-[#F0F0F0] text-xs md:text-sm xl:text-base font-medium capitalize">{processed.coin === "bitcoin" ? "Bitcoin" : processed.coin === "ethereum" ? "Ethereum" : processed.coin === "binance" ? "Binancecoin" : processed.coin === "tron" ? "Tron" : processed.coin.includes('usd') ? "Tether" : processed.coin === "ada" ? "Cardano" : processed.coin === "solana" ? "Solana" : processed.coin === "lite" ? "Litecoin" : processed.coin === "doge" ? "Doge" : "Coin"} was removed</p>
+                                       <p className="text-[#F0F0F0] font-medium capitalize">{processed.coin === "bitcoin" ? "Bitcoin" : processed.coin === "ethereum" ? "Ethereum" : processed.coin === "binance" ? "Binancecoin" : processed.coin === "tron" ? "Tron" : processed.coin.includes('usd') ? "Tether" : processed.coin === "ada" ? "Cardano" : processed.coin === "solana" ? "Solana" : processed.coin === "lite" ? "Litecoin" : processed.coin === "doge" ? "Doge" : "Coin"} was removed</p>
                                        <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">{formatDate(processed.createdAt)}</p>
                                    </div>
                                 </div>
                                 <div className="flex gap-x-2 items-center">
-                                    <p className={`${processed.status === "successful" ? "text-[#20BF55]" : "text-[#FF5964]"} text-xs md:text-sm xl:text-base font-medium`}>-{processed.amount}</p> 
+                                    <p className={`${processed.status === "successful" ? "text-[#20BF55]" : "text-[#FF5964]"} font-medium`}>-{processed.amount}</p> 
                                     <p className={`capitalize ${processed.status === "successful" ? "bg-green-600 bg-opacity-20 text-[#20BF55]" : "bg-red-600 bg-opacity-20 text-red-800"} rounded-2xl px-2 py-0.5  text-[8px] md:text-[10px] xl:text-[12px] font-medium`}>{processed.status}</p>
                                 </div>
                             </div>

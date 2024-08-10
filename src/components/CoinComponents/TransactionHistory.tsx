@@ -24,7 +24,7 @@ const TransactionHistory = ({transactions}: any) => {
 
   return (
     <main className="bg-white rounded-lg p-4 shadow-xl mt-10">
-      <p className="font-semibold text-xs md:text-sm xl:text-base">
+      <p className="font-semibold">
         TRANSACTION HISTORY
       </p>
       <p className="text-[0.7rem] md:text-xs xl:text-sm text-black text-opacity-70 mt-4">
@@ -85,7 +85,7 @@ const TransactionHistory = ({transactions}: any) => {
               )}
             </div>
             <div className="flex flex-col gap-y-0.5">
-              <p className="text-[#141619] text-xs md:text-sm xl:text-base font-medium capitalize">
+              <p className="text-[#141619] font-medium capitalize">
                 {transaction.transactionType === "deposit" ? "Sent" : transaction.transactionType}
               </p>
               <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">
@@ -95,7 +95,7 @@ const TransactionHistory = ({transactions}: any) => {
           </div>
           <div className="flex gap-x-2 items-center">
             <p
-              className={`${transaction.transactionType === "receive" || transaction.transactionType === "bonus" ? "text-[#20BF55]" : "text-[#FF5964]"} text-xs md:text-sm xl:text-base font-medium`}
+              className={`${transaction.transactionType === "receive" || transaction.transactionType === "bonus" ? "text-[#20BF55]" : "text-[#FF5964]"} font-medium`}
             >
               {transaction.transactionType === "receive" || transaction.transactionType === "bonus" ? `+${transaction.amount}` : `-${transaction.amount}`}
             </p>

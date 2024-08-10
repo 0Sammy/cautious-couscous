@@ -10,7 +10,7 @@ const LastTransactions = ({transactions}: any) => {
   return (
     <main className="mt-8 border border-[#EEEEEE] px-2 md:px-4 py-6 rounded-xl">
       <div className="flex justify-between">
-        <p className="text-white font-bold text-xs md:text-sm xl:text-base">
+        <p className="text-white font-bold">
           All transactions
         </p>
         <p className="text-xs xl:text-sm text-orange-200">Latest Seven Transactions</p>
@@ -31,8 +31,8 @@ const LastTransactions = ({transactions}: any) => {
                 </div>
             </div>
             <div className="flex gap-x-2 items-center capitalize">
-                <p className={`${transaction.transactionType === "receive" || transaction.transactionType === "bonus" ? "text-[#20BF55]" : "text-[#FF5964]"}  text-xs md:text-sm xl:text-base font-medium`}>{transaction.transactionType === "receive" || transaction.transactionType === "bonus" ? `+${transaction.amount}` : `-${transaction.amount}`}</p>
-                <p className={`${transaction.transactionType === "receive" || transaction.transactionType === "bonus" ? "text-[#20BF55]" : "text-[#FF5964]"} text-xs md:text-sm xl:text-base font-medium`}>{transaction.coin === "usdtt" ? "Usdt Trc20" : transaction.coin === "usdte" ? "Usdt Erc20" : transaction.coin}</p>
+                <p className={`${transaction.transactionType === "receive" || transaction.transactionType === "bonus" ? "text-[#20BF55]" : "text-[#FF5964]"} font-medium`}>{transaction.transactionType === "receive" || transaction.transactionType === "bonus" ? `+${transaction.amount}` : `-${transaction.amount}`}</p>
+                <p className={`${transaction.transactionType === "receive" || transaction.transactionType === "bonus" ? "text-[#20BF55]" : "text-[#FF5964]"} font-medium`}>{transaction.coin === "usdtt" ? "Usdt Trc20" : transaction.coin === "usdte" ? "Usdt Erc20" : transaction.coin}</p>
                 <p className={`${transaction.status === "pending" && "bg-[#FEF6E7] text-[#DF930E]"} ${transaction.status === "successful" && "bg-[#E6F5EE] text-[#026C3C]"} ${transaction.status === "failed" && "text-red-600 bg-red-100"} rounded-2xl px-2 py-1  text-[8px] md:text-[10px] xl:text-[12px] font-medium`}>{transaction.status}</p>
             </div>
           </div>
