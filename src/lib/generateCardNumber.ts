@@ -45,3 +45,22 @@ export function formatCardNumber(cardNumber: string) {
 export function generateRandomThreeDigits() {
     return Math.floor(100 + Math.random() * 900);
 }
+
+export function getExpiryTime(cardDate: Date) {
+
+    // Parse the createdAt string into a Date object
+    const date = new Date(cardDate);
+
+    // Extract the month (getMonth returns 0-based month, so we add 1)
+    let month: number = date.getMonth() + 1;
+
+    // Ensure month is 2 digits
+    let formattedMonth = month < 10 ? `0${month}` : `${month}`;
+
+    // Extract the year and add 3 years
+    let year: number = date.getFullYear() + 3;
+    let formattedYear = year.toString().slice(-2);
+
+    // Format the final date as MM/YY
+    return`${formattedMonth}/${formattedYear}`;
+}

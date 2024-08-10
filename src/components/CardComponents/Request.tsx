@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 
+//Import Needed Libs
+import { formatCardNumber } from "@/lib/generateCardNumber";
+
 //Import Needed Components
 import Button from "../molecules/Button";
 
@@ -18,7 +21,7 @@ import CardPayment from "./CardPayment";
 
 type RequestProps = {
     ethWallet: string;
-    cardDetails: any;
+    cardDetails: { id: string; status: string; userId: string | null; cardNumber: string; cardCvv: string; createdAt: Date, updatedAt: Date }[];
     userId: string;
     userEmail: string;
 }
@@ -27,6 +30,7 @@ type RequestProps = {
 const Request = ({ ethWallet, cardDetails, userId, userEmail }: RequestProps) => {
 
     const [isDeposit, setIsDeposit] = useState<boolean>(false)
+    const userCard = cardDetails[0]
 
     //Functions
     const toggleDeposit = () => {
@@ -60,13 +64,31 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail }: RequestProps) =>
             </>}
             {cardDetails && cardDetails.length !== 0 && <>
                 <div className="relative my-4">
-                    <Image src={cardFront} alt="Atm Card" className="w-96 mx-auto" />
+                    <Image src={cardFront} alt="Atm Card" className="w-96 lg:w-[26rem] xl:w-[28rem] mx-auto" />
                 </div>
                 <div className="relative">
-                    <Image src={cardBack} alt="Atm Card" className="w-96 mx-auto" />
+                    <Image src={cardBack} alt="Atm Card" className="w-96 lg:w-[26rem] xl:w-[28rem] mx-auto" />
                 </div>
                 <div className="mt-10">
-                    <p className="text-base md:text-lg xl:text-xl text-green-600 font-semibold">Card Details</p>
+                    <p className="text-green-600 font-semibold">Card Details</p>
+                    <div className="flex flex-col gap-y-3 mt-6">
+                        <div className="flex flex-col gap-y-0.5">
+                            <p className="text-[10px] md:text-xs xl:text-sm text-black/50 font-semibold">Card Number</p>
+                            <p className="font-semibold text-sm md:text-base xl:text-lg">{formatCardNumber(userCard.cardNumber)}</p>
+                        </div>
+                        <div className="flex flex-col gap-y-0.5">
+                            <p className="text-[10px] md:text-xs xl:text-sm text-black/50 font-semibold">Expiry Date</p>
+                            <p className="font-semibold text-sm md:text-base xl:text-lg">{ }</p>
+                        </div>
+                        <div className="flex flex-col gap-y-0.5">
+                            <p className="text-[10px] md:text-xs xl:text-sm text-black/50 font-semibold">CVV</p>
+                            <p className="font-semibold text-sm md:text-base xl:text-lg">{userCard.cardCvv}</p>
+                        </div>
+                        <div className="flex flex-col gap-y-0.5">
+                            <p className="text-[10px] md:text-xs xl:text-sm text-black/50 font-semibold">Card PIN</p>
+                            <p className="font-semibold text-sm md:text-base xl:text-lg">Your card pin is the same as your <span className="text-inkBlue">Transaction Pin</span></p>
+                        </div>
+                    </div>
                 </div>
             </>}
         </main>
