@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 //Import Needed Libs
 import { formatCardNumber, getExpiryTime } from "@/lib/generateCardNumber";
 
 //Import Needed Components
 import Button from "../molecules/Button";
+import CardPayment from "./CardPayment";
 
 //Import Needed Images
 import noCard from "../../../public/Images/frontCard.svg";
@@ -15,8 +17,8 @@ import cardBack from "../../../public/Images/userBackCard.svg";
 import cardFront from "../../../public/Images/userFrontCard.svg";
 
 //Import Needed Icons
-import { InfoCircle } from "iconsax-react";
-import CardPayment from "./CardPayment";
+import { CardCoin, CardRemove, InfoCircle } from "iconsax-react";
+
 
 
 type RequestProps = {
@@ -63,7 +65,16 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail, userName }: Reques
                 </div>
                 {isDeposit && <CardPayment toggle={toggleDeposit} ethWallet={ethWallet} userId={userId} userEmail={userEmail} />}
             </>}
-            {cardDetails && cardDetails.length !== 0 && <>
+            {userCard && userCard.status === "pending" && <>
+                <div className="flex gap-x-5 items-center my-8">
+                    <p className="text-sm md:text-base xl:text-lg font-semibold">In Production</p>
+                    <CardCoin size="32" className="text-green-600 animate-bounce" variant="Bold" />
+                </div>
+
+                <p className="mb-8">We have successfully received your request to activate your card, and it is currently under review. <br /><br /> For further confirmation and inquiries, please kindly reach out to our company support team with proof of your payment.</p>
+                <Link className="text-inkBlue font-semibold" href="/user/support">Contact Support</Link>
+            </>}
+            {userCard && userCard.status === "successful" && <>
                 <div className="relative my-4 h-fit w-fit mx-auto">
                     <Image src={cardFront} alt="Atm Card" className="w-96" />
                     <p className="absolute font-semibold text-sm sm:text-base md:text-lg xl:text-xl top-[52%] left-[15%] text-white tracking-wide z-1">{formatCardNumber(userCard.cardNumber)}</p>
@@ -95,10 +106,18 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail, userName }: Reques
                         </div>
                         <div className="flex flex-col gap-y-0.5">
                             <p className="text-[10px] md:text-xs xl:text-sm text-black/50 font-semibold">Card Status</p>
-                            <p className={`${userCard.status === "successful" ? "text-green-600" : "text-red-600"} font-semibold text-sm md:text-base xl:text-lg`}>{userCard.status === "pending" ? "Pending Activation" : userCard.status === "failed" ? "Canceled" : userCard.status === "successful" ? "Active" : "Unavailable"}</p>
+                            <p className={`text-green-600 font-semibold text-sm md:text-base xl:text-lg`}>Active</p>
                         </div>
                     </div>
                 </div>
+            </>}
+            {userCard && userCard.status === "failed" && <>
+                <div className="flex gap-x-5 items-center my-8">
+                    <p className="text-sm md:text-base xl:text-lg font-semibold">Not Approved</p>
+                    <CardRemove size="32" className="text-red-600" variant="Bold" />
+                </div>
+                <p className="mb-8">We are sorry to let you know that your request for a credit card has not been approved yet. <br /><br /> After careful consideration of the details you submitted, it has been concluded that we cannot move forward with your request due to the insufficient Ethereum value, which should be equivalent to $850. <br /><br /> We realize this may be disheartening, and we invite you to contact our customer support team if you need more information or help. <br /><br />Thank you for your comprehension, and we apologize for any inconvenience this may have caused.</p>
+                <Link className="text-inkBlue font-semibold" href="/user/support">Contact Support</Link>
             </>}
         </main>
     );
