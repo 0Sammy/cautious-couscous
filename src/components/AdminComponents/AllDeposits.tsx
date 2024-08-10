@@ -98,8 +98,8 @@ const AllDeposits = ({deposits, users}: any) => {
     }
     return ( 
     <>
-        <main className="min-h-screen">
-            <div className="h-[50vh] overflow-y-auto px-2 sm:px-4 md:px-6 xl:px-8 py-4 special1">
+        <main className="min-h-dvh">
+            <div className="h-[50dvh] overflow-y-auto px-2 sm:px-4 md:px-6 xl:px-8 py-4 special1">
                 <p className="text-base md:text-lg xl:text-xl font-semibold text-white">Pending Transfers</p>
                 <div className="flex flex-col gap-y-3 mt-4">
                 {pendingDeposits && pendingDeposits.map((pending: any) => (
@@ -138,7 +138,7 @@ const AllDeposits = ({deposits, users}: any) => {
                <Link href="/admin/create" className="bg-red-600 text-white px-4 md:px-6 xl:px-8 py-3 rounded-md hover:bg-red-800 duration-300">New Transfer</Link> 
             </div>
         
-            <div className="h-[50vh] overflow-y-auto px-4 md:px-6 xl:px-8 py-4 special1">
+            <div className="h-[50dvh] overflow-y-auto px-4 md:px-6 xl:px-8 py-4 special1">
                 <p className="text-base md:text-lg xl:text-xl font-semibold text-white">Processed Transfers</p>
                 <div className="flex flex-col gap-y-3 mt-4">
                     {processedDeposits && processedDeposits.map((processed: any) => ( 

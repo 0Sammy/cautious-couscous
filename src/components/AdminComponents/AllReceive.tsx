@@ -51,8 +51,8 @@ const AllReceive = ({receive}: any) => {
     }
     return ( 
     <>
-        <main className="min-h-screen">
-            <div className="h-[50vh] overflow-y-auto px-2 sm:px-4 md:px-6 xl:px-8 py-4 special1">
+        <main className="min-h-dvh">
+            <div className="h-[50dvh] overflow-y-auto px-2 sm:px-4 md:px-6 xl:px-8 py-4 special1">
                 <p className="text-base md:text-lg xl:text-xl font-semibold text-white">Pending Transaction</p>
                 <div className="flex flex-col gap-y-3 mt-4">
                 {pendingReceive && pendingReceive.map((pending: any) => (
@@ -91,7 +91,7 @@ const AllReceive = ({receive}: any) => {
                <Link href="/admin/create" className="bg-green-600 text-white px-4 md:px-6 xl:px-8 py-3 rounded-md hover:bg-green-800 duration-300">New Transaction</Link> 
             </div>
         
-            <div className="h-[50vh] overflow-y-auto px-4 md:px-6 xl:px-8 py-4 special1">
+            <div className="h-[50dvh] overflow-y-auto px-4 md:px-6 xl:px-8 py-4 special1">
                 <p className="text-base md:text-lg xl:text-xl font-semibold text-white">Processed Transaction</p>
                 <div className="flex flex-col gap-y-3 mt-4">
                     {processedReceive && processedReceive.map((processed: any) => ( 
