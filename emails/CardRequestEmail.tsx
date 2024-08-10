@@ -22,7 +22,7 @@ export default function CardRequestTemplate({time}: {time: string}) {
                         </ul>
                     </Text>
                     <Text style={paragraph}>
-                        We'll notify you as soon as your card is approved. Get ready to enjoy seamless transactions between the crypto and fiat worlds!
+                        We&aspos;ll notify you as soon as your card is approved. Get ready to enjoy seamless transactions between the crypto and fiat worlds!
                     </Text>
                     <Text style={paragraph}>
                         If you have any questions, our support team is here to help. If you never requested for this service, or you think your account has been compromised, kindly contact us.

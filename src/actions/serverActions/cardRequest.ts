@@ -1,11 +1,33 @@
 "use server"
+
 import { status } from "@prisma/client"
 import { prisma } from "@/lib/prismadb"
 
-export async function deleteClass(id: string, type: string) {
+//Import Libs and utils
+import { sendEmail } from "@/lib/email";
+import { render } from '@react-email/components';
+
+//Templates
+import ApprovalTemplate from "../../../emails/CardApprovalEmail";
+import RejectionTemplate from "../../../emails/CardRejectionEmail"
+
+export async function updateCard(id: string, type: string, email: string) {
+
+    const currentDate = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+    };
+
+    const formattedDateTime = currentDate.toLocaleString("en-US", options);
 
     try {
-        
+
         await prisma.card.update({
             where: {
                 id
@@ -15,10 +37,22 @@ export async function deleteClass(id: string, type: string) {
             }
         })
 
-        return { success: true, message: "The class was deleted successfully" }
+        //Convert the email template
+        let emailHtml;
+        type === "failed" ? emailHtml = render(RejectionTemplate({ time: formattedDateTime })) : emailHtml = render(ApprovalTemplate({ time: formattedDateTime }))
+
+        //Send Email Confirmation
+        sendEmail({
+            to: email,
+            subject: type === "failed" ? "Card Request Status!" : "Card Request Approved!",
+            html: emailHtml,
+        });
+        
+
+        return { success: true, message: "The card was modified successfully" }
 
     } catch (error) {
-        console.error('Error deleting class', error)
+        console.error('Error modifying card', error)
         return {
             success: false,
             error: error
@@ -29,7 +63,7 @@ export async function deleteClass(id: string, type: string) {
 export async function deleteCard(id: string) {
 
     try {
-        
+
         await prisma.card.delete({
             where: {
                 id
@@ -39,7 +73,7 @@ export async function deleteCard(id: string) {
         return { success: true, message: "The card was deleted successfully" }
 
     } catch (error) {
-        console.error('Error deleting class', error)
+        console.error('Error deleting card', error)
         return {
             success: false,
             error: error
