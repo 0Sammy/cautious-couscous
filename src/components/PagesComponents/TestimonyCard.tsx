@@ -14,7 +14,7 @@ type TestimonyCardProps = {
 
 const TestimonyCard = ({ name, company, statement, ImageUrl }: TestimonyCardProps) => {
     return (
-        <main className="bg-white rounded-2xl my-10 w-[16rem] sm:w-80 p-4 md:p-6 xl:p-8 ">
+        <main className="bg-white rounded-2xl my-10 w-[16rem] sm:w-80 p-4 md:p-6 xl:p-8 space-x-2">
             <QuoteUp size="32" className="text-yellow-500" variant="Bold" />
             <p className="mt-8 text-wrap">
                 {statement}

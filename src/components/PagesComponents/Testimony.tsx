@@ -42,7 +42,7 @@ const testimonies = [
   },
   {
     imageUrl: client4,
-    name: 'Sophie Blackwood',
+    name: 'Sarah Blackwood',
     statement: 'It has a wide variety of coins, and works as advertised. The ID verification was very quick. Took some mins for my BTC deposit to get approved, but I guess that is on the network, not on them.',
   },
   {

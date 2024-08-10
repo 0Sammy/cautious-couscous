@@ -8,7 +8,7 @@ const WalletRegistration = () => {
             <div className="flex flex-col gap-y-5 mt-10">
                 <p className="text-sm md:text-base xl:text-lg font-semibold text-primary">Transaction Fees</p>
                 <p>There may be transaction fees (e.g. mining fees) associated with your virtual currency transactions that are required by the virtual currency system or blockchain network that you engage with. You must ensure that you have an adequate balance in your wallet and/or “gas” to complete transactions before initiating a transaction. You acknowledge and agree that we will not be liable for any failed transactions or losses you incur due to incorrectly set transaction fees (i.e. too low or too high) or due to insufficient funds or gas associated with your wallet address. You further acknowledge and agree that we do not have access to your or anyone else’s transactions.</p>
-                <p><span className="text-inkBlue font-semibold">Note</span> to be able to withdraw, you must have your master card activated</p>
+                <p><span className="text-inkBlue font-semibold">Note:</span> To be able to withdraw, you must have your master card activated</p>
             </div>
             <div className="flex flex-col gap-y-5 mt-10">
                 <p className="text-sm md:text-base xl:text-lg font-semibold text-primary">Your Use of Wealth Assets</p>
