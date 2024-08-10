@@ -34,7 +34,7 @@
     "react-dom": "^18",
     "react-email": "2.0.0",
     "sonner": "^1.4.0",
-    "swiper": "^9.4.1",
+    "swiper": "^11.1.9",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "zustand": "^4.5.0"
