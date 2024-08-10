@@ -36,7 +36,7 @@ const AllCardRequest = ({ requests }: any) => {
                                     </div>
 
                                     <div className="flex flex-col gap-y-0.5">
-                                        <p className="text-[#F0F0F0] font-medium capitalize">{pending.user.firstName} {pending.user.lastName} {pending.user.userId} {pending.user.userId}</p>
+                                        <p className="text-[#F0F0F0] font-medium capitalize">{pending.user.firstName} {pending.user.lastName} {pending.user.userId}</p>
                                         <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">{formatDate(pending.createdAt)}</p>
                                     </div>
                                 </div>
