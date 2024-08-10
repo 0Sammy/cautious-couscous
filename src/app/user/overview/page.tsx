@@ -1,4 +1,3 @@
-import getCurrentLoggedInUser from "@/actions/getCurrentUser";
 import { getUserDetails } from "@/providers/userDetails";
 
 //Import Needed Components
@@ -11,8 +10,7 @@ export const revalidate = 0
 const page = async () => {
 
    const { user } = await getUserDetails();
-   const currentUser = await getCurrentLoggedInUser(user?.email)
-   const userTransactions = currentUser?.transactions
+   const userTransactions = user?.transactions
    const withdrawalTransactions = userTransactions?.filter((transaction) => transaction.transactionType === "deposit" && transaction.status === "pending")
    const successfulTransactions = userTransactions?.filter((transaction) => transaction.status === 'successful');
 

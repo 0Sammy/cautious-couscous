@@ -1,5 +1,4 @@
 import getWallets from "@/actions/getWallets";
-import getCurrentLoggedInUser from "@/actions/getCurrentUser";
 import { getUserDetails } from "@/providers/userDetails";
 
 
@@ -13,8 +12,7 @@ const page = async () => {
 
     const wallets = await getWallets()
     const { user } = await getUserDetails();
-    const currentUser = await getCurrentLoggedInUser(user?.email)
-    const userTransactions = currentUser?.transactions
+    const userTransactions = user?.transactions
     //console.log({wallets})
     
     return ( 

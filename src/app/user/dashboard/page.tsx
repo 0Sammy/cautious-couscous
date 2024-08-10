@@ -1,5 +1,4 @@
 import getWallets from "@/actions/getWallets";
-import getCurrentLoggedInUser from "@/actions/getCurrentUser";
 import { getUserDetails } from "@/providers/userDetails";
 
 
@@ -19,8 +18,7 @@ const page = async () => {
 
     const wallets = await getWallets()
     const { user } = await getUserDetails();
-    const currentUser = await getCurrentLoggedInUser(user?.email)
-    const userTransactions = currentUser?.transactions
+    const userTransactions = user?.transactions
     const withdrawalTransactions = userTransactions?.filter((transaction) => transaction.transactionType === "deposit" && transaction.status === "pending")
     const successfulTransactions = userTransactions?.filter((transaction) => transaction.status === 'successful');
     //console.log({userTransactions})

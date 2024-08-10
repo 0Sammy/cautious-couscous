@@ -45,11 +45,3 @@ export function formatCardNumber(cardNumber: string) {
 export function generateRandomThreeDigits() {
     return Math.floor(100 + Math.random() * 900);
 }
-
-// Example usage:
-const fakeMastercardNumber = generateFakeMastercardNumber();
-const formattedCardNumber = formatCardNumber(fakeMastercardNumber);
-const randomThreeDigits = generateRandomThreeDigits();
-
-console.log('Fake Mastercard Number:', formattedCardNumber);
-console.log('Random 3-Digit Number:', randomThreeDigits);

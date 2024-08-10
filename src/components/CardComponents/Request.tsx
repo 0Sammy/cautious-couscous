@@ -19,10 +19,12 @@ import CardPayment from "./CardPayment";
 type RequestProps = {
     ethWallet: string;
     cardDetails: any;
+    userId: string;
+    userEmail: string;
 }
 
 
-const Request = ({ ethWallet, cardDetails }: RequestProps) => {
+const Request = ({ ethWallet, cardDetails, userId, userEmail }: RequestProps) => {
 
     const [loading, setLoading] = useState<boolean>(false)
     const [isDeposit, setIsDeposit] = useState<boolean>(false)
@@ -55,7 +57,7 @@ const Request = ({ ethWallet, cardDetails }: RequestProps) => {
                     <p>Purchase a virtual Mastercard which is suitable for online shopping, settling bills, and handling tax-related payments. <span className="font-semibold text-black/90">(Please note that this action is voluntary)</span>
                     </p>
                 </div>
-                {isDeposit && <CardPayment toggle={toggleDeposit} ethWallet={ethWallet} />}
+                {isDeposit && <CardPayment toggle={toggleDeposit} ethWallet={ethWallet} userId={userId} userEmail={userEmail} />}
             </>}
         </main>
     );
