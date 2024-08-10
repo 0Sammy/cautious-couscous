@@ -29,7 +29,7 @@ const faqData = [
     {
         value: "item-5",
         question: "What is the process of making a withdrawal?",
-        answer: "Wealth Assets is a trusted platform that simplifies the process of buying, selling, and managing cryptocurrencies. Our user-friendly interface, advanced security measures, and comprehensive educational resources make it easy for both beginners and experienced users to navigate the cryptocurrency world. With Wealth Assets, you can securely send, receive, and store your digital assets with confidence.",
+        answer: "Kindly go to your account dashboard, click on the coins icon, and select 'send.' You will be taken to the page where you can enter the wallet address of your external receiving wallet. After entering the address, please enter the amount and select the appropriate crypto network that holds your funds to initiate the transfer.",
     },
     {
         value: "item-6",
