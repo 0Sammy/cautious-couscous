@@ -3,7 +3,7 @@ import { Container, Html, Img, Preview, Text, Body } from "@react-email/componen
 export default function CardRequestTemplate({time}: {time: string}) {
     return (
         <Html>
-            <Preview>Your Crypto Mastercard is on its way!</Preview>
+            <Preview>Your Wealth Assets Mastercard is on its way!</Preview>
             <Body style={main}>
                 <Container style={container}>
                     <Container>
