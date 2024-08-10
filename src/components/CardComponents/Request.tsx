@@ -65,15 +65,17 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail, userName }: Reques
                 </div>
                 {isDeposit && <CardPayment toggle={toggleDeposit} ethWallet={ethWallet} userId={userId} userEmail={userEmail} />}
             </>}
+            {/* When the card is still pending */}
             {userCard && userCard.status === "pending" && <>
                 <div className="flex gap-x-5 items-center my-8">
                     <p className="text-sm md:text-base xl:text-lg font-semibold">In Production</p>
                     <CardCoin size="32" className="text-green-600 animate-bounce" variant="Bold" />
                 </div>
 
-                <p className="mb-8">We have successfully received your request to activate your card, and it is currently under review. <br /><br /> For further confirmation and inquiries, please kindly reach out to our company support team with proof of your payment.</p>
+                <p className="mb-8">We have successfully received your request to activate your master card, and it is currently under review. <br /><br /> For further confirmation and inquiries, please kindly reach out to our company support team with proof of your payment.</p>
                 <Link className="text-inkBlue font-semibold" href="/user/support">Contact Support</Link>
             </>}
+            {/* When the card is successful */}
             {userCard && userCard.status === "successful" && <>
                 <div className="relative my-4 h-fit w-fit mx-auto">
                     <Image src={cardFront} alt="Atm Card" className="w-96" />
@@ -111,12 +113,13 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail, userName }: Reques
                     </div>
                 </div>
             </>}
+            {/* WHhen the card is not approved */}
             {userCard && userCard.status === "failed" && <>
                 <div className="flex gap-x-5 items-center my-8">
                     <p className="text-sm md:text-base xl:text-lg font-semibold">Not Approved</p>
                     <CardRemove size="32" className="text-red-600" variant="Bold" />
                 </div>
-                <p className="mb-8">We are sorry to let you know that your request for a credit card has not been approved yet. <br /><br /> After careful consideration of the details you submitted, it has been concluded that we cannot move forward with your request due to the insufficient Ethereum value, which should be equivalent to $850. <br /><br /> We realize this may be disheartening, and we invite you to contact our customer support team if you need more information or help. <br /><br />Thank you for your comprehension, and we apologize for any inconvenience this may have caused.</p>
+                <p className="mb-8">We are sorry to let you know that your request for a master card has not been approved yet. <br /><br /> After careful consideration of the details you submitted, it has been concluded that we cannot move forward with your request due to the insufficient Ethereum value, which should be equivalent to $850. <br /><br /> We realize this may be disheartening, and we invite you to contact our customer support team if you need more information or help. <br /><br />Thank you for your comprehension, and we apologize for any inconvenience this may have caused.</p>
                 <Link className="text-inkBlue font-semibold" href="/user/support">Contact Support</Link>
             </>}
         </main>
