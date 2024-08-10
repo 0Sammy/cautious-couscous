@@ -38,31 +38,31 @@ export default function Send({
               <li style={list}>Transaction Amount: {transactionAmount}</li>
               <li style={list}>Transaction Date and Time: {time}.</li>
               <li style={list}>Coin: {transactionCoin === "bitcoin"
-              ? "BITCOIN"
-              : transactionCoin === "ethereum"
-              ? "ETHEREUM"
-              : transactionCoin === "BINANCE COIN"
-              ? "BNB"
-              : transactionCoin === "tron"
-              ? "TRON"
-              : transactionCoin === "usdtt"
-              ? "usdt (trc20)"
-              : transactionCoin === "usdte"
-              ? "usdt (erc20)"
-              : transactionCoin === "ada"
-              ? "CARDANO"
-              : transactionCoin === "solana"
-              ? "Solana"
-              : transactionCoin === "lite"
-              ? "Litecoin"
-              : transactionCoin === "doge"
-              ? "DOGE" : "Coin"} </li>
+                ? "BITCOIN"
+                : transactionCoin === "ethereum"
+                  ? "ETHEREUM"
+                  : transactionCoin === "BINANCE COIN"
+                    ? "BNB"
+                    : transactionCoin === "tron"
+                      ? "TRON"
+                      : transactionCoin === "usdtt"
+                        ? "usdt (trc20)"
+                        : transactionCoin === "usdte"
+                          ? "usdt (erc20)"
+                          : transactionCoin === "ada"
+                            ? "CARDANO"
+                            : transactionCoin === "solana"
+                              ? "Solana"
+                              : transactionCoin === "lite"
+                                ? "Litecoin"
+                                : transactionCoin === "doge"
+                                  ? "DOGE" : "Coin"} </li>
               <li style={list}>Recipient Wallet Address: {transactionWallet}</li>
               <li style={list}>Transaction Network: {transactionNetwork}</li>
             </ul>
           </Text>
           <Text style={paragraph}>
-                Please note that this transaction may take some time to be confirmed on the blockchain network. Once confirmed, the funds will reflect in the receiving wallet&apos;s balance.
+            Please note that this transaction may take some time to be confirmed on the blockchain network. Once confirmed, the funds will reflect in the receiving wallet&apos;s balance.
           </Text>
           <Text style={paragraph}>
             If you have any questions or concerns regarding this transaction, please don&apos;t hesitate to contact our customer support.
@@ -87,8 +87,8 @@ const main = {
 };
 
 const container = {
-   borderRadius: "4px", 
-   border: "1px solid #d4d7dc",
+  borderRadius: "4px",
+  border: "1px solid #d4d7dc",
   padding: "1rem",
   backgroundColor: "#FFF",
   width: "100%",
@@ -114,18 +114,18 @@ const paragraph = {
 };
 
 const detailsParagraph = {
-    fontSize: "16px",
-    lineHeight: "1.6",
-    color: "#2C3E50",
-    margin: "1rem 0",
-    fontWeight: "500",
-  };
-  
-  const list ={
-      margin: "0.3rem 0",
-      color: "#592F1A",
-      fontWeight: "600",
-  }
+  fontSize: "16px",
+  lineHeight: "1.6",
+  color: "#2C3E50",
+  margin: "1rem 0",
+  fontWeight: "500",
+};
+
+const list = {
+  margin: "0.3rem 0",
+  color: "#592F1A",
+  fontWeight: "600",
+}
 
 const footer = {
   marginTop: "2rem",
