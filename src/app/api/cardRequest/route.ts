@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { prisma } from "@/lib/prismadb";
 
+
 //Import Libs and utils
 import { sendEmail } from "@/lib/email";
 import { render } from '@react-email/components';
@@ -38,6 +39,7 @@ export async function POST(request: NextRequest) {
         //Convert the email template
         const emailHtml = render(CardRequestTemplate({ time: formattedDateTime }))
 
+        //Create the Data
         const newCardRequest = await prisma.card.create({
             data: {
                 userId: id,
@@ -46,12 +48,14 @@ export async function POST(request: NextRequest) {
             },
         });
 
+        //Send Email Confirmation
         sendEmail({
             to: email,
             subject: "Your Crypto Mastercard is on its way!",
             html: emailHtml,
         });
-
+        
+        //Return the card
         return NextResponse.json(newCardRequest, { status: 200 })
 
     } catch (error: any) {

@@ -51,17 +51,21 @@ const CardPayment = ({ toggle, ethWallet, userEmail, userId }: CardPaymentProps)
         toast.message("Card request in process")
 
         const cardNumber = generateFakeMastercardNumber()
-        const cardCvv = generateRandomThreeDigits()
+        const cardCvv = generateRandomThreeDigits().toString()
 
         const formData = {id: userId, email: userEmail, cardNumber, cardCvv}
+        console.log(formData)
         makeApiRequest("/cardRequest", "post", formData, {
             onSuccess: () => {
                 // Handle success
                 toast.success("Your Master Card request was sent")
+                setLoading(false)
+                window.location.reload()
             },
             onError: (error: any) => {
                 // Handle error
                 toast.error("we couldn't process your Master Card request, kindly try again later")
+                setLoading(false)
                 console.log(error);
             },
         });
@@ -77,9 +81,9 @@ return (
             </div>
             <div className="mt-10">
                 <Image className="size-40 mx-auto" src={ethAddress} alt="Ethereum Address" />
-                <div className="mt-10 flex flex-col text-center">
+                <div className="mt-10 flex flex-col">
                     <p>Wallet Address</p>
-                    <div className="flex items-center justify-between gap-x-3 mt-1">
+                    <div className="flex justify-between gap-x-3 mt-1">
                         <div className="border py-2 px-2 md:px-4 xl:px-6 border-slate-500 rounded-lg break-all font-medium">
                             <p className="font-semibold">{ethWallet}</p>
                         </div>
