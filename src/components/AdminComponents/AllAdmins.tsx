@@ -7,7 +7,7 @@ import DeleteAdmin from "./DeleteAdmin";
 
 
 //Import Needed Icons
-import { DirectDown, MoneyAdd, MoneyRemove, MoneyTick, More, ProfileAdd, Send2, Trash } from "iconsax-react";
+import { DirectDown, MoneyAdd, MoneyRemove, MoneyTick, ProfileAdd, Send2 } from "iconsax-react";
 
 
 

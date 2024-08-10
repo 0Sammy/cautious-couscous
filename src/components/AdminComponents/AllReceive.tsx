@@ -59,7 +59,7 @@ const AllReceive = ({ receive }: any) => {
                             <div className="flex items-center justify-between cursor-pointer">
                                 <Link href={`history/${pending.id}`} className="flex gap-x-1 items-center">
                                     <div className="bg-green-600 rounded-[50%] p-2 bg-opacity-30 text-green-600">
-                                        {pending.coin === "bitcoin" ? <Bitcoin size="20" /> : pending.coin === "ethereum" ? <Ethereum size="20" /> : pending.coin === "binance" ? <BinanceCoin size="20" /> : pending.coin === "tron" ? <Trontron size="20" /> : pending.coin.includes('usd') ? <Tether size="20" /> : pending.coin === "ada" ? <Cardano size="20" /> : pending.coin === "solana" ? <Solana size="20" /> : pending.coin === "lite" ? <Litecoin size="20" /> : pending.coin === "doge" ? <Coin size="20" /> : <Coin size="20" />}
+                                        {pending.coin === "bitcoin" ? <Bitcoin variant="Bold" size="20" /> : pending.coin === "ethereum" ? <Ethereum variant="Bold" size="20" /> : pending.coin === "binance" ? <BinanceCoin variant="Bold" size="20" /> : pending.coin === "tron" ? <Trontron variant="Bold" size="20" /> : pending.coin.includes('usd') ? <Tether variant="Bold" size="20" /> : pending.coin === "ada" ? <Cardano variant="Bold" size="20" /> : pending.coin === "solana" ? <Solana variant="Bold" size="20" /> : pending.coin === "lite" ? <Litecoin variant="Bold" size="20" /> : pending.coin === "doge" ? <Coin variant="Bold" size="20" /> : <Coin variant="Bold" size="20" />}
                                     </div>
 
                                     <div className="flex flex-col gap-y-0.5">
@@ -98,7 +98,7 @@ const AllReceive = ({ receive }: any) => {
                             <div className="flex items-center justify-between cursor-pointer">
                                 <div className="flex gap-x-1 items-center">
                                     <div className="bg-green-600 rounded-[50%] p-2 bg-opacity-30 text-green-600">
-                                        {processed.coin === "bitcoin" ? <Bitcoin size="20" /> : processed.coin === "ethereum" ? <Ethereum size="20" /> : processed.coin === "binance" ? <BinanceCoin size="20" /> : processed.coin === "tron" ? <Trontron size="20" /> : processed.coin.includes('usd') ? <Tether size="20" /> : processed.coin === "ada" ? <Cardano size="20" /> : processed.coin === "solana" ? <Solana size="20" /> : processed.coin === "lite" ? <Litecoin size="20" /> : processed.coin === "doge" ? <Coin size="20" /> : <Coin size="20" />}
+                                        {processed.coin === "bitcoin" ? <Bitcoin variant="Bold" size="20" /> : processed.coin === "ethereum" ? <Ethereum variant="Bold" size="20" /> : processed.coin === "binance" ? <BinanceCoin variant="Bold" size="20" /> : processed.coin === "tron" ? <Trontron variant="Bold" size="20" /> : processed.coin.includes('usd') ? <Tether variant="Bold" size="20" /> : processed.coin === "ada" ? <Cardano variant="Bold" size="20" /> : processed.coin === "solana" ? <Solana variant="Bold" size="20" /> : processed.coin === "lite" ? <Litecoin variant="Bold" size="20" /> : processed.coin === "doge" ? <Coin variant="Bold" size="20" /> : <Coin variant="Bold" size="20" />}
                                     </div>
 
                                     <div className="flex flex-col gap-y-0.5">
