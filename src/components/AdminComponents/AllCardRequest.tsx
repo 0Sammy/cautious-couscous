@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
+import Link from "next/link";
 
 //Import Server Components
 import { updateCard, deleteCard } from "@/actions/serverActions/cardRequest";
@@ -11,6 +12,7 @@ import { formatDate } from "@/lib/dateTimeUtils";
 
 //Import Needed Icons
 import { CardReceive, CardRemove, CardTick, More } from "iconsax-react";
+
 
 const AllCardRequest = ({ requests }: any) => {
 
@@ -54,7 +56,7 @@ const AllCardRequest = ({ requests }: any) => {
                     {pendingRequests && pendingRequests.map((pending: any) => (
                         <div key={pending.id} className="hover:bg-slate-800 duration-500 p-2 rounded-md">
                             <div className="flex items-center justify-between cursor-pointer">
-                                <div className="flex gap-x-1 items-center">
+                                <Link href={`/admin/members/${pending.user.id}`}  className="flex gap-x-1 items-center">
                                     <div className="bg-green-800/30 rounded-[50%] p-2 text-green-600">
                                         <CardReceive size="26" variant="Bold" />
                                     </div>
@@ -63,7 +65,7 @@ const AllCardRequest = ({ requests }: any) => {
                                         <p className="text-[#F0F0F0] font-medium capitalize">{pending.user.firstName} {pending.user.lastName} {pending.user.userId}</p>
                                         <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">{formatDate(pending.createdAt)}</p>
                                     </div>
-                                </div>
+                                </Link>
                                 <div className="relative flex gap-x-2 items-center">
                                     <p className="bg-[#FEF6E7]/30 text-[#DF930E] rounded-2xl px-2 py-0.5 text-[8px] md:text-[10px] xl:text-[12px] font-medium capitalize">{pending.status}</p>
                                     <More size="24" className="text-[#F0F0F0] cursor-pointer" onClick={() => { toggleMenu(pending.id) }} />
@@ -87,7 +89,7 @@ const AllCardRequest = ({ requests }: any) => {
                     {processedRequests && processedRequests.map((processed: any) => (
                         <div key={processed.id} className="hover:bg-slate-800 duration-500 p-2 rounded-md">
                             <div className="flex items-center justify-between cursor-pointer">
-                                <div className="flex gap-x-1 items-center">
+                                <Link href={`/admin/members/${processed.user.id}`}  className="flex gap-x-1 items-center">
                                     <div className="bg-slate-600/30 rounded-[50%] p-2">
                                         {processed.status === "failed" && <CardRemove size="26" variant="Bold" className="text-red-600" />}
                                         {processed.status === "successful" && <CardTick size="26" variant="Bold" className="text-green-600" />}
@@ -96,7 +98,7 @@ const AllCardRequest = ({ requests }: any) => {
                                         <p className="text-[#F0F0F0] font-medium capitalize">{processed.user.firstName} {processed.user.lastName} {processed.user.userId}</p>
                                         <p className="text-[#9EA0A3] text-[0.6rem] xl:text-xs">{formatDate(processed.createdAt)}</p>
                                     </div>
-                                </div>
+                                </Link>
                                 <div className="relative flex gap-x-2 items-center">
                                     <p className={`capitalize ${processed.status === "successful" ? "bg-green-600 bg-opacity-20 text-[#20BF55]" : "bg-red-600 bg-opacity-20 text-red-800"} rounded-2xl px-2 py-0.5  text-[8px] md:text-[10px] xl:text-[12px] font-medium`}>{processed.status}</p>
                                     <More size="24" className="text-[#F0F0F0] cursor-pointer" onClick={() => { toggleMenu(processed.id) }} />

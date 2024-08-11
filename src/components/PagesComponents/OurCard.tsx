@@ -13,8 +13,8 @@ const OurCard = () => {
                     <Image src={card} alt="Wealth Assets Card" />
                 </div>
                 <div className="w-full md:w-[48%] xl:w-[45%] flex flex-col gap-y-3">
-                    <p className="first-letter:text-inkBlue first-letter:text-2xl md:first-letter:text-3xl xl:first-letter:text-4xl first-letter:font-bold">The best traders cards can turn your business&apos; finances around for the better.</p>
-                    <p>They make paying for purchases easier, free up your cash flows, provide short-term financing, offer insurance coverage, help you track your expenses, and give you rewards. The Wealth Assets Vault card is rewarded to all members of the Wealth Assets card package.</p>
+                    <p className="first-letter:text-inkBlue first-letter:text-2xl md:first-letter:text-3xl xl:first-letter:text-4xl first-letter:font-bold">Integrating high-quality trading cards into your business processes can significantly enhance your organization&apos;s financial health.</p>
+                    <p>These cards are perfect for making online transactions, paying bills, and handling tax obligations. They simplify your financial transactions, increase available cash flow, offer options for short-term credit, include insurance protection, assist in monitoring expenditures, and provide benefits. Opting for the Wealth Assets Mastercard within the Wealth Assets card suite is a beneficial choice for all members.</p>
                 </div>
             </section>
         </main>
