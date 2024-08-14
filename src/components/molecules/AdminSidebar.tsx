@@ -28,7 +28,7 @@ const AdminSidebar = ({ role }: string | any) => {
 
   return (
     <main className="text-[#B3B3B3]">
-      <HambergerMenu size="41" className="lg:hidden absolute top-3 left-1 cursor-pointer z-[70]" variant="Bold" onClick={toggleOpen} />
+      <HambergerMenu size="41" className="lg:hidden absolute top-3 left-1 cursor-pointer z-[70] text-[#020100]" variant="Bold" onClick={toggleOpen} />
       <div className="fixed left-0 top-0 z-[70] hidden lg:block h-screen w-[300px] bg-[#1E1E1E] border-r-2 border-slate-300">
         <div className="border-b border-slate-200 h-16 flex justify-center items-center">
           <p className="font-semibold text-2xl text-white">Wealth Assets</p>

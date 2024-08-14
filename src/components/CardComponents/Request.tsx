@@ -60,8 +60,7 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail, userName }: Reques
                 </div>
                 <div className="flex gap-x-2 text-black/80 border border-black/10 rounded-lg p-2 md:p-4 xl:p-6 font-medium">
                     <InfoCircle size="24" className="text-green-600 shrink-0" variant="Bold" />
-                    <p>Purchase a virtual Mastercard which is suitable for online shopping, settling bills, and handling tax-related payments. <span className="font-semibold text-black/90">(Please note that this action is voluntary)</span>
-                    </p>
+                    <p>Purchase a virtual Mastercard which is suitable for online shopping, settling bills, and handling tax-related payments.</p>
                 </div>
                 {isDeposit && <CardPayment toggle={toggleDeposit} ethWallet={ethWallet} userId={userId} userEmail={userEmail} />}
             </>}

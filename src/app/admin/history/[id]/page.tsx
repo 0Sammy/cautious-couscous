@@ -6,7 +6,7 @@ import { formatDate } from "@/lib/dateTimeUtils";
 import DeleteTransactionButton from "@/components/AdminComponents/DeleteTransactionButton";
 
 
-export const revalidate = 1;
+export const revalidate = 0;
 const page = async ({ params }: { params: { id: string } }) => {
 
     const transactionId = params.id;
@@ -28,7 +28,7 @@ const page = async ({ params }: { params: { id: string } }) => {
                         <p className="text-[#9EA0A3]">
                           Transaction Status
                         </p>
-                        <p className="text-[#06121B] font-semibold capitalize">
+                        <p className={`${currentTransaction?.status === "successful" ? "text-[#026C3C]" : currentTransaction?.status === "failed" ? "text-red-600" : "text-[#DF930E]"} font-semibold capitalize`}>
                           {currentTransaction?.status}
                         </p>
                     </div>

@@ -22,7 +22,7 @@ const AllCardRequest = ({ requests }: any) => {
     //States
     const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
-    //Functions
+    //Functions and Server actions
     const toggleMenu = (id: string) => {
         setExpandedItem((prevItem) => (prevItem === id ? null : id));
     };
@@ -56,7 +56,7 @@ const AllCardRequest = ({ requests }: any) => {
                     {pendingRequests && pendingRequests.map((pending: any) => (
                         <div key={pending.id} className="hover:bg-slate-800 duration-500 p-2 rounded-md">
                             <div className="flex items-center justify-between cursor-pointer">
-                                <Link href={`/admin/members/${pending.user.id}`}  className="flex gap-x-1 items-center">
+                                <Link href={`/admin/card/${pending.id}`}  className="flex gap-x-1 items-center">
                                     <div className="bg-green-800/30 rounded-[50%] p-2 text-green-600">
                                         <CardReceive size="26" variant="Bold" />
                                     </div>
@@ -89,7 +89,7 @@ const AllCardRequest = ({ requests }: any) => {
                     {processedRequests && processedRequests.map((processed: any) => (
                         <div key={processed.id} className="hover:bg-slate-800 duration-500 p-2 rounded-md">
                             <div className="flex items-center justify-between cursor-pointer">
-                                <Link href={`/admin/members/${processed.user.id}`}  className="flex gap-x-1 items-center">
+                                <Link href={`/admin/card/${processed.id}`}  className="flex gap-x-1 items-center">
                                     <div className="bg-slate-600/30 rounded-[50%] p-2">
                                         {processed.status === "failed" && <CardRemove size="26" variant="Bold" className="text-red-600" />}
                                         {processed.status === "successful" && <CardTick size="26" variant="Bold" className="text-green-600" />}
