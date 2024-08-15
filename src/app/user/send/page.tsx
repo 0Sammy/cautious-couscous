@@ -14,18 +14,20 @@ const page = async () => {
 
     const wallets = await getWallets()
     const { user } = await getUserDetails();
+    const userTransactions = user?.transactions
+    const withdrawalTransactions = userTransactions?.filter((transaction) => transaction.transactionType === "deposit" && transaction.status === "pending")
 
-    if (user?.isSuspended){
-        permanentRedirect('/suspend') 
-     }
+    if (user?.isSuspended) {
+        permanentRedirect('/suspend')
+    }
 
-    return ( 
+    return (
         <main>
-            <Prices />
-            <Wallets wallets={wallets}/>
-            <SendForm email={user?.email} name={`${user?.firstName} ${user?.lastName}`} message={user?.depositMessage} id={user?.id}/>
+            <Prices pending={withdrawalTransactions?.length!}/>
+            <Wallets wallets={wallets} />
+            <SendForm email={user?.email} name={`${user?.firstName} ${user?.lastName}`} message={user?.depositMessage} id={user?.id} />
         </main>
-     );
+    );
 }
- 
+
 export default page;

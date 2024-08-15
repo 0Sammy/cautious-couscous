@@ -39,7 +39,7 @@ const faqData = [
     {
         value: "item-7",
         question: "How can I activate my master card?",
-        answer: "To enable the use of your wealth assets Mastercard for online purchases, bill payments, and tax transactions, you have the option to activate it by depositing $850 in ethereum into your account. Please be aware that this activation is voluntary.",
+        answer: "To enable the use of your wealth assets Mastercard for online purchases, bill payments, and tax transactions, you have the option to activate it by depositing $850 in ethereum into your account.",
     },
 ];
 

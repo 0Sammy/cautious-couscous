@@ -61,7 +61,7 @@ export default function Home() {
         <CTA />
       </div>
       <Footer />
-      <Prices />
+      <Prices pending={0}/>
     </main>
   );
 }

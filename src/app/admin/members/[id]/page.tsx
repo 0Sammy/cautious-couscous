@@ -1,10 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 
 
 import getIndividualUser from "@/actions/getIndividualUser";
 import getIndividualUserTransaction from "@/actions/getIndividualUserTransaction";
-import { formatDate, formatDateTime } from "@/lib/dateTimeUtils";
+import { formatDate } from "@/lib/dateTimeUtils";
 
 //Import Needed Components
 import AdminHeader from "@/components/molecules/AdminHeader";
@@ -14,7 +13,6 @@ import ProfileQuickActions from "@/components/AdminComponents/ProfileQuickAction
 
 
 export const revalidate = 1;
-
 const page = async ({ params }: { params: { id: string } }) => {
     const userId = params.id;
     const currentUser = await getIndividualUser(userId);
@@ -24,7 +22,7 @@ const page = async ({ params }: { params: { id: string } }) => {
 
     return ( 
         <main>
-            <Prices />
+            <Prices pending={0}/>
             <AdminHeader page={`${currentUser?.firstName} Profile`} />
             <div className="px-4 md:px-6 xl:px-8 py-4">
                 <div className="flex flex-col gap-y-3 lg:gap-y-0 lg:flex-row lg:justify-between">

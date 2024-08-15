@@ -8,7 +8,7 @@ import AdminHeader from "@/components/molecules/AdminHeader";
 import Prices from "@/components/DashboardComponents/Prices";
 
 
-export const revalidate = 1;
+export const revalidate = 0;
 const page = async () => {
 
     const session = await getServerSession(authOptions)
@@ -20,7 +20,7 @@ const page = async () => {
 
     return ( 
         <main>
-            <Prices />
+            <Prices pending={0}/>
             <AdminHeader page="Admin Transaction" />
             <div className="px-4 md:px-6 xl:px-8 py-4">
                 <TransactionForm allUsers={allUsers} loggedInEmail={loggedInEmail}/>

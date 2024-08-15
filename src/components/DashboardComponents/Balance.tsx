@@ -1,12 +1,11 @@
 "use client"
 import { useEffect, useState } from "react";
 import Link from "next/link";
+
+//Import Zustand Store
 import { useBalanceStore } from "@/store/balance";
 import { usePriceStore } from "@/store/prices";
 
-
-//Import Needed Components
-import Prices from "./Prices";
 
 //Import Needed Icons
 import { Refresh2, Wallet3 } from "iconsax-react";
@@ -45,7 +44,6 @@ const Balance = () => {
                 <div className="fixed top-0 left-0 flex items-center justify-center bg-black/90 z-[9999] h-screen w-full">
                     <Refresh2 size="40" color="#FF8A65" className="animate-spin" />
                 </div>
-                <Prices />
                 </> }
                 <div className="flex items-center justify-between">
                     <div className="flex flex-col gap-y-1">

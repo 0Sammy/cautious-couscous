@@ -23,21 +23,21 @@ const page = async () => {
     const successfulTransactions = userTransactions?.filter((transaction) => transaction.status === 'successful');
     //console.log({userTransactions})
 
-    if (user?.isSuspended){
-        permanentRedirect('/suspend') 
-     }
+    if (user?.isSuspended) {
+        permanentRedirect('/suspend')
+    }
 
-    return ( 
+    return (
         <main className="p-2 md:p-4 xl:p-6">
             <LiveChat />
-            <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length}/>
-            <Prices />
-            <Wallets wallets={wallets}/>
+            <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length} />
+            <Prices pending={withdrawalTransactions?.length!} />
+            <Wallets wallets={wallets} />
             <Balance />
             <CompliedCards />
             <InstallationPrompt />
         </main>
-     );
+    );
 }
- 
+
 export default page;

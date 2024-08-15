@@ -1,8 +1,9 @@
 "use client"
 import { useEffect } from "react";
 import { usePriceStore } from "@/store/prices";
+import { useBalanceStore } from "@/store/balance";
 
-const Prices = () => {
+const Prices = ({pending}: {pending : number}) => {
     const { 
         updateBtcPrice, updateBtcPercent, updateEthPrice, updateEthPercent, 
         updateBnbPrice, updateBnbPercent, updateTrxPrice, updateTrxPercent, 
@@ -10,10 +11,17 @@ const Prices = () => {
         updateSolPrice, updateSolPercent, updateLtcPrice, updateLtcPercent, 
         updateDogePrice, updateDogePercent, btcPrice
     } = usePriceStore();
+
+    const { updatePendingTransaction } = useBalanceStore();
         
     // Fetch the prices
     useEffect(() => {
         if (btcPrice === 0) {
+
+            if(pending > 0){
+                updatePendingTransaction(true)
+            }
+            
             const fetchData = async () => {
                 try {
                     const response = await fetch(
@@ -46,7 +54,7 @@ const Prices = () => {
 
             fetchData();
         }
-    }, [btcPrice]); // Add btcPrice as a dependency
+    }, [btcPrice, pending, updateAdaPercent, updateAdaPrice, updateBnbPercent, updateBnbPrice, updateBtcPercent, updateBtcPrice, updateDogePercent, updateDogePrice, updateEthPercent, updateEthPrice, updateLtcPercent, updateLtcPrice, updatePendingTransaction, updateSolPercent, updateSolPrice, updateTrxPercent, updateTrxPrice, updateUsdtPercent, updateUsdtPrice]);
 
     return (
         <main></main>

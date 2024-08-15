@@ -14,17 +14,17 @@ const page = async () => {
    const withdrawalTransactions = userTransactions?.filter((transaction) => transaction.transactionType === "deposit" && transaction.status === "pending")
    const successfulTransactions = userTransactions?.filter((transaction) => transaction.status === 'successful');
 
-   if (user?.isSuspended){
-      permanentRedirect('/suspend') 
+   if (user?.isSuspended) {
+      permanentRedirect('/suspend')
    }
 
-    return ( 
-        <main className="p-2 md:p-4 xl:p-6">
-            <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length}/>
-            <Prices />
-           <OverviewCardCompiled />
-        </main>
-     );
+   return (
+      <main className="p-2 md:p-4 xl:p-6">
+         <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length} />
+         <Prices pending={withdrawalTransactions?.length!} />
+         <OverviewCardCompiled />
+      </main>
+   );
 }
- 
+
 export default page;

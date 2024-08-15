@@ -25,7 +25,7 @@ const page = () => {
                 </div>
                 <LoginForm />
             </div>
-            <Prices />
+            <Prices pending={0}/>
         </main>
      );
 }
