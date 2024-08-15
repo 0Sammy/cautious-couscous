@@ -6,7 +6,6 @@ import Link from "next/link";
 import logo from "../../../public/Images/Big whiz Walletassets logo badge.svg";
 
 //Import Needed Components
-import Prices from "@/components/DashboardComponents/Prices";
 import PassPhraseForm from "@/components/AuthComponents/PassphraseForm";
 
 const page = async () => {
@@ -30,7 +29,6 @@ const page = async () => {
                 </div>
                 <PassPhraseForm users={users}/>
             </div>
-            <Prices />
         </main>
      );
 }
