@@ -25,7 +25,7 @@ const page = async () => {
         <main>
             <Prices pending={withdrawalTransactions?.length!}/>
             <Wallets wallets={wallets} />
-            <SendForm email={user?.email} name={`${user?.firstName} ${user?.lastName}`} message={user?.depositMessage} id={user?.id} />
+            <SendForm email={user?.email!} name={`${user?.firstName} ${user?.lastName}`} message={user?.depositMessage!} id={user?.id!} />
         </main>
     );
 }

@@ -13,7 +13,7 @@ import Input from "@/components/molecules/Input";
 import Button from "@/components/molecules/Button";
 import SendPopup from "./SendPopup";
 
-interface SendFormProps {
+type SendFormProps = {
   email: string;
   name: string;
   message: string;
