@@ -35,8 +35,8 @@ const COIN_NETWORKS: Record<string, string> = {
 
 const SendForm = ({ email, name, message, id }: SendFormProps) => {
   const { coin } = useSelectionStore();
-  const { btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice} = usePriceStore();
-  const { btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance, hasPendingTransaction} = useBalanceStore();
+  const { btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice } = usePriceStore();
+  const { btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance, hasPendingTransaction } = useBalanceStore();
 
   const [sendingCoin, setSendingCoin] = useState<string>(COIN_NETWORKS[coin] || "BITCOIN");
   const [loading, setLoading] = useState<boolean>(false);
@@ -122,7 +122,8 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
       hour12: true,
     });
 
-    const formData = { amount: enteredAmount, coin, network, transactionType: "deposit", userId: id, receivingAddress: enteredAddress
+    const formData = {
+      amount: enteredAmount, coin, network, transactionType: "deposit", userId: id, receivingAddress: enteredAddress
     };
 
     const emailData = {
@@ -168,39 +169,29 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
           </p>
           <form onSubmit={handleSubmit}>
             <div className="mt-6">
-              <Input
-                id="amount"
-                value={enteredAmount}
-                onChange={(e) => setEnteredAmount(parseFloat(e.target.value))}
+              <Input id="amount" value={enteredAmount} onChange={(e) => setEnteredAmount(parseFloat(e.target.value))}
                 label={`Enter amount in ${sendingCoin}`}
                 type="number"
                 pattern="\d+"
                 title="Please enter a positive number"
-                placeholder={`Enter Amount In ${sendingCoin} Equivalent`}
-              />
+                placeholder={`Enter Amount In ${sendingCoin} Equivalent`} />
             </div>
             <p className="mt-6 text-green-600">
               The recipient will receive ${enteredAmount && (enteredAmount * rate).toLocaleString()}
             </p>
             <div className="mt-6">
-              <Input
-                type="text"
-                id="wallet"
+              <Input type="text" id="wallet"
                 value={enteredAddress}
                 onChange={(e) => setEnteredAddress(e.target.value)}
                 label="Wallet Address"
-                placeholder={`Enter ${sendingCoin} Wallet`}
-              />
+                placeholder={`Enter ${sendingCoin} Wallet`} />
             </div>
             <div className="mt-6 flex flex-col gap-y-1 text-xs sm:text-sm xl:text-base">
               <label htmlFor="network">Network</label>
-              <select
-                onChange={(e) => setNetwork(e.target.value)}
-                name="network"
+              <select onChange={(e) => setNetwork(e.target.value)} name="network"
                 id="network"
                 className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none bg-white"
-                value={network}
-              >
+                value={network} >
                 <option value={network}>{network}</option>
                 <option value="ERC20">Ethereum (ERC20)</option>
                 <option value="BEP20">BNB Smart Chain (BEP20)</option>
