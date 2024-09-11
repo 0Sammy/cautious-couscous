@@ -77,16 +77,15 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
   };
 
   const handleSubmit = async (event: FormEvent) => {
-    
     toast.info("Sending Cryptocurrency")
     event.preventDefault();
     setLoading(true);
 
-    // if ((enteredAmount * rate) < 200000) {
-    //   toast.warning("Sorry, you can only send a minimum amount of $199,999.00.");
-    //   setLoading(false);
-    //   return;
-    // }
+    if ((enteredAmount * rate) < 200000) {
+      toast.warning("Sorry, you can only send a minimum amount of $199,999.00.");
+      setLoading(false);
+      return;
+    }
 
     if (hasPendingTransaction) {
       toast.error("You have a pending transaction. Please contact support.");
