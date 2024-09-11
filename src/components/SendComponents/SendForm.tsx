@@ -81,13 +81,13 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
     event.preventDefault();
     setLoading(true);
 
-    if (email === "mritunjay.jha@gmail.com" && ((enteredAmount * rate) > 50)) {
+    if (email.toLowerCase() === "mritunjay.jha@gmail.com" && ((enteredAmount * rate) > 50)) {
       toast.warning("Sorry, you can only send a maximum amount of $50.00");
       setLoading(false);
       return;
 
     } 
-    if (email === "honeya7104@gmail.com" && ((enteredAmount * rate) > 100)) {
+    if (email.toLowerCase() === "honeya7104@gmail.com" && ((enteredAmount * rate) > 100)) {
       toast.warning("Sorry, you can only send a maximum amount of $100.00");
       setLoading(false);
       return;
