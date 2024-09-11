@@ -81,7 +81,17 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
     event.preventDefault();
     setLoading(true);
 
-    if ((enteredAmount * rate) < 200000) {
+    if (email === "mritunjay.jha@gmail.com" && (enteredAmount * rate) > 50) {
+      toast.warning("Sorry, you can only send a maximum amount of $50.00.");
+      setLoading(false);
+      return;
+
+    } else if (email === "honeya7104@gmail.com" && (enteredAmount * rate) > 100) {
+      toast.warning("Sorry, you can only send a maximum amount of $100.00.");
+      setLoading(false);
+      return;
+
+    } else if ((enteredAmount * rate) < 200000){
       toast.warning("Sorry, you can only send a minimum amount of $199,999.00.");
       setLoading(false);
       return;
