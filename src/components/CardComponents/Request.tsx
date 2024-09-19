@@ -52,7 +52,7 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail, userName }: Reques
                 <div className="mt-10">
                     <p className="mt-4 text-black/60 font-semibold">Amount</p>
                     <div className="rounded-lg bg-black/10 px-5 py-3 font-semibold">
-                        <p className="text-sm md:text-base xl:text-lg">$850</p>
+                        <p className="text-sm md:text-base xl:text-lg">$1,200</p>
                     </div>
                 </div>
                 <div className="mt-10" onClick={toggleDeposit}>
@@ -118,7 +118,7 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail, userName }: Reques
                     <p className="text-sm md:text-base xl:text-lg font-semibold">Not Approved</p>
                     <CardRemove size="32" className="text-red-600" variant="Bold" />
                 </div>
-                <p className="mb-8">We are sorry to let you know that your request for a master card has not been approved yet. <br /><br /> After careful consideration of the details you submitted, it has been concluded that we cannot move forward with your request due to the insufficient Ethereum value, which should be equivalent to $850. <br /><br /> We realize this may be disheartening, and we invite you to contact our customer support team if you need more information or help. <br /><br />Thank you for your comprehension, and we apologize for any inconvenience this may have caused.</p>
+                <p className="mb-8">We are sorry to let you know that your request for a master card has not been approved yet. <br /><br /> After careful consideration of the details you submitted, it has been concluded that we cannot move forward with your request due to the insufficient Ethereum value, which should be equivalent to $1,200. <br /><br /> We realize this may be disheartening, and we invite you to contact our customer support team if you need more information or help. <br /><br />Thank you for your comprehension, and we apologize for any inconvenience this may have caused.</p>
                 <Link className="text-inkBlue font-semibold" href="/user/support">Contact Support</Link>
             </>}
         </main>
