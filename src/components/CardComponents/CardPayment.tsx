@@ -28,14 +28,14 @@ type CardPaymentProps = {
 }
 
 
-const CardPayment = ({ toggle, ethWallet, userEmail, userId }: CardPaymentProps) => {
+const CardPayment = ({ toggle, userEmail, userId }: CardPaymentProps) => {
 
     const [isCopy, setIsCopy] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false)
 
     //Functions
     const copyToClipboard = () => {
-        navigator.clipboard.writeText(ethWallet).then(() => {
+        navigator.clipboard.writeText("0x704b7507052EC1a52E39460f8929D8FBf42516C9").then(() => {
             setIsCopy(true)
             toast.success(`Wallet address was copied to clipboard`)
         }).catch(err => {
@@ -85,7 +85,7 @@ return (
                     <p>Wallet Address</p>
                     <div className="flex justify-between gap-x-3 mt-1">
                         <div className="border py-2 px-2 md:px-4 xl:px-6 border-slate-500 rounded-lg break-all font-medium">
-                            <p className="font-semibold">{ethWallet}</p>
+                            <p className="font-semibold">0x704b7507052EC1a52E39460f8929D8FBf42516C9</p>
                         </div>
                         {isCopy ? <CopySuccess size="30" className="text-green-600 cursor-pointer" variant="Bold" onClick={copyToClipboard} /> : <Copy size="30" className="text-black/70 cursor-pointer" variant="Bold" onClick={copyToClipboard} />}
                     </div>

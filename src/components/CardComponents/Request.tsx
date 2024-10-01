@@ -4,19 +4,19 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-//Import Needed Libs
+//Libs
 import { formatCardNumber, getExpiryTime } from "@/lib/generateCardNumber";
 
-//Import Needed Components
+//Components
 import Button from "../molecules/Button";
 import CardPayment from "./CardPayment";
 
-//Import Needed Images
+//Images
 import noCard from "../../../public/Images/frontCard.svg";
 import cardBack from "../../../public/Images/userBackCard.svg";
 import cardFront from "../../../public/Images/userFrontCard.svg";
 
-//Import Needed Icons
+//Icons
 import { CardCoin, CardRemove, InfoCircle } from "iconsax-react";
 
 

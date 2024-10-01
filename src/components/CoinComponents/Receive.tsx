@@ -1,12 +1,12 @@
 "use client"
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useSelectionStore } from "@/store/selection";
-import { useWalletStore } from "@/store/wallets";
 import { toast } from "sonner";
 import { redirect } from "next/navigation";
 
-//Import Needed Images
+//Images
 import bitcoinAddress from "../../../public/Images/BTC.jpg";
 import ethAddress from "../../../public/Images/ETH.jpg";
 import bnbAddress from "../../../public/Images/BNB.jpg";
@@ -18,7 +18,10 @@ import solanaAddress from "../../../public/Images/Solana.jpg";
 import litecoinAddress from "../../../public/Images/Lite.jpg";
 import dogeAddress from "../../../public/Images/Doge.jpg";
 
-//Import Needed Icons
+//Utils
+import { getWallet } from "@/lib/getWallet";
+
+//Icons
 import { CloseSquare } from "iconsax-react";
 
 
@@ -32,14 +35,12 @@ const Receive = ({ toggleFunction }: modalProps) => {
   //State for the copied text
   const [isCopied, setIsCopied] = useState<boolean>(false)
 
-  const { btc, eth, usdte, usdtt, tron, bnb, ada, doge, litecoin, solana } = useWalletStore()
-
   const { coin } = useSelectionStore()
+
   //Copy function
   const handleCopyClick = async () => {
     try {
-      await navigator.clipboard.writeText(coin === "bitcoin" ? btc : coin === "ethereum" ? eth : coin === "binance" ? bnb : coin === "tron" ? tron : coin === "usdtt" ? usdtt : coin === "usdte" ? usdte : coin === "ada" ? ada : coin === "solana" ? solana : coin === "lite" ? litecoin : coin === "doge" ? doge : "coin"
-      );
+      await navigator.clipboard.writeText(getWallet(coin) ?? "");
       setIsCopied(true);
       toast.success("Wallet address was copied to clipboard")
     } catch (err) {
@@ -47,12 +48,14 @@ const Receive = ({ toggleFunction }: modalProps) => {
       toast.error("Unable to copy wallet address, try again later.")
     }
   };
+
   //Check and redirect a user to overview if they didn't select any coin
   useEffect(() => {
     if (!coin) {
       redirect("/user/overview")
     }
   })
+
   return (
     <main className="fixed bg-black bg-opacity-80 flex items-center justify-center z-[100] inset-0">
       <div className="relative w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%] 2xl:w-[30%] bg-white p-4 md:p-8 rounded-lg">
@@ -66,7 +69,7 @@ const Receive = ({ toggleFunction }: modalProps) => {
         <div className="mt-10 flex flex-col items-center">
           <p>Wallet Address</p>
           <div className="border p-2 border-slate-500 rounded-lg break-all">
-            {coin === "bitcoin" ? btc : coin === "ethereum" ? eth : coin === "binance" ? bnb : coin === "tron" ? tron : coin === "usdtt" ? usdtt : coin === "usdte" ? usdte : coin === "ada" ? ada : coin === "solana" ? solana : coin === "lite" ? litecoin : coin === "doge" ? doge : "coin"}
+            {getWallet(coin)}
           </div>
         </div>
         <div className="mt-4 flex justify-center">

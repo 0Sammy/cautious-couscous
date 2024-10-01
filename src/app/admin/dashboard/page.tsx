@@ -1,13 +1,11 @@
 import getTransactions from "@/actions/getAllTransactions";
 import getUsers from "@/actions/getAllUsers";
-import getWallets from "@/actions/getWallets";
 
 
 //Import Needed Components
 import Activity from "@/components/AdminComponents/Activity";
 import AdminChangePassword from "@/components/AdminComponents/AdminChangePassword";
 import LastTransactions from "@/components/AdminComponents/LastTransactions";
-import Wallets from "@/components/CoinComponents/Wallets";
 import AdminHeader from "@/components/molecules/AdminHeader";
 
 
@@ -16,7 +14,6 @@ const page = async () => {
 
     const transactions = await getTransactions();
     const clients = await getUsers();
-    const wallets = await getWallets()
 
     //console.log({transactions})
     //console.log({clients})
@@ -50,7 +47,6 @@ const page = async () => {
     const lastSevenTransactions = transactions?.slice(0, 7);
     return ( 
         <main>
-            <Wallets wallets={wallets}/>
             <AdminHeader page="Administration Dashboard"/>
             <div className="px-4 md:px-6 xl:px-8 py-4">
               <Activity usersLength={clients?.length} depositAmount={depositAmount} transferAmount={receiveAmount} bonusAmount={bonusAmount}/>

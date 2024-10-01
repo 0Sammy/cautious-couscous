@@ -1,10 +1,8 @@
-import getWallets from "@/actions/getWallets";
 import { getUserDetails } from "@/providers/userDetails";
 
 
 //Import needed components
 import SendForm from "@/components/SendComponents/SendForm";
-import Wallets from "@/components/CoinComponents/Wallets";
 import Prices from "@/components/DashboardComponents/Prices";
 import { permanentRedirect } from "next/navigation";
 
@@ -12,7 +10,6 @@ import { permanentRedirect } from "next/navigation";
 export const revalidate = 0;
 const page = async () => {
 
-    const wallets = await getWallets()
     const { user } = await getUserDetails();
     const userTransactions = user?.transactions
     const withdrawalTransactions = userTransactions?.filter((transaction) => transaction.transactionType === "deposit" && transaction.status === "pending")
@@ -24,7 +21,6 @@ const page = async () => {
     return (
         <main>
             <Prices pending={withdrawalTransactions?.length!}/>
-            <Wallets wallets={wallets} />
             <SendForm email={user?.email!} name={`${user?.firstName} ${user?.lastName}`} message={user?.depositMessage!} id={user?.id!} />
         </main>
     );
