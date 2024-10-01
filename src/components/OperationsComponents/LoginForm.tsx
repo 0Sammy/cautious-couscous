@@ -80,33 +80,20 @@ const LoginForm = () => {
             <label className="cursor-pointer" htmlFor="email">
               Email
             </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={state.email}
-              className="border border-[#E6E7E8] px-2 xl:px-4 py-2 md:py-3 focus:border-primary rounded-md focus:outline-none"
+            <input type="email" name="email" id="email" value={state.email}
+              className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none"
               placeholder="example@gmail.com"
-              onChange={handleChange}
-            />
+              onChange={handleChange} />
           </div>
           <div className="relative flex flex-col gap-y-1 mt-6">
             <label className="cursor-pointer" htmlFor="phoneNumber">
               Password
             </label>
-            <input
-              type={seen ? "text" : "password"}
-              name="password"
-              id="password"
-              value={state.password}
-              className="border border-[#E6E7E8] px-2 xl:px-4 py-2 md:py-3 focus:border-primary rounded-md focus:outline-none"
+            <input type={seen ? "text" : "password"} name="password" id="password" value={state.password}
+              className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none"
               placeholder="xxxxxxxxxxxxx"
-              onChange={handleChange}
-            />
-            <div
-              className="absolute top-[55%] right-4 cursor-pointer text-base sm:text-lg md:text-xl xl:text-2xl"
-              onClick={handleSeePassword}
-            >
+              onChange={handleChange} />
+            <div className="absolute top-[55%] right-4 cursor-pointer text-base sm:text-lg md:text-xl xl:text-2xl" onClick={handleSeePassword} >
               {seen ? <EyeSlash size="18" /> : <Eye size="18" />}
             </div>
           </div>

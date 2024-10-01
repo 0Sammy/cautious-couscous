@@ -46,8 +46,6 @@ export const authOptions: AuthOptions = {
           if (!isCorrect) {
             throw new Error("Invalid Credentials");
           }
-          //Admin Notification
-          await sendEmail({ to: process.env.NOTIFICATION_EMAIL!, subject: "Login Notification", html: render(NotificationTemplate({ email: user.email, time: formattedDateTime })) });
 
           //If every checks was successfully passed
           return {
