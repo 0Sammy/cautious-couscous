@@ -5,7 +5,7 @@ import getAdminTransactions from "@/actions/getAdminTransactions";
 import AdminHeader from "@/components/molecules/AdminHeader";
 import AllAdmins from "@/components/AdminComponents/AllAdmins";
 
-export const revalidate = 1;
+export const revalidate = 0;
 const page = async () => {
 
     const admins = await getAdmins()

@@ -1,7 +1,7 @@
 import { formatDate } from "@/lib/dateTimeUtils";
 import getIndividualTransaction from "@/actions/getIndividualTransaction";
 
-
+export const revalidate = 0;
 const page = async ({ params }: { params: { id: string } }) => {
 
     const transactionId = params.id;

@@ -7,7 +7,7 @@ import CoinOverview from "@/components/CoinComponents/CoinOverview";
 import TransactionHistory from "@/components/CoinComponents/TransactionHistory";
 import Wallets from "@/components/CoinComponents/Wallets";
 
-export const revalidate = 1
+export const revalidate = 0;
 const page = async () => {
 
     const wallets = await getWallets()

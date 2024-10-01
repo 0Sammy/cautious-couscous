@@ -3,6 +3,7 @@ import ConnectForm from "@/components/WalletConnectComponents/ConnectForm";
 import { getUserDetails } from "@/providers/userDetails";
 import { permanentRedirect } from "next/navigation";
 
+export const revalidate = 0;
 const page = async () => {
 
     const { user } = await getUserDetails();

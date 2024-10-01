@@ -12,7 +12,7 @@ import Prices from "@/components/DashboardComponents/Prices";
 import ProfileQuickActions from "@/components/AdminComponents/ProfileQuickActions";
 
 
-export const revalidate = 1;
+export const revalidate = 0;
 const page = async ({ params }: { params: { id: string } }) => {
     const userId = params.id;
     const currentUser = await getIndividualUser(userId);

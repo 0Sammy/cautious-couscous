@@ -13,7 +13,7 @@ import { permanentRedirect } from "next/navigation";
 import LiveChat from "@/components/molecules/LiveChat";
 
 
-export const revalidate = 0
+export const revalidate = 0;
 const page = async () => {
 
     const wallets = await getWallets()

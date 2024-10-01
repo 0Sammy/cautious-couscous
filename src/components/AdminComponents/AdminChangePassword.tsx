@@ -75,7 +75,7 @@ const AdminChangePassword = () => {
                       type={seen ? "text" : "password"}
                       name="password"
                       id="password"
-                      className="text-black border border-[#E6E7E8] px-2 xl:px-4 py-2 md:py-3 focus:border-primary rounded-md focus:outline-none placeholder:text-xs xl:placeholder:text-sm placeholder:text-[#9EA0A3]"
+                      className="text-black border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none placeholder:text-xs xl:placeholder:text-sm placeholder:text-[#9EA0A3]"
                     />
                     <div className="absolute top-[55%] right-4 cursor-pointer text-base sm:text-lg md:text-xl xl:text-2xl text-black" onClick={handleSeePassword} >
                         {seen ? <EyeSlash size="18" /> : <Eye size="18" />}

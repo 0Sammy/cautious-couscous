@@ -68,13 +68,6 @@ const paragraph = {
   margin: "2rem 0",
 };
 
-const verification = {
-  fontSize: "24px",
-  lineHeight: "1.3",
-  fontWeight: "700",
-  color: "#484848",
-};
-
 const footer = {
   marginTop: "2rem",
   borderTop: "1px solid #B2B3BA",

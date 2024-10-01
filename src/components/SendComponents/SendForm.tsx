@@ -5,13 +5,16 @@ import { redirect } from "next/navigation";
 import { makeApiRequest } from "@/lib/apiUtils";
 import { toast } from "sonner";
 
+//Stores
 import { useSelectionStore } from "@/store/selection";
 import { usePriceStore } from "@/store/prices";
 import { useBalanceStore } from "@/store/balance";
 
+//Components and Utils
 import Input from "@/components/molecules/Input";
 import Button from "@/components/molecules/Button";
 import SendPopup from "./SendPopup";
+import { formattedDateTime } from "@/lib/dateTimeUtils";
 
 type SendFormProps = {
   email: string;
@@ -112,16 +115,6 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
       setLoading(false);
       return;
     }
-
-    const formattedDateTime = new Date().toLocaleString("en-US", {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-    });
 
     const formData = {
       amount: enteredAmount, coin, network, transactionType: "deposit", userId: id, receivingAddress: enteredAddress

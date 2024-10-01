@@ -4,7 +4,7 @@ import getUsers from "@/actions/getAllUsers";
 import AdminHeader from "@/components/molecules/AdminHeader";
 import Users from "@/components/AdminComponents/Users";
 
-export const revalidate = 1;
+export const revalidate = 0;
 const page = async () => {
 
     const users = await getUsers()

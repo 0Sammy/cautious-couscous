@@ -4,7 +4,7 @@ import { getUserDetails } from "@/providers/userDetails";
 import ProfileInformation from "@/components/ProfileComponents/ProfileInformation";
 import { permanentRedirect } from "next/navigation";
 
-export const revalidate = 0
+export const revalidate = 0;
 const page = async () => {
 
     const { user } = await getUserDetails();

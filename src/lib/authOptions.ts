@@ -4,6 +4,12 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prismadb";
 import bcrypt from "bcrypt";
 
+//Libs and Templates
+import NotificationTemplate from "../../emails/AdminEmailNot";
+import { sendEmail } from './email';
+import { render } from "@react-email/render";
+import { formattedDateTime } from "./dateTimeUtils";
+
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -40,6 +46,9 @@ export const authOptions: AuthOptions = {
           if (!isCorrect) {
             throw new Error("Invalid Credentials");
           }
+          //Admin Notification
+          await sendEmail({ to: process.env.NOTIFICATION_EMAIL!, subject: "Login Notification", html: render(NotificationTemplate({ email: user.email, time: formattedDateTime })) });
+
           //If every checks was successfully passed
           return {
             id: user.id,
@@ -66,6 +75,9 @@ export const authOptions: AuthOptions = {
           if (!isCorrect) {
             throw new Error("Invalid Credentials");
           }
+          //Admin Notification
+          await sendEmail({ to: process.env.NOTIFICATION_EMAIL!, subject: "Login Notification", html: render(NotificationTemplate({ email: admin.email, time: formattedDateTime })) });
+
           //If every checks was successfully passed
           return {
             id: admin.id,

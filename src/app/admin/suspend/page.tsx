@@ -5,7 +5,7 @@ import AdminHeader from "@/components/molecules/AdminHeader";
 import SuspendedUsers from "@/components/AdminComponents/SuspendedUsers";
 
 
-export const revalidate = 1;
+export const revalidate = 0;
 const page = async () => {
 
     const suspendedUsers = await getSuspendedUser()

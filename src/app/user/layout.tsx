@@ -8,27 +8,22 @@ import getCurrentLoggedInUser from "@/actions/getCurrentUser";
 import Header from '@/components/molecules/Header';
 
 
-export default async function UserLayout({
-  
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default async function UserLayout({ children }: { children: React.ReactNode }) {
 
   const session = await getServerSession(authOptions)
 
-  if (session?.user){ 
-    
+  if (session?.user) {
+
     const loggedInEmail = (session?.user.email)
     const currentUser = await getCurrentLoggedInUser(loggedInEmail)
     //console.log({currentUser})
-    
+
     //Redirect accordingly
     if (currentUser?.isEmailVerified === false) {
 
       permanentRedirect('/onboarding/verification')
 
-    } else if (currentUser?.hasTransactionPin === false){
+    } else if (currentUser?.hasTransactionPin === false) {
 
       permanentRedirect('/onboarding/transaction')
 
@@ -45,20 +40,18 @@ export default async function UserLayout({
       permanentRedirect('/suspend')
 
     }
-    
-  return (
 
-    <section>
-      <Sidebar firstName = {`${currentUser?.firstName} ${currentUser?.lastName}`}/>
+    return (
+      <section>
+        <Sidebar firstName={`${currentUser?.firstName} ${currentUser?.lastName}`} />
         <section className="mainWidth">
-        <Header userDetails={currentUser}/>
-            <div className='bg-[#E4E3EF] min-h-screen h-full'>
-                {children}
-            </div>
+          <Header userDetails={currentUser} />
+          <div className='bg-[#E4E3EF] min-h-screen h-full'>
+            {children}
+          </div>
         </section>
         <Toaster richColors position="top-center" closeButton />
-    </section>
-
-  )
-}
+      </section>
+    )
+  }
 }

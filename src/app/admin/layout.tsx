@@ -1,18 +1,19 @@
-import AdminSidebar from '@/components/molecules/AdminSidebar';
-import '../globals.css';
-import { Toaster } from 'sonner';
-import { getServerSession } from "next-auth/next"
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/authOptions";
-import getCurrentLoggedInAdmin from '@/actions/getCurrentAdmin';
 import { permanentRedirect } from 'next/navigation';
 
+//Actions
+import getCurrentLoggedInAdmin from '@/actions/getCurrentAdmin';
 
-export default async function UserLayout({
+//Components
+import AdminSidebar from '@/components/molecules/AdminSidebar';
+import { Toaster } from 'sonner';
 
-  children,
-}: {
-  children: React.ReactNode
-}) {
+//Styles
+import '../globals.css';
+
+
+export default async function UserLayout({ children }: { children: React.ReactNode }) {
 
   const session = await getServerSession(authOptions)
 
@@ -27,7 +28,6 @@ export default async function UserLayout({
     }
 
     return (
-
       <section>
         <AdminSidebar role={currentAdmin?.role} />
         <div className="mainWidth bg-[#121212] text-[#B3B3B3]">
@@ -35,7 +35,6 @@ export default async function UserLayout({
         </div>
         <Toaster richColors position="top-center" closeButton />
       </section>
-
     )
   }
 }

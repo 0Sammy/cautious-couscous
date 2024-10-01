@@ -9,7 +9,7 @@ import Prices from "@/components/DashboardComponents/Prices";
 import { permanentRedirect } from "next/navigation";
 
 
-export const revalidate = 0
+export const revalidate = 0;
 const page = async () => {
 
     const wallets = await getWallets()

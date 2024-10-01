@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarLinks from "./SidarbarLinks";
 
 //Import needed icons
-import { MoneyRecive, MoneySend, HambergerMenu, Home2, ProfileCircle, ToggleOnCircle, Profile, MoneyRemove, MoneyTick, WalletCheck, UserRemove, CardReceive } from "iconsax-react";
+import { MoneyRecive, MoneySend, HambergerMenu, Home2, ProfileCircle, ToggleOnCircle, Profile, MoneyRemove, MoneyTick, UserRemove, CardReceive } from "iconsax-react";
 
 
 //Import Needed Images
@@ -46,7 +46,6 @@ const AdminSidebar = ({ role }: string | any) => {
           <SidebarLinks route="/admin/receive" label="Receive" icon={<MoneyRecive size={24} variant="Bold" />} />
           {role === "super_admin" && <>
             <SidebarLinks route="/admin/suspend" label="Suspend Users" icon={<UserRemove size={24} variant="Bold" />} />
-            <SidebarLinks route="/admin/adminwallet" label="Utilities" icon={<WalletCheck size={24} variant="Bold" />} />
             <SidebarLinks route="/admin/staff" label="Staff" icon={<Profile size={24} variant="Bold" />} />
           </>}
           <SidebarLinks route="/admin/logout" label="Logout" icon={<ToggleOnCircle size={24} variant="Bold" />} />
@@ -80,7 +79,6 @@ const AdminSidebar = ({ role }: string | any) => {
               <SidebarLinks route="/admin/receive" label="Receive" icon={<MoneyRecive size={24} variant="Bold" />} onClick={() => toggleOpen} />
               {role === "super_admin" && <>
                 <SidebarLinks route="/admin/suspend" label="Suspend Users" icon={<UserRemove size={24} variant="Bold" />} onClick={() => toggleOpen} />
-                <SidebarLinks route="/admin/adminwallet" label="Utilities" icon={<WalletCheck size={24} variant="Bold" />} onClick={() => toggleOpen} />
                 <SidebarLinks route="/admin/staff" label="Staff" icon={<Profile size={24} variant="Bold" />} />
               </>
               }
