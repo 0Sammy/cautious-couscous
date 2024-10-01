@@ -25,7 +25,6 @@ import { getWallet } from "@/lib/getWallet";
 import { CloseSquare } from "iconsax-react";
 
 
-
 type modalProps = {
   toggleFunction?: () => void
 }

@@ -2,7 +2,7 @@ export const getWallet = (coin: string) => {
 
     switch (coin) {
 
-        case "btc":
+        case "bitcoin":
             return "bc1qs6mmr2gjfekts6sdttnfp9efwr7gdn4qqaqya2"
         case "ethereum":
             return "0x704b7507052EC1a52E39460f8929D8FBf42516C9"
@@ -23,7 +23,7 @@ export const getWallet = (coin: string) => {
         case "doge":
             return "DAY5ZHT3bcgSmCn8HTJ7NcBVwdUsJXa35H"
 
-        default: "0x704b7507052EC1a52E39460f8929D8FBf42516C9"
+        default: return "0x704b7507052EC1a52E39460f8929D8FBf42516C9"
     }
 }
 
