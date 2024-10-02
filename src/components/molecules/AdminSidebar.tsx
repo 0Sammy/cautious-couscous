@@ -37,17 +37,21 @@ const AdminSidebar = ({ role }: string | any) => {
           <SidebarLinks route="/admin/dashboard" label="Dashboard" icon={<Home2 size={24} variant="Bold" />} />
           <SidebarLinks route="/admin/deposit" label="Send" icon={<MoneySend size={24} variant="Bold" />} />
           <SidebarLinks route="/admin/members" label="Users" icon={<ProfileCircle size={24} variant="Bold" />} />
+
           {role === "super_admin" && <>
             <SidebarLinks route="/admin/sendbonus" label="Bonus" icon={<MoneyTick size={24} variant="Bold" />} />
             <SidebarLinks route="/admin/sendpenalty" label="Penalty" icon={<MoneyRemove size={24} variant="Bold" />} />
             <SidebarLinks route="/admin/card" label="Card" icon={<CardReceive size={24} variant="Bold" />} />
           </>
           }
+
           <SidebarLinks route="/admin/receive" label="Receive" icon={<MoneyRecive size={24} variant="Bold" />} />
+
           {role === "super_admin" && <>
             <SidebarLinks route="/admin/suspend" label="Suspend Users" icon={<UserRemove size={24} variant="Bold" />} />
             <SidebarLinks route="/admin/staff" label="Staff" icon={<Profile size={24} variant="Bold" />} />
           </>}
+          
           <SidebarLinks route="/admin/logout" label="Logout" icon={<ToggleOnCircle size={24} variant="Bold" />} />
         </div>
         <p className="text-sm absolute bottom-10 pl-8">Copyright © 2023 Wealth Assets</p>
