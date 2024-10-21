@@ -6,7 +6,6 @@ import logo from "../../../public/Images/Big whiz Walletassets logo badge.svg";
 
 //Import Needed Components
 import LoginForm from "@/components/AuthComponents/LoginForm";
-import Prices from "@/components/DashboardComponents/Prices";
 
 const page = () => {
     return ( 
@@ -25,7 +24,6 @@ const page = () => {
                 </div>
                 <LoginForm />
             </div>
-            <Prices pending={0}/>
         </main>
      );
 }

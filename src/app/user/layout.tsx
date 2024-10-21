@@ -1,11 +1,17 @@
-import { permanentRedirect } from 'next/navigation'
-import Sidebar from "@/components/molecules/Sidebar";
-import '../globals.css';
+import { permanentRedirect } from 'next/navigation';
 import { Toaster } from 'sonner';
-import { getServerSession } from "next-auth/next"
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/authOptions";
+
+//Actions
 import getCurrentLoggedInUser from "@/actions/getCurrentUser";
+
+//Components
+import Sidebar from "@/components/molecules/Sidebar";
 import Header from '@/components/molecules/Header';
+
+//Styles
+import '../globals.css';
 
 
 export default async function UserLayout({ children }: { children: React.ReactNode }) {
@@ -16,7 +22,6 @@ export default async function UserLayout({ children }: { children: React.ReactNo
 
     const loggedInEmail = (session?.user.email)
     const currentUser = await getCurrentLoggedInUser(loggedInEmail)
-    //console.log({currentUser})
 
     //Redirect accordingly
     if (currentUser?.isEmailVerified === false) {

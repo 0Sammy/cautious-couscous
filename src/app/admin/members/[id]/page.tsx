@@ -8,7 +8,6 @@ import { formatDate } from "@/lib/dateTimeUtils";
 //Import Needed Components
 import AdminHeader from "@/components/molecules/AdminHeader";
 import UsersAccountSummary from "@/components/AdminComponents/UsersAccountSummary";
-import Prices from "@/components/DashboardComponents/Prices";
 import ProfileQuickActions from "@/components/AdminComponents/ProfileQuickActions";
 
 
@@ -22,7 +21,6 @@ const page = async ({ params }: { params: { id: string } }) => {
 
     return ( 
         <main>
-            <Prices pending={0}/>
             <AdminHeader page={`${currentUser?.firstName} Profile`} />
             <div className="px-4 md:px-6 xl:px-8 py-4">
                 <div className="flex flex-col gap-y-3 lg:gap-y-0 lg:flex-row lg:justify-between">

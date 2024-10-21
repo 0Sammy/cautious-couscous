@@ -5,7 +5,6 @@ import { authOptions } from "@/lib/authOptions";
 //Import Needed Components
 import TransactionForm from "@/components/AdminComponents/TransactionForm";
 import AdminHeader from "@/components/molecules/AdminHeader";
-import Prices from "@/components/DashboardComponents/Prices";
 
 
 export const revalidate = 0;
@@ -20,7 +19,6 @@ const page = async () => {
 
     return ( 
         <main>
-            <Prices pending={0}/>
             <AdminHeader page="Admin Transaction" />
             <div className="px-4 md:px-6 xl:px-8 py-4">
                 <TransactionForm allUsers={allUsers} loggedInEmail={loggedInEmail}/>

@@ -1,77 +1,74 @@
-"use client"
+'use client'
 
-import { useState, useEffect, useCallback } from "react";
-import { toast } from "sonner";
-
-// Import Needed Actions
-import { saveUserChoice, getUserChoice } from "@/actions/serverActions/cancelPrompt";
-
-// Import Needed Icons
-import { AddSquare, CloseSquare, DirectSend } from "iconsax-react";
+import { useState, useEffect, useCallback } from "react"
+import { toast } from "sonner"
+import { saveUserChoice, getUserChoice } from "@/actions/serverActions/cancelPrompt"
+import { AddSquare, CloseSquare, DirectSend } from "iconsax-react"
 
 type BeforeInstallPromptEvent = Event & {
-  readonly platforms: Array<string>;
+  readonly platforms: Array<string>
   readonly userChoice: Promise<{
-    outcome: 'accepted' | 'dismissed';
-    platform: string;
-  }>;
-  prompt(): void;
+    outcome: 'accepted' | 'dismissed'
+    platform: string
+  }>
+  prompt(): void
 }
 
 const InstallationPrompt = () => {
-
-  const [showInstallPrompt, setShowInstallPrompt] = useState<boolean>(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
-  const [isAppleDevice, setIsAppleDevice] = useState<boolean>(false);
+  const [showInstallPrompt, setShowInstallPrompt] = useState<boolean>(false)
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
+  const [isAppleDevice, setIsAppleDevice] = useState<boolean>(false)
 
   const handleBeforeInstallPrompt = useCallback((event: Event) => {
-    event.preventDefault();
-    setDeferredPrompt(event as BeforeInstallPromptEvent);
-    setShowInstallPrompt(true);
-  }, []);
+    event.preventDefault()
+    setDeferredPrompt(event as BeforeInstallPromptEvent)
+    setShowInstallPrompt(true)
+  }, [])
 
   useEffect(() => {
     const usersChoice = async () => {
-      const choice = await getUserChoice();
-      setShowInstallPrompt(!choice.isCanceled);
-    };
-    usersChoice();
-  }, []);
+      const choice = await getUserChoice()
+      setShowInstallPrompt(!choice.isCanceled)
+    }
+    usersChoice()
+  }, [])
 
   useEffect(() => {
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
-  }, [handleBeforeInstallPrompt]);
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+    }
+  }, [handleBeforeInstallPrompt])
 
   useEffect(() => {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    setIsAppleDevice(/ipad|iphone|ipod/.test(userAgent));
-  }, []);
+    const userAgent = window.navigator.userAgent.toLowerCase()
+    setIsAppleDevice(/ipad|iphone|ipod/.test(userAgent))
+  }, [])
 
   const handleInstallClick = async () => {
     if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const choiceResult = await deferredPrompt.userChoice;
+      deferredPrompt.prompt()
+      const choiceResult = await deferredPrompt.userChoice
       if (choiceResult.outcome === 'accepted') {
-        toast.success("Installing Wealth Assets.");
+        toast.success("Installing Wealth Assets.")
+        await saveUserChoice(true)
       } else {
-        toast.warning("This prompt will not reappear for 7 days.");
+        toast.warning("This prompt will not reappear for 7 days.")
+        await saveUserChoice(true)
       }
-      setDeferredPrompt(null);
-      setShowInstallPrompt(false);
+      setDeferredPrompt(null)
+      setShowInstallPrompt(false)
     }
-  };
+  }
 
   const handleCloseClick = async () => {
-    const { success } = await saveUserChoice();
+    const { success } = await saveUserChoice(true)
     if (success) {
-      setShowInstallPrompt(false);
-      toast.warning("This prompt will not reappear for 7 days.");
+      setShowInstallPrompt(false)
+      toast.warning("This prompt will not reappear for 7 days.")
     }
-  };
+  }
 
   return (
     <main className="text-[10px] md:text-xs xl:text-sm">
@@ -100,7 +97,7 @@ const InstallationPrompt = () => {
         </div>
       )}
     </main>
-  );
+  )
 }
 
-export default InstallationPrompt;
+export default InstallationPrompt

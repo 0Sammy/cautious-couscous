@@ -27,8 +27,8 @@ const page = async () => {
     return (
         <main className="p-2 md:p-4 xl:p-6">
             <LiveChat />
-            <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length} />
             <Prices pending={withdrawalTransactions?.length!} />
+            <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length} />
             <Balance />
             <CompliedCards />
             <InstallationPrompt />

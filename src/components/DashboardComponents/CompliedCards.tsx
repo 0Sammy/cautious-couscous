@@ -18,7 +18,7 @@ import litecoinLogo from "../../../public/Images/litecoin.png";
 import dogeLogo from "../../../public/Images/doge.png";
 
 const CompliedCards = () => {
-    const {btcPrice, btcChangePercent, ethPrice, ethChangePercent, bnbPrice, bnbChangePercent, trxPrice, trxChangePercent, usdtPrice, usdtChangePercent, adaPrice, adaChangePercent, solPrice, solChangePercent, ltcPrice, ltcChangePercent, dogePrice, dogeChangePercent } = usePriceStore()
+    const {btcPrice, btcPercent, ethPrice, ethPercent, bnbPrice, bnbPercent, trxPrice, trxPercent, usdtPrice, usdtPercent, adaPrice, adaPercent, solPrice, solPercent, ltcPrice, ltcPercent, dogePrice, dogePercent } = usePriceStore()
     const {updateCoin} = useSelectionStore()
     const {btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance} = useBalanceStore()
     // Function to get the amount for a specific coin
@@ -81,24 +81,24 @@ const getCoinAmount = (coinName: string) => {
   const getCoinChangePercent = (coinName: string) => {
     switch (coinName) {
       case 'bitcoin':
-        return btcChangePercent;
+        return btcPercent;
       case 'ethereum':
-        return ethChangePercent;
+        return ethPercent;
       case 'binance':
-        return bnbChangePercent;
+        return bnbPercent;
       case 'tron':
-        return trxChangePercent;
+        return trxPercent;
       case 'usdtt':
       case 'usdte':
-        return usdtChangePercent;
+        return usdtPercent;
       case 'ada':
-        return adaChangePercent;
+        return adaPercent;
       case 'solana':
-        return solChangePercent;
+        return solPercent;
       case 'lite':
-        return ltcChangePercent;
+        return ltcPercent;
       case 'doge':
-        return dogeChangePercent;
+        return dogePercent;
       default:
         return 0;
     }

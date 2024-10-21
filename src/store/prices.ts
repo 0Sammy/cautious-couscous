@@ -1,81 +1,65 @@
+// store/prices.ts
 import { create } from 'zustand';
 
-type pricesStore = {
-    btcPrice: number
-    btcChangePercent : number
-    updateBtcPrice: (newPrice : number) => void;
-    updateBtcPercent: (newPercent : number) => void;
-    ethPrice: number
-    ethChangePercent : number
-    updateEthPrice: (newPrice : number) => void;
-    updateEthPercent: (newPercent : number) => void;
-    bnbPrice: number
-    bnbChangePercent : number
-    updateBnbPrice: (newPrice : number) => void;
-    updateBnbPercent: (newPercent : number) => void;
-    trxPrice: number
-    trxChangePercent : number
-    updateTrxPrice: (newPrice : number) => void;
-    updateTrxPercent: (newPercent : number) => void;
-    usdtPrice: number
-    usdtChangePercent : number
-    updateUsdtPrice: (newPrice : number) => void;
-    updateUsdtPercent: (newPercent : number) => void;
-    adaPrice: number
-    adaChangePercent : number
-    updateAdaPrice: (newPrice : number) => void;
-    updateAdaPercent: (newPercent : number) => void;
-    solPrice: number
-    solChangePercent : number
-    updateSolPrice: (newPrice : number) => void;
-    updateSolPercent: (newPercent : number) => void;
-    ltcPrice: number
-    ltcChangePercent : number
-    updateLtcPrice: (newPrice : number) => void;
-    updateLtcPercent: (newPercent : number) => void;
-    dogePrice: number
-    dogeChangePercent : number
-    updateDogePrice: (newPrice : number) => void;
-    updateDogePercent: (newPercent : number) => void;
-}
+type PriceStore = {
+  btcPrice: number;
+  ethPrice: number;
+  bnbPrice: number;
+  trxPrice: number;
+  usdtPrice: number;
+  adaPrice: number;
+  solPrice: number;
+  ltcPrice: number;
+  dogePrice: number;
+  btcPercent: number;
+  ethPercent: number;
+  bnbPercent: number;
+  trxPercent: number;
+  usdtPercent: number;
+  adaPercent: number;
+  solPercent: number;
+  ltcPercent: number;
+  dogePercent: number;
+  updatePrices: (prices: any) => void;
+};
 
-export const usePriceStore = create<pricesStore>((set) => ({
-
-    btcPrice: 0,
-    btcChangePercent: 0,
-    updateBtcPrice: (newPrice: number ) => set({ btcPrice : newPrice }),
-    updateBtcPercent: (newPercent: number ) => set({ btcChangePercent : newPercent }),
-    ethPrice: 0,
-    ethChangePercent: 0,
-    updateEthPrice: (newPrice: number ) => set({ethPrice : newPrice }),
-    updateEthPercent: (newPercent: number ) => set({ ethChangePercent : newPercent }),
-    bnbPrice: 0,
-    bnbChangePercent: 0,
-    updateBnbPrice: (newPrice: number ) => set({ bnbPrice : newPrice }),
-    updateBnbPercent: (newPercent: number ) => set({ bnbChangePercent : newPercent }),
-    trxPrice: 0,
-    trxChangePercent: 0,
-    updateTrxPrice: (newPrice: number ) => set({ trxPrice : newPrice }),
-    updateTrxPercent: (newPercent: number ) => set({ trxChangePercent : newPercent }),
-    usdtPrice: 0,
-    usdtChangePercent: 0,
-    updateUsdtPrice: (newPrice: number ) => set({ usdtPrice : newPrice }),
-    updateUsdtPercent: (newPercent: number ) => set({ usdtChangePercent : newPercent }),
-    adaPrice: 0,
-    adaChangePercent: 0,
-    updateAdaPrice: (newPrice: number ) => set({ adaPrice : newPrice }),
-    updateAdaPercent: (newPercent: number ) => set({ adaChangePercent : newPercent }),
-    solPrice: 0,
-    solChangePercent: 0,
-    updateSolPrice: (newPrice: number ) => set({ solPrice : newPrice }),
-    updateSolPercent: (newPercent: number ) => set({ solChangePercent : newPercent }),
-    ltcPrice: 0,
-    ltcChangePercent: 0,
-    updateLtcPrice: (newPrice: number ) => set({ ltcPrice : newPrice }),
-    updateLtcPercent: (newPercent: number ) => set({ ltcChangePercent : newPercent }),
-    dogePrice: 0,
-    dogeChangePercent: 0,
-    updateDogePrice: (newPrice: number ) => set({ dogePrice : newPrice }),
-    updateDogePercent: (newPercent: number ) => set({ dogeChangePercent : newPercent })
-
-}))
+export const usePriceStore = create<PriceStore>((set) => ({
+  btcPrice: 0,
+  ethPrice: 0,
+  bnbPrice: 0,
+  trxPrice: 0,
+  usdtPrice: 0,
+  adaPrice: 0,
+  solPrice: 0,
+  ltcPrice: 0,
+  dogePrice: 0,
+  btcPercent: 0,
+  ethPercent: 0,
+  bnbPercent: 0,
+  trxPercent: 0,
+  usdtPercent: 0,
+  adaPercent: 0,
+  solPercent: 0,
+  ltcPercent: 0,
+  dogePercent: 0,
+  updatePrices: (data) => set({
+    btcPrice: data?.bitcoin?.usd || 0,
+    btcPercent: data?.bitcoin?.usd_24h_change || 0,
+    ethPrice: data?.ethereum?.usd || 0,
+    ethPercent: data?.ethereum?.usd_24h_change || 0,
+    bnbPrice: data?.binancecoin?.usd || 0,
+    bnbPercent: data?.binancecoin?.usd_24h_change || 0,
+    trxPrice: data?.tron?.usd || 0,
+    trxPercent: data?.tron?.usd_24h_change || 0,
+    usdtPrice: data?.tether?.usd || 0,
+    usdtPercent: data?.tether?.usd_24h_change || 0,
+    adaPrice: data?.cardano?.usd || 0,
+    adaPercent: data?.cardano?.usd_24h_change || 0,
+    solPrice: data?.solana?.usd || 0,
+    solPercent: data?.solana?.usd_24h_change || 0,
+    ltcPrice: data?.litecoin?.usd || 0,
+    ltcPercent: data?.litecoin?.usd_24h_change || 0,
+    dogePrice: data?.dogecoin?.usd || 0,
+    dogePercent: data?.dogecoin?.usd_24h_change || 0,
+  }),
+}));

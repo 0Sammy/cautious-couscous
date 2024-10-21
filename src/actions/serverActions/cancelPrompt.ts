@@ -1,41 +1,34 @@
-"use server"
+'use server'
 
 import { cookies } from 'next/headers'
 
-//Import Needed Utils
-import { verifyToken, signToken } from '@/lib/token';
-
-
-
 export async function getUserChoice() {
+  const choiceCookie = cookies().get('installChoice')
+  if (!choiceCookie) return { isCanceled: false }
 
-    //Fetch Token, throw error if token does not exist
-    const token = cookies().get('choice')?.value
-    if (!token) return { isCanceled: false }
+  const { isCanceled, timestamp } = JSON.parse(choiceCookie.value)
+  const sevenDaysInMs = 7 * 24 * 60 * 60 * 1000
 
-    //Verify token, fetch user details and throw error if doesn't exists
-    const userChoice = verifyToken(token)
-    if (!userChoice) return { isCanceled: false }
+  if (Date.now() - timestamp > sevenDaysInMs) {
+    cookies().delete('installChoice')
+    return { isCanceled: false }
+  }
 
-    //Return user details
-    return { isCanceled: true };
-
+  return { isCanceled }
 }
 
+export async function saveUserChoice(isCanceled: boolean) {
+  const value = JSON.stringify({ isCanceled, timestamp: Date.now() })
 
-export async function saveUserChoice() {
-    
-    const data = signToken({ isCanceled: true });
+  cookies().set({
+    name: 'installChoice',
+    value,
+    httpOnly: true,
+    path: '/',
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 7 * 24 * 60 * 60, // 7 days
+    sameSite: 'strict',
+  })
 
-    cookies().set({
-        name: 'choice',
-        value: data,
-        httpOnly: true,
-        path: '/',
-        secure: process.env.NODE_ENV === 'production',
-        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-        sameSite: "strict",
-    });
-
-    return { success: true }
+  return { success: true }
 }

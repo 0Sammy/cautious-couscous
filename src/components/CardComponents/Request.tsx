@@ -27,10 +27,11 @@ type RequestProps = {
     userId: string;
     userEmail: string;
     userName: string;
+    transactionPin: string;
 }
 
 
-const Request = ({ ethWallet, cardDetails, userId, userEmail, userName }: RequestProps) => {
+const Request = ({ ethWallet, cardDetails, userId, userEmail, userName, transactionPin }: RequestProps) => {
 
     const [isDeposit, setIsDeposit] = useState<boolean>(false)
     const userCard = cardDetails[0]
@@ -103,7 +104,7 @@ const Request = ({ ethWallet, cardDetails, userId, userEmail, userName }: Reques
                         </div>
                         <div className="flex flex-col gap-y-0.5">
                             <p className="text-[10px] md:text-xs xl:text-sm text-black/50 font-semibold">Card PIN</p>
-                            <p className="font-semibold text-sm md:text-base xl:text-lg">Your card pin is the same as your <span className="text-inkBlue">Transaction Pin</span></p>
+                            <p className="font-semibold text-sm md:text-base xl:text-lg">Your card pin is <span className="text-inkBlue">{transactionPin}</span></p>
                         </div>
                         <div className="flex flex-col gap-y-0.5">
                             <p className="text-[10px] md:text-xs xl:text-sm text-black/50 font-semibold">Card Status</p>

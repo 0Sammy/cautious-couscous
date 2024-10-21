@@ -3,7 +3,6 @@ import { getUserDetails } from "@/providers/userDetails";
 //Import Needed Components
 import OverviewCardCompiled from "@/components/OverviewComponent/CardCompiltion";
 import UserBalance from "@/components/DashboardComponents/UserBalance";
-import Prices from "@/components/DashboardComponents/Prices";
 import { permanentRedirect } from "next/navigation";
 
 export const revalidate = 0;
@@ -21,7 +20,6 @@ const page = async () => {
    return (
       <main className="p-2 md:p-4 xl:p-6">
          <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length} />
-         <Prices pending={withdrawalTransactions?.length!} />
          <OverviewCardCompiled />
       </main>
    );

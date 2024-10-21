@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 
-// Import Needed Components
+//Components
 import Loader from "@/components/PagesComponents/Loader";
 import Nav from "@/components/PagesComponents/Nav";
 import HeroSection from "@/components/PagesComponents/HeroSection";
@@ -20,7 +20,7 @@ import Community from "@/components/PagesComponents/Community";
 import CTA from "@/components/PagesComponents/CTA";
 import Footer from "@/components/PagesComponents/Footer";
 import InstallationPrompt from "@/components/DashboardComponents/InstallationPrompt";
-import Prices from "@/components/DashboardComponents/Prices";
+
 
 
 
@@ -61,7 +61,6 @@ export default function Home() {
         <CTA />
       </div>
       <Footer />
-      <Prices pending={0}/>
     </main>
   );
 }
