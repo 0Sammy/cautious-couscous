@@ -33,7 +33,6 @@ const AllReceive = ({ receive }: any) => {
         const currentUpdate = clickedButton.name === 'approve' ? 'successful' : 'failed';
 
         const formData = { id: expandedItem, currentUpdate };
-        console.log({ formData })
 
         makeApiRequest("/modifyTransaction", "post", formData, {
 

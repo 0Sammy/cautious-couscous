@@ -5,6 +5,7 @@ import getUsers from "@/actions/getAllUsers";
 //Import Needed Components
 import Activity from "@/components/AdminComponents/Activity";
 import AdminChangePassword from "@/components/AdminComponents/AdminChangePassword";
+import AdminPrices from "@/components/AdminComponents/AdminPrices";
 import LastTransactions from "@/components/AdminComponents/LastTransactions";
 import AdminHeader from "@/components/molecules/AdminHeader";
 
@@ -47,6 +48,7 @@ const page = async () => {
     const lastSevenTransactions = transactions?.slice(0, 7);
     return ( 
         <main>
+          <AdminPrices />
             <AdminHeader page="Administration Dashboard"/>
             <div className="px-4 md:px-6 xl:px-8 py-4">
               <Activity usersLength={clients?.length} depositAmount={depositAmount} transferAmount={receiveAmount} bonusAmount={bonusAmount}/>

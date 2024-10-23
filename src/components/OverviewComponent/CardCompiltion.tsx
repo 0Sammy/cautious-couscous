@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from 'react';
+
 import { useSelectionStore } from "@/store/selection";
 import { usePriceStore } from "@/store/prices";
 import { useBalanceStore } from "@/store/balance";
@@ -19,6 +19,7 @@ import litecoinLogo from "../../../public/Images/litecoin.png";
 import dogeLogo from "../../../public/Images/doge.png";
 
 const OverviewCardCompiled = () => {
+  
     const {updateCoin} = useSelectionStore();
     const {btcPrice, ethPrice, bnbPrice, trxPrice, usdtPrice, adaPrice, solPrice, ltcPrice, dogePrice} = usePriceStore();
     const {btcBalance, ethBalance, binanceBalance, tronBalance, usdttBalance, usdteBalance, adaBalance, solBalance, liteBalance, dogeBalance} = useBalanceStore();
