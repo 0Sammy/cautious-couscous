@@ -4,7 +4,6 @@ import { getUserDetails } from "@/providers/userDetails";
 //Import Needed Components
 import Balance from "@/components/DashboardComponents/Balance";
 import CompliedCards from "@/components/DashboardComponents/CompliedCards";
-import Prices from "@/components/DashboardComponents/Prices";
 import UserBalance from "@/components/DashboardComponents/UserBalance";
 import InstallationPrompt from "@/components/DashboardComponents/InstallationPrompt";
 import { permanentRedirect } from "next/navigation";
@@ -27,7 +26,6 @@ const page = async () => {
     return (
         <main className="p-2 md:p-4 xl:p-6">
             <LiveChat />
-            <Prices pending={withdrawalTransactions?.length!} />
             <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length} />
             <Balance />
             <CompliedCards />

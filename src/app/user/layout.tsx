@@ -9,6 +9,7 @@ import getCurrentLoggedInUser from "@/actions/getCurrentUser";
 //Components
 import Sidebar from "@/components/molecules/Sidebar";
 import Header from '@/components/molecules/Header';
+import Prices from "@/components/DashboardComponents/Prices";
 
 //Styles
 import '../globals.css';
@@ -22,6 +23,8 @@ export default async function UserLayout({ children }: { children: React.ReactNo
 
     const loggedInEmail = (session?.user.email)
     const currentUser = await getCurrentLoggedInUser(loggedInEmail)
+    const userTransactions = currentUser?.transactions
+    const withdrawalTransactions = userTransactions?.filter((transaction) => transaction.transactionType === "deposit" && transaction.status === "pending")
 
     //Redirect accordingly
     if (currentUser?.isEmailVerified === false) {
@@ -48,6 +51,7 @@ export default async function UserLayout({ children }: { children: React.ReactNo
 
     return (
       <section>
+        <Prices pending={withdrawalTransactions?.length!} />
         <Sidebar firstName={`${currentUser?.firstName} ${currentUser?.lastName}`} />
         <section className="mainWidth">
           <Header userDetails={currentUser} />

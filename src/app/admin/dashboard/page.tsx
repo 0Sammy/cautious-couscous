@@ -48,7 +48,6 @@ const page = async () => {
     const lastSevenTransactions = transactions?.slice(0, 7);
     return ( 
         <main>
-          <AdminPrices />
             <AdminHeader page="Administration Dashboard"/>
             <div className="px-4 md:px-6 xl:px-8 py-4">
               <Activity usersLength={clients?.length} depositAmount={depositAmount} transferAmount={receiveAmount} bonusAmount={bonusAmount}/>

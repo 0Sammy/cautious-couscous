@@ -8,6 +8,7 @@ import getCurrentLoggedInAdmin from '@/actions/getCurrentAdmin';
 //Components
 import AdminSidebar from '@/components/molecules/AdminSidebar';
 import { Toaster } from 'sonner';
+import AdminPrices from "@/components/AdminComponents/AdminPrices";
 
 //Styles
 import '../globals.css';
@@ -29,6 +30,7 @@ export default async function UserLayout({ children }: { children: React.ReactNo
 
     return (
       <section>
+        <AdminPrices />
         <AdminSidebar role={currentAdmin?.role} />
         <div className="mainWidth bg-[#121212] text-[#B3B3B3]">
           {children}
