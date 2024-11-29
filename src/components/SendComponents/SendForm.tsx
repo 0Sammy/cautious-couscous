@@ -84,11 +84,11 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
     event.preventDefault();
     setLoading(true);
 
-    if ((enteredAmount * rate) < 200000) {
-      toast.warning("Sorry, you can only send a minimum amount of $199,999.00.");
-      setLoading(false);
-      return;
-    }
+    // if ((enteredAmount * rate) < 200000) {
+    //   toast.warning("Sorry, you can only send a minimum amount of $199,999.00.");
+    //   setLoading(false);
+    //   return;
+    // }
 
     if (hasPendingTransaction) {
       toast.error("You have a pending transaction. Please contact support.");
@@ -157,8 +157,8 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
     <>
       {success && <SendPopup message={message} />}
       <main className="p-2 md:p-4 xl:p-6">
-        <div className="w-[90%] md:w-[70%] xl:w-[50%] bg-white p-4 md:p-8 rounded-lg mx-auto">
-          <p className="uppercase font-semibold mt-2 mb-4">
+        <div className="bg-white mx-auto p-4 md:p-8 rounded-lg w-[90%] md:w-[70%] xl:w-[50%]">
+          <p className="mt-2 mb-4 font-semibold uppercase">
             SEND {sendingCoin} TO ANY WALLET.
           </p>
           <form onSubmit={handleSubmit}>
@@ -180,11 +180,11 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
                 label="Wallet Address"
                 placeholder={`Enter ${sendingCoin} Wallet`} />
             </div>
-            <div className="mt-6 flex flex-col gap-y-1 text-xs sm:text-sm xl:text-base">
+            <div className="flex flex-col gap-y-1 mt-6 text-xs sm:text-sm xl:text-base">
               <label htmlFor="network">Network</label>
               <select onChange={(e) => setNetwork(e.target.value)} name="network"
                 id="network"
-                className="border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none bg-white"
+                className="border-[#E6E7E8] focus:border-primary bg-white px-2 xl:px-4 py-3 border rounded-md focus:outline-none"
                 value={network} >
                 <option value={network}>{network}</option>
                 <option value="ERC20">Ethereum (ERC20)</option>
