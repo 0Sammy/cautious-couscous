@@ -12,22 +12,42 @@ import Button from "../molecules/Button";
 import SecondForm from "./SecondForm";
 
 
-const FirstForm = ({emails}: any) => {
+const FirstForm = ({ emails }: any) => {
 
     // Zustand State Management
-    const { updateOtpNumber } = useOtpStore()
-    const { updateEmail } = useForgotPasswordStore()
+    const { updateOtpNumber } = useOtpStore();
+    const { updateEmail } = useForgotPasswordStore();
 
-    const [showSecondForm, setShowSecondForm] = useState<boolean>(false)
-    const [loading, setLoading] = useState<boolean>(false)
-    const [enteredEmail, setEnteredEmail] = useState<string>("")
+    const [showSecondForm, setShowSecondForm] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [enteredEmail, setEnteredEmail] = useState<string>("");
+
+    //Function
+    function emailExistsInArray(emailToCheck: string, stringArray: string[]) {
+        if (!Array.isArray(stringArray)) {
+            return false;
+        }
+
+        const normalizedEmail = emailToCheck.toLowerCase().trim();
+
+        for (const item of stringArray) {
+            if (typeof item === 'string') {
+                const normalizedItem = item.toLowerCase().trim();
+                if (normalizedItem === normalizedEmail) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     //Check user email and send a verification email
-    const onSubmit = (event:FormEvent) => {
-        setLoading(true)
-        event.preventDefault()
+    const onSubmit = (event: FormEvent) => {
+        setLoading(true);
+        event.preventDefault();
 
-        if (emails.includes(enteredEmail.toLowerCase())) {
+        if (emailExistsInArray(enteredEmail, emails)) {
 
             toast.info("A one-time verification code has been sent to your email for security purposes. Please check your inbox and enter the code.")
 
@@ -40,42 +60,42 @@ const FirstForm = ({emails}: any) => {
                 subject: "Reset Your Password",
                 otp: otp,
                 emailType: "forgotPasswordVerification",
-              };
-              
+            };
+
             makeApiRequest("/send-email", "post", formData, {
                 onSuccess: () => {
-                  // Handle success
-                  toast.success("Verification code was sent successfully");
-                  setLoading(false)
-                  setShowSecondForm(true)
-               },
-                onError: (error: any) => {
-                  // Handle error
-                  toast.error(error.message);
+                    // Handle success
+                    toast.success("Verification code was sent successfully");
+                    setLoading(false)
+                    setShowSecondForm(true)
                 },
-              })
-            }else {
-                toast.error("The email address you entered does not match any existing account in our records.")
-                setLoading(false)
-            }
+                onError: (error: any) => {
+                    // Handle error
+                    toast.error(error.message);
+                },
+            })
+        } else {
+            toast.error("The email address you entered does not match any existing account in our records.")
+            setLoading(false)
+        }
     }
 
     return (
         <>
             {showSecondForm && <SecondForm />}
-            {!showSecondForm && 
-            <>
-            <main className="text-xs sm:text-sm xl:text-base">
-                <form className="mt-10" onSubmit={onSubmit}>
-                    <Input type="email" label="Enter Your Email" id="email" placeholder="Enter Your Email Address" value={enteredEmail} onChange={(e) => { setEnteredEmail(e.target.value)}} />
-                    <div className="mt-6">
-                        <Button text="Continue" type="submit" loading={loading} />
-                    </div>
-                </form>
-            </main>
-            </>}
+            {!showSecondForm &&
+                <>
+                    <main className="text-xs sm:text-sm xl:text-base">
+                        <form className="mt-10" onSubmit={onSubmit}>
+                            <Input type="email" label="Enter Your Email" id="email" placeholder="Enter Your Email Address" value={enteredEmail} onChange={(e) => { setEnteredEmail(e.target.value) }} />
+                            <div className="mt-6">
+                                <Button text="Continue" type="submit" loading={loading} />
+                            </div>
+                        </form>
+                    </main>
+                </>}
         </>
-     );
+    );
 }
- 
+
 export default FirstForm;
