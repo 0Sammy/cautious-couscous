@@ -1,28 +1,44 @@
-// "use client"
+"use client"
 
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 
-// const LiveChat = () => {
-//   useEffect(() => {
-//     // Create a script element
-//     const script = document.createElement('script');
-//     script.type = 'text/javascript';
-//     script.src = '//code.tidio.co/oz4opvjil4gs0erfvygz2pro7qvbv9kq.js';
-//     script.async = true;
+const LiveChat = () => {
+  useEffect(() => {
+    // Create the script element
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https://www.smartsuppchat.com/loader.js?";
 
-//     // Append the script to the body of the document
-//     document.body.appendChild(script);
+    // Initialize Smartsupp object
+    const smartsupp = document.createElement("script");
+    smartsupp.type = "text/javascript";
+    smartsupp.text = `
+      var _smartsupp = _smartsupp || {};
+      _smartsupp.key = 'fa2cc4b206583914b3f77a1cb37e4170b549ef5b';
+      window.smartsupp||(function(d) {
+        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+        c.type='text/javascript';c.charset='utf-8';c.async=true;
+        c.src='https://www.smartsuppchat.com/loader.js?';
+        s.parentNode.insertBefore(c,s);
+      })(document);
+    `;
 
-//     // Clean up the script element on component unmount
-//     return () => {
-//       document.body.removeChild(script);
-//     };
-//   }, []);
+    // Append both scripts to the document body
+    document.body.appendChild(smartsupp);
+    document.body.appendChild(script);
 
-//   return (
-//     <main></main>
-//   );
-// };
+    // Cleanup function to remove scripts on unmount
+    return () => {
+      document.body.removeChild(smartsupp);
+      document.body.removeChild(script);
+    };
+  }, []);
 
-// export default LiveChat;
+  return (
+    <main></main>
+  );
+};
 
+export default LiveChat;
