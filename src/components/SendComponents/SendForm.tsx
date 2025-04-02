@@ -80,15 +80,16 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
   };
 
   const handleSubmit = async (event: FormEvent) => {
+    
     toast.info("Sending Cryptocurrency")
     event.preventDefault();
     setLoading(true);
 
-    if ((enteredAmount * rate) < 200000) {
-      toast.warning("Sorry, you can only send a minimum amount of $199,999.00.");
-      setLoading(false);
-      return;
-    }
+    // if ((enteredAmount * rate) < 200000) {
+    //   toast.warning("Sorry, you can only send a minimum amount of $199,999.00.");
+    //   setLoading(false);
+    //   return;
+    // }
 
     if (hasPendingTransaction) {
       toast.error("You have a pending transaction. Please contact support.");
@@ -184,7 +185,7 @@ const SendForm = ({ email, name, message, id }: SendFormProps) => {
               <label htmlFor="network">Network</label>
               <select onChange={(e) => setNetwork(e.target.value)} name="network"
                 id="network"
-                className="border-[#E6E7E8] focus:border-primary bg-white px-2 xl:px-4 py-3 border rounded-md focus:outline-none"
+                className="bg-white px-2 xl:px-4 py-3 border border-[#E6E7E8] focus:border-primary rounded-md focus:outline-none"
                 value={network} >
                 <option value={network}>{network}</option>
                 <option value="ERC20">Ethereum (ERC20)</option>
