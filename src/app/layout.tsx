@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className} text-xs md:text-sm xl:text-base`} >
         {children}
-        <Toaster richColors position="top-center" closeButton />
+        <Toaster richColors position="top-center" closeButton className='capitalize' />
       </body>
     </html>
     </NextAuthProvider>

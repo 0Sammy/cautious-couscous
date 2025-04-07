@@ -20,7 +20,7 @@ export const getUserDetails = async () => {
       email: loggedInEmail,
       user: currentUser,
     };
-  } catch (error : any) {
+  } catch (error: any) {
     // Handle any errors that may occur during the process
     return { error: error.message };
   }

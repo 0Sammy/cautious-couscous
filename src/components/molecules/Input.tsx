@@ -29,6 +29,7 @@ type InputProps = {
           pattern={pattern}
           type={type}
           placeholder={placeholder}
+          min="0"
           className={`border border-[#E6E7E8] px-2 xl:px-4 py-3 focus:border-primary rounded-md focus:outline-none ${widthClass}`}
         />
       </main>

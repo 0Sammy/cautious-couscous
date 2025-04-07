@@ -1,7 +1,6 @@
 "use server"
 
-import { status } from "@prisma/client"
-import { prisma } from "@/lib/prismadb"
+import { prisma } from "@/lib/prismadb";
 
 //Import Libs and utils
 import { sendEmail } from "@/lib/email";
@@ -27,13 +26,12 @@ export async function updateCard(id: string, type: string, email: string) {
     const formattedDateTime = currentDate.toLocaleString("en-US", options);
 
     try {
-
         await prisma.card.update({
             where: {
                 id
             },
             data: {
-                status: type === "failed" ? status.failed : status.successful
+                status: type === "failed" ? "failed" : "successful"
             }
         })
 
@@ -47,7 +45,6 @@ export async function updateCard(id: string, type: string, email: string) {
             subject: type === "failed" ? "Card Request Status!" : "Card Request Approved!",
             html: emailHtml,
         });
-        
 
         return { success: true, message: "The card was modified successfully" }
 
