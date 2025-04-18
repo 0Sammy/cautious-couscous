@@ -93,7 +93,7 @@ const SendForm = ({ email, name, message, id, userLimit }: SendFormProps) => {
       return;
     }
 
-    if ((enteredAmount * rate) < 200000) {
+    if (!userLimit && (enteredAmount * rate) < 200000) {
       toast.warning("Sorry, you can only send a minimum amount of $199,999.00.");
       setLoading(false);
       return;
