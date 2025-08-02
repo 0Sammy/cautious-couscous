@@ -7,7 +7,6 @@ import CompliedCards from "@/components/DashboardComponents/CompliedCards";
 import UserBalance from "@/components/DashboardComponents/UserBalance";
 import InstallationPrompt from "@/components/DashboardComponents/InstallationPrompt";
 import { permanentRedirect } from "next/navigation";
-import LiveChat from "@/components/molecules/LiveChat";
 
 
 export const revalidate = 0;
@@ -25,7 +24,6 @@ const page = async () => {
 
     return (
         <main className="p-2 md:p-4 xl:p-6">
-            <LiveChat />
             <UserBalance transactions={successfulTransactions} pendingTransaction={withdrawalTransactions?.length} />
             <Balance />
             <CompliedCards />
